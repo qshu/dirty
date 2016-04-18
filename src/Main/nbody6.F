@@ -187,6 +187,7 @@
 *      if(time.ge.20.8) print*,rank,'bint ',time
 *     --08/27/13 16:32-lwang-end-debug----------------------------------*
 *
+      print*,IPHASE
       call cputim(tt2)
       ttint = ttint + (tt2-tt1)*60.
 *
