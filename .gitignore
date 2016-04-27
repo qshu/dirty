@@ -221,8 +221,8 @@ pip-log.txt
 #work
 ############
 work/
-dirty/
 build/
+dirty/
 new/
 src/main/
 
