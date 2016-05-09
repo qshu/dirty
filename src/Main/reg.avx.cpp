@@ -340,7 +340,7 @@ void GPUNB_profile(int irank) {
     // send: j particle sending time;
     // grav: force calculation time;
     // Perf: performance for gpu regular calculation
-    fprintf(stderr,"[R.%d AVX Reg.F ] Nsend %d  Ngrav %d  <Ni> %d   send(s) %f grav(s) %f  Perf.(Gflops) %f\n",irank,isend,icall,ini/isend,time_send,time_grav,60.e-9*numInter/time_grav);
+    //fprintf(stderr,"[R.%d AVX Reg.F ] Nsend %d  Ngrav %d  <Ni> %d   send(s) %f grav(s) %f  Perf.(Gflops) %f\n",irank,isend,icall,ini/isend,time_send,time_grav,60.e-9*numInter/time_grav);
   }
   time_send = time_grav = 0.0;
   numInter = 0;
