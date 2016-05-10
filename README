@@ -2,3 +2,11 @@ dirty version
 
 ./configure --enable-hdf5  
 make clean; make -j 16
+
+known bugs:
+with large N: 16000, large small bodies number: 1000  
+the simulation crashes:  
+nbody6++.avx.gpu.mpi.hdf5: ../src/Main/gpunb.velocity.cu:68: Jparticle::Jparticle(double, double*, double*): Assertion `(xj[0]) == (xj[0])' failed.  
+Program received signal SIGABRT: Process abort signal.
+#7  0x54F27B in GPUNB_send(int, double*, double (*) [3], double (*) [3]) [clone ._omp_fn.4] at tmpxft_000064ba_00000000-4_gpunb.velocity.cudafe1.cpp:?  
+Aborted (core dumped)
