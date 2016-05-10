@@ -1,1 +1,4 @@
 dirty version
+
+./configure --enable-hdf5  
+make clean; make -j 16

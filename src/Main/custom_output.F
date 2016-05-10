@@ -104,6 +104,7 @@ C      REAL*4 M_FC1, M_FC2, M_FC3
 *      
       INTEGER NXTLST(NMAX),IMINR(NMAX),IWBINC
       INTEGER N_SINGLE,N_BINARY,N_MERGER, IMLST(4,30),NIMLST
+      INTEGER N_NOMASS, N_MASSIVE
       REAL*8 MMLST(30),MTMP,M3
       SAVE TMASK
       DATA TMASK/NMAX*-999.0D0/
@@ -113,6 +114,8 @@ C      REAL*4 M_FC1, M_FC2, M_FC3
       N_SINGLE = 0
       N_BINARY = 0
       N_MERGER = 0
+      N_NOMASS = 0
+      N_MASSIVE = 0
 
 *     Try no scaling output if KZ(46)
       IF (KZ(19).EQ.0.AND.KZ(12).EQ.-1) THEN
@@ -618,12 +621,27 @@ C               B_FC3(IK) = F(3,I) + XIREL(3)*DR3I
          END IF
 *
  1    CONTINUE
+*     --16/05/06 19:29-qishu-debug----------------------------*
+***** Note:--------------------------------------------------**
+      DO 3 J = 1, N
+         I = NAME(J)
+         if ( NOMASS(I) .eq. 1) then
+             N_NOMASS = N_NOMASS + 1 
+         else if (NOMASS(I) .eq. 0) then
+             N_MASSIVE = N_MASSIVE + 1
+         else
+             print *,'>>> strange name:',I,'NOMASS(I)',NOMASS(I)
+         end if
+ 3      continue
+*     --16/05/06 19:31-qishu-end------------------------------*
+
       
 *     output
 *     --10/25/14 22:16-lwang-debug--------------------------------------*
 ***** Note:------------------------------------------------------------**
-      if(rank.eq.0) print*,'CUSTOM OUTPUT: TTOT',TTOT,'N_SINGLE',
-     &     N_SINGLE,'N_BINARY',N_BINARY,'N_MERGER',N_MERGER
+      if(rank.eq.0) print*,'CUSTOM OUTPUT: TTOT',TTOT,'N',N,'N_SINGLE',
+     &     N_SINGLE,'N_BINARY',N_BINARY,'N_MERGER',N_MERGER,
+     &     'N_NOMASS', N_NOMASS,'N_MASSIVE',N_MASSIVE
 c$$$      print*,'NS_NAM',NS_NAM(1:5),'S_M',S_M(1:5),'S_X1',S_X1(1:5),
 c$$$     &     'S_V1',S_V1(1:5),'NS_KW',NS_KW(1:5),'S_RS',S_RS(1:5),
 c$$$     &     'S_L',S_L(1:5),'S_TE',S_TE(1:5),'S_MC',S_MC(1:5),'S_RC',

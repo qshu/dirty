@@ -30,10 +30,11 @@
 
 c      print*, 'bug! @qs'
 c     initialize RSLAGR and RBLAGR as zero arrays.
-      DO I = 1,NLENS
-      RSLAGR(I) = 0
-      RBLAGR(I) = 0
-      END DO
+*     --16/05/07 00:45-qishu-debug----------------------------*
+***** Note:--------------------------------------------------**
+      RSLAGR(1:NLENS) = 0
+      RBLAGR(1:NLENS) = 0
+*     --16/05/07 00:45-qishu-end------------------------------*
       
       IF(KZ(7).EQ.2.OR.KZ(7).EQ.4) THEN
 *     Get initial total mass

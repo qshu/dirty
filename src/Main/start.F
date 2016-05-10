@@ -32,6 +32,15 @@
       DO 10 I = 1,N
           ZMASS = ZMASS + BODY(I)
    10 CONTINUE
+*     --16/05/07 01:16-qishu-debug----------------------------*
+***** Note:--------------------------------------------------**
+c warning when nmass >= N
+          if (nmass .ge. N) then
+              print *,'ERROR: NUMBER OF MASSLESS PARTICLES=',nmass,
+     & 'IS LARGER THAN N=',N
+              stop
+          end if
+*     --16/05/07 01:16-qishu-end------------------------------*
 *
 *       Define mean mass in scaled units and solar mass conversion factor.
       BODYM = ZMASS/FLOAT(N-nmass)
@@ -81,11 +90,17 @@
              ZSMASS0 = ZSMASS0 + BODY(I)
           END IF
  19       NAME(I) = I
-*       Input data should mark planets with mass < 1.1e-11
-          if(body(i).gt.0.0d0.and.body(i).lt.1.1d-11)then
-              nomass(i) = 1
+*       Input data should mark planets with mass <= smallMass
+c          print *,i,body(i)
+          if(body(i).gt.0.0d0)then
+              if (body(i).le.smallMass * 1.1)then
+                  nomass(i) = 1
+              else
+                  nomass(i) = 0
+              end if
           else
-              nomass(i) = 0
+              print *, "particle mass is not a positive value!!!"
+              nomass(i) = 1
           end if
           BODY1 = MAX(BODY1,BODY(I))
           DO 15 K = 1,3
@@ -277,9 +292,12 @@ c$$$      call abort()
           ECCMAX = 0.D0
           IPAIR = 0
           DO 51 I = N - nmass + 1,N
-              if(body(i).gt.1.1d-10) go to 51
+c use smallMass*1.1, because body(i) = 0.999999999999 * smallMass           
+              if(body(i).gt.smallMass*1.1) go to 51
 *             if(nomass(i).eq.0)go to 51
+c NNB: number of neighbours
               NNB = LIST(1,I)
+c              print *,I,'NNB:',NNB,LIST(1:NNB+1,I)
 *       Select only planets having close neighbour
               IF (NNB.GT.0) THEN
                   IPAIR = IPAIR + 1
@@ -289,6 +307,10 @@ c$$$      call abort()
 *       Search for host star among neighbours
                   DO 56 L = 2,NNB1
                       J = LIST(L,I)
+*     --16/05/07 22:23-qishu-debug----------------------------*
+***** Note:--------------------------------------------------**
+                      if (nomass(J).eq.1)go to 56 
+*     --16/05/07 22:23-qishu-end------------------------------*
 *       Distance determination
                       RIJ2 = 0.0
                       DO 57 K = 1,3
@@ -321,6 +343,22 @@ c$$$      call abort()
      &                             RVI**2/(SEMI*XMBIN)
           ECC = DSQRT(ECC2) 
           PERIOD = SEMI**1.5D0/DSQRT(XMBIN)
+*     --16/05/07 15:38-qishu-debug----------------------------*
+***** Note:--------------------------------------------------**
+c        if (ECC .lt. 1) then
+        if(rank.eq.0)then
+        if (ECC .lt. 1 .or.  DSQRT(RIJ2)*206264.81 .lt. 100) then
+            print *,'------------->>>>>>>>>>'
+            print *,'i,j',ICOMP,JCOMP
+            print *,'body i,j:',body(ICOMP),body(JCOMP)
+            print *,'X,Y,Z i,j:',X(1:3,ICOMP),X(1:3,JCOMP)
+            print *,'VX,VY,VZ i,j:',XDOT(1:3,ICOMP),XDOT(1:3,JCOMP)
+c            print *,'RAU',RAU
+            PRINT*,'distance/AU, Semi/AU, Ecc, Period/YRS=',
+     &      DSQRT(RIJ2)*206264.81, SEMI*RAU,ECC,PERIOD*YRS
+        end if
+        end if
+*     --16/05/07 15:38-qishu-end------------------------------*
 *
    56             CONTINUE
 *
@@ -330,12 +368,11 @@ c$$$      call abort()
         IF(ECC.GT.ECCMAX)ECCMAX=ECC
         IF(PERIOD.LT.TMMIN)TMMIN=PERIOD
         IF(PERIOD.GT.TMMAX)TMMAX=PERIOD
-                  EBH = -1.D10
-                  RMIN2 = RMIN*RMIN
-                  IF(RXMIN2.LT.RMIN2)CALL KSREG
-                  CALL FLUSH(6)
+        EBH = -1.D10
+        RMIN2 = RMIN*RMIN
+        IF(RXMIN2.LT.RMIN2)CALL KSREG
+        CALL FLUSH(6)
         if(rank.eq.0.AND.SEMI.LT.RMIN2)then
-        PRINT*,' Semi/AU, Ecc, Period/YRS=',SEMI*RAU,ECC,PERIOD*YRS
                   CALL FLUSH(6)
         end if
               END IF
