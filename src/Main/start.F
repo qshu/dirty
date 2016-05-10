@@ -347,13 +347,16 @@ c              print *,I,'NNB:',NNB,LIST(1:NNB+1,I)
 ***** Note:--------------------------------------------------**
 c        if (ECC .lt. 1) then
         if(rank.eq.0)then
+        if (ECC .lt. 1 .or.  DSQRT(RIJ2)*206264.81 .lt. 100) then
             print *,'------------->>>>>>>>>>'
             print *,'i,j',ICOMP,JCOMP
             print *,'body i,j:',body(ICOMP),body(JCOMP)
             print *,'X,Y,Z i,j:',X(1:3,ICOMP),X(1:3,JCOMP)
             print *,'VX,VY,VZ i,j:',XDOT(1:3,ICOMP),XDOT(1:3,JCOMP)
 c            print *,'RAU',RAU
-            PRINT*,'Semi/AU, Ecc, Period/YRS=',SEMI*RAU,ECC,PERIOD*YRS
+            PRINT*,'distance/AU, Semi/AU, Ecc, Period/YRS=',
+     &      DSQRT(RIJ2)*206264.81, SEMI*RAU,ECC,PERIOD*YRS
+        end if
         end if
 *     --16/05/07 15:38-qishu-end------------------------------*
 *
