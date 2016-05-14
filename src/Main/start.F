@@ -6,7 +6,6 @@
 *
       INCLUDE 'common6.h'
       INCLUDE 'timing.h'
-      DIMENSION XRELPL(3),VRELPL(3),EI(3)
       EXTERNAL SCALE,MERGE
 *      COMMON/NNBCOT/ nnbave
       PARAMETER  (NS=12)
@@ -32,18 +31,9 @@
       DO 10 I = 1,N
           ZMASS = ZMASS + BODY(I)
    10 CONTINUE
-*     --16/05/07 01:16-qishu-debug----------------------------*
-***** Note:--------------------------------------------------**
-c warning when nmass >= N
-          if (nmass .ge. N) then
-              print *,'ERROR: NUMBER OF MASSLESS PARTICLES=',nmass,
-     & 'IS LARGER THAN N=',N
-              stop
-          end if
-*     --16/05/07 01:16-qishu-end------------------------------*
 *
 *       Define mean mass in scaled units and solar mass conversion factor.
-      BODYM = ZMASS/FLOAT(N-nmass)
+      BODYM = ZMASS/FLOAT(N)
       ZMBAR = ZMBAR/BODYM
 *
 *       Introduce scaling factors DAYS, YRS, SU, RAU, SMU, TSTAR & VSTAR.
@@ -90,18 +80,6 @@ c warning when nmass >= N
              ZSMASS0 = ZSMASS0 + BODY(I)
           END IF
  19       NAME(I) = I
-*       Input data should mark planets with mass <= smallMass
-c          print *,i,body(i)
-          if(body(i).gt.0.0d0)then
-              if (body(i).le.smallMass * 1.1)then
-                  nomass(i) = 1
-              else
-                  nomass(i) = 0
-              end if
-          else
-              print *, "particle mass is not a positive value!!!"
-              nomass(i) = 1
-          end if
           BODY1 = MAX(BODY1,BODY(I))
           DO 15 K = 1,3
               X0DOT(K,I) = XDOT(K,I)
@@ -166,9 +144,9 @@ c          print *,i,body(i)
           KSTART = KSDUM
       END IF
 *     Diagnostic
-      if(rank.eq.0) write(6,61) SQRT(SMMIN)*RAU, SQRT(SMMAX)*RAU,
+      if(rank.eq.0) write(6,51) SQRT(SMMIN)*RAU, SQRT(SMMAX)*RAU,
      &      XMMIN*ZMBAR, XMMAX*ZMBAR, TMMIN*DAYS, TMMAX*DAYS
- 61   format(/,' Binary parameters: R12(min)[AU]',F15.6,
+ 51   format(/,' Binary parameters: R12(min)[AU]',F15.6,
      &     ' R12(max)[AU]',F15.6,' MCM(min)[M*]',F15.6,
      &     ' MCM(max)[M*]',F15.6,' P[min][days]',1P,E15.6,
      &     ' P[max][days]',E15.6,0P)
@@ -283,124 +261,6 @@ c$$$      call abort()
       ZNBMAX = 0.9*FLOAT(NNBMAX)
 *
 *
-* @qs
-*       Regularize any close planet.
-      IF (nmass.GT.0) THEN
-          SMMIN = 1.D30
-          SMMAX = 0.D0
-          ECCMIN = 1.D30
-          ECCMAX = 0.D0
-          IPAIR = 0
-          DO 51 I = N - nmass + 1,N
-c use smallMass*1.1, because body(i) = 0.999999999999 * smallMass           
-              if(body(i).gt.smallMass*1.1) go to 51
-*             if(nomass(i).eq.0)go to 51
-c NNB: number of neighbours
-              NNB = LIST(1,I)
-c              print *,I,'NNB:',NNB,LIST(1:NNB+1,I)
-*       Select only planets having close neighbour
-              IF (NNB.GT.0) THEN
-                  IPAIR = IPAIR + 1
-                  JCOMP = I
-                  NNB1 = NNB + 1
-                  RXMIN2 = 1.D30
-*       Search for host star among neighbours
-                  DO 56 L = 2,NNB1
-                      J = LIST(L,I)
-*     --16/05/07 22:23-qishu-debug----------------------------*
-***** Note:--------------------------------------------------**
-                      if (nomass(J).eq.1)go to 56 
-*     --16/05/07 22:23-qishu-end------------------------------*
-*       Distance determination
-                      RIJ2 = 0.0
-                      DO 57 K = 1,3
-                          RIJ2 = RIJ2 + (X(K,I) - X(K,J))**2
-   57                 CONTINUE
-*       Include standard distance criterion.
-                      IF (RIJ2.LT.RXMIN2) THEN
-                          ICOMP = J
-                          RXMIN2 = RIJ2
-                      END IF
-*
-              RIJ2 = 0.0D0
-              VIJ2 = 0.0D0
-              RVI = 0.0D0
-*       Try regularization for all binaries.
-              DO 58 K = 1,3
-              XRELPL(K) = X(K,ICOMP) - X(K,JCOMP)
-              VRELPL(K) = XDOT(K,ICOMP) - XDOT(K,JCOMP)
-              RIJ2 = RIJ2 + XRELPL(K)**2
-              VIJ2 = VIJ2 + VRELPL(K)**2
-              RVI = RVI + XRELPL(K)*VRELPL(K)
-   58         CONTINUE
-*
-          XMBIN = BODY(ICOMP) + BODY(JCOMP)
-          XMPROD = BODY(ICOMP)*BODY(JCOMP)
-          XMUE = XMPROD/XMBIN
-          EB = XMUE*VIJ2/2.D0 - XMPROD/DSQRT(RIJ2)
-          SEMI = XMPROD/(2.D0*DABS(EB))
-          ECC2 = (1.0 - DSQRT(RIJ2)/SEMI)**2 +
-     &                             RVI**2/(SEMI*XMBIN)
-          ECC = DSQRT(ECC2) 
-          PERIOD = SEMI**1.5D0/DSQRT(XMBIN)
-*     --16/05/07 15:38-qishu-debug----------------------------*
-***** Note:--------------------------------------------------**
-c        if (ECC .lt. 1) then
-        if(rank.eq.0)then
-        if (ECC .lt. 0.5 .or.  DSQRT(RIJ2)*206264.81 .lt. 100) then
-            print *,'------------->>>>>>>>>>'
-            print *,'i,j',ICOMP,JCOMP
-            print *,'body i,j:',body(ICOMP),body(JCOMP)
-            print *,'X,Y,Z i,j:',X(1:3,ICOMP),X(1:3,JCOMP)
-            print *,'VX,VY,VZ i,j:',XDOT(1:3,ICOMP),XDOT(1:3,JCOMP)
-c            print *,'RAU',RAU
-            PRINT*,'distance/AU, Semi/AU, Ecc, Period/YRS=',
-     &      DSQRT(RIJ2)*206264.81, SEMI*RAU,ECC,PERIOD*YRS
-        end if
-        end if
-*     --16/05/07 15:38-qishu-end------------------------------*
-*
-   56             CONTINUE
-*
-        IF(SEMI.LT.SMMIN)SMMIN=SEMI
-        IF(SEMI.GT.SMMAX)SMMAX=SEMI
-        IF(ECC.LT.ECCMIN)ECCMIN=ECC
-        IF(ECC.GT.ECCMAX)ECCMAX=ECC
-        IF(PERIOD.LT.TMMIN)TMMIN=PERIOD
-        IF(PERIOD.GT.TMMAX)TMMAX=PERIOD
-        EBH = -1.D10
-        RMIN2 = RMIN*RMIN
-        IF(RXMIN2.LT.RMIN2)CALL KSREG
-        CALL FLUSH(6)
-        if(rank.eq.0.AND.SEMI.LT.RMIN2)then
-                  CALL FLUSH(6)
-        end if
-              END IF
-   51     CONTINUE
-*
-      if(rank.eq.0)then
-          PRINT*,' Min/Max Semi in AU=',SMMIN*RAU,SMMAX*RAU
-          PRINT*,' Min/Max Ecc=',ECCMIN,ECCMAX
-          PRINT*,' Min/Max Period in Yrs=',TMMIN*YRS,TMMAX*YRS
-      end if
-*
-      END IF
-*
-      IF (NBIN0.GT.0.OR.nmass.gt.0) THEN
-*
-*       Check initial neighbour lists again.
-          DO 95 I = IFIRST,NTOT
-              IF(I.GT.N)THEN
-              ICOMP = 2*IPAIR - 1
-              JCOMP = 2*IPAIR
-                  RS0 = RS(ICOMP)
-              ELSE
-                  RS0 = RC
-              END IF
-                  CALL NBLIST(I,RS0)
-   95     CONTINUE
-*
-      END IF
 *       Check the average neighbour number.
       NNB0 = 0
       DO 86 I = IFIRST,NTOT

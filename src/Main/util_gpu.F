@@ -18,17 +18,10 @@
 #endif
       REAL*8 x_i(3,maxthr), v_i(3,maxthr)
       REAL*8 GPU_A(3,maxthr), GPU_JERK(3,maxthr)
-
-      INTEGER qsi,qsj, qsflag
 *      REAL*8 FI_HOST(3,maxthr),FID_HOST(3,maxthr)
 *     If it's in parallel loop, flag_p = .true.
 *      LOGICAL FLAG_P
 
-*     --16/05/14 00:28-qishu-debug----------------------------*
-***** Note:--------------------------------------------------**
-c      initial GPU_A(:,:) = 0
-      GPU_A(:,:) = 0.
-*     --16/05/14 00:28-qishu-end------------------------------*
       M_FLAG = 0
       NB_FLAG = 0
 *     Use mass ratio as neighbor member criterion
@@ -62,76 +55,9 @@ c      initial GPU_A(:,:) = 0
 !$omp end parallel do
 
 *     GPU first call with first values of GPU_POT, GPU_A & GPU_JERK
-c
-*     --16/05/13 18:32-qishu-debug----------------------------*
-***** Note:--------------------------------------------------**
-c         GPU_A maybe nan !!!
  550     call cputim(tt53)
-c         print *,"ni = ",ni,'size:',size(x_i),size(v_i)
-        do qsi = 1, n-1
-        do qsj = qsi+1, n
-        if (x(1,qsi) .eq. x(1,qsj)) stop "smae positive here!!!"
-        if (x(2,qsi) .eq. x(2,qsj)) stop "smae positive here!!!"
-        if (x(3,qsi) .eq. x(3,qsj)) stop "smae positive here!!!"
-        end do
-        end do
-c            print *, x_i(qsi)
-c        stop "end test"
-
-c         print *,ni,GPU_RS,GPU_DTR,x_i,v_i,GPU_A,GPU_JERK,
-c     &   GPU_POT,lmax,nnbmax,LISTGP,M_FLAG
-c        end if
-
-c        if (abs (GPU_A(1,1) - (-0.55306506536636946)) .lt. 0.0005) then
-        do qsi = 1,n
-        if (x_i(1,1) .eq. x(1,qsi) .and. x_i(2,1) .eq. x(2,qsi)) then
-        print *,'>>>>>>>>>>>>>>',ni
-           print *,'x_i(1) in x(i):',qsi
-        end if
-        end do
-         do qsi = 1, size(GPU_RS)
-         if (isnan(GPU_RS(qsi))) print *,'NAN GPU_RS:',qsi
-         end do
-         do qsi = 1, size(GPU_A)/3
-         do qsj = 1,3
-         if (isnan(GPU_A(qsj,qsi))) print *,'NAN GPU_A:',qsi,qsj
-         end do
-         end do
-c             print *, ni, GPU_A(:,1:2)
-c             print *,GPU_A
-c             ,GPU_JERK,
-c     &        GPU_POT,lmax,nnbmax,LISTGP,M_FLAG
-c         end if
-c         print *,'>>ni:',ni,'438:', GPU_A(:,438)
-c         print *, abs (GPU_A(1,1) - (-0.55306506536636946))
-c             print *, ni, GPU_A(:,1:2)
-
-c        print *,'>>>>>>>>>>>>>>',ni
-c         do qsi = 1, size(GPU_A)/3
-c         do qsj = 1,3
-c         if (isnan(GPU_A(qsj,qsi))) then
-c             print *,'nan detected before gpunb_regf'
-c             print *,qsi,qsj
-c             print *, ni, GPU_A(:,qsi)
-c         end if
-c
-c         end do
-c         end do
          CALL gpunb_regf(ni,GPU_RS,GPU_DTR,x_i,v_i,GPU_A,GPU_JERK,
      &        GPU_POT,lmax,nnbmax,LISTGP,M_FLAG)
-         do qsi = 1, size(GPU_A)/3
-         do qsj = 1,3
-         if (isnan(GPU_A(qsj,qsi))) then
-             print *,qsi,qsj
-             print *, ni, GPU_A(:,qsi)
-             stop "NAN"
-         end if
-
-         end do
-         end do
-c         print *,'<<ni:',ni,'438:', GPU_A(:,438)
-
-*     --16/05/13 18:32-qishu-end------------------------------*
          call cputim(tt54)
          ttgpu = ttgpu + (tt54-tt53)*60.0
 

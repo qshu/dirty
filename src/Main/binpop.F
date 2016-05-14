@@ -504,13 +504,6 @@ C in binaries occupy positions 1,2,....2*NBIN).
    64         FORMAT (/,12X,'SINGLE MASSES (1-10):  ',10F9.5,/)
           END IF
       END IF
-*       This only for massless code! (RSP) @qs
-      IF (KZ(22).EQ.2) THEN
-          N = N + NBIN
-          NZERO = N
-          NTOT = N
-          BODYM = ZMASS/FLOAT(N-nmass)
-      END IF
 *
       Npk = N - pkmerge
       NZEROpk = Npk

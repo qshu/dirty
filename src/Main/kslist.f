@@ -59,7 +59,6 @@
           W3 = X(3,J) - X(3,I)
           RSEP2 = W1*W1 + W2*W2 + W3*W3
 *       Include any merged c.m. or chain c.m. bodies in the fast test.
-c if NAME(J) < 0, J is in a triple system.
           IF (RSEP2.LT.RCRIT2.OR.NAME(J).LE.0) THEN
               RIJ3 = RSEP2*SQRT(RSEP2)
 *       Estimate unperturbed distance from tidal limit approximation.

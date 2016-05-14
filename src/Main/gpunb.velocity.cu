@@ -65,13 +65,7 @@ struct Jparticle{
 		vel.y = vj[1];
 		vel.z = vj[2];
 
-		//printf("data>>> %e %e %e %e %e %e %e\n",mj,xj[0],xj[1],xj[2],vj[0],vj[1],vj[2]);
 		NAN_CHECK(xj[0]);
-		//printf("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<data\n");
-		//printf("%b",assert(xj[0] == xj[0]));
-		//if (assert(xj[0] == xj[0])) {
-			//printf("%f",xj[0]);
-		//}
 		NAN_CHECK(xj[1]);
 		NAN_CHECK(xj[2]);
 		NAN_CHECK(mj);
@@ -702,7 +696,11 @@ void GPUNB_close(){
 // #endif
 }
 
-void GPUNB_send( int _nbody, double mj[], double xj[][3], double vj[][3]){
+void GPUNB_send(
+		int _nbody,
+		double mj[],
+		double xj[][3],
+		double vj[][3]){
 	assert(is_open);
 	nbody = _nbody;
 	assert(nbody <= nbodymax);
@@ -746,25 +744,7 @@ void GPUNB_regf(
     ini +=ni;
     icall++;
 	assert(0 < ni && ni <= NIMAX);
-//  qs debug begin
-	for (int i = 0; i<ni; i++){
-		NAN_CHECK(h2[i])
-		NAN_CHECK(dtr[i])
-		NAN_CHECK(xi[i][0])
-		NAN_CHECK(xi[i][1])
-		NAN_CHECK(xi[i][2])
-		NAN_CHECK(vi[i][0])
-		NAN_CHECK(vi[i][1])
-		NAN_CHECK(vi[i][2])
-		NAN_CHECK(acc[i][0])
-		NAN_CHECK(acc[i][1])
-		NAN_CHECK(acc[i][2])
-		NAN_CHECK(jrk[i][0])
-		NAN_CHECK(jrk[i][1])
-		NAN_CHECK(jrk[i][2])
-		NAN_CHECK(pot[i])
-	}
-// qs debug end
+
 	// omp_set_num_threads(numGPU);
 #pragma omp parallel
 	{
@@ -843,13 +823,6 @@ void GPUNB_regf(
 
 		for(int id=0; id<numGPU; id++){
 			Force &fo = ftot[id][i];
-
-			printf("num: %d , id=%d, i=%d, acc.x= %e \n",numGPU,id,i,fo.acc.x);
-
-			NAN_CHECK(fo.acc.x)
-			//NAN_CHECK(fo.acc.y)
-			//NAN_CHECK(fo.acc.z)
-
 			ax += fo.acc.x;
 			ay += fo.acc.y;
 			az += fo.acc.z;
@@ -900,25 +873,6 @@ void GPUNB_regf(
 		}
 	}
 	time_reduce += get_wtime();
-//  qs debug begin
-	for (int i = 0; i<ni; i++){
-		NAN_CHECK(h2[i])
-		NAN_CHECK(dtr[i])
-		NAN_CHECK(xi[i][0])
-		NAN_CHECK(xi[i][1])
-		NAN_CHECK(xi[i][2])
-		NAN_CHECK(vi[i][0])
-		NAN_CHECK(vi[i][1])
-		NAN_CHECK(vi[i][2])
-		NAN_CHECK(acc[i][0])
-		NAN_CHECK(acc[i][1])
-		NAN_CHECK(acc[i][2])
-		NAN_CHECK(jrk[i][0])
-		NAN_CHECK(jrk[i][1])
-		NAN_CHECK(jrk[i][2])
-		NAN_CHECK(pot[i])
-	}
-// qs debug end
 }
 
 void GPUNB_profile(int irank) {

@@ -23,11 +23,6 @@
 #ifndef GPU
       integer IREG(NMAX)
 #endif
-*     --16/05/14 12:44-qishu-debug----------------------------*
-***** Note:--------------------------------------------------**
-      INTEGER qsi,qsj
-      GPUACC(:,:) = 0.0
-*     --16/05/14 12:44-qishu-end------------------------------*
 *
 *
 #ifdef GPU
@@ -127,16 +122,6 @@
 *
 *       Evaluate forces, first derivatives and neighbour lists for new block.
  31       I = JNEXT + IFIRST
-*     --16/05/14 12:42-qishu-debug----------------------------*
-***** Note:--------------------------------------------------**
-          do qsi = 1, size(GPUACC)/3
-          do qsj = 1, 3
-          if ( isnan(GPUACC(qsj,qsi)))then
-          print *,'GPUACC nan:',qsj,qsj
-          end if
-          end do
-          end do
-*     --16/05/14 12:42-qishu-end------------------------------*
           CALL GPUNB_REGF(NI,H2I,DTR,X(1,I),XDOT(1,I),GPUACC,GPUJRK,
      &         GPUPHI,LMAX,NNBMAX,LISTGP,M_FLAG)
 *       Check neighbour lists for overflow or zero membership (NNB = 1).

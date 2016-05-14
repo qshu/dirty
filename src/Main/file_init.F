@@ -80,7 +80,6 @@ C      FRAG(4) = 'bdat'
       FILE(44) = 'hinc.44   '
       FILE(45) = 'mbh.45    '
       FILE(46) = 'mbhnb.46  '
-      FILE(49) = 'pln.49    '
 *      FILE(52) = 'itid3.52  '
       FILE(54) = 'hypcep.54 '
       FILE(55) = 'hypcec.55 '
@@ -121,8 +120,6 @@ C      FRAG(4) = 'bdat'
           WRITE (FILE(12),413) rank
           WRITE (FILE(13),513) rank
           WRITE (FILE(15),613) rank
-* 713 already used, use 712 instead. @qs
-          WRITE (FILE(49),712) rank
           WRITE (FILE(82),713) rank
           WRITE (FILE(83),813) rank
  213  FORMAT('dat000',I1,'.10')
@@ -130,7 +127,6 @@ C      FRAG(4) = 'bdat'
  413  FORMAT('hia000',I1,'.12')
  513  FORMAT('hid000',I1,'.13')
  613  FORMAT('per000',I1,'.15')
- 712  FORMAT('pln000',I1,'.49')
  713  FORMAT('bev000',I1,'.13')
  813  FORMAT('sev000',I1,'.15')
       else if (isize.ge.100.and.isize.lt.1000) then
@@ -139,8 +135,6 @@ C      FRAG(4) = 'bdat'
           WRITE (FILE(12),415) rank
           WRITE (FILE(13),515) rank
           WRITE (FILE(15),615) rank
-* 715 already used, use 714 instead. @qs
-          WRITE (FILE(49),714) rank
           WRITE (FILE(82),715) rank
           WRITE (FILE(83),815) rank
  215  FORMAT('dat00',I2,'.10')
@@ -148,7 +142,6 @@ C      FRAG(4) = 'bdat'
  415  FORMAT('hia00',I2,'.12')
  515  FORMAT('hid00',I2,'.13')
  615  FORMAT('per00',I2,'.15')
- 714  FORMAT('pln00',I2,'.49')
  715  FORMAT('bev00',I2,'.13')
  815  FORMAT('sev00',I2,'.15')
       else if (isize.ge.100.and.isize.lt.1000) then
@@ -157,8 +150,6 @@ C      FRAG(4) = 'bdat'
           WRITE (FILE(12),417) rank
           WRITE (FILE(13),517) rank
           WRITE (FILE(15),617) rank
-* 717 already used, use 716 instead. @qs
-          WRITE (FILE(49),716) rank
           WRITE (FILE(82),717) rank
           WRITE (FILE(83),817) rank
  217  FORMAT('dat0',I3,'.10')
@@ -166,7 +157,6 @@ C      FRAG(4) = 'bdat'
  417  FORMAT('hia0',I3,'.12')
  517  FORMAT('hid0',I3,'.13')
  617  FORMAT('per0',I3,'.15')
- 716  FORMAT('pln0',I3,'.49')
  717  FORMAT('bev0',I3,'.13')
  817  FORMAT('sev0',I3,'.15')
       else if (isize.ge.1000) then
@@ -175,8 +165,6 @@ C      FRAG(4) = 'bdat'
           WRITE (FILE(12),419) rank
           WRITE (FILE(13),519) rank
           WRITE (FILE(15),619) rank
-* 719 already used, use 718 instead. @qs
-          WRITE (FILE(49),718) rank
           WRITE (FILE(82),719) rank
           WRITE (FILE(83),819) rank
  219  FORMAT('dat',I4,'.10')
@@ -184,7 +172,6 @@ C      FRAG(4) = 'bdat'
  419  FORMAT('hia',I4,'.12')
  519  FORMAT('hid',I4,'.13')
  619  FORMAT('per',I4,'.15')
- 718  FORMAT('pln',I4,'.49')
  719  FORMAT('bev',I4,'.13')
  819  FORMAT('sev',I4,'.15')
       end if
@@ -345,10 +332,6 @@ C     &             ACCESS='APPEND')
      &             ACCESS='APPEND')
       IF (KZ(27).GT.0) 
      &OPEN (UNIT=96,STATUS='UNKNOWN',FORM='FORMATTED',FILE=FILE(96),
-     &             ACCESS='APPEND')
-C 39 is already used, use 49 instead @qs
-      IF (nmass.gt.0)
-     &OPEN (UNIT=49,STATUS='UNKNOWN',FORM='FORMATTED',FILE=FILE(49),
      &             ACCESS='APPEND')
 #ifdef PARALLEL
       end if

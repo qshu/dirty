@@ -20,13 +20,6 @@
 *
 *       Choose between uniform density and Plummer model.
       KDUM = IDUM1
-*
-*       Define massless particles if any (RSDL).
-      DO 500 I = 1,N 
-      if(i.gt.n-nmass) body(i) = smallMass
-c      if(i.gt.n-nmass) body(i) = 1.0d-10
- 500  continue
-
       IF (KZ(5).GT.0) GO TO 20
 *
 *       Set up a uniform spherical system.
