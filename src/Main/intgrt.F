@@ -883,7 +883,39 @@ c$$$      ttnewt = ttnewt + (ttt33 - ttt32)*60.
 *       Send all single particles to GPU memory
          call cputim(tt51)
          NN = NTOT - IFIRST + 1
+
+c         do i=IFIRST,IFIRST+NN-1
+c         if ()
+         do i = IFIRST,IFIRST+NN-1
+         temp = BODY(i)
+         if (isnan(temp)) stop '"m" is a NaN'
+         temp = X(1,i)
+
+         if (isnan(temp)) then
+             print *,i,name(i),body(i),x(1:3,i),xdot(1:3,i)
+             stop '"x" is a NaN'
+         end if
+         temp = X(2,i)
+         if (isnan(temp)) stop '"y" is a NaN'
+         temp = X(3,i)
+         if (isnan(temp)) stop '"z" is a NaN'
+         temp = XDOT(1,i)
+         if (isnan(temp)) stop '"vx" is a NaN'
+         temp = XDOT(2,i)
+         if (isnan(temp)) stop '"vy" is a NaN'
+         temp = XDOT(3,i)
+         if (isnan(temp)) stop '"vz" is a NaN'
+
+c         print *, NN,IFIRST,BODY(IFIRST:IFIRST+NN-1),
+c     &   X(1,IFIRST:IFIRST+NN-1),XDOT(1,IFIRST:IFIRST+NN-1),
+c     &   X(2,IFIRST:IFIRST+NN-1),XDOT(2,IFIRST:IFIRST+NN-1),
+c     &   X(3,IFIRST:IFIRST+NN-1),XDOT(3,IFIRST:IFIRST+NN-1)
+
+         end do
+
+
          CALL GPUNB_SEND(NN,BODY(IFIRST),X(1,IFIRST),XDOT(1,IFIRST))
+c         print *, 'finish GPUNB_SEND'
          call cputim(tt52)
 *     --09/26/13 16:58-lwang-debug--------------------------------------*
 ***** Note:------------------------------------------------------------**

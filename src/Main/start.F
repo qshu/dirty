@@ -347,7 +347,7 @@ c              print *,I,'NNB:',NNB,LIST(1:NNB+1,I)
 ***** Note:--------------------------------------------------**
 c        if (ECC .lt. 1) then
         if(rank.eq.0)then
-        if (ECC .lt. 1 .or.  DSQRT(RIJ2)*206264.81 .lt. 100) then
+        if (ECC .lt. 0.5 .or.  DSQRT(RIJ2)*206264.81 .lt. 100) then
             print *,'------------->>>>>>>>>>'
             print *,'i,j',ICOMP,JCOMP
             print *,'body i,j:',body(ICOMP),body(JCOMP)
