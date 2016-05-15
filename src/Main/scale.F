@@ -292,7 +292,7 @@ C      END IF
 *       Print half-mass relaxation time & equilibrium crossing time.
 *     --16/05/15 22:11-qishu-debug----------------------------*
 ***** Note:--------------------------------------------------**
-      A1 = FLOAT(N-nmass)
+      A1 = FLOAT(N)
 *     --16/05/15 22:11-qishu-end------------------------------*
       TRH = 4.0*TWOPI/3.0*(VC*RSCALE)**3/(15.4*ZMASS**2*LOG(A1)/A1)
       if(rank.eq.0)WRITE (6,95)  TRH, TCR, 2.0*RSCALE/VC
