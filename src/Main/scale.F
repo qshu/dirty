@@ -65,7 +65,10 @@
 *     Scale masses to standard units of <M> = 1/N.
 *     Skip scaling of masses for unscaled upload or planetesimal disk.
           IF(KZ(22).GE.2.OR.KZ(5).NE.3) THEN
-            DO 50 I = 1,N
+*     --16/05/15 22:07-qishu-debug----------------------------*
+***** Note:--------------------------------------------------**
+            DO 50 I = 1,N-mass
+*     --16/05/15 22:07-qishu-end------------------------------*
                BODY(I) = BODY(I)/ZMASS
  50         CONTINUE
          END IF
@@ -234,7 +237,11 @@
 
 *     Print scaling information
       if(rank.eq.0)
-     *     WRITE (6,65)  SX, ETOT, BODY(1), BODY(N), ZMASS/FLOAT(N)
+*     --16/05/15 22:10-qishu-debug----------------------------*
+***** Note:--------------------------------------------------**
+     *     WRITE (6,65)  SX, ETOT, BODY(1), BODY(N),
+     *     ZMASS/FLOAT(N-nmass)
+*     --16/05/15 22:10-qishu-end------------------------------*
  65   FORMAT (//,12X,'SCALING:   SX =',1P,D13.5,'  E =',E10.2,
      &     '  M(1) =',E9.2,'  M(N) =',E9.2,'  <M> =',E9.2)
 *     
@@ -283,7 +290,10 @@ C          CALL EVOLVE(0,0)
 C      END IF
 *
 *       Print half-mass relaxation time & equilibrium crossing time.
-      A1 = FLOAT(N)
+*     --16/05/15 22:11-qishu-debug----------------------------*
+***** Note:--------------------------------------------------**
+      A1 = FLOAT(N-nmass)
+*     --16/05/15 22:11-qishu-end------------------------------*
       TRH = 4.0*TWOPI/3.0*(VC*RSCALE)**3/(15.4*ZMASS**2*LOG(A1)/A1)
       if(rank.eq.0)WRITE (6,95)  TRH, TCR, 2.0*RSCALE/VC
    95 FORMAT (/,12X,'TIME SCALES:   TRH =',1PE8.1,'  TCR =',E8.1,
