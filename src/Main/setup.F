@@ -8,6 +8,10 @@
       PARAMETER (A0=1.0D0)
       REAL*8  RAN2,A(8)
 *
+*     --16/05/15 21:22-qishu-debug----------------------------*
+***** Note:--------------------------------------------------**
+      integer qsi
+*     --16/05/15 21:22-qishu-end------------------------------*
 #ifdef PARALLEL
 #define MPIINIT 1
 #else
@@ -20,6 +24,13 @@
 *
 *       Choose between uniform density and Plummer model.
       KDUM = IDUM1
+*     --16/05/15 21:21-qishu-debug----------------------------*
+***** Note:--------------------------------------------------**
+*       Define massless particles if any (RSDL).
+      DO 500 qsi = 1,N
+      if(qsi.gt.n-nmass) body(i) = smallMass
+ 500  continue
+*     --16/05/15 21:25-qishu-end------------------------------*
       IF (KZ(5).GT.0) GO TO 20
 *
 *       Set up a uniform spherical system.

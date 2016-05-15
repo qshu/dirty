@@ -31,9 +31,18 @@
       DO 10 I = 1,N
           ZMASS = ZMASS + BODY(I)
    10 CONTINUE
+*     --16/05/15 21:28-qishu-debug----------------------------*
+***** Note:--------------------------------------------------**
+*     warning when nmass >= N
+          if (nmass .ge. N) then
+              print *,'ERROR: NUMBER OF MASSLESS PARTICLES=',nmass,
+     & 'IS LARGER THAN N=',N
+              stop
+          end if
+*     --16/05/15 21:30-qishu-end------------------------------*
 *
 *       Define mean mass in scaled units and solar mass conversion factor.
-      BODYM = ZMASS/FLOAT(N)
+      BODYM = ZMASS/FLOAT(N-nmass)
       ZMBAR = ZMBAR/BODYM
 *
 *       Introduce scaling factors DAYS, YRS, SU, RAU, SMU, TSTAR & VSTAR.
@@ -80,7 +89,21 @@
              ZSMASS0 = ZSMASS0 + BODY(I)
           END IF
  19       NAME(I) = I
+*     --16/05/15 21:33-qishu-debug----------------------------*
+***** Note:--------------------------------------------------**
+*       Input data should mark planets with mass <= smallMass  
+          if(body(i).lt.0.0d0) then
+              print *, "particle", i, "mass",body(i)
+              stop "ERROR: negtive particle mass detected!!!"
+          end if
+          if (body(i).le.smallMass * 1.01)then
+              nomass(i) = 1 
+          else
+              nomass(i) = 0 
+          end if
           BODY1 = MAX(BODY1,BODY(I))
+*          BODY1 : the most massive particles
+*     --16/05/15 21:38-qishu-end------------------------------*
           DO 15 K = 1,3
               X0DOT(K,I) = XDOT(K,I)
    15     CONTINUE
