@@ -42,11 +42,18 @@
       TSCALE = TSTAR
 *
 *       Physical scaling: X, M, V, T from RBAR*X, ZMBAR*M, VSTAR*V, TSTAR*T.
+*     --16/05/16 16:53-qishu-debug----------------------------*
+***** Note:--------------------------------------------------**
       if(rank.eq.0)
-     &WRITE (6,10)  RBAR, ZMBAR, VSTAR, TSTAR, BODYM*ZMBAR, SU
- 10   FORMAT (/,12X,1P,'PHYSICAL SCALING:    R* =',E21.12,'  M* =',
-     &     E21.12,'  V* =',E21.12,'  T* =',E21.12,'  <M> =',E21.12,
-     &     '  SU =',E21.12)
+*     &WRITE (6,10)  RBAR, ZMBAR, VSTAR, TSTAR, BODYM*ZMBAR, SU, RAU
+* 10   FORMAT (/,12X,1P,'PHYSICAL SCALING:    R* =',E21.12,'  M* =',
+*     &     E21.12,'  V* =',E21.12,'  T* =',E21.12,'  <M> =',E21.12,
+*     &     '  SU =',E21.12, 'RAU = ',E21.12)
+*     --16/05/16 16:53-qishu-end------------------------------*
+     & WRITE (6,10) RBAR, ZMBAR, VSTAR, TSTAR, BODYM*ZMBAR, SU, RAU, YRS
+  10   FORMAT (/,5X,'PHYSICAL SCALING:    R* =',1PE11.4,'  M* =',E11.4,
+     &              '  V* =',E11.4,'  T* =',E11.4,'  <M> =',E11.4,/,
+     &           26X, 'SU =',E11.4,'  AU =',E11.4,'  YRS =',E11.4,/)
 *
 *       Define relevant parameter for the GR case (RZ = 6*<m>/c^2).
       IF (KZ(27).EQ.3.OR.KZ(28).GT.0) THEN

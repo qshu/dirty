@@ -309,7 +309,12 @@ c              print *,I,'NNB:',NNB,LIST(1:NNB+1,I)
                       J = LIST(L,I)
 *     --16/05/07 22:23-qishu-debug----------------------------*
 ***** Note:--------------------------------------------------**
-                      if (nomass(J).eq.1)go to 56 
+              if (nomass(J).eq.1) then 
+*                  print *, "WARNING!! p in neigh" 
+                  
+                  go to 56
+              end if
+*                      if (nomass(J).eq.1)go to 56 
 *     --16/05/07 22:23-qishu-end------------------------------*
 *       Distance determination
                       RIJ2 = 0.0
@@ -322,6 +327,7 @@ c              print *,I,'NNB:',NNB,LIST(1:NNB+1,I)
                           RXMIN2 = RIJ2
                       END IF
 *
+   56             CONTINUE
               RIJ2 = 0.0D0
               VIJ2 = 0.0D0
               RVI = 0.0D0
@@ -337,8 +343,12 @@ c              print *,I,'NNB:',NNB,LIST(1:NNB+1,I)
           XMBIN = BODY(ICOMP) + BODY(JCOMP)
           XMPROD = BODY(ICOMP)*BODY(JCOMP)
           XMUE = XMPROD/XMBIN
-          EB = XMUE*VIJ2/2.D0 - XMPROD/DSQRT(RIJ2)
-          SEMI = XMPROD/(2.D0*DABS(EB))
+*     --16/05/16 17:03-qishu-debug----------------------------*
+***** Note:--------------------------------------------------**
+*          EBp only for planets
+          EBp = VIJ2/2.D0 - XMBIN/DSQRT(RIJ2)
+          SEMI = XMBIN/(2.D0*DABS(EBp))
+*     --16/05/16 17:03-qishu-end------------------------------*
           ECC2 = (1.0 - DSQRT(RIJ2)/SEMI)**2 +
      &                             RVI**2/(SEMI*XMBIN)
           ECC = DSQRT(ECC2) 
@@ -347,7 +357,7 @@ c              print *,I,'NNB:',NNB,LIST(1:NNB+1,I)
 ***** Note:--------------------------------------------------**
 c        if (ECC .lt. 1) then
         if(rank.eq.0)then
-        if (ECC .lt. 1 .or.  DSQRT(RIJ2)*206264.81 .lt. 100) then
+        if (ECC .lt. 1 .or.  DSQRT(RIJ2)*206264.81 .lt. 10000) then
             print *,'------------->>>>>>>>>>'
             print *,'i,j',ICOMP,JCOMP
             print *,'body i,j:',body(ICOMP),body(JCOMP)
@@ -360,7 +370,6 @@ c            print *,'RAU',RAU
         end if
 *     --16/05/07 15:38-qishu-end------------------------------*
 *
-   56             CONTINUE
 *
         IF(SEMI.LT.SMMIN)SMMIN=SEMI
         IF(SEMI.GT.SMMAX)SMMAX=SEMI
