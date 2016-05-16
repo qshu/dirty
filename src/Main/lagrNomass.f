@@ -19,6 +19,11 @@
       REAL*8  VRI(NMAX), VTI(3,NMAX),VTITMP(3),VITMP(3)
       REAL*8  VR_CORE,VT_CORE(3),V_CORE(3),V_COREV,VT_COREV
       INTEGER ISLIST(NMAX),IBLIST(NMAX)
+*     --16/05/16 15:56-qishu-debug----------------------------*
+***** Note:--------------------------------------------------**
+      INTEGER Rnomass(NMAX),NnLIST(NMAX)
+      INTEGER Nnomass
+*     --16/05/16 15:56-qishu-end------------------------------*
 *
 *     Lagrangian radii fraction of total mass
       DATA FLAGR/0.001D0,0.003D0,0.005D0,0.01D0,0.03D0,0.05D0,0.1D0,
@@ -39,6 +44,10 @@
       NP = 0
       NSNGL = 0
       NBIN  = 0
+*     --16/05/16 15:56-qishu-debug----------------------------*
+***** Note:--------------------------------------------------**
+      Nnomass = 0
+*     --16/05/16 15:56-qishu-end------------------------------*
       IF (KZ(8).GT.0) THEN
 *     Need to exclude massive black hole mass
 *     Set square radii of resolved binaries
@@ -79,6 +88,18 @@
             NP = NPP + NSNGL
          ELSE
 *     Set square radii of resolved binaries
+*     --16/05/16 15:59-qishu-debug----------------------------*
+***** Note:--------------------------------------------------**
+*     Set square radii of massless particles
+            DO I = IFIRST,N
+               IF(nomass(I).eq.1) THEN
+                  Nnomass = Nnomass + 1
+                  Rnomass(Nnomass) = (X(1,I) - C(1))**2 + 
+     &                 (X(2,I) - C(2))**2 + (X(3,I) - C(3))**2
+                  NnLIST(Nnomass) = I
+               END IF
+            END DO
+*     --16/05/16 15:59-qishu-end------------------------------*
 !$omp parallel do private(I)
             DO I = 1,IFIRST-1
                R2(I) = (X(1,I) - C(1))**2 + (X(2,I) - C(2))**2 +
@@ -451,8 +472,6 @@
      &      1P,18(1X,D9.2),7X,'<RC(massless)')
             WRITE (6,41) TTOT, (RLAGR(K),K=1,NLENS),RC
  41         FORMAT (3X,D12.4,' RLAGR: ',1P,19(1X,D9.2))
-            WRITE (6,410) TTOT, (RLAGR(K),K=1,NLENS),RC
- 410        FORMAT (3X,D12.4,' RLAGR: ',1P,19(1X,D9.2))
 *
             IF (KZ(8).GT.0 .OR. NBIN0.GT.0) THEN
                WRITE (6,401) TTOT, (RSLAGR(K),K=1,NLENS)
