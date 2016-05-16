@@ -65,6 +65,7 @@
 *       Check optional sorting of Lagrangian radii & half-mass radius.
       IF (KZ(7).GT.0) THEN
           CALL LAGR(RDENS)
+          CALL lagrNomass(RDENS)
       END IF
 *
 *       Initialize diagnostic variables.

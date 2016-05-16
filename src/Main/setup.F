@@ -28,7 +28,7 @@
 ***** Note:--------------------------------------------------**
 *       Define massless particles if any (RSDL).
       DO 500 qsi = 1,N
-      if(qsi.gt.n-nmass) body(i) = smallMass
+      if(qsi.gt.n-nmass) body(qsi) = smallMass
  500  continue
 *     --16/05/15 21:25-qishu-end------------------------------*
       IF (KZ(5).GT.0) GO TO 20

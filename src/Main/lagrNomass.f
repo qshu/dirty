@@ -1,4 +1,4 @@
-      SUBROUTINE LAGR(C)
+      SUBROUTINE lagrNomass(C)
 *
 *
 *       Lagrangian radii.
@@ -447,10 +447,12 @@
       if(rank.eq.0)then
          IF (KZ(7).GE.2) THEN
             WRITE (6,40) (FLAGR(K),K=1,NLENS)
- 40         FORMAT (/,11X,'TIME   M/MT(massive):',1P,18(1X,D9.2),7X,
-     &       '<RC(massive)')
+ 40         FORMAT (/,11X,'TIME  M/MT(massless):',
+     &      1P,18(1X,D9.2),7X,'<RC(massless)')
             WRITE (6,41) TTOT, (RLAGR(K),K=1,NLENS),RC
  41         FORMAT (3X,D12.4,' RLAGR: ',1P,19(1X,D9.2))
+            WRITE (6,410) TTOT, (RLAGR(K),K=1,NLENS),RC
+ 410        FORMAT (3X,D12.4,' RLAGR: ',1P,19(1X,D9.2))
 *
             IF (KZ(8).GT.0 .OR. NBIN0.GT.0) THEN
                WRITE (6,401) TTOT, (RSLAGR(K),K=1,NLENS)

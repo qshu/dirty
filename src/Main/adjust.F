@@ -165,6 +165,7 @@ c$$$      end if
 *     Check optional sorting of Lagrangian radii & half-mass radius.
       IF (KZ(7).GT.0) THEN
          CALL LAGR(RDENS)
+         call lagrNomass(RDENS)
       END IF
 *     
 *     Scale average & maximum core density by the mean value.
