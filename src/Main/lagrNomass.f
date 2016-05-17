@@ -75,10 +75,6 @@
                   NLIST(Nnomass) = I
                END IF
             END DO
-            if (Nnomass .ne. nmass) then
-                print *,Nnomass,nmass
-                stop "lagrN: Nnomass wrong!"
-            end if
 *     --16/05/16 15:59-qishu-end------------------------------*
          END IF
 *       Sort square distances with respect to the centre C.
