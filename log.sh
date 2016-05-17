@@ -2,9 +2,11 @@ shopt -s extglob
 workPath="dirty"
 logPath="LOG"
 
+
 mkdir -p $logPath
 ./configure --enable-hdf5 > $logPath/log.configure
-make clean
+#make clean
+rm -f ./build/*.o ./build/*.so ./build/nbody6++.avx* ./build/nb6++dumpb2a ./build/nb6++snapshot 
 make -j 16 > $logPath/log.make
 
 str="rm !(*.input)";
