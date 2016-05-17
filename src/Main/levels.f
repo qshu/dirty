@@ -45,7 +45,7 @@
           IF (BODY(I).EQ.0.0D0) GO TO 20
 *     --16/05/16 13:54-qishu-debug----------------------------*
 ***** Note:--------------------------------------------------**
-          if (BODY(i) .lt. smallMass*1.01) go to 920
+          if (body(i) .lt. smallMass) go to 920
 *     --16/05/16 13:54-qishu-end------------------------------*
           J = MAX(1,1 - INT(LOG(STEP(I))*FAC))
           IF(J.GT.NMAX)J = NMAX

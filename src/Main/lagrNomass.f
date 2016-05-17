@@ -67,7 +67,7 @@
 *     Set square radii of massless particles
             DO I = IFIRST,N
                IF(nomass(I).eq.1) THEN
-           if (body(i) .gt. smallMass*1.1) stop "lagrN: massive nomass"
+           if (body(i) .gt. smallMass) stop "lagrN: massive nomass"
                   Nnomass = Nnomass + 1
                   Rnomass(Nnomass) = (X(1,I) - C(1))**2 + 
      &                 (X(2,I) - C(2))**2 + (X(3,I) - C(3))**2

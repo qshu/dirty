@@ -96,7 +96,7 @@
               print *, "particle", i, "mass",body(i)
               stop "ERROR: negtive particle mass detected!!!"
           end if
-          if (body(i).le.smallMass * 1.01)then
+          if (body(i).le.smallMass)then
               nomass(i) = 1 
           else
               nomass(i) = 0 

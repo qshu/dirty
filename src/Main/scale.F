@@ -54,6 +54,11 @@
 *
 *       Adjust coordinates and velocities to c.m. rest frame.
 *       (if start model data were read from other source do NOT scale)(R.Sp.)
+*     --16/05/17 22:45-qishu-debug----------------------------*
+***** Note:--------------------------------------------------**
+*default(if no mass scaling): smallMass = smallMassSolarUnit
+       smallMass = smallMassSolarUnit * 1.01
+*     --16/05/17 22:45-qishu-end------------------------------*
       IF (LSCALE) THEN
          DO 40 I = 1,N
             DO 35 K = 1,3
@@ -72,6 +77,11 @@
 *     --16/05/15 22:07-qishu-end------------------------------*
                BODY(I) = BODY(I)/ZMASS
  50         CONTINUE
+*     --16/05/17 22:35-qishu-debug----------------------------*
+***** Note:--------------------------------------------------**
+*      set scaled mass of MLP as smallMass
+             smallMass = smallMassSolarUnit / ZMASS * 1.01
+*     --16/05/17 22:35-qishu-end------------------------------*
          END IF
 *     
          ZMASS = 1.D0

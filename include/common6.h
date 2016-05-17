@@ -1,4 +1,6 @@
 *       common6.
+*       smallMassSolarUnit: the physical mass of MLP in solar unit
+*       smallMass: the scaled mass of MLP 
 *       -------
 *
       INCLUDE 'params.h'
@@ -7,7 +9,7 @@
 *
       INCLUDE 'mpi_base.h'
 *
-	  PARAMETER  (smallMass=1.0d-10)
+	  PARAMETER  (smallMassSolarUnit=1.0d-10)
       COMMON/NAMES/  NTOT,NPAIRS,NTTOT,N,NNBMAX,NCRIT,NFIX,NMERGE,NSUB,
      &               IPHASE,IFIRST,ICOMP,JCOMP,ICLOSE,JCLOSE,JCMAX,
      &               KSPAIR,NRUN,MODEL,NC,NZERO,NBZERO,NBIN0,NHI0,
@@ -29,7 +31,7 @@
      &               GPRINT(9),TLASTT,TLASTS,TLASTB(9),TDUMP,
      &               SCOEFF(12),TOFF,TTOT,EBESC,EMESC,ESESC,CLIGHT,
      &               RZ,TINY,SMAX,WTOT,WTOT0,TCRITP,ZSMASS0,ZBMASS0,
-     &               BIMBH,DTBH,DUMMY(93)
+     &               BIMBH,DTBH,DUMMY(93),smallMass
 
       COMMON/COUNTS/ NSTEPI,NSTEPR,NSTEPU,NNPRED,NBCORR,NBFULL,NBVOID,
      &               NNTB,NBSMIN,NLSMIN,NBDIS,NBDIS2,NCMDER,NBDER,
