@@ -31,7 +31,7 @@ SEMI0, ECC0, RATIO,RANGE, NSKIP, IDORM (binpop.f)
 ******* input file end *********
 
 ******* simulation begin *******
-2016年 05月 17日 星期二 20:57:42 CST
+2016年 05月 18日 星期三 00:39:38 CST
 ********************************
 MPI-initial: This is rank=     0 size=     1 group=          2
  RANK:            0  OpenMP Number of Threads:           16
@@ -120,11 +120,11 @@ MPI-initial: This is rank=     0 size=     1 group=          2
                      13  13 113 113 113 113 113  13 113 113  13  13  13  14  14
                      14  14 114 114 114 114 114  14 114 114  14  14  14  14  14
 
- Binary parameters: R12(min)[AU]       0.000000 R12(max)[AU]       0.000000 MCM(min)[M*]       0.000000 MCM(max)[M*]       0.000000 P[min][days]   2.327215-306 P[max][days]   1.223946-312
+ Binary parameters: R12(min)[AU]       0.000000 R12(max)[AU]       0.000000 MCM(min)[M*]       0.000000 MCM(max)[M*]       0.000000 P[min][days]   2.086578-306 P[max][days]   1.223946-312
 
- Fpoly0 + Neighbor List Timing:        0.268120
+ Fpoly0 + Neighbor List Timing:        0.222676
 
- KS Perturbers List Initialization Timing:        0.000119
+ KS Perturbers List Initialization Timing:        0.000125
 
             WARNING!   SMALL NEIGHBOUR NUMBERS   <NNB> =  7.3
 
@@ -141,12 +141,12 @@ MPI-initial: This is rank=     0 size=     1 group=          2
 
   RMIN = 5.0E-04  DTMIN = 4.0E-06 RHOM = 7.9E+01 RSCALE = 7.4E-01 RSMIN = 1.0E-01  ECLOSE = 1.00  TC =    0
   PE       N        Total     Inti.    Intgrt      Reg.      Irr.     Pred.   Init.B.      Mdot      Move   Comm.I.   Comm.R.   Send.I.   Send.R.        KS    Adjust     OUT      Barr.   Barr.I.   Barr.R. Reg.GPU.S Reg.GPU.P Comm.Adj. Mdot.Fic.  Mdot.Fc. Mdot.Pot.  Mdot.EC.   Sort.B.    HighV  KS.Init.B  KS.Int.S  KS.Int.P  KS.Comm.  KS.Barr.   KS.Move   KS.Cmb. KS.Insert  KS.Init.  KS.Term.     Hiar.     KS.UP       xtsub1       xtsub2
-   1    3200      1.57822      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00  0.00000D+00  0.00000D+00
+   1    3200      1.51141      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00  0.00000D+00  0.00000D+00
 
 
  TIME[NB]    0.000000E+00  N     3200  <NB>     7  NPAIRS       0  NMERGE     0 MULT    0 NS     3200  NSTEP(I,B,R,U)             0            0            0            0  DE    0.000000E+00  E         -0.248762
 
- NRUN =  1  M# =  1  CPU = 2.63157E-02  TRC =133.6  DMIN = 1.0E+02 1.0E+02 1.0E+02 1.0E+02  AMIN = 1.0E+02  RMAX = 0.0E+00  RSMIN = 0.10  NEFF =    64
+ NRUN =  1  M# =  1  CPU = 2.51998E-02  TRC =133.6  DMIN = 1.0E+02 1.0E+02 1.0E+02 1.0E+02  AMIN = 1.0E+02  RMAX = 0.0E+00  RSMIN = 0.10  NEFF =    64
 
     <R>  RTIDE  RDENS   RC      NC   MC   RHOD   RHOM  CMAX   <Cn>  Ir/R      UN      NP    RCM    VCM         AZ     EB/E   EM/E   TCR     T6  NESC  VRMS
  #1 0.74   5.3   0.18  0.26    216  0.089   31.    79.   10.  13.1  0.01       0       0    0.000  0.0000   0.117592 -0.000 -0.000  2.85     0     0   0.4
@@ -182,12 +182,12 @@ MPI-initial: This is rank=     0 size=     1 group=          2
 
   RMIN = 5.0E-04  DTMIN = 4.0E-06 RHOM = 6.5E+02 RSCALE = 8.4E-01 RSMIN = 7.4E-02  ECLOSE = 1.00  TC =    0
   PE       N        Total     Inti.    Intgrt      Reg.      Irr.     Pred.   Init.B.      Mdot      Move   Comm.I.   Comm.R.   Send.I.   Send.R.        KS    Adjust     OUT      Barr.   Barr.I.   Barr.R. Reg.GPU.S Reg.GPU.P Comm.Adj. Mdot.Fic.  Mdot.Fc. Mdot.Pot.  Mdot.EC.   Sort.B.    HighV  KS.Init.B  KS.Int.S  KS.Int.P  KS.Comm.  KS.Barr.   KS.Move   KS.Cmb. KS.Insert  KS.Init.  KS.Term.     Hiar.     KS.UP       xtsub1       xtsub2
-   1    3200      3.29248      1.62      1.67      0.62      0.43      0.03      0.11      0.00      0.08      0.00      0.00      0.09      0.13      0.05      0.04      0.02      0.00      0.00      0.00      0.32      0.29      0.00      0.00      0.00      0.00      0.00      0.02      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.02      0.00  0.00000D+00  0.00000D+00
+   1    3200      3.18464      1.54      1.64      0.62      0.42      0.03      0.10      0.00      0.08      0.00      0.00      0.08      0.14      0.05      0.04      0.02      0.00      0.00      0.00      0.33      0.28      0.00      0.00      0.00      0.00      0.00      0.02      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.02      0.00  0.00000D+00  0.00000D+00
 
 
  TIME[NB]    1.000000E+00  N     3200  <NB>    58  NPAIRS       0  NMERGE     0 MULT    0 NS     3200  NSTEP(I,B,R,U)        658815            0       258227            0  DE   -0.116292E-05  E         -0.248762
 
- NRUN =  1  M# =  2  CPU = 5.48822E-02  TRC =  7.7  DMIN = 1.0E+02 1.0E+02 1.0E+02 1.0E+02  AMIN = 1.0E+02  RMAX = 0.0E+00  RSMIN = 0.07  NEFF =    64
+ NRUN =  1  M# =  2  CPU = 5.30848E-02  TRC =  7.7  DMIN = 1.0E+02 1.0E+02 1.0E+02 1.0E+02  AMIN = 1.0E+02  RMAX = 0.0E+00  RSMIN = 0.07  NEFF =    64
 
     <R>  RTIDE  RDENS   RC      NC   MC   RHOD   RHOM  CMAX   <Cn>  Ir/R      UN      NP    RCM    VCM         AZ     EB/E   EM/E   TCR     T6  NESC  VRMS
  #1 0.84   5.3   0.11  0.17     76  0.070  229.   650.    6.  69.6  0.07       0       0    0.000  0.0000   0.117937 -0.000 -0.000  2.85     2     0   0.4
@@ -223,12 +223,12 @@ MPI-initial: This is rank=     0 size=     1 group=          2
 
   RMIN = 5.0E-04  DTMIN = 4.0E-06 RHOM = 4.8E+02 RSCALE = 7.6E-01 RSMIN = 8.5E-02  ECLOSE = 1.00  TC =    0
   PE       N        Total     Inti.    Intgrt      Reg.      Irr.     Pred.   Init.B.      Mdot      Move   Comm.I.   Comm.R.   Send.I.   Send.R.        KS    Adjust     OUT      Barr.   Barr.I.   Barr.R. Reg.GPU.S Reg.GPU.P Comm.Adj. Mdot.Fic.  Mdot.Fc. Mdot.Pot.  Mdot.EC.   Sort.B.    HighV  KS.Init.B  KS.Int.S  KS.Int.P  KS.Comm.  KS.Barr.   KS.Move   KS.Cmb. KS.Insert  KS.Init.  KS.Term.     Hiar.     KS.UP       xtsub1       xtsub2
-   1    3200      4.35701      1.62      2.70      1.00      0.75      0.03      0.16      0.00      0.13      0.00      0.00      0.15      0.17      0.08      0.08      0.03      0.00      0.00      0.00      0.45      0.51      0.00      0.00      0.00      0.00      0.00      0.04      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.03      0.00  0.00000D+00  0.00000D+00
+   1    3200      4.25508      1.54      2.67      1.00      0.72      0.03      0.15      0.00      0.13      0.00      0.00      0.14      0.18      0.08      0.07      0.03      0.00      0.00      0.00      0.47      0.51      0.00      0.00      0.00      0.00      0.00      0.04      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.03      0.00  0.00000D+00  0.00000D+00
 
 
  TIME[NB]    2.000000E+00  N     3200  <NB>    59  NPAIRS       0  NMERGE     0 MULT    0 NS     3200  NSTEP(I,B,R,U)        539581            0       192781            0  DE   -0.713808E-07  E         -0.248762
 
- NRUN =  1  M# =  3  CPU = 7.26243E-02  TRC = 12.9  DMIN = 1.0E+02 1.0E+02 1.0E+02 1.0E+02  AMIN = 1.0E+02  RMAX = 0.0E+00  RSMIN = 0.08  NEFF =    64
+ NRUN =  1  M# =  3  CPU = 7.09254E-02  TRC = 12.9  DMIN = 1.0E+02 1.0E+02 1.0E+02 1.0E+02  AMIN = 1.0E+02  RMAX = 0.0E+00  RSMIN = 0.08  NEFF =    64
 
     <R>  RTIDE  RDENS   RC      NC   MC   RHOD   RHOM  CMAX   <Cn>  Ir/R      UN      NP    RCM    VCM         AZ     EB/E   EM/E   TCR     T6  NESC  VRMS
  #1 0.76   5.3   0.19  0.21    121  0.130  115.   481.    5.  81.3  0.08       0       0    0.000  0.0000   0.117688 -0.000 -0.000  2.85     4     0   0.4
@@ -264,12 +264,12 @@ MPI-initial: This is rank=     0 size=     1 group=          2
 
   RMIN = 5.0E-04  DTMIN = 4.0E-06 RHOM = 1.5E+02 RSCALE = 8.5E-01 RSMIN = 7.8E-02  ECLOSE = 1.00  TC =    1
   PE       N        Total     Inti.    Intgrt      Reg.      Irr.     Pred.   Init.B.      Mdot      Move   Comm.I.   Comm.R.   Send.I.   Send.R.        KS    Adjust     OUT      Barr.   Barr.I.   Barr.R. Reg.GPU.S Reg.GPU.P Comm.Adj. Mdot.Fic.  Mdot.Fc. Mdot.Pot.  Mdot.EC.   Sort.B.    HighV  KS.Init.B  KS.Int.S  KS.Int.P  KS.Comm.  KS.Barr.   KS.Move   KS.Cmb. KS.Insert  KS.Init.  KS.Term.     Hiar.     KS.UP       xtsub1       xtsub2
-   1    3200      5.33809      1.62      3.65      1.35      1.02      0.04      0.20      0.00      0.18      0.00      0.00      0.20      0.22      0.11      0.11      0.04      0.00      0.00      0.00      0.60      0.71      0.00      0.00      0.00      0.00      0.00      0.05      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.04      0.00  0.00000D+00  0.00000D+00
+   1    3200      5.25439      1.54      3.64      1.37      1.00      0.04      0.20      0.00      0.18      0.00      0.00      0.19      0.23      0.11      0.11      0.04      0.00      0.00      0.00      0.63      0.70      0.00      0.00      0.00      0.00      0.00      0.05      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.04      0.00  0.00000D+00  0.00000D+00
 
 
  TIME[NB]    3.000000E+00  N     3200  <NB>    48  NPAIRS       0  NMERGE     0 MULT    0 NS     3200  NSTEP(I,B,R,U)        478527            0       181900            0  DE   -0.332560E-06  E         -0.248762
 
- NRUN =  1  M# =  4  CPU = 8.89757E-02  TRC = 22.3  DMIN = 1.0E+02 1.0E+02 1.0E+02 1.0E+02  AMIN = 1.0E+02  RMAX = 0.0E+00  RSMIN = 0.08  NEFF =    64
+ NRUN =  1  M# =  4  CPU = 8.75806E-02  TRC = 22.3  DMIN = 1.0E+02 1.0E+02 1.0E+02 1.0E+02  AMIN = 1.0E+02  RMAX = 0.0E+00  RSMIN = 0.08  NEFF =    64
 
     <R>  RTIDE  RDENS   RC      NC   MC   RHOD   RHOM  CMAX   <Cn>  Ir/R      UN      NP    RCM    VCM         AZ     EB/E   EM/E   TCR     T6  NESC  VRMS
  #1 0.85   5.3   0.26  0.24    138  0.141   54.   151.    5.  72.7  0.06       0       0    0.000  0.0000   0.117112 -0.000 -0.000  2.85     6     0   0.4
@@ -305,12 +305,12 @@ MPI-initial: This is rank=     0 size=     1 group=          2
 
   RMIN = 5.0E-04  DTMIN = 4.0E-06 RHOM = 1.1E+02 RSCALE = 9.3E-01 RSMIN = 9.0E-02  ECLOSE = 1.00  TC =    1
   PE       N        Total     Inti.    Intgrt      Reg.      Irr.     Pred.   Init.B.      Mdot      Move   Comm.I.   Comm.R.   Send.I.   Send.R.        KS    Adjust     OUT      Barr.   Barr.I.   Barr.R. Reg.GPU.S Reg.GPU.P Comm.Adj. Mdot.Fic.  Mdot.Fc. Mdot.Pot.  Mdot.EC.   Sort.B.    HighV  KS.Init.B  KS.Int.S  KS.Int.P  KS.Comm.  KS.Barr.   KS.Move   KS.Cmb. KS.Insert  KS.Init.  KS.Term.     Hiar.     KS.UP       xtsub1       xtsub2
-   1    3200      6.17044      1.62      4.45      1.65      1.26      0.05      0.24      0.00      0.22      0.00      0.00      0.25      0.25      0.14      0.15      0.05      0.00      0.00      0.00      0.71      0.89      0.00      0.00      0.00      0.00      0.00      0.07      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.05      0.00  0.00000D+00  0.00000D+00
+   1    3200      6.10382      1.54      4.45      1.68      1.24      0.05      0.24      0.00      0.22      0.00      0.00      0.24      0.26      0.14      0.14      0.04      0.00      0.00      0.00      0.74      0.88      0.00      0.00      0.00      0.00      0.00      0.06      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.05      0.00  0.00000D+00  0.00000D+00
 
 
  TIME[NB]    4.000000E+00  N     3200  <NB>    48  NPAIRS       0  NMERGE     0 MULT    0 NS     3200  NSTEP(I,B,R,U)        426326            0       162993            0  DE    0.101343E-07  E         -0.248762
 
- NRUN =  1  M# =  5  CPU = 1.02848E-01  TRC = 22.2  DMIN = 1.0E+02 1.0E+02 1.0E+02 1.0E+02  AMIN = 1.0E+02  RMAX = 0.0E+00  RSMIN = 0.09  NEFF =    64
+ NRUN =  1  M# =  5  CPU = 1.01738E-01  TRC = 22.2  DMIN = 1.0E+02 1.0E+02 1.0E+02 1.0E+02  AMIN = 1.0E+02  RMAX = 0.0E+00  RSMIN = 0.09  NEFF =    64
 
     <R>  RTIDE  RDENS   RC      NC   MC   RHOD   RHOM  CMAX   <Cn>  Ir/R      UN      NP    RCM    VCM         AZ     EB/E   EM/E   TCR     T6  NESC  VRMS
  #1 0.93   5.3   0.19  0.27    127  0.176   39.   112.    4.  66.0  0.06       0       0    0.000  0.0000   0.116401 -0.000 -0.000  2.85     8     0   0.3
@@ -346,12 +346,12 @@ MPI-initial: This is rank=     0 size=     1 group=          2
 
   RMIN = 5.0E-04  DTMIN = 4.0E-06 RHOM = 2.4E+02 RSCALE = 9.4E-01 RSMIN = 1.4E-01  ECLOSE = 1.00  TC =    1
   PE       N        Total     Inti.    Intgrt      Reg.      Irr.     Pred.   Init.B.      Mdot      Move   Comm.I.   Comm.R.   Send.I.   Send.R.        KS    Adjust     OUT      Barr.   Barr.I.   Barr.R. Reg.GPU.S Reg.GPU.P Comm.Adj. Mdot.Fic.  Mdot.Fc. Mdot.Pot.  Mdot.EC.   Sort.B.    HighV  KS.Init.B  KS.Int.S  KS.Int.P  KS.Comm.  KS.Barr.   KS.Move   KS.Cmb. KS.Insert  KS.Init.  KS.Term.     Hiar.     KS.UP       xtsub1       xtsub2
-   1    3200      6.88994      1.62      5.14      1.93      1.46      0.05      0.27      0.00      0.26      0.00      0.00      0.28      0.28      0.16      0.18      0.05      0.00      0.00      0.00      0.82      1.05      0.00      0.00      0.00      0.00      0.00      0.07      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.05      0.00  0.00000D+00  0.00000D+00
+   1    3200      6.83412      1.54      5.15      1.97      1.45      0.05      0.26      0.00      0.26      0.00      0.00      0.27      0.30      0.15      0.17      0.05      0.00      0.00      0.00      0.86      1.05      0.00      0.00      0.00      0.00      0.00      0.07      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.05      0.00  0.00000D+00  0.00000D+00
 
 
  TIME[NB]    5.000000E+00  N     3200  <NB>    49  NPAIRS       0  NMERGE     0 MULT    0 NS     3200  NSTEP(I,B,R,U)        396009            0       148387            0  DE   -0.138740E-06  E         -0.248762
 
- NRUN =  1  M# =  6  CPU = 1.14840E-01  TRC =  2.4  DMIN = 1.0E+02 1.0E+02 1.0E+02 1.0E+02  AMIN = 1.0E+02  RMAX = 0.0E+00  RSMIN = 0.14  NEFF =    64
+ NRUN =  1  M# =  6  CPU = 1.13909E-01  TRC =  2.4  DMIN = 1.0E+02 1.0E+02 1.0E+02 1.0E+02  AMIN = 1.0E+02  RMAX = 0.0E+00  RSMIN = 0.14  NEFF =    64
 
     <R>  RTIDE  RDENS   RC      NC   MC   RHOD   RHOM  CMAX   <Cn>  Ir/R      UN      NP    RCM    VCM         AZ     EB/E   EM/E   TCR     T6  NESC  VRMS
  #1 0.94   5.3   0.09  0.17     59  0.145   86.   242.    6.  75.3  0.05       0       0    0.000  0.0000   0.115814 -0.000 -0.000  2.85    10     0   0.3
@@ -387,12 +387,12 @@ MPI-initial: This is rank=     0 size=     1 group=          2
 
   RMIN = 5.0E-04  DTMIN = 4.0E-06 RHOM = 1.9E+02 RSCALE = 7.9E-01 RSMIN = 2.1E-01  ECLOSE = 1.00  TC =    2
   PE       N        Total     Inti.    Intgrt      Reg.      Irr.     Pred.   Init.B.      Mdot      Move   Comm.I.   Comm.R.   Send.I.   Send.R.        KS    Adjust     OUT      Barr.   Barr.I.   Barr.R. Reg.GPU.S Reg.GPU.P Comm.Adj. Mdot.Fic.  Mdot.Fc. Mdot.Pot.  Mdot.EC.   Sort.B.    HighV  KS.Init.B  KS.Int.S  KS.Int.P  KS.Comm.  KS.Barr.   KS.Move   KS.Cmb. KS.Insert  KS.Init.  KS.Term.     Hiar.     KS.UP       xtsub1       xtsub2
-   1    3200      7.55688      1.62      5.77      2.20      1.65      0.06      0.30      0.00      0.30      0.00      0.00      0.31      0.31      0.17      0.21      0.06      0.00      0.00      0.00      0.91      1.21      0.00      0.00      0.00      0.00      0.00      0.08      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.06      0.00  0.00000D+00  0.00000D+00
+   1    3200      7.51012      1.54      5.79      2.24      1.63      0.06      0.29      0.00      0.30      0.00      0.00      0.30      0.33      0.17      0.21      0.06      0.00      0.00      0.00      0.96      1.21      0.00      0.00      0.00      0.00      0.00      0.08      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.06      0.00  0.00000D+00  0.00000D+00
 
 
  TIME[NB]    6.000000E+00  N     3200  <NB>    47  NPAIRS       0  NMERGE     0 MULT    0 NS     3200  NSTEP(I,B,R,U)        376109            0       146464            0  DE   -0.373932E-06  E         -0.248762
 
- NRUN =  1  M# =  7  CPU = 1.25956E-01  TRC =  5.5  DMIN = 1.0E+02 1.0E+02 1.0E+02 1.0E+02  AMIN = 1.0E+02  RMAX = 0.0E+00  RSMIN = 0.21  NEFF =    64
+ NRUN =  1  M# =  7  CPU = 1.25176E-01  TRC =  5.5  DMIN = 1.0E+02 1.0E+02 1.0E+02 1.0E+02  AMIN = 1.0E+02  RMAX = 0.0E+00  RSMIN = 0.21  NEFF =    64
 
     <R>  RTIDE  RDENS   RC      NC   MC   RHOD   RHOM  CMAX   <Cn>  Ir/R      UN      NP    RCM    VCM         AZ     EB/E   EM/E   TCR     T6  NESC  VRMS
  #1 0.79   5.3   0.14  0.20     79  0.181   48.   190.    3.  71.8  0.05       0       0    0.000  0.0000   0.115331 -0.000 -0.000  2.85    12     0   0.4
@@ -428,7 +428,7 @@ MPI-initial: This is rank=     0 size=     1 group=          2
 
   RMIN = 5.0E-04  DTMIN = 4.0E-06 RHOM = 1.9E+02 RSCALE = 7.8E-01 RSMIN = 2.3E-01  ECLOSE = 1.00  TC =    2
   PE       N        Total     Inti.    Intgrt      Reg.      Irr.     Pred.   Init.B.      Mdot      Move   Comm.I.   Comm.R.   Send.I.   Send.R.        KS    Adjust     OUT      Barr.   Barr.I.   Barr.R. Reg.GPU.S Reg.GPU.P Comm.Adj. Mdot.Fic.  Mdot.Fc. Mdot.Pot.  Mdot.EC.   Sort.B.    HighV  KS.Init.B  KS.Int.S  KS.Int.P  KS.Comm.  KS.Barr.   KS.Move   KS.Cmb. KS.Insert  KS.Init.  KS.Term.     Hiar.     KS.UP       xtsub1       xtsub2
-   1    3200      8.20404      1.62      6.38      2.46      1.83      0.06      0.32      0.00      0.34      0.00      0.00      0.33      0.33      0.19      0.24      0.06      0.00      0.00      0.00      1.01      1.36      0.00      0.00      0.00      0.00      0.00      0.09      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.06      0.00  0.00000D+00  0.00000D+00
+   1    3200      8.16666      1.54      6.42      2.51      1.82      0.06      0.31      0.00      0.34      0.00      0.00      0.32      0.36      0.18      0.24      0.06      0.00      0.00      0.00      1.06      1.36      0.00      0.00      0.00      0.00      0.00      0.09      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.06      0.00  0.00000D+00  0.00000D+00
 
  ESCAPE    N =  3195     5   0  1.0000   -0.248762   0.00  10.65  0.031   4.96  0.00031  3138     541  1391  2174  2283  2955  2057
                9  1262  1009  2609
@@ -436,7 +436,7 @@ MPI-initial: This is rank=     0 size=     1 group=          2
 
  TIME[NB]    7.000000E+00  N     3195  <NB>    38  NPAIRS       0  NMERGE     0 MULT    0 NS     3195  NSTEP(I,B,R,U)        366571            0       149706            0  DE   -0.428454E-06  E         -0.248762
 
- NRUN =  1  M# =  8  CPU = 1.36814E-01  TRC =  0.8  DMIN = 1.0E+02 1.0E+02 1.0E+02 1.0E+02  AMIN = 1.0E+02  RMAX = 0.0E+00  RSMIN = 0.23  NEFF =    64
+ NRUN =  1  M# =  8  CPU = 1.36191E-01  TRC =  0.8  DMIN = 1.0E+02 1.0E+02 1.0E+02 1.0E+02  AMIN = 1.0E+02  RMAX = 0.0E+00  RSMIN = 0.23  NEFF =    64
 
     <R>  RTIDE  RDENS   RC      NC   MC   RHOD   RHOM  CMAX   <Cn>  Ir/R      UN      NP    RCM    VCM         AZ     EB/E   EM/E   TCR     T6  NESC  VRMS
  #1 0.78   5.3   0.30  0.14     33  0.108   67.   195.    2.  77.2  0.07       0       0    0.000  0.0000   0.114896 -0.000 -0.000  2.85    14     0   0.4
@@ -467,9 +467,9 @@ MPI-initial: This is rank=     0 size=     1 group=          2
 
 
           PER TIME UNIT: NIRR= 0.00000D+00 NIRRB= 0.00000D+00 NREG= 0.00000D+00 NKS= 0.00000D+00
-  Total CPU=   8.2361599802970886     
+  Total CPU=   8.1992340087890625     
 ******* simulation end *********
-2016年 05月 17日 星期二 20:57:51 CST
+2016年 05月 18日 星期三 00:39:47 CST
 ********************************
 
 Time cost in simulation:

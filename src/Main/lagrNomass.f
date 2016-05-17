@@ -66,7 +66,8 @@
 ***** Note:--------------------------------------------------**
 *     Set square radii of massless particles
             DO I = IFIRST,N
-               IF(nomass(I).eq.1) THEN
+*               IF(nomass(I).eq.1) THEN
+               IF(body(I).le.smallMass) THEN
            if (body(i) .gt. smallMass) stop "lagrN: massive nomass"
                   Nnomass = Nnomass + 1
                   Rnomass(Nnomass) = (X(1,I) - C(1))**2 + 
@@ -74,7 +75,10 @@
                   NLIST(Nnomass) = I
                END IF
             END DO
-            if (Nnomass .ne. nmass) stop "lagrN: Nnomass wrong!"
+            if (Nnomass .ne. nmass) then
+                print *,Nnomass,nmass
+                stop "lagrN: Nnomass wrong!"
+            end if
 *     --16/05/16 15:59-qishu-end------------------------------*
          END IF
 *       Sort square distances with respect to the centre C.
