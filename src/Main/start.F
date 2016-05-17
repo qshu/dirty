@@ -16,6 +16,15 @@
 *
 *       Read input parameters.
       CALL INPUT
+*     --16/05/15 21:28-qishu-debug----------------------------*
+***** Note:--------------------------------------------------**
+*     warning when nmass >= N
+          if (nmass .ge. N) then
+              print *,'ERROR: NUMBER OF MASSLESS PARTICLES=',nmass,
+     & 'IS LARGER THAN N=',N
+              stop
+          end if
+*     --16/05/15 21:30-qishu-end------------------------------*
 *
 *       Open all Files.
       CALL FILE_INIT(0)
@@ -31,15 +40,6 @@
       DO 10 I = 1,N
           ZMASS = ZMASS + BODY(I)
    10 CONTINUE
-*     --16/05/15 21:28-qishu-debug----------------------------*
-***** Note:--------------------------------------------------**
-*     warning when nmass >= N
-          if (nmass .ge. N) then
-              print *,'ERROR: NUMBER OF MASSLESS PARTICLES=',nmass,
-     & 'IS LARGER THAN N=',N
-              stop
-          end if
-*     --16/05/15 21:30-qishu-end------------------------------*
 *
 *       Define mean mass in scaled units and solar mass conversion factor.
       BODYM = ZMASS/FLOAT(N-nmass)

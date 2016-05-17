@@ -47,12 +47,12 @@
    10 CONTINUE
 *
       if(rank.eq.0)
-     &WRITE (6,20)  BODY(1), BODY(N), ZMASS/FLOAT(N)
+     &WRITE (6,20)  BODY(1), BODY(N), ZMASS/FLOAT(N-nmass)
    20 FORMAT (/,12X,'REALISTIC MASS FUNCTION:','   BODY(1) =',1PE9.2,
      &                                '  BODY(N) =',E9.2,'  <M> =',E9.2)
 *
 *       Replace input value by actual mean mass in solar units.
-      ZMBAR = ZMASS/FLOAT(N)
+      ZMBAR = ZMASS/FLOAT(N-nmass)
 *
       RETURN
 *
