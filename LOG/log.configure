@@ -82,10 +82,10 @@ configure:      Program name:   nbody6++.avx.gpu.mpi.hdf5
 configure:      Extra tools:    no
 configure:      Install path:   NONE
 configure: --Parameters:
-configure:      NMAX:           24576
-configure:      KMAX:           8192
-configure:      LMAX:           400
-configure:      MMAX:           512
+configure:      NMAX:           49152
+configure:      KMAX:           16384
+configure:      LMAX:           500
+configure:      MMAX:           1024
 configure: -----------------------------------------------------------
 configure: Reference paper: Wang, L., et al., 2015, MNRAS, 450, 4070 (http://arxiv.org/abs/1504.03687)
 configure: Email: Long Wang<longwang.astro@gmail.com>
