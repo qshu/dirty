@@ -6,10 +6,10 @@ checking whether we are cross compiling... no
 checking for suffix of object files... o
 checking whether we are using the GNU Fortran compiler... yes
 checking whether gfortran accepts -g... yes
-checking for h5pfc... h5pfc
+checking for mpif77... mpif77
 checking whether Fortran compiler accepts -fPIC... yes
 checking whether Fortran compiler accepts -mcmodel=medium... yes
-checking for h5pfc option to support OpenMP... -fopenmp
+checking for mpif77 option to support OpenMP... -fopenmp
 checking for g++... g++
 checking whether we are using the GNU C++ compiler... yes
 checking whether g++ accepts -g... yes
@@ -55,35 +55,28 @@ checking for gettimeofday... yes
 checking for memset... yes
 checking for sqrt... yes
 checking for strchr... yes
-checking for nvcc... nvcc
-checking for a sed that does not truncate output... /bin/sed
-checking for main in -lcudart... no
-checking for "/usr/local/cuda-7.5/lib64/libcudart.so"... yes
-checking for gawk... gawk
-checking for CUDA version... 7.5
-checking for "/usr/local/cuda-7.5/samples/common/inc/helper_cuda.h"... yes
 configure: ----------------------Configure Summary--------------------
 configure: --Features:
 configure:      Using MPI:      yes
-configure:      Using GPU:      yes
-configure:      CUDA version:   7.5
+configure:      Using GPU:      no
+configure:      CUDA version:   
 configure:      Using SIMD:     avx
 configure:      mcmodel:        medium
 configure:      OpenMP option:  -fopenmp
 configure:      Debug mode:     no
-configure:      HDF5 format:    yes
+configure:      HDF5 format:    no
 configure:      TT package:     no
 configure: --Compilers:
 configure:      C++ compiler:      g++
-configure:      Fortran compiler:  h5pfc
-configure:      CUDA compiler:     nvcc
+configure:      Fortran compiler:  mpif77
+configure:      CUDA compiler:     
 configure: --Targets:
-configure:      Program name:   nbody6++.avx.gpu.mpi.hdf5
+configure:      Program name:   nbody6++.avx.mpi
 configure:      Extra tools:    no
 configure:      Install path:   NONE
 configure: --Parameters:
-configure:      NMAX:           49152
-configure:      KMAX:           16384
+configure:      NMAX:           98304
+configure:      KMAX:           32768
 configure:      LMAX:           500
 configure:      MMAX:           1024
 configure: -----------------------------------------------------------
