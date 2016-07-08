@@ -222,7 +222,7 @@ pip-log.txt
 ############
 build/
 dirty/
-LOG/log.run
+LOG/
 src/main/
 
 ###########
