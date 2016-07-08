@@ -1,3 +1,4 @@
+LOG/log.run
 #################
 ## Eclipse
 #################
@@ -222,7 +223,7 @@ pip-log.txt
 ############
 build/
 dirty/
-/LOG
+LOG/
 src/main/
 
 ###########
