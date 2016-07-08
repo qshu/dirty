@@ -2,7 +2,7 @@
 CometsProject.input
 ******* input file begin *******
 1 1000000.0 1.E6 40 40 640
-20000 1 10 43532 100 1 10000
+20000 1 10 43532 100 1 100
 0.01 0.01 0.1 1.0 1.0 7.0 1.0E-06 1.0 0.7
 0 1 1 0 1 0 4 0 1 2
 0 1 0 1 2 0 0 0 3 6
@@ -31,8 +31,8 @@ Q, VXROT, VZROT, RSPH2 (scale.F)
 SEMI0, ECC0, RATIO,RANGE, NSKIP, IDORM (binpop.f)
 ******* input file end *********
 
-executable program:  nbody6++.avx.gpu.mpi
-2016年 07月 07日 星期四 03:46:08 CST
+executable program:  nbody6++.avx.mpi
+2016年 07月 09日 星期六 02:44:40 CST
 ******* simulation begin *******
 MPI-initial: This is rank=     0 size=     1 group=          2
  RANK:            0  OpenMP Number of Threads:           16
@@ -44,7 +44,7 @@ MPI-initial: This is rank=     0 size=     1 group=          2
 
                N  NFIX  NCRIT  NRAND  NNBOPT  NRUN nmass
 
-           20000     1     10  43532     100     1 10000
+           20000     1     10  43532     100     1   100
 
 
              ETAI      ETAR      RS0       DTADJ     DELTAT     TCRITP    TCRIT     QE        RBAR       ZMBAR
@@ -87,19 +87,19 @@ MPI-initial: This is rank=     0 size=     1 group=          2
 
             SINGLE STAR IMF:    NS = 20000  RANGE =  1.99E+01  8.00E-02  <MS> = 5.02E-01
 
-             ALPHAS = 2.35  BODY1 = 20.0  BODYN = 0.08 ZMASS = 1.00000E+04 NBIN0 =    0 NHI0 =    0 ZMET = 0.0010 EPOCH0 = 0.00
+             ALPHAS = 2.35  BODY1 = 20.0  BODYN = 0.08 ZMASS = 1.99000E+04 NBIN0 =    0 NHI0 =    0 ZMET = 0.0010 EPOCH0 = 0.00
 
 
-            SCALING:   SX =  9.59542D-01  E = -2.61E-01  M(1) = 2.30E-03  M(N) = 1.16E-14  <M> = 1.00E-04
+            SCALING:   SX =  9.60785D-01  E = -2.60E-01  M(1) = 1.98E-03  M(N) = 5.03E-15  <M> = 5.03E-05
 
             TIME SCALES:   TRH = 3.9E+02  TCR = 2.8E+00  2<R>/<V> = 2.8E+00
 
 
-            PHYSICAL SCALING:    R* =   1.000000000000E+00  M* =   5.017174471975E+03  V* =   4.645249733429E+00  T* =   2.108778314816E-01  <M> =   5.017174471976E-01  SU =   4.436632063264E+07
+            PHYSICAL SCALING:    R* =   1.000000000000E+00  M* =   9.984177199233E+03  V* =   6.552931154910E+00  T* =   1.494873312902E-01  <M> =   5.017174471976E-01  SU =   4.436632063264E+07
 
-            TOTAL MASS =  5017.2  TIDAL(1&3) =  1.52E-03 -6.07E-03  PC/GM =  2.33E-08
+            TOTAL MASS =  9984.2  TIDAL(1&3) =  1.52E-03 -6.07E-03  PC/GM =  2.33E-08
 
-            TIDAL PARAMETERS:    7.05E-05  0.00E+00 -2.81E-04  1.14E-02  TSCALE = 2.11E-01  RTIDE =  24.20242
+            TIDAL PARAMETERS:    3.54E-05  0.00E+00 -1.41E-04  8.06E-03  TSCALE = 1.49E-01  RTIDE =  30.44154
 
 
 
@@ -121,36 +121,36 @@ MPI-initial: This is rank=     0 size=     1 group=          2
                      13  13 113 113 113 113 113  13 113 113  13  13  13  14  14
                      14  14 114 114 114 114 114  14 114 114  14  14  14  14  14
 
- Binary parameters: R12(min)[AU]       0.000000 R12(max)[AU]       0.000000 MCM(min)[M*]       0.000000 MCM(max)[M*]       0.000000 P[min][days]   8.105688-307 P[max][days]   1.193277-313
+ Binary parameters: R12(min)[AU]       0.000000 R12(max)[AU]       0.000000 MCM(min)[M*]       0.000000 MCM(max)[M*]       0.000000 P[min][days]   5.342750-307 P[max][days]   8.289735-314
 
- Fpoly0 + Neighbor List Timing:        0.275413
+ Fpoly0 + Neighbor List Timing:        0.357250
 
- KS Perturbers List Initialization Timing:        0.001315
+ KS Perturbers List Initialization Timing:        0.001055
 
-            WARNING!   SMALL NEIGHBOUR NUMBERS   <NNB> = 39.6
+            WARNING!   SMALL NEIGHBOUR NUMBERS   <NNB> = 39.7
 
            TIME   M/MT(  all  ):  1.00D-03  3.00D-03  5.00D-03  1.00D-02  3.00D-02  5.00D-02  1.00D-01  2.00D-01  3.00D-01  4.00D-01  5.00D-01  6.00D-01  7.00D-01  8.00D-01  9.00D-01  9.50D-01  9.90D-01  1.00D+00  <RC(massive)
-     0.0000D+00           RLAGR:  6.42D-02  9.45D-02  1.02D-01  1.15D-01  1.81D-01  2.29D-01  3.01D-01  4.26D-01  5.37D-01  6.62D-01  7.83D-01  9.21D-01  1.16D+00  1.47D+00  2.19D+00  2.91D+00  4.80D+00  6.13D+00  3.15D-01
-     0.0000D+00          AVMASS:  4.78D-05  6.64D-05  5.77D-05  7.58D-05  6.28D-05  5.72D-05  5.63D-05  5.29D-05  5.18D-05  5.03D-05  5.08D-05  5.11D-05  5.01D-05  5.02D-05  4.97D-05  5.00D-05  5.00D-05  5.00D-05  5.54D-05
-     0.0000D+00          NPARTC:        21        64        87       132       478       874      1778      3800      5797      7961      9835     11741     13984     15925     18102     19012     19810     20000      1995
+     0.0000D+00           RLAGR:  6.34D-02  9.40D-02  1.02D-01  1.18D-01  1.82D-01  2.30D-01  3.03D-01  4.26D-01  5.38D-01  6.61D-01  7.83D-01  9.23D-01  1.15D+00  1.47D+00  2.17D+00  2.91D+00  4.83D+00  6.12D+00  3.16D-01
+     0.0000D+00          AVMASS:  4.95D-05  6.70D-05  5.79D-05  7.26D-05  6.09D-05  5.62D-05  5.52D-05  5.26D-05  5.15D-05  5.03D-05  5.08D-05  5.09D-05  5.01D-05  5.02D-05  4.98D-05  5.00D-05  5.00D-05  5.00D-05  5.45D-05
+     0.0000D+00          NPARTC:        21        62        87       138       493       891      1812      3817      5820      7952      9848     11779     13970     15930     18078     19012     19814     20000      2010
 
            TIME  M/MT(massless):  1.00D-03  3.00D-03  5.00D-03  1.00D-02  3.00D-02  5.00D-02  1.00D-01  2.00D-01  3.00D-01  4.00D-01  5.00D-01  6.00D-01  7.00D-01  8.00D-01  9.00D-01  9.50D-01  9.90D-01  1.00D+00  <RC(massless)
-     0.0000D+00           RLAGR:  5.81D-02  8.13D-02  1.01D-01  1.32D-01  2.00D-01  2.38D-01  3.15D-01  4.34D-01  5.50D-01  6.63D-01  7.90D-01  9.41D-01  1.15D+00  1.49D+00  2.12D+00  2.89D+00  4.87D+00  6.11D+00  0.00D+00
-     0.0000D+00          NPARTC:        10        30        50       100       300       500      1000      2000      3000      4000      5000      6000      7000      8000      9000      9500      9900     10000
+     0.0000D+00           RLAGR:  7.48D-02  1.50D-01  1.98D-01  2.03D-01  2.24D-01  2.24D-01  2.91D-01  4.26D-01  5.10D-01  6.45D-01  7.43D-01  8.40D-01  1.02D+00  1.35D+00  1.82D+00  2.05D+00  2.73D+00  4.53D+00  0.00D+00
+     0.0000D+00          NPARTC:         1         2         3         4         5         6        11        21        31        41        51        61        71        81        91        95        99       100
 
- ADJUST:  TIME    0.00000D+00  T[Myr]    0.00  Q 0.50  DE   0.000E+00 DELTA   0.000E+00 DETOT   0.000E+00 E  -2.499E-01 EKIN   2.500E-01 POT   5.000E-01 ETIDE   5.812E-05 ETOT  -2.499E-01 EBIN   0.000E+00 EMERGE   0.000E+00 ESUB   0.000E+00 ECOLL   0.000E+00 EMDOT   0.000E+00 ECDOT   0.000E+00
+ ADJUST:  TIME    0.00000D+00  T[Myr]    0.00  Q 0.50  DE   0.000E+00 DELTA   0.000E+00 DETOT   0.000E+00 E  -2.500E-01 EKIN   2.500E-01 POT   5.000E-01 ETIDE   2.975E-05 ETOT  -2.500E-01 EBIN   0.000E+00 EMERGE   0.000E+00 ESUB   0.000E+00 ECOLL   0.000E+00 EMDOT   0.000E+00 ECDOT   0.000E+00
 
-  RMIN = 5.0E-04  DTMIN = 4.0E-06 RHOM = 1.1E+02 RSCALE = 7.8E-01 RSMIN = 1.0E-01  ECLOSE = 1.00  TC =    0
+  RMIN = 5.0E-04  DTMIN = 4.0E-06 RHOM = 9.1E+01 RSCALE = 7.8E-01 RSMIN = 1.0E-01  ECLOSE = 1.00  TC =    0
   PE       N        Total     Inti.    Intgrt      Reg.      Irr.     Pred.   Init.B.      Mdot      Move   Comm.I.   Comm.R.   Send.I.   Send.R.        KS    Adjust     OUT      Barr.   Barr.I.   Barr.R. Reg.GPU.S Reg.GPU.P Comm.Adj. Mdot.Fic.  Mdot.Fc. Mdot.Pot.  Mdot.EC.   Sort.B.    HighV  KS.Init.B  KS.Int.S  KS.Int.P  KS.Comm.  KS.Barr.   KS.Move   KS.Cmb. KS.Insert  KS.Init.  KS.Term.     Hiar.     KS.UP       xtsub1       xtsub2
-   1   20000      1.84773      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00  0.00000D+00  0.00000D+00
+   1   20000      0.86383      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00  0.00000D+00  0.00000D+00
 
 
- TIME[NB]    0.000000E+00  N    20000  <NB>    39  NPAIRS       0  NMERGE     0 MULT    0 NS    20000  NSTEP(I,B,R,U)             0            0            0            0  DE    0.000000E+00  E         -0.249942
+ TIME[NB]    0.000000E+00  N    20000  <NB>    39  NPAIRS       0  NMERGE     0 MULT    0 NS    19900 NSPL=   100  NSTEP(I,B,R,U)             0            0            0            0  DE    0.000000E+00  E         -0.249970
 
- NRUN =  1  M# =  1  CPU = 3.08345E-02  TRC = 77.4  DMIN = 1.0E+02 1.0E+02 1.0E+02 1.0E+02  AMIN = 1.0E+02  RMAX = 0.0E+00  RSMIN = 0.10  NEFF =  2756
+ NRUN =  1  M# =  1  CPU = 1.44497E-02  TRC = 38.9  DMIN = 1.0E+02 1.0E+02 1.0E+02 1.0E+02  AMIN = 1.0E+02  RMAX = 0.0E+00  RSMIN = 0.10  NEFF =  3691
 
     <R>  RTIDE  RDENS   RC      NC   MC   RHOD   RHOM  CMAX   <Cn>  Ir/R      UN      NP    RCM    VCM         AZ     EB/E   EM/E   TCR     T6  NESC  VRMS
- #1 0.78  24.2   0.04  0.32   1995  0.110    8.   106.    8.  77.5  0.02       0       0    0.000  0.0000   0.015044 -0.000 -0.000  2.83     0     0   3.7
+ #1 0.78  30.4   0.03  0.32   1997  0.109    6.    91.    8.  79.1  0.02       0       0    0.000  0.0000   0.011022 -0.000 -0.000  2.83     0     0   5.2
 
           NIRRF      NBCORR  NNPRED  NBFULL  NBVOID   NICONV  NLSMIN NBSMIN   NBDIS  NBDIS2  NCMDER  NFAST NBFAST      NBLOCK      NBLCKR    NBFLUX
  #2           0           0       0       0       0       0       0       0       0       0       0      0      0           0           0         0
@@ -159,586 +159,773 @@ MPI-initial: This is rank=     0 size=     1 group=          2
  #3          0          0          0          0       0       0       0        0        0        0       0       0       0       0
 
         NMDOT NRG  NHE  NRS  NNH  NWD  NSN  NBH  NBS  ZMRG  ZMHE  ZMRS  ZMNH  ZMWD  ZMSN   ZMDOT  NTYPE
- #4        0    0    0    0    0    0    0    0    0   0.0   0.0   0.0   0.0   0.0   0.0     0.0  18467  1533
+ #4        0    0    0    0    0    0    0    0    0   0.0   0.0   0.0   0.0   0.0   0.0     0.0  16817  3183
 
       NDISS NTIDE  NSYNC  NCOLL  NCOAL  NDD  NCIRC  NROCHE  NRO  NCE  NHYP  NHYPC  NKICK  EBIN   EMERGE  ECOLL  EMDOT  ECDOT  EKICK  ESESC   EBESC  EMESC  DEGRAV   EBIND  MMAX
- #5       0     0      0      0      0    0      0       0    0    0     0      0      0   0.000   0.000   0.000  0.000  0.000  0.000  0.000   0.000  0.000   0.000  -0.250  11.6
- STEP I  (massive)      0      0      0      0      0      8    148    455   1090   2312   2436   1496    896    572    298    169     82     27     10      1
- STEP R  (massive)      0      0      0      0      0      8    154    480   1191   3531   3740    776    107     13
- STEP I (massless)      0      0      0      0      0     12    146    455   1092   2293   2386   1494    923    551    324    183     82     41     12      5      1
- STEP R (massless)      0      0      0      0      0     12    150    469   1200   3470   3746    806    124     20      3
+ #5       0     0      0      0      0    0      0       0    0    0     0      0      0   0.000   0.000   0.000  0.000  0.000  0.000  0.000   0.000  0.000   0.000  -0.250  19.8
+ STEP I  (massive)      0      0      0      0      0     19    290    912   2162   4561   4753   2958   1823   1140    625    383    158     78     31      4      2      1
+
+ STEP R  (massive)      0      0      0      0      0     20    300    948   2360   7126   7443   1464    207     29      3
+ STEP I (massless)      0      0      0      0      0      0      1      1      9     19     32     12     10     11      3      2
+ STEP R (massless)      0      0      0      0      0      0      1      1     10     30     50      6      2
  Max Speedup Irr:     4 0.00D+00    8 0.00D+00   16 0.00D+00   32 0.00D+00   64 0.00D+00  128 0.00D+00  256 0.00D+00  512 0.00D+00 1024 0.00D+00
  Max Speedup Reg:     4 0.00D+00    8 0.00D+00   16 0.00D+00   32 0.00D+00   64 0.00D+00  128 0.00D+00  256 0.00D+00  512 0.00D+00 1024 0.00D+00
  ANSI output all particles  with time interval   0.12500000000000000     
  Warning!: Maximum time step    1.0000000000000000       > Output interval   0.12500000000000000       Wide bianries cannot be detected for  Non-active particles!
  CUSTOM OUTPUT: TTOT   0.0000000000000000      N_SINGLE       20000 N_BINARY           0 N_MERGER           0
 
- NEW KSREG   TIME[NB] 6.3343048096E-02 NAME(I1)      3795 NAME(I2)      6476 M(I1)[M*]    0.339 M(I2)[M*]    0.222 DTAU   0.060 R12[NB]  3.4E-04 RI[NB]   0.35 H     1.39 IPAIR        1 NAME(ICM)     23795 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT    6 NB(ICM)   78
+ NEW KSREG   TIME[NB] 6.3282012939E-02 NAME(I1)      3795 NAME(I2)      6476 M(I1)[M*]    0.580 M(I2)[M*]    0.380 DTAU   0.060 R12[NB]  3.8E-04 RI[NB]   0.35 H     1.39 IPAIR        1 NAME(ICM)     23795 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT    8 NB(ICM)   78
 
- END KSREG   TIME[NB] 6.4086914062E-02 NAME(I1)      3795 NAME(I2)      6476 M(I1)[M*]    0.339 M(I2)[M*]    0.222 DTAU   0.059 R12[NB]  1.0E-03 RI[NB]   0.35 H     1.39 IPAIR        1 NAME(ICM)     23795 GAMMA   0.000 STEP(I1)    6.3E-05 NPERT    6 NB(ICM)   71
- CUSTOM OUTPUT: TTOT  0.12500000000000000      N_SINGLE       19984 N_BINARY           8 N_MERGER           0
+ END KSREG   TIME[NB] 6.4117431641E-02 NAME(I1)      3795 NAME(I2)      6476 M(I1)[M*]    0.580 M(I2)[M*]    0.380 DTAU   0.058 R12[NB]  1.1E-03 RI[NB]   0.35 H     1.39 IPAIR        1 NAME(ICM)     23795 GAMMA   0.000 STEP(I1)    6.7E-05 NPERT    8 NB(ICM)   71
 
- NEW KSREG   TIME[NB] 2.2529220581E-01 NAME(I1)      6019 NAME(I2)      9413 M(I1)[M*]    0.238 M(I2)[M*]    0.147 DTAU   0.130 R12[NB]  1.8E-04 RI[NB]   0.35 H     0.29 IPAIR        1 NAME(ICM)     26019 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT    4 NB(ICM)   68
+ NEW KSREG   TIME[NB] 8.9145660400E-02 NAME(I1)     13097 NAME(I2)     14405 M(I1)[M*]    0.162 M(I2)[M*]    0.140 DTAU   0.039 R12[NB]  3.8E-04 RI[NB]   0.20 H     2.79 IPAIR        1 NAME(ICM)     33097 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT   21 NB(ICM)   86
 
- END KSREG   TIME[NB] 2.2653198242E-01 NAME(I1)      6019 NAME(I2)      9413 M(I1)[M*]    0.238 M(I2)[M*]    0.147 DTAU   0.046 R12[NB]  1.0E-03 RI[NB]   0.35 H     0.29 IPAIR        1 NAME(ICM)     26019 GAMMA   0.001 STEP(I1)    4.8E-05 NPERT    4 NB(ICM)   65
- CUSTOM OUTPUT: TTOT  0.25000000000000000      N_SINGLE       19984 N_BINARY           8 N_MERGER           0
+ END KSREG   TIME[NB] 8.9630126953E-02 NAME(I1)     13097 NAME(I2)     14405 M(I1)[M*]    0.162 M(I2)[M*]    0.140 DTAU   0.022 R12[NB]  1.0E-03 RI[NB]   0.20 H     2.79 IPAIR        1 NAME(ICM)     33097 GAMMA   0.006 STEP(I1)    2.2E-05 NPERT   21 NB(ICM)   84
+ CUSTOM OUTPUT: TTOT  0.12500000000000000      N_SINGLE       19986 N_BINARY           7 N_MERGER           0
 
- NEW KSREG   TIME[NB] 3.3436203003E-01 NAME(I1)      1236 NAME(I2)      6395 M(I1)[M*]    0.795 M(I2)[M*]    0.224 DTAU   0.059 R12[NB]  3.1E-04 RI[NB]   0.46 H     1.41 IPAIR        1 NAME(ICM)     21236 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT    1 NB(ICM)   78
+ NEW KSREG   TIME[NB] 1.7500686646E-01 NAME(I1)      7439 NAME(I2)     12082 M(I1)[M*]    0.332 M(I2)[M*]    0.183 DTAU   0.054 R12[NB]  3.1E-04 RI[NB]   0.17 H     1.67 IPAIR        1 NAME(ICM)     27439 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT   18 NB(ICM)   92
 
- END KSREG   TIME[NB] 3.3505249023E-01 NAME(I1)      1236 NAME(I2)      6395 M(I1)[M*]    0.795 M(I2)[M*]    0.224 DTAU   0.059 R12[NB]  1.1E-03 RI[NB]   0.46 H     1.41 IPAIR        1 NAME(ICM)     21236 GAMMA   0.000 STEP(I1)    6.7E-05 NPERT    1 NB(ICM)   76
- CUSTOM OUTPUT: TTOT  0.37500000000000000      N_SINGLE       19982 N_BINARY           9 N_MERGER           0
- CUSTOM OUTPUT: TTOT  0.50000000000000000      N_SINGLE       19982 N_BINARY           9 N_MERGER           0
+ END KSREG   TIME[NB] 1.7559814453E-01 NAME(I1)      7439 NAME(I2)     12082 M(I1)[M*]    0.332 M(I2)[M*]    0.183 DTAU   0.042 R12[NB]  1.0E-03 RI[NB]   0.17 H     1.67 IPAIR        1 NAME(ICM)     27439 GAMMA   0.001 STEP(I1)    4.3E-05 NPERT   18 NB(ICM)   88
+ CUSTOM OUTPUT: TTOT  0.25000000000000000      N_SINGLE       19986 N_BINARY           7 N_MERGER           0
+ CUSTOM OUTPUT: TTOT  0.37500000000000000      N_SINGLE       19980 N_BINARY          10 N_MERGER           0
 
- NEW KSREG   TIME[NB] 5.6497573853E-01 NAME(I1)      5911 NAME(I2)      7253 M(I1)[M*]    0.241 M(I2)[M*]    0.199 DTAU   0.135 R12[NB]  1.6E-04 RI[NB]   0.49 H     0.09 IPAIR        1 NAME(ICM)     25911 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT    3 NB(ICM)   96
+ NEW KSREG   TIME[NB] 4.0118026733E-01 NAME(I1)     11653 NAME(I2)     17862 M(I1)[M*]    0.192 M(I2)[M*]    0.098 DTAU   0.102 R12[NB]  1.9E-04 RI[NB]   0.38 H     0.48 IPAIR        1 NAME(ICM)     31653 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT   16 NB(ICM)  108
 
- END KSREG   TIME[NB] 5.6652832031E-01 NAME(I1)      5911 NAME(I2)      7253 M(I1)[M*]    0.241 M(I2)[M*]    0.199 DTAU   0.053 R12[NB]  1.0E-03 RI[NB]   0.49 H     0.09 IPAIR        1 NAME(ICM)     25911 GAMMA   0.000 STEP(I1)    5.4E-05 NPERT    3 NB(ICM)   88
+ END KSREG   TIME[NB] 4.0231323242E-01 NAME(I1)     11653 NAME(I2)     17862 M(I1)[M*]    0.192 M(I2)[M*]    0.098 DTAU   0.040 R12[NB]  1.0E-03 RI[NB]   0.38 H     0.48 IPAIR        1 NAME(ICM)     31653 GAMMA   0.000 STEP(I1)    4.1E-05 NPERT   16 NB(ICM)  101
 
- NEW KSREG   TIME[NB] 5.7129669189E-01 NAME(I1)         7 NAME(I2)      6625 M(I1)[M*]   10.031 M(I2)[M*]    0.217 DTAU   0.045 R12[NB]  4.2E-04 RI[NB]   0.41 H     0.14 IPAIR        1 NAME(ICM)     20007 GAMMA   0.000 STEP(ICM)   7.6E-06 NPERT    1 NB(ICM)  104
+ NEW KSREG   TIME[NB] 4.2057418823E-01 NAME(I1)     10071 NAME(I2)     14878 M(I1)[M*]    0.232 M(I2)[M*]    0.133 DTAU   0.100 R12[NB]  1.8E-04 RI[NB]   0.55 H     0.50 IPAIR        1 NAME(ICM)     30071 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT    3 NB(ICM)   73
 
- END KSREG   TIME[NB] 5.7183837891E-01 NAME(I1)         7 NAME(I2)      6625 M(I1)[M*]   10.031 M(I2)[M*]    0.217 DTAU   0.029 R12[NB]  1.0E-03 RI[NB]   0.41 H     0.14 IPAIR        1 NAME(ICM)     20007 GAMMA   0.000 STEP(I1)    3.0E-05 NPERT    1 NB(ICM)  100
-  0 Warning!: Irregular step jumping! I   9204 N   9204 ratio 0.940E-01 dt0 0.00018360886813449 step 0.00195312500000000 stepr 0.00195312500000000 FI-0.21074E+00 FD-0.17287E+01 D2-0.21987E+05 D3-0.22231E+08 t  0.57226562500000000 t0  0.57031250000000000 t0r  0.57031250000000000 NB  94 LIST1      1 N1      7
-  0 Warning!: Irregular step jumping! I    166 N    166 ratio 0.977E-01 dt0 0.00019085967057167 step 0.00195312500000000 stepr 0.00195312500000000 FI-0.11497E+00 FD-0.51075E+01 D2 0.11683E+06 D3 0.12021E+09 t  0.57226562500000000 t0  0.57031250000000000 t0r  0.57031250000000000 NB  90 LIST1      1 N1      7
- CUSTOM OUTPUT: TTOT  0.62500000000000000      N_SINGLE       19982 N_BINARY           9 N_MERGER           0
+ END KSREG   TIME[NB] 4.2163085938E-01 NAME(I1)     10071 NAME(I2)     14878 M(I1)[M*]    0.232 M(I2)[M*]    0.133 DTAU   0.026 R12[NB]  1.0E-03 RI[NB]   0.55 H     0.50 IPAIR        1 NAME(ICM)     30071 GAMMA   0.003 STEP(I1)    2.7E-05 NPERT    3 NB(ICM)   68
+ CUSTOM OUTPUT: TTOT  0.50000000000000000      N_SINGLE       19990 N_BINARY           5 N_MERGER           0
 
- NEW KSREG   TIME[NB] 7.0011520386E-01 NAME(I1)       463 NAME(I2)      1542 M(I1)[M*]    1.623 M(I2)[M*]    0.656 DTAU   0.090 R12[NB]  3.7E-04 RI[NB]   0.41 H     0.25 IPAIR        1 NAME(ICM)     20463 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT    1 NB(ICM)   99
+ NEW KSREG   TIME[NB] 5.0616836548E-01 NAME(I1)      6812 NAME(I2)      7889 M(I1)[M*]    0.363 M(I2)[M*]    0.310 DTAU   0.089 R12[NB]  2.5E-04 RI[NB]   0.45 H     0.63 IPAIR        1 NAME(ICM)     26812 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT    8 NB(ICM)  113
 
- END KSREG   TIME[NB] 7.0092773438E-01 NAME(I1)       463 NAME(I2)      1542 M(I1)[M*]    1.623 M(I2)[M*]    0.656 DTAU   0.054 R12[NB]  1.0E-03 RI[NB]   0.41 H     0.25 IPAIR        1 NAME(ICM)     20463 GAMMA   0.000 STEP(I1)    5.6E-05 NPERT    1 NB(ICM)  100
+ END KSREG   TIME[NB] 5.0718688965E-01 NAME(I1)      6812 NAME(I2)      7889 M(I1)[M*]    0.363 M(I2)[M*]    0.310 DTAU   0.043 R12[NB]  1.0E-03 RI[NB]   0.45 H     0.63 IPAIR        1 NAME(ICM)     26812 GAMMA   0.000 STEP(I1)    4.6E-05 NPERT    8 NB(ICM)   98
+ CUSTOM OUTPUT: TTOT  0.62500000000000000      N_SINGLE       19986 N_BINARY           7 N_MERGER           0
 
- NEW KSREG   TIME[NB] 7.2023391724E-01 NAME(I1)      3045 NAME(I2)      7653 M(I1)[M*]    0.400 M(I2)[M*]    0.187 DTAU   0.081 R12[NB]  3.0E-04 RI[NB]   0.25 H     0.74 IPAIR        1 NAME(ICM)     23045 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT    5 NB(ICM)  107
+ NEW KSREG   TIME[NB] 6.5458297729E-01 NAME(I1)        74 NAME(I2)     12526 M(I1)[M*]    8.870 M(I2)[M*]    0.173 DTAU   0.068 R12[NB]  4.2E-04 RI[NB]   0.36 H     0.04 IPAIR        1 NAME(ICM)     20074 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT    1 NB(ICM)  108
 
- END KSREG   TIME[NB] 7.2116088867E-01 NAME(I1)      3045 NAME(I2)      7653 M(I1)[M*]    0.400 M(I2)[M*]    0.187 DTAU   0.036 R12[NB]  1.0E-03 RI[NB]   0.25 H     0.74 IPAIR        1 NAME(ICM)     23045 GAMMA   0.001 STEP(I1)    3.7E-05 NPERT    5 NB(ICM)  101
+ END KSREG   TIME[NB] 6.5533447266E-01 NAME(I1)        74 NAME(I2)     12526 M(I1)[M*]    8.870 M(I2)[M*]    0.173 DTAU   0.044 R12[NB]  1.0E-03 RI[NB]   0.36 H     0.04 IPAIR        1 NAME(ICM)     20074 GAMMA   0.000 STEP(I1)    4.6E-05 NPERT    1 NB(ICM)   99
 
- NEW KSREG   TIME[NB] 7.2689437866E-01 NAME(I1)      8313 NAME(I2)      9860 M(I1)[M*]    0.170 M(I2)[M*]    0.139 DTAU   0.169 R12[NB]  1.8E-04 RI[NB]   0.73 H     0.06 IPAIR        1 NAME(ICM)     28313 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT    2 NB(ICM)   87
+ NEW KSREG   TIME[NB] 6.8625259399E-01 NAME(I1)     13139 NAME(I2)     16220 M(I1)[M*]    0.161 M(I2)[M*]    0.116 DTAU   0.082 R12[NB]  2.7E-04 RI[NB]   0.21 H     0.73 IPAIR        1 NAME(ICM)     33139 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT   22 NB(ICM)   83
 
- END KSREG   TIME[NB] 7.2872924805E-01 NAME(I1)      8313 NAME(I2)      9860 M(I1)[M*]    0.170 M(I2)[M*]    0.139 DTAU   0.070 R12[NB]  1.0E-03 RI[NB]   0.73 H     0.06 IPAIR        1 NAME(ICM)     28313 GAMMA   0.000 STEP(I1)    7.2E-05 NPERT    2 NB(ICM)   83
+ END KSREG   TIME[NB] 6.8725585938E-01 NAME(I1)     13139 NAME(I2)     16220 M(I1)[M*]    0.161 M(I2)[M*]    0.116 DTAU   0.040 R12[NB]  1.0E-03 RI[NB]   0.21 H     0.73 IPAIR        1 NAME(ICM)     33139 GAMMA   0.000 STEP(I1)    4.1E-05 NPERT   22 NB(ICM)   80
  CUSTOM OUTPUT: TTOT  0.75000000000000000      N_SINGLE       19978 N_BINARY          11 N_MERGER           0
- CUSTOM OUTPUT: TTOT  0.87500000000000000      N_SINGLE       19982 N_BINARY           9 N_MERGER           0
+
+ NEW KSREG   TIME[NB] 7.7854537964E-01 NAME(I1)       396 NAME(I2)      6408 M(I1)[M*]    3.059 M(I2)[M*]    0.384 DTAU   0.093 R12[NB]  3.0E-04 RI[NB]   0.38 H     0.40 IPAIR        1 NAME(ICM)     20396 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT    2 NB(ICM)   79
+
+ END KSREG   TIME[NB] 7.7944946289E-01 NAME(I1)       396 NAME(I2)      6408 M(I1)[M*]    3.059 M(I2)[M*]    0.384 DTAU   0.050 R12[NB]  1.0E-03 RI[NB]   0.38 H     0.40 IPAIR        1 NAME(ICM)     20396 GAMMA   0.000 STEP(I1)    5.1E-05 NPERT    2 NB(ICM)   76
+ CUSTOM OUTPUT: TTOT  0.87500000000000000      N_SINGLE       19984 N_BINARY           8 N_MERGER           0
+
+ NEW KSREG   TIME[NB] 9.1764068604E-01 NAME(I1)       613 NAME(I2)     15905 M(I1)[M*]    2.264 M(I2)[M*]    0.120 DTAU   0.092 R12[NB]  3.3E-04 RI[NB]   0.33 H     0.59 IPAIR        1 NAME(ICM)     20613 GAMMA   0.000 STEP(ICM)   7.6E-06 NPERT    3 NB(ICM)  106
+
+ END KSREG   TIME[NB] 9.1851806641E-01 NAME(I1)       613 NAME(I2)     15905 M(I1)[M*]    2.264 M(I2)[M*]    0.120 DTAU   0.052 R12[NB]  1.0E-03 RI[NB]   0.33 H     0.59 IPAIR        1 NAME(ICM)     20613 GAMMA   0.000 STEP(I1)    5.5E-05 NPERT    3 NB(ICM)   97
+
+ NEW KSREG   TIME[NB] 9.3358230591E-01 NAME(I1)        34 NAME(I2)     13568 M(I1)[M*]   11.799 M(I2)[M*]    0.153 DTAU   0.059 R12[NB]  4.2E-04 RI[NB]   0.36 H     0.98 IPAIR        1 NAME(ICM)     20034 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT    1 NB(ICM)   85
+
+ END KSREG   TIME[NB] 9.3420410156E-01 NAME(I1)        34 NAME(I2)     13568 M(I1)[M*]   11.799 M(I2)[M*]    0.153 DTAU   0.037 R12[NB]  1.1E-03 RI[NB]   0.36 H     0.98 IPAIR        1 NAME(ICM)     20034 GAMMA   0.000 STEP(I1)    4.1E-05 NPERT    1 NB(ICM)   80
+
+ NEW KSREG   TIME[NB] 9.5405960083E-01 NAME(I1)      1766 NAME(I2)      5474 M(I1)[M*]    1.028 M(I2)[M*]    0.439 DTAU   0.122 R12[NB]  2.2E-04 RI[NB]   0.63 H     0.02 IPAIR        1 NAME(ICM)     21766 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT    2 NB(ICM)  122
+
+ END KSREG   TIME[NB] 9.5559692383E-01 NAME(I1)      1766 NAME(I2)      5474 M(I1)[M*]    1.028 M(I2)[M*]    0.439 DTAU   0.056 R12[NB]  1.0E-03 RI[NB]   0.63 H     0.02 IPAIR        1 NAME(ICM)     21766 GAMMA   0.000 STEP(I1)    5.8E-05 NPERT    2 NB(ICM)  110
+
+ NEW KSREG   TIME[NB] 9.5709609985E-01 NAME(I1)      1522 NAME(I2)     19874 M(I1)[M*]    1.141 M(I2)[M*]    0.081 DTAU   0.136 R12[NB]  2.3E-04 RI[NB]   0.33 H     0.24 IPAIR        1 NAME(ICM)     21522 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT    2 NB(ICM)   98
+
+ END KSREG   TIME[NB] 9.5837402344E-01 NAME(I1)      1522 NAME(I2)     19874 M(I1)[M*]    1.141 M(I2)[M*]    0.081 DTAU   0.062 R12[NB]  1.1E-03 RI[NB]   0.33 H     0.24 IPAIR        1 NAME(ICM)     21522 GAMMA   0.000 STEP(I1)    6.7E-05 NPERT    2 NB(ICM)   94
  CUSTOM OUTPUT: TTOT   1.0000000000000000      N_SINGLE       19982 N_BINARY           9 N_MERGER           0
 
            TIME   M/MT(  all  ):  1.00D-03  3.00D-03  5.00D-03  1.00D-02  3.00D-02  5.00D-02  1.00D-01  2.00D-01  3.00D-01  4.00D-01  5.00D-01  6.00D-01  7.00D-01  8.00D-01  9.00D-01  9.50D-01  9.90D-01  1.00D+00  <RC(massive)
-     0.1000D+01           RLAGR:  5.66D-02  8.63D-02  1.08D-01  1.33D-01  1.93D-01  2.25D-01  3.01D-01  4.19D-01  5.27D-01  6.56D-01  7.88D-01  9.43D-01  1.16D+00  1.46D+00  2.20D+00  2.90D+00  4.84D+00  6.35D+00  3.16D-01
-     0.1000D+01          AVMASS:  4.66D-05  4.53D-05  4.51D-05  4.84D-05  5.16D-05  5.55D-05  5.45D-05  5.34D-05  5.27D-05  5.05D-05  5.01D-05  5.03D-05  5.02D-05  5.02D-05  4.97D-05  5.00D-05  5.00D-05  5.00D-05  5.45D-05
-     0.1000D+01          NPARTC:        22        70       114       207       582       902      1837      3746      5691      7926      9997     11943     13945     15923     18107     18987     19818     20000      2075
+     0.1000D+01           RLAGR:  6.43D-02  8.68D-02  1.06D-01  1.29D-01  1.90D-01  2.26D-01  3.04D-01  4.22D-01  5.29D-01  6.57D-01  7.85D-01  9.40D-01  1.16D+00  1.47D+00  2.18D+00  2.89D+00  4.83D+00  6.34D+00  3.21D-01
+     0.1000D+01          AVMASS:  3.28D-05  4.90D-05  4.55D-05  5.12D-05  5.20D-05  5.47D-05  5.30D-05  5.27D-05  5.22D-05  5.02D-05  5.01D-05  5.03D-05  5.02D-05  5.02D-05  4.97D-05  5.00D-05  5.00D-05  5.00D-05  5.41D-05
+     0.1000D+01          NPARTC:        34        68       110       196       577       915      1890      3794      5748      7968      9985     11934     13944     15941     18092     18986     19818     20000      2163
 
            TIME  M/MT(massless):  1.00D-03  3.00D-03  5.00D-03  1.00D-02  3.00D-02  5.00D-02  1.00D-01  2.00D-01  3.00D-01  4.00D-01  5.00D-01  6.00D-01  7.00D-01  8.00D-01  9.00D-01  9.50D-01  9.90D-01  1.00D+00  <RC(massless)
-     0.1000D+01           RLAGR:  4.90D-02  7.33D-02  9.52D-02  1.24D-01  1.92D-01  2.34D-01  3.10D-01  4.32D-01  5.41D-01  6.56D-01  7.81D-01  9.36D-01  1.16D+00  1.48D+00  2.12D+00  2.91D+00  4.84D+00  6.18D+00  0.00D+00
-     0.1000D+01          NPARTC:        10        30        50       100       300       500      1000      2000      3000      4000      5000      6000      7000      8000      9000      9500      9900     10000
+     0.1000D+01           RLAGR:  5.86D-02  1.42D-01  2.09D-01  2.29D-01  2.34D-01  2.43D-01  2.76D-01  3.70D-01  4.51D-01  6.07D-01  7.18D-01  9.12D-01  1.07D+00  1.30D+00  1.67D+00  2.09D+00  2.55D+00  4.38D+00  0.00D+00
+     0.1000D+01          NPARTC:         1         2         3         4         5         6        11        21        31        41        51        61        71        81        91        95        99       100
 
- ADJUST:  TIME    1.00000D+00  T[Myr]    0.21  Q 0.50  DE  -1.692E-09 DELTA  -4.233E-10 DETOT  -4.233E-10 E  -2.499E-01 EKIN   2.501E-01 POT   5.001E-01 ETIDE   5.807E-05 ETOT  -2.499E-01 EBIN   0.000E+00 EMERGE   0.000E+00 ESUB   0.000E+00 ECOLL   0.000E+00 EMDOT   0.000E+00 ECDOT   0.000E+00
+ ADJUST:  TIME    1.00000D+00  T[Myr]    0.15  Q 0.50  DE  -9.515E-08 DELTA  -2.379E-08 DETOT  -2.379E-08 E  -2.500E-01 EKIN   2.500E-01 POT   5.000E-01 ETIDE   2.968E-05 ETOT  -2.500E-01 EBIN   0.000E+00 EMERGE   0.000E+00 ESUB   0.000E+00 ECOLL   0.000E+00 EMDOT   0.000E+00 ECDOT   0.000E+00
 
-  RMIN = 5.0E-04  DTMIN = 4.0E-06 RHOM = 5.0E+01 RSCALE = 7.9E-01 RSMIN = 8.0E-02  ECLOSE = 1.00  TC =    0
+  RMIN = 5.0E-04  DTMIN = 4.0E-06 RHOM = 3.4E+01 RSCALE = 7.9E-01 RSMIN = 8.0E-02  ECLOSE = 1.00  TC =    0
   PE       N        Total     Inti.    Intgrt      Reg.      Irr.     Pred.   Init.B.      Mdot      Move   Comm.I.   Comm.R.   Send.I.   Send.R.        KS    Adjust     OUT      Barr.   Barr.I.   Barr.R. Reg.GPU.S Reg.GPU.P Comm.Adj. Mdot.Fic.  Mdot.Fc. Mdot.Pot.  Mdot.EC.   Sort.B.    HighV  KS.Init.B  KS.Int.S  KS.Int.P  KS.Comm.  KS.Barr.   KS.Move   KS.Cmb. KS.Insert  KS.Init.  KS.Term.     Hiar.     KS.UP       xtsub1       xtsub2
-   1   20000     11.40096      2.04      9.27      2.70      3.61      0.03      0.45      0.00      0.53      0.00      0.00      0.13      0.12      0.11      0.22      1.50      0.00      0.00      0.00      0.19      2.50      0.00      0.00      0.00      0.00      0.00      0.07      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.03      0.02      0.02      0.00  0.00000D+00  0.00000D+00
+   1   20000     15.06939      1.14     13.74      6.77      3.94      0.02      0.52      0.00      0.52      0.00      0.00      0.14      0.02      0.17      0.37      1.61      0.00      0.00      0.00      0.34      6.41      0.00      0.00      0.00      0.00      0.00      0.08      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.07      0.04      0.02      0.00  0.00000D+00  0.00000D+00
 
 
- TIME[NB]    1.000000E+00  N    20000  <NB>    60  NPAIRS       0  NMERGE     0 MULT    0 NS    20000  NSTEP(I,B,R,U)       8331498           93      1246550          299  DE   -0.169238E-08  E         -0.249942
+ TIME[NB]    1.000000E+00  N    20000  <NB>    61  NPAIRS       0  NMERGE     0 MULT    0 NS    19900 NSPL=   100  NSTEP(I,B,R,U)       9307054          148      1216111          513  DE   -0.951508E-07  E         -0.249970
 
- NRUN =  1  M# =  2  CPU = 1.90053E-01  TRC = 79.4  DMIN = 3.7E-05 3.7E-05 1.0E+02 1.0E+02  AMIN = 1.0E+02  RMAX = 0.0E+00  RSMIN = 0.08  NEFF =  2756
+ NRUN =  1  M# =  2  CPU = 2.51196E-01  TRC = 42.8  DMIN = 5.1E-05 5.1E-05 1.0E+02 1.0E+02  AMIN = 1.0E+02  RMAX = 0.0E+00  RSMIN = 0.08  NEFF =  3691
 
     <R>  RTIDE  RDENS   RC      NC   MC   RHOD   RHOM  CMAX   <Cn>  Ir/R      UN      NP    RCM    VCM         AZ     EB/E   EM/E   TCR     T6  NESC  VRMS
- #1 0.79  24.2   0.05  0.32   2075  0.113    7.    50.    5.  81.5  0.03       0       0    0.000  0.0000   0.015046 -0.000 -0.000  2.83     0     0   3.7
+ #1 0.79  30.4   0.04  0.32   2148  0.117    5.    34.    5.  80.9  0.03       0       0    0.000  0.0000   0.011022 -0.000 -0.000  2.83     0     0   5.2
 
           NIRRF      NBCORR  NNPRED  NBFULL  NBVOID   NICONV  NLSMIN NBSMIN   NBDIS  NBDIS2  NCMDER  NFAST NBFAST      NBLOCK      NBLCKR    NBFLUX
- #2   612370068     1179728     681       0    5444     673       0      19       0       0       0      0      0       31107         681  11299082
+ #2   684384177     1144631     737       0    3857    2351       0      18       0       0       0      0      0       32872         737  11277891
 
         NKSTRY     NKSREG     NKSHYP     NKSPER  NKSMOD   NTTRY   NTRIP    NQUAD  NCHAIN     NMERG   NEWHI  NSTEPT  NSTEPQ  NSTEPC
- #3        568          8          8          0       0       0       0        0        0        0       0       0       0       0
+ #3         25         13         13          0       0       0       0        0        0        0       0       0       0       0
 
         NMDOT NRG  NHE  NRS  NNH  NWD  NSN  NBH  NBS  ZMRG  ZMHE  ZMRS  ZMNH  ZMWD  ZMSN   ZMDOT  NTYPE
- #4        0    0    0    0    0    0    0    0    0   0.0   0.0   0.0   0.0   0.0   0.0     0.0  18467  1533
+ #4        0    0    0    0    0    0    0    0    0   0.0   0.0   0.0   0.0   0.0   0.0     0.0  16817  3183
 
       NDISS NTIDE  NSYNC  NCOLL  NCOAL  NDD  NCIRC  NROCHE  NRO  NCE  NHYP  NHYPC  NKICK  EBIN   EMERGE  ECOLL  EMDOT  ECDOT  EKICK  ESESC   EBESC  EMESC  DEGRAV   EBIND  MMAX
- #5       0     0      0      0      0    0      0       0    0    0     0      0      0   0.000   0.000   0.000  0.000  0.000  0.000  0.000   0.000  0.000   0.000  -0.250  11.6
- STEP I  (massive)      0      5     58     92    154    230    332   2294   3815   1926    711    268     90     19      4      2
- STEP R  (massive)      1     79    268    557   1235   3007   3149   1509    186      9
- STEP I (massless)      0      3     64     87    171    229    316   2311   3760   2002    706    244     87     17      3
- STEP R (massless)      1     92    272    579   1148   2973   3233   1477    218      7
- Max Speedup Irr:     4 3.97D+00    8 7.86D+00   16 1.54D+01   32 2.93D+01   64 5.37D+01  128 9.09D+01  256 1.39D+02  512 1.84D+02 1024 2.22D+02
- Max Speedup Reg:     4 4.00D+00    8 7.98D+00   16 1.59D+01   32 3.16D+01   64 6.24D+01  128 1.21D+02  256 2.31D+02  512 4.23D+02 1024 7.00D+02
+ #5       0     0      0      0      0    0      0       0    0    0     0      0      0   0.000   0.000   0.000  0.000  0.000  0.000  0.000   0.000  0.000   0.000  -0.250  19.8
+ STEP I  (massive)      0      1     42    124    206    376    636   4331   7166   4576   1582    616    182     45     16      1
+ STEP R  (massive)      1    178    563   1118   2527   6116   6310   2777    304      5      1
+ STEP I (massless)      0      0      0      0      1      1      1     23     31     31      4      7      1
+ STEP R (massless)      0      1      0      7      6     38     28     20
+ Max Speedup Irr:     4 3.98D+00    8 7.88D+00   16 1.54D+01   32 2.96D+01   64 5.41D+01  128 9.28D+01  256 1.41D+02  512 1.95D+02 1024 2.35D+02
+ Max Speedup Reg:     4 4.00D+00    8 7.98D+00   16 1.59D+01   32 3.16D+01   64 6.21D+01  128 1.21D+02  256 2.26D+02  512 4.11D+02 1024 6.68D+02
 
- NEW KSREG   TIME[NB] 1.0168418884E+00 NAME(I1)      2628 NAME(I2)      8526 M(I1)[M*]    0.444 M(I2)[M*]    0.166 DTAU   0.107 R12[NB]  2.1E-04 RI[NB]   0.52 H     0.44 IPAIR        1 NAME(ICM)     22628 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT    2 NB(ICM)  106
+ NEW KSREG   TIME[NB] 1.0170326233E+00 NAME(I1)      5381 NAME(I2)     10691 M(I1)[M*]    0.444 M(I2)[M*]    0.215 DTAU   0.150 R12[NB]  1.5E-04 RI[NB]   0.64 H     0.11 IPAIR        1 NAME(ICM)     25381 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT    4 NB(ICM)   87
 
- END KSREG   TIME[NB] 1.0177917480E+00 NAME(I1)      2628 NAME(I2)      8526 M(I1)[M*]    0.444 M(I2)[M*]    0.166 DTAU   0.045 R12[NB]  1.0E-03 RI[NB]   0.52 H     0.44 IPAIR        1 NAME(ICM)     22628 GAMMA   0.000 STEP(I1)    4.7E-05 NPERT    2 NB(ICM)  101
- CUSTOM OUTPUT: TTOT   1.1250000000000000      N_SINGLE       19986 N_BINARY           7 N_MERGER           0
- CUSTOM OUTPUT: TTOT   1.2500000000000000      N_SINGLE       19988 N_BINARY           6 N_MERGER           0
+ END KSREG   TIME[NB] 1.0186462402E+00 NAME(I1)      5381 NAME(I2)     10691 M(I1)[M*]    0.444 M(I2)[M*]    0.215 DTAU   0.056 R12[NB]  1.0E-03 RI[NB]   0.64 H     0.11 IPAIR        1 NAME(ICM)     25381 GAMMA   0.000 STEP(I1)    5.8E-05 NPERT    4 NB(ICM)   84
 
- NEW KSREG   TIME[NB] 1.2700691223E+00 NAME(I1)       128 NAME(I2)      2465 M(I1)[M*]    4.000 M(I2)[M*]    0.468 DTAU   0.064 R12[NB]  3.7E-04 RI[NB]   0.30 H     0.90 IPAIR        1 NAME(ICM)     20128 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT    3 NB(ICM)  108
+ NEW KSREG   TIME[NB] 1.0244789124E+00 NAME(I1)      5633 NAME(I2)     11180 M(I1)[M*]    0.431 M(I2)[M*]    0.204 DTAU   0.056 R12[NB]  3.0E-04 RI[NB]   0.31 H     1.61 IPAIR        1 NAME(ICM)     25633 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT    3 NB(ICM)   99
 
- END KSREG   TIME[NB] 1.2706909180E+00 NAME(I1)       128 NAME(I2)      2465 M(I1)[M*]    4.000 M(I2)[M*]    0.468 DTAU   0.038 R12[NB]  1.0E-03 RI[NB]   0.30 H     0.90 IPAIR        1 NAME(ICM)     20128 GAMMA   0.000 STEP(I1)    4.0E-05 NPERT    3 NB(ICM)  105
+ END KSREG   TIME[NB] 1.0251464844E+00 NAME(I1)      5633 NAME(I2)     11180 M(I1)[M*]    0.431 M(I2)[M*]    0.204 DTAU   0.055 R12[NB]  1.1E-03 RI[NB]   0.31 H     1.61 IPAIR        1 NAME(ICM)     25633 GAMMA   0.000 STEP(I1)    6.2E-05 NPERT    3 NB(ICM)   92
+ CUSTOM OUTPUT: TTOT   1.1250000000000000      N_SINGLE       19992 N_BINARY           4 N_MERGER           0
 
- NEW KSREG   TIME[NB] 1.3343620300E+00 NAME(I1)      1540 NAME(I2)      4141 M(I1)[M*]    0.658 M(I2)[M*]    0.317 DTAU   0.116 R12[NB]  2.7E-04 RI[NB]   0.40 H     0.37 IPAIR        1 NAME(ICM)     21540 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT    5 NB(ICM)  109
+ NEW KSREG   TIME[NB] 1.2112960815E+00 NAME(I1)      6657 NAME(I2)     17575 M(I1)[M*]    0.370 M(I2)[M*]    0.101 DTAU   0.046 R12[NB]  3.6E-04 RI[NB]   0.47 H     2.29 IPAIR        1 NAME(ICM)     26657 GAMMA   0.000 STEP(ICM)   7.6E-06 NPERT    7 NB(ICM)  121
 
- END KSREG   TIME[NB] 1.3353881836E+00 NAME(I1)      1540 NAME(I2)      4141 M(I1)[M*]    0.658 M(I2)[M*]    0.317 DTAU   0.059 R12[NB]  1.0E-03 RI[NB]   0.40 H     0.37 IPAIR        1 NAME(ICM)     21540 GAMMA   0.000 STEP(I1)    6.2E-05 NPERT    5 NB(ICM)  104
- CUSTOM OUTPUT: TTOT   1.3750000000000000      N_SINGLE       19984 N_BINARY           8 N_MERGER           0
+ END KSREG   TIME[NB] 1.2119140625E+00 NAME(I1)      6657 NAME(I2)     17575 M(I1)[M*]    0.370 M(I2)[M*]    0.101 DTAU   0.043 R12[NB]  1.1E-03 RI[NB]   0.47 H     2.29 IPAIR        1 NAME(ICM)     26657 GAMMA   0.000 STEP(I1)    4.9E-05 NPERT    7 NB(ICM)  109
+ CUSTOM OUTPUT: TTOT   1.2500000000000000      N_SINGLE       19990 N_BINARY           5 N_MERGER           0
 
- NEW KSREG   TIME[NB] 1.4358482361E+00 NAME(I1)         7 NAME(I2)      1376 M(I1)[M*]   10.031 M(I2)[M*]    0.729 DTAU   0.005 R12[NB]  5.0E-04 RI[NB]   0.19 H    -0.03 IPAIR        1 NAME(ICM)     20007 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT   36 NB(ICM)   77
+ NEW KSREG   TIME[NB] 1.2803153992E+00 NAME(I1)      5223 NAME(I2)      8291 M(I1)[M*]    0.456 M(I2)[M*]    0.293 DTAU   0.076 R12[NB]  2.4E-04 RI[NB]   0.67 H     0.86 IPAIR        1 NAME(ICM)     25223 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT    2 NB(ICM)   84
 
- END KSREG   TIME[NB] 1.4412231445E+00 NAME(I1)         7 NAME(I2)      1376 M(I1)[M*]   10.031 M(I2)[M*]    0.729 DTAU   0.004 R12[NB]  6.0E-03 RI[NB]   0.20 H    -0.03 IPAIR        1 NAME(ICM)     20007 GAMMA   0.039 STEP(I1)    2.4E-05 NPERT   36 NB(ICM)   77
- CUSTOM OUTPUT: TTOT   1.5000000000000000      N_SINGLE       19992 N_BINARY           4 N_MERGER           0
- CUSTOM OUTPUT: TTOT   1.6250000000000000      N_SINGLE       19990 N_BINARY           5 N_MERGER           0
+ END KSREG   TIME[NB] 1.2810974121E+00 NAME(I1)      5223 NAME(I2)      8291 M(I1)[M*]    0.456 M(I2)[M*]    0.293 DTAU   0.035 R12[NB]  1.0E-03 RI[NB]   0.67 H     0.86 IPAIR        1 NAME(ICM)     25223 GAMMA   0.000 STEP(I1)    3.7E-05 NPERT    2 NB(ICM)   85
 
- NEW KSREG   TIME[NB] 1.6811332703E+00 NAME(I1)      1620 NAME(I2)      3823 M(I1)[M*]    0.639 M(I2)[M*]    0.337 DTAU   0.049 R12[NB]  4.0E-04 RI[NB]   0.39 H     2.09 IPAIR        1 NAME(ICM)     21620 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT    2 NB(ICM)  105
+ NEW KSREG   TIME[NB] 1.3117485046E+00 NAME(I1)      6442 NAME(I2)      7594 M(I1)[M*]    0.382 M(I2)[M*]    0.324 DTAU   0.064 R12[NB]  2.7E-04 RI[NB]   0.19 H     1.22 IPAIR        1 NAME(ICM)     26442 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT    9 NB(ICM)  122
 
- END KSREG   TIME[NB] 1.6818237305E+00 NAME(I1)      1620 NAME(I2)      3823 M(I1)[M*]    0.639 M(I2)[M*]    0.337 DTAU   0.049 R12[NB]  1.1E-03 RI[NB]   0.39 H     2.09 IPAIR        1 NAME(ICM)     21620 GAMMA   0.000 STEP(I1)    5.5E-05 NPERT    2 NB(ICM)  100
- CUSTOM OUTPUT: TTOT   1.7500000000000000      N_SINGLE       19988 N_BINARY           6 N_MERGER           0
+ END KSREG   TIME[NB] 1.3124694824E+00 NAME(I1)      6442 NAME(I2)      7594 M(I1)[M*]    0.382 M(I2)[M*]    0.324 DTAU   0.061 R12[NB]  1.0E-03 RI[NB]   0.19 H     1.22 IPAIR        1 NAME(ICM)     26442 GAMMA   0.000 STEP(I1)    6.7E-05 NPERT    9 NB(ICM)  115
 
- NEW KSREG   TIME[NB] 1.7524909973E+00 NAME(I1)      1600 NAME(I2)      8553 M(I1)[M*]    0.643 M(I2)[M*]    0.165 DTAU   0.128 R12[NB]  2.7E-04 RI[NB]   0.82 H     0.04 IPAIR        1 NAME(ICM)     21600 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT    1 NB(ICM)   82
+ NEW KSREG   TIME[NB] 1.3372535706E+00 NAME(I1)      6698 NAME(I2)     16059 M(I1)[M*]    0.368 M(I2)[M*]    0.118 DTAU   0.163 R12[NB]  1.3E-04 RI[NB]   0.16 H     0.07 IPAIR        1 NAME(ICM)     26698 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT   13 NB(ICM)   85
 
- END KSREG   TIME[NB] 1.7537841797E+00 NAME(I1)      1600 NAME(I2)      8553 M(I1)[M*]    0.643 M(I2)[M*]    0.165 DTAU   0.066 R12[NB]  1.0E-03 RI[NB]   0.82 H     0.04 IPAIR        1 NAME(ICM)     21600 GAMMA   0.000 STEP(I1)    6.8E-05 NPERT    1 NB(ICM)   80
+ END KSREG   TIME[NB] 1.3392028809E+00 NAME(I1)      6698 NAME(I2)     16059 M(I1)[M*]    0.368 M(I2)[M*]    0.118 DTAU   0.056 R12[NB]  1.0E-03 RI[NB]   0.16 H     0.07 IPAIR        1 NAME(ICM)     26698 GAMMA   0.000 STEP(I1)    5.8E-05 NPERT   13 NB(ICM)   80
+ CUSTOM OUTPUT: TTOT   1.3750000000000000      N_SINGLE       19986 N_BINARY           7 N_MERGER           0
 
- NEW KSREG   TIME[NB] 1.8558769226E+00 NAME(I1)       631 NAME(I2)      5237 M(I1)[M*]    1.295 M(I2)[M*]    0.265 DTAU   0.097 R12[NB]  2.9E-04 RI[NB]   0.18 H     0.48 IPAIR        1 NAME(ICM)     20631 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT    4 NB(ICM)  105
+ NEW KSREG   TIME[NB] 1.4239387512E+00 NAME(I1)      4162 NAME(I2)     14007 M(I1)[M*]    0.541 M(I2)[M*]    0.146 DTAU   0.044 R12[NB]  3.8E-04 RI[NB]   0.27 H     2.53 IPAIR        1 NAME(ICM)     24162 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT   12 NB(ICM)   91
 
- END KSREG   TIME[NB] 1.8567504883E+00 NAME(I1)       631 NAME(I2)      5237 M(I1)[M*]    1.295 M(I2)[M*]    0.265 DTAU   0.052 R12[NB]  1.0E-03 RI[NB]   0.18 H     0.48 IPAIR        1 NAME(ICM)     20631 GAMMA   0.000 STEP(I1)    5.4E-05 NPERT    4 NB(ICM)  100
- CUSTOM OUTPUT: TTOT   1.8750000000000000      N_SINGLE       19984 N_BINARY           8 N_MERGER           0
+ END KSREG   TIME[NB] 1.4244079590E+00 NAME(I1)      4162 NAME(I2)     14007 M(I1)[M*]    0.541 M(I2)[M*]    0.146 DTAU   0.044 R12[NB]  1.0E-03 RI[NB]   0.27 H     2.53 IPAIR        1 NAME(ICM)     24162 GAMMA   0.000 STEP(I1)    4.7E-05 NPERT   12 NB(ICM)   86
+ CUSTOM OUTPUT: TTOT   1.5000000000000000      N_SINGLE       19986 N_BINARY           7 N_MERGER           0
 
- NEW KSREG   TIME[NB] 1.8875999451E+00 NAME(I1)       805 NAME(I2)      1885 M(I1)[M*]    1.080 M(I2)[M*]    0.573 DTAU   0.075 R12[NB]  3.0E-04 RI[NB]   0.32 H     0.89 IPAIR        1 NAME(ICM)     20805 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT    3 NB(ICM)  102
+ NEW KSREG   TIME[NB] 1.5278663635E+00 NAME(I1)      2892 NAME(I2)      8842 M(I1)[M*]    0.711 M(I2)[M*]    0.272 DTAU   0.063 R12[NB]  2.9E-04 RI[NB]   0.80 H     1.25 IPAIR        1 NAME(ICM)     22892 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT    1 NB(ICM)   53
 
- END KSREG   TIME[NB] 1.8883666992E+00 NAME(I1)       805 NAME(I2)      1885 M(I1)[M*]    1.080 M(I2)[M*]    0.573 DTAU   0.040 R12[NB]  1.0E-03 RI[NB]   0.32 H     0.89 IPAIR        1 NAME(ICM)     20805 GAMMA   0.000 STEP(I1)    4.3E-05 NPERT    3 NB(ICM)   97
+ END KSREG   TIME[NB] 1.5286254883E+00 NAME(I1)      2892 NAME(I2)      8842 M(I1)[M*]    0.711 M(I2)[M*]    0.272 DTAU   0.063 R12[NB]  1.0E-03 RI[NB]   0.79 H     1.25 IPAIR        1 NAME(ICM)     22892 GAMMA   0.000 STEP(I1)    6.8E-05 NPERT    1 NB(ICM)   52
 
- NEW KSREG   TIME[NB] 1.9558525085E+00 NAME(I1)       388 NAME(I2)      3873 M(I1)[M*]    1.814 M(I2)[M*]    0.334 DTAU   0.062 R12[NB]  3.9E-04 RI[NB]   0.29 H     1.29 IPAIR        1 NAME(ICM)     20388 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT    3 NB(ICM)  119
+ NEW KSREG   TIME[NB] 1.5679893494E+00 NAME(I1)      7889 NAME(I2)     16649 M(I1)[M*]    0.310 M(I2)[M*]    0.111 DTAU   0.186 R12[NB]  1.9E-04 RI[NB]   0.26 H     0.15 IPAIR        1 NAME(ICM)     27889 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT   13 NB(ICM)  108
 
- END KSREG   TIME[NB] 1.9566040039E+00 NAME(I1)       388 NAME(I2)      3873 M(I1)[M*]    1.814 M(I2)[M*]    0.334 DTAU   0.062 R12[NB]  1.1E-03 RI[NB]   0.29 H     1.29 IPAIR        1 NAME(ICM)     20388 GAMMA   0.000 STEP(I1)    7.1E-05 NPERT    3 NB(ICM)  105
- CUSTOM OUTPUT: TTOT   2.0000000000000000      N_SINGLE       19992 N_BINARY           4 N_MERGER           0
+ END KSREG   TIME[NB] 1.5696411133E+00 NAME(I1)      7889 NAME(I2)     16649 M(I1)[M*]    0.310 M(I2)[M*]    0.111 DTAU   0.078 R12[NB]  1.0E-03 RI[NB]   0.26 H     0.15 IPAIR        1 NAME(ICM)     27889 GAMMA   0.000 STEP(I1)    8.2E-05 NPERT   13 NB(ICM)  101
+
+ NEW KSREG   TIME[NB] 1.5754051208E+00 NAME(I1)       250 NAME(I2)      5674 M(I1)[M*]    4.202 M(I2)[M*]    0.428 DTAU   0.092 R12[NB]  4.1E-04 RI[NB]   0.83 H     0.58 IPAIR        1 NAME(ICM)     20250 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT    1 NB(ICM)   69
+
+ END KSREG   TIME[NB] 1.5761718750E+00 NAME(I1)       250 NAME(I2)      5674 M(I1)[M*]    4.202 M(I2)[M*]    0.428 DTAU   0.059 R12[NB]  1.0E-03 RI[NB]   0.83 H     0.58 IPAIR        1 NAME(ICM)     20250 GAMMA   0.000 STEP(I1)    6.2E-05 NPERT    1 NB(ICM)   64
+ CUSTOM OUTPUT: TTOT   1.6250000000000000      N_SINGLE       19984 N_BINARY           8 N_MERGER           0
+
+ NEW KSREG   TIME[NB] 1.6843605042E+00 NAME(I1)       516 NAME(I2)     11724 M(I1)[M*]    2.560 M(I2)[M*]    0.191 DTAU   0.106 R12[NB]  3.1E-04 RI[NB]   0.78 H     0.15 IPAIR        1 NAME(ICM)     20516 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT    1 NB(ICM)   71
+
+ END KSREG   TIME[NB] 1.6853637695E+00 NAME(I1)       516 NAME(I2)     11724 M(I1)[M*]    2.560 M(I2)[M*]    0.191 DTAU   0.058 R12[NB]  1.0E-03 RI[NB]   0.78 H     0.15 IPAIR        1 NAME(ICM)     20516 GAMMA   0.000 STEP(I1)    6.1E-05 NPERT    1 NB(ICM)   64
+ CUSTOM OUTPUT: TTOT   1.7500000000000000      N_SINGLE       19994 N_BINARY           3 N_MERGER           0
+
+ NEW KSREG   TIME[NB] 1.7867698669E+00 NAME(I1)      3217 NAME(I2)     12871 M(I1)[M*]    0.655 M(I2)[M*]    0.166 DTAU   0.102 R12[NB]  2.3E-04 RI[NB]   0.41 H     0.48 IPAIR        1 NAME(ICM)     23217 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT    3 NB(ICM)   90
+
+ END KSREG   TIME[NB] 1.7878417969E+00 NAME(I1)      3217 NAME(I2)     12871 M(I1)[M*]    0.655 M(I2)[M*]    0.166 DTAU   0.048 R12[NB]  1.0E-03 RI[NB]   0.41 H     0.48 IPAIR        1 NAME(ICM)     23217 GAMMA   0.000 STEP(I1)    5.0E-05 NPERT    3 NB(ICM)   91
+
+ NEW KSREG   TIME[NB] 1.8170585632E+00 NAME(I1)        72 NAME(I2)     19693 M(I1)[M*]    8.954 M(I2)[M*]    0.082 DTAU   0.067 R12[NB]  4.0E-04 RI[NB]   0.13 H     0.35 IPAIR        1 NAME(ICM)     20072 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT    3 NB(ICM)  107
+  0 Warning!: Irregular step jumping! I   3612 N   3612 ratio 0.568E-01 dt0 0.00002772570762491 step 0.00048828125000000 stepr 0.00097656250000000 FI-0.14131E+00 FD 0.64064E+01 D2-0.17069E+07 D3-0.69883E+10 t  1.81738281250000000 t0  1.81689453125000000 t0r  1.81640625000000000 NB 102 LIST1    116 N1    116
+  0 Warning!: Irregular step jumping! I    513 N    513 ratio 0.935E-01 dt0 0.00009128334463698 step 0.00097656250000000 stepr 0.00781250000000000 FI 0.80601E+00 FD 0.14046E+02 D2 0.39067E+06 D3 0.80033E+09 t  1.81738281250000000 t0  1.81640625000000000 t0r  1.81250000000000000 NB  90 LIST1     45 N1     45
+
+ END KSREG   TIME[NB] 1.8178100586E+00 NAME(I1)        72 NAME(I2)     19693 M(I1)[M*]    8.954 M(I2)[M*]    0.082 DTAU   0.042 R12[NB]  1.0E-03 RI[NB]   0.13 H     0.35 IPAIR        1 NAME(ICM)     20072 GAMMA   0.000 STEP(I1)    4.4E-05 NPERT    3 NB(ICM)   99
+
+ NEW KSREG   TIME[NB] 1.8315010071E+00 NAME(I1)      5092 NAME(I2)     13449 M(I1)[M*]    0.465 M(I2)[M*]    0.155 DTAU   0.075 R12[NB]  2.9E-04 RI[NB]   0.21 H     0.88 IPAIR        1 NAME(ICM)     25092 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT   17 NB(ICM)  122
+
+ END KSREG   TIME[NB] 1.8324279785E+00 NAME(I1)      5092 NAME(I2)     13449 M(I1)[M*]    0.465 M(I2)[M*]    0.155 DTAU   0.037 R12[NB]  1.0E-03 RI[NB]   0.21 H     0.88 IPAIR        1 NAME(ICM)     25092 GAMMA   0.000 STEP(I1)    3.9E-05 NPERT   17 NB(ICM)  112
+ CUSTOM OUTPUT: TTOT   1.8750000000000000      N_SINGLE       19994 N_BINARY           3 N_MERGER           0
+ CUSTOM OUTPUT: TTOT   2.0000000000000000      N_SINGLE       19996 N_BINARY           2 N_MERGER           0
 
            TIME   M/MT(  all  ):  1.00D-03  3.00D-03  5.00D-03  1.00D-02  3.00D-02  5.00D-02  1.00D-01  2.00D-01  3.00D-01  4.00D-01  5.00D-01  6.00D-01  7.00D-01  8.00D-01  9.00D-01  9.50D-01  9.90D-01  1.00D+00  <RC(massive)
-     0.2000D+01           RLAGR:  7.59D-02  9.58D-02  1.07D-01  1.38D-01  1.95D-01  2.33D-01  3.08D-01  4.29D-01  5.51D-01  6.63D-01  7.74D-01  9.16D-01  1.13D+00  1.48D+00  2.22D+00  2.91D+00  4.90D+00  6.57D+00  3.31D-01
-     0.2000D+01          AVMASS:  2.56D-05  4.22D-05  4.40D-05  4.63D-05  5.28D-05  5.33D-05  5.44D-05  5.32D-05  5.02D-05  5.01D-05  5.12D-05  5.15D-05  5.09D-05  5.00D-05  4.96D-05  5.00D-05  4.99D-05  5.00D-05  5.48D-05
-     0.2000D+01          NPARTC:        43        82       115       217       589       942      1842      3759      5974      7988      9760     11655     13742     16021     18143     19013     19826     20000      2196
+     0.2000D+01           RLAGR:  6.99D-02  8.38D-02  1.01D-01  1.36D-01  1.95D-01  2.31D-01  3.13D-01  4.31D-01  5.47D-01  6.58D-01  7.80D-01  9.19D-01  1.13D+00  1.48D+00  2.19D+00  2.90D+00  4.89D+00  6.57D+00  3.36D-01
+     0.2000D+01          AVMASS:  2.97D-05  4.86D-05  5.11D-05  4.67D-05  5.01D-05  5.37D-05  5.21D-05  5.23D-05  5.04D-05  5.06D-05  5.08D-05  5.13D-05  5.07D-05  4.99D-05  4.97D-05  5.00D-05  4.99D-05  5.00D-05  5.29D-05
+     0.2000D+01          NPARTC:        34        62        98       216       599       938      1920      3823      5955      7923      9844     11700     13825     16028     18105     19015     19825     20000      2271
 
            TIME  M/MT(massless):  1.00D-03  3.00D-03  5.00D-03  1.00D-02  3.00D-02  5.00D-02  1.00D-01  2.00D-01  3.00D-01  4.00D-01  5.00D-01  6.00D-01  7.00D-01  8.00D-01  9.00D-01  9.50D-01  9.90D-01  1.00D+00  <RC(massless)
-     0.2000D+01           RLAGR:  5.07D-02  8.15D-02  9.60D-02  1.29D-01  1.95D-01  2.37D-01  3.17D-01  4.38D-01  5.45D-01  6.53D-01  7.82D-01  9.41D-01  1.15D+00  1.47D+00  2.12D+00  2.89D+00  4.81D+00  6.38D+00  0.00D+00
-     0.2000D+01          NPARTC:        10        30        50       100       300       500      1000      2000      3000      4000      5000      6000      7000      8000      9000      9500      9900     10000
+     0.2000D+01           RLAGR:  6.17D-02  1.04D-01  1.67D-01  1.73D-01  1.91D-01  2.02D-01  2.80D-01  3.49D-01  4.34D-01  6.19D-01  7.00D-01  8.16D-01  9.80D-01  1.23D+00  1.82D+00  2.01D+00  2.62D+00  4.24D+00  0.00D+00
+     0.2000D+01          NPARTC:         1         2         3         4         5         6        11        21        31        41        51        61        71        81        91        95        99       100
 
- ADJUST:  TIME    2.00000D+00  T[Myr]    0.42  Q 0.50  DE  -7.654E-09 DELTA  -1.913E-09 DETOT  -2.336E-09 E  -2.499E-01 EKIN   2.489E-01 POT   4.989E-01 ETIDE   5.893E-05 ETOT  -2.499E-01 EBIN   0.000E+00 EMERGE   0.000E+00 ESUB   0.000E+00 ECOLL   0.000E+00 EMDOT   0.000E+00 ECDOT   0.000E+00
+ ADJUST:  TIME    2.00000D+00  T[Myr]    0.30  Q 0.50  DE   4.192E-08 DELTA   1.048E-08 DETOT  -1.331E-08 E  -2.500E-01 EKIN   2.487E-01 POT   4.987E-01 ETIDE   2.997E-05 ETOT  -2.500E-01 EBIN   0.000E+00 EMERGE   0.000E+00 ESUB   0.000E+00 ECOLL   0.000E+00 EMDOT   0.000E+00 ECDOT   0.000E+00
 
-  RMIN = 5.0E-04  DTMIN = 4.0E-06 RHOM = 5.0E+01 RSCALE = 7.7E-01 RSMIN = 8.5E-02  ECLOSE = 1.00  TC =    0
+  RMIN = 5.0E-04  DTMIN = 4.0E-06 RHOM = 4.7E+01 RSCALE = 7.8E-01 RSMIN = 8.5E-02  ECLOSE = 1.00  TC =    0
   PE       N        Total     Inti.    Intgrt      Reg.      Irr.     Pred.   Init.B.      Mdot      Move   Comm.I.   Comm.R.   Send.I.   Send.R.        KS    Adjust     OUT      Barr.   Barr.I.   Barr.R. Reg.GPU.S Reg.GPU.P Comm.Adj. Mdot.Fic.  Mdot.Fc. Mdot.Pot.  Mdot.EC.   Sort.B.    HighV  KS.Init.B  KS.Int.S  KS.Int.P  KS.Comm.  KS.Barr.   KS.Move   KS.Cmb. KS.Insert  KS.Init.  KS.Term.     Hiar.     KS.UP       xtsub1       xtsub2
-   1   20000     20.70417      2.04     18.27      5.35      7.24      0.05      0.69      0.00      1.03      0.00      0.00      0.27      0.24      0.23      0.45      3.03      0.00      0.00      0.00      0.37      4.94      0.00      0.00      0.00      0.00      0.00      0.14      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.07      0.05      0.03      0.00  0.00000D+00  0.00000D+00
+   1   20000     28.57793      1.14     26.82     13.12      7.93      0.04      0.79      0.00      0.99      0.00      0.00      0.29      0.03      0.35      0.67      3.23      0.00      0.00      0.00      0.70     12.39      0.00      0.00      0.00      0.00      0.00      0.16      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.15      0.08      0.04      0.00  0.00000D+00  0.00000D+00
 
 
- TIME[NB]    2.000000E+00  N    20000  <NB>    61  NPAIRS       0  NMERGE     0 MULT    0 NS    20000  NSTEP(I,B,R,U)       8208508          225      1139594          435  DE   -0.765362E-08  E         -0.249942
+ TIME[NB]    2.000000E+00  N    20000  <NB>    61  NPAIRS       0  NMERGE     0 MULT    0 NS    19900 NSPL=   100  NSTEP(I,B,R,U)       9188831          297      1096344          501  DE    0.419154E-07  E         -0.249970
 
- NRUN =  1  M# =  3  CPU = 3.45109E-01  TRC = 89.0  DMIN = 4.3E-06 4.3E-06 1.0E+02 1.0E+02  AMIN = 1.0E+02  RMAX = 0.0E+00  RSMIN = 0.08  NEFF =  2756
+ NRUN =  1  M# =  3  CPU = 4.76336E-01  TRC = 47.7  DMIN = 1.6E-05 1.6E-05 1.0E+02 1.0E+02  AMIN = 1.0E+02  RMAX = 0.0E+00  RSMIN = 0.08  NEFF =  3691
 
     <R>  RTIDE  RDENS   RC      NC   MC   RHOD   RHOM  CMAX   <Cn>  Ir/R      UN      NP    RCM    VCM         AZ     EB/E   EM/E   TCR     T6  NESC  VRMS
- #1 0.77  24.2   0.03  0.33   2196  0.120    6.    50.    5.  81.2  0.03       0       0    0.000  0.0000   0.015046 -0.000 -0.000  2.83     0     0   3.7
+ #1 0.78  30.4   0.04  0.34   2252  0.120    5.    47.    5.  81.5  0.03       0       0    0.000  0.0000   0.011022 -0.000 -0.000  2.83     0     0   5.2
 
           NIRRF      NBCORR  NNPRED  NBFULL  NBVOID   NICONV  NLSMIN NBSMIN   NBDIS  NBDIS2  NCMDER  NFAST NBFAST      NBLOCK      NBLCKR    NBFLUX
- #2   666271321     1112959     692       0    2126     322       0      42       0       0       0      0      0       30725         692  11588183
+ #2   744543432     1071618     736       0    1728     121       0      13       0       0       0      0      0       33884         736  11567789
 
         NKSTRY     NKSREG     NKSHYP     NKSPER  NKSMOD   NTTRY   NTRIP    NQUAD  NCHAIN     NMERG   NEWHI  NSTEPT  NSTEPQ  NSTEPC
- #3        803          9          8          0       0       0       0        0        0        0       0       0       0       0
+ #3         15         14         14          0       0       0       0        0        0        0       0       0       0       0
 
         NMDOT NRG  NHE  NRS  NNH  NWD  NSN  NBH  NBS  ZMRG  ZMHE  ZMRS  ZMNH  ZMWD  ZMSN   ZMDOT  NTYPE
- #4        0    0    0    0    0    0    0    0    0   0.0   0.0   0.0   0.0   0.0   0.0     0.0  18467  1533
+ #4        0    0    0    0    0    0    0    0    0   0.0   0.0   0.0   0.0   0.0   0.0     0.0  16817  3183
 
       NDISS NTIDE  NSYNC  NCOLL  NCOAL  NDD  NCIRC  NROCHE  NRO  NCE  NHYP  NHYPC  NKICK  EBIN   EMERGE  ECOLL  EMDOT  ECDOT  EKICK  ESESC   EBESC  EMESC  DEGRAV   EBIND  MMAX
- #5       0     0      0      0      0    0      0       0    0    0     0      0      0   0.000   0.000   0.000  0.000  0.000  0.000  0.000   0.000  0.000   0.000  -0.250  11.6
- STEP I  (massive)      0      2     50    104    137    212    374   2340   3867   1905    647    265     70     27
- STEP R  (massive)      0     79    275    578   1208   2970   3289   1424    174      3
- STEP I (massless)      0      3     56     88    174    210    368   2344   3781   1874    684    297    102     17      2
- STEP R (massless)      0     87    282    571   1207   2837   3388   1422    203      3
- Max Speedup Irr:     4 3.97D+00    8 7.86D+00   16 1.54D+01   32 2.93D+01   64 5.38D+01  128 9.10D+01  256 1.40D+02  512 1.84D+02 1024 2.22D+02
- Max Speedup Reg:     4 4.00D+00    8 7.98D+00   16 1.59D+01   32 3.16D+01   64 6.23D+01  128 1.21D+02  256 2.29D+02  512 4.19D+02 1024 6.86D+02
- CUSTOM OUTPUT: TTOT   2.1250000000000000      N_SINGLE       19982 N_BINARY           9 N_MERGER           0
- CUSTOM OUTPUT: TTOT   2.2500000000000000      N_SINGLE       19982 N_BINARY           9 N_MERGER           0
+ #5       0     0      0      0      0    0      0       0    0    0     0      0      0   0.000   0.000   0.000  0.000  0.000  0.000  0.000   0.000  0.000   0.000  -0.250  19.8
+ STEP I  (massive)      0      2     44    144    219    338    654   4450   7177   4426   1525    641    220     53      4      1      2
+ STEP R  (massive)      0    178    570   1176   2478   6047   6548   2591    304      8
+ STEP I (massless)      0      0      0      0      0      2      2     20     33     28     10      1      4
+ STEP R (massless)      0      0      1      5      8     33     31     19      3
+ Max Speedup Irr:     4 3.98D+00    8 7.87D+00   16 1.54D+01   32 2.95D+01   64 5.39D+01  128 9.22D+01  256 1.40D+02  512 1.92D+02 1024 2.31D+02
+ Max Speedup Reg:     4 4.00D+00    8 7.98D+00   16 1.59D+01   32 3.15D+01   64 6.20D+01  128 1.20D+02  256 2.25D+02  512 4.06D+02 1024 6.54D+02
+
+ NEW KSREG   TIME[NB] 2.0281867981E+00 NAME(I1)       535 NAME(I2)     18482 M(I1)[M*]    2.497 M(I2)[M*]    0.092 DTAU   0.065 R12[NB]  3.7E-04 RI[NB]   0.23 H     1.15 IPAIR        1 NAME(ICM)     20535 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT    5 NB(ICM)  142
+
+ END KSREG   TIME[NB] 2.0289916992E+00 NAME(I1)       535 NAME(I2)     18482 M(I1)[M*]    2.497 M(I2)[M*]    0.092 DTAU   0.057 R12[NB]  1.0E-03 RI[NB]   0.23 H     1.15 IPAIR        1 NAME(ICM)     20535 GAMMA   0.001 STEP(I1)    6.2E-05 NPERT    5 NB(ICM)  130
+
+ NEW KSREG   TIME[NB] 2.0878028870E+00 NAME(I1)      4463 NAME(I2)      5185 M(I1)[M*]    0.513 M(I2)[M*]    0.458 DTAU   0.057 R12[NB]  3.5E-04 RI[NB]   0.13 H     1.51 IPAIR        1 NAME(ICM)     24463 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT   13 NB(ICM)   96
+
+ END KSREG   TIME[NB] 2.0885620117E+00 NAME(I1)      4463 NAME(I2)      5185 M(I1)[M*]    0.513 M(I2)[M*]    0.458 DTAU   0.052 R12[NB]  1.0E-03 RI[NB]   0.13 H     1.51 IPAIR        1 NAME(ICM)     24463 GAMMA   0.000 STEP(I1)    5.5E-05 NPERT   13 NB(ICM)   94
+
+ NEW KSREG   TIME[NB] 2.1195793152E+00 NAME(I1)       206 NAME(I2)       396 M(I1)[M*]    4.852 M(I2)[M*]    3.059 DTAU   0.062 R12[NB]  3.8E-04 RI[NB]   0.41 H     1.31 IPAIR        1 NAME(ICM)     20206 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT    1 NB(ICM)   78
+
+ END KSREG   TIME[NB] 2.1201477051E+00 NAME(I1)       206 NAME(I2)       396 M(I1)[M*]    4.852 M(I2)[M*]    3.059 DTAU   0.060 R12[NB]  1.0E-03 RI[NB]   0.41 H     1.31 IPAIR        1 NAME(ICM)     20206 GAMMA   0.000 STEP(I1)    6.6E-05 NPERT    1 NB(ICM)   78
+ CUSTOM OUTPUT: TTOT   2.1250000000000000      N_SINGLE       19992 N_BINARY           4 N_MERGER           0
+
+ NEW KSREG   TIME[NB] 2.2224082947E+00 NAME(I1)      4067 NAME(I2)      9025 M(I1)[M*]    0.549 M(I2)[M*]    0.266 DTAU   0.064 R12[NB]  3.2E-04 RI[NB]   0.20 H     1.21 IPAIR        1 NAME(ICM)     24067 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT    6 NB(ICM)   93
+
+ END KSREG   TIME[NB] 2.2232360840E+00 NAME(I1)      4067 NAME(I2)      9025 M(I1)[M*]    0.549 M(I2)[M*]    0.266 DTAU   0.056 R12[NB]  1.1E-03 RI[NB]   0.20 H     1.21 IPAIR        1 NAME(ICM)     24067 GAMMA   0.001 STEP(I1)    6.2E-05 NPERT    6 NB(ICM)   84
+ CUSTOM OUTPUT: TTOT   2.2500000000000000      N_SINGLE       19992 N_BINARY           4 N_MERGER           0
+
+ NEW KSREG   TIME[NB] 2.3316154480E+00 NAME(I1)      2415 NAME(I2)      2741 M(I1)[M*]    0.814 M(I2)[M*]    0.736 DTAU   0.067 R12[NB]  3.1E-04 RI[NB]   0.66 H     1.12 IPAIR        1 NAME(ICM)     22415 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT    2 NB(ICM)   92
+
+ END KSREG   TIME[NB] 2.3324584961E+00 NAME(I1)      2415 NAME(I2)      2741 M(I1)[M*]    0.814 M(I2)[M*]    0.736 DTAU   0.066 R12[NB]  1.1E-03 RI[NB]   0.66 H     1.12 IPAIR        1 NAME(ICM)     22415 GAMMA   0.000 STEP(I1)    7.5E-05 NPERT    2 NB(ICM)   87
  CUSTOM OUTPUT: TTOT   2.3750000000000000      N_SINGLE       19992 N_BINARY           4 N_MERGER           0
 
- NEW KSREG   TIME[NB] 2.4462013245E+00 NAME(I1)       516 NAME(I2)      2446 M(I1)[M*]    1.495 M(I2)[M*]    0.471 DTAU   0.072 R12[NB]  3.8E-04 RI[NB]   0.60 H     0.97 IPAIR        1 NAME(ICM)     20516 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT    1 NB(ICM)  102
+ NEW KSREG   TIME[NB] 2.4356956482E+00 NAME(I1)        76 NAME(I2)      6350 M(I1)[M*]    8.818 M(I2)[M*]    0.387 DTAU   0.064 R12[NB]  3.8E-04 RI[NB]   0.56 H     0.95 IPAIR        1 NAME(ICM)     20076 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT    1 NB(ICM)   89
 
- END KSREG   TIME[NB] 2.4469604492E+00 NAME(I1)       516 NAME(I2)      2446 M(I1)[M*]    1.495 M(I2)[M*]    0.471 DTAU   0.044 R12[NB]  1.0E-03 RI[NB]   0.60 H     0.97 IPAIR        1 NAME(ICM)     20516 GAMMA   0.000 STEP(I1)    4.6E-05 NPERT    1 NB(ICM)   98
- CUSTOM OUTPUT: TTOT   2.5000000000000000      N_SINGLE       19984 N_BINARY           8 N_MERGER           0
- CUSTOM OUTPUT: TTOT   2.6250000000000000      N_SINGLE       19986 N_BINARY           7 N_MERGER           0
+ END KSREG   TIME[NB] 2.4363098145E+00 NAME(I1)        76 NAME(I2)      6350 M(I1)[M*]    8.818 M(I2)[M*]    0.387 DTAU   0.039 R12[NB]  1.0E-03 RI[NB]   0.56 H     0.95 IPAIR        1 NAME(ICM)     20076 GAMMA   0.000 STEP(I1)    4.1E-05 NPERT    1 NB(ICM)   84
+ CUSTOM OUTPUT: TTOT   2.5000000000000000      N_SINGLE       19996 N_BINARY           2 N_MERGER           0
+ CUSTOM OUTPUT: TTOT   2.6250000000000000      N_SINGLE       19996 N_BINARY           2 N_MERGER           0
 
- NEW KSREG   TIME[NB] 2.7069587708E+00 NAME(I1)      7628 NAME(I2)      8049 M(I1)[M*]    0.188 M(I2)[M*]    0.177 DTAU   0.063 R12[NB]  2.7E-04 RI[NB]   0.13 H     1.25 IPAIR        1 NAME(ICM)     27628 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT   13 NB(ICM)  111
+ NEW KSREG   TIME[NB] 2.6355705261E+00 NAME(I1)      5381 NAME(I2)      9417 M(I1)[M*]    0.444 M(I2)[M*]    0.252 DTAU   0.066 R12[NB]  2.8E-04 RI[NB]   0.19 H     1.16 IPAIR        1 NAME(ICM)     25381 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT   12 NB(ICM)  102
 
- END KSREG   TIME[NB] 2.7077026367E+00 NAME(I1)      7628 NAME(I2)      8049 M(I1)[M*]    0.188 M(I2)[M*]    0.177 DTAU   0.062 R12[NB]  1.0E-03 RI[NB]   0.13 H     1.25 IPAIR        1 NAME(ICM)     27628 GAMMA   0.000 STEP(I1)    6.7E-05 NPERT   13 NB(ICM)   99
+ END KSREG   TIME[NB] 2.6363525391E+00 NAME(I1)      5381 NAME(I2)      9417 M(I1)[M*]    0.444 M(I2)[M*]    0.252 DTAU   0.063 R12[NB]  1.0E-03 RI[NB]   0.19 H     1.16 IPAIR        1 NAME(ICM)     25381 GAMMA   0.000 STEP(I1)    6.6E-05 NPERT   12 NB(ICM)   93
+ CUSTOM OUTPUT: TTOT   2.7500000000000000      N_SINGLE       19996 N_BINARY           2 N_MERGER           0
 
- NEW KSREG   TIME[NB] 2.7289619446E+00 NAME(I1)      1675 NAME(I2)      4256 M(I1)[M*]    0.626 M(I2)[M*]    0.310 DTAU   0.107 R12[NB]  2.2E-04 RI[NB]   0.39 H     0.30 IPAIR        1 NAME(ICM)     21675 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT    2 NB(ICM)   81
+ NEW KSREG   TIME[NB] 2.8327369690E+00 NAME(I1)      1886 NAME(I2)      4997 M(I1)[M*]    0.982 M(I2)[M*]    0.472 DTAU   0.104 R12[NB]  2.6E-04 RI[NB]   0.67 H     0.46 IPAIR        1 NAME(ICM)     21886 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT    1 NB(ICM)   80
 
- END KSREG   TIME[NB] 2.7299804688E+00 NAME(I1)      1675 NAME(I2)      4256 M(I1)[M*]    0.626 M(I2)[M*]    0.310 DTAU   0.049 R12[NB]  1.0E-03 RI[NB]   0.39 H     0.30 IPAIR        1 NAME(ICM)     21675 GAMMA   0.000 STEP(I1)    5.1E-05 NPERT    2 NB(ICM)   80
- CUSTOM OUTPUT: TTOT   2.7500000000000000      N_SINGLE       19988 N_BINARY           6 N_MERGER           0
-
- NEW KSREG   TIME[NB] 2.8582420349E+00 NAME(I1)      1881 NAME(I2)      6043 M(I1)[M*]    0.575 M(I2)[M*]    0.237 DTAU   0.067 R12[NB]  2.8E-04 RI[NB]   0.54 H     1.10 IPAIR        1 NAME(ICM)     21881 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT    3 NB(ICM)   86
-
- END KSREG   TIME[NB] 2.8589477539E+00 NAME(I1)      1881 NAME(I2)      6043 M(I1)[M*]    0.575 M(I2)[M*]    0.237 DTAU   0.067 R12[NB]  1.0E-03 RI[NB]   0.54 H     1.10 IPAIR        1 NAME(ICM)     21881 GAMMA   0.000 STEP(I1)    7.1E-05 NPERT    3 NB(ICM)   79
-
- NEW KSREG   TIME[NB] 2.8625526428E+00 NAME(I1)       944 NAME(I2)      1901 M(I1)[M*]    0.968 M(I2)[M*]    0.570 DTAU   0.070 R12[NB]  3.0E-04 RI[NB]   0.37 H     1.01 IPAIR        1 NAME(ICM)     20944 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT    3 NB(ICM)  106
-
- END KSREG   TIME[NB] 2.8632812500E+00 NAME(I1)       944 NAME(I2)      1901 M(I1)[M*]    0.968 M(I2)[M*]    0.570 DTAU   0.067 R12[NB]  1.1E-03 RI[NB]   0.37 H     1.01 IPAIR        1 NAME(ICM)     20944 GAMMA   0.000 STEP(I1)    7.6E-05 NPERT    3 NB(ICM)  101
- CUSTOM OUTPUT: TTOT   2.8750000000000000      N_SINGLE       19984 N_BINARY           8 N_MERGER           0
- CUSTOM OUTPUT: TTOT   3.0000000000000000      N_SINGLE       19988 N_BINARY           6 N_MERGER           0
+ END KSREG   TIME[NB] 2.8337707520E+00 NAME(I1)      1886 NAME(I2)      4997 M(I1)[M*]    0.982 M(I2)[M*]    0.472 DTAU   0.053 R12[NB]  1.0E-03 RI[NB]   0.67 H     0.46 IPAIR        1 NAME(ICM)     21886 GAMMA   0.000 STEP(I1)    5.5E-05 NPERT    1 NB(ICM)   76
+ CUSTOM OUTPUT: TTOT   2.8750000000000000      N_SINGLE       19990 N_BINARY           5 N_MERGER           0
+ CUSTOM OUTPUT: TTOT   3.0000000000000000      N_SINGLE       19992 N_BINARY           4 N_MERGER           0
 
            TIME   M/MT(  all  ):  1.00D-03  3.00D-03  5.00D-03  1.00D-02  3.00D-02  5.00D-02  1.00D-01  2.00D-01  3.00D-01  4.00D-01  5.00D-01  6.00D-01  7.00D-01  8.00D-01  9.00D-01  9.50D-01  9.90D-01  1.00D+00  <RC(massive)
-     0.3000D+01           RLAGR:  4.37D-02  8.08D-02  8.82D-02  1.17D-01  1.81D-01  2.24D-01  2.97D-01  4.16D-01  5.25D-01  6.46D-01  7.72D-01  9.24D-01  1.13D+00  1.47D+00  2.23D+00  2.97D+00  4.77D+00  6.79D+00  2.66D-01
-     0.3000D+01          AVMASS:  1.15D-04  5.92D-05  8.37D-05  7.11D-05  6.43D-05  5.92D-05  5.69D-05  5.34D-05  5.31D-05  5.20D-05  5.17D-05  5.14D-05  5.10D-05  5.03D-05  4.96D-05  4.99D-05  5.00D-05  5.00D-05  5.88D-05
-     0.3000D+01          NPARTC:         9        53        73       143       467       847      1759      3745      5653      7700      9677     11689     13739     15897     18144     19054     19801     20000      1322
+     0.3000D+01           RLAGR:  6.21D-02  7.27D-02  7.50D-02  1.14D-01  1.84D-01  2.20D-01  3.01D-01  4.19D-01  5.30D-01  6.49D-01  7.70D-01  9.25D-01  1.14D+00  1.47D+00  2.21D+00  2.97D+00  4.75D+00  6.80D+00  2.81D-01
+     0.3000D+01          AVMASS:  4.77D-05  8.69D-05  1.12D-04  7.25D-05  5.86D-05  5.95D-05  5.46D-05  5.29D-05  5.19D-05  5.12D-05  5.16D-05  5.11D-05  5.06D-05  5.03D-05  4.97D-05  4.99D-05  5.00D-05  5.00D-05  5.52D-05
+     0.3000D+01          NPARTC:        21        40        48       138       513       840      1831      3780      5783      7811      9694     11750     13845     15900     18123     19055     19800     20000      1558
 
            TIME  M/MT(massless):  1.00D-03  3.00D-03  5.00D-03  1.00D-02  3.00D-02  5.00D-02  1.00D-01  2.00D-01  3.00D-01  4.00D-01  5.00D-01  6.00D-01  7.00D-01  8.00D-01  9.00D-01  9.50D-01  9.90D-01  1.00D+00  <RC(massless)
-     0.3000D+01           RLAGR:  6.32D-02  8.25D-02  1.02D-01  1.29D-01  1.99D-01  2.42D-01  3.18D-01  4.31D-01  5.44D-01  6.61D-01  7.87D-01  9.51D-01  1.16D+00  1.49D+00  2.13D+00  2.89D+00  4.79D+00  6.62D+00  0.00D+00
-     0.3000D+01          NPARTC:        10        30        50       100       300       500      1000      2000      3000      4000      5000      6000      7000      8000      9000      9500      9900     10000
+     0.3000D+01           RLAGR:  1.43D-01  1.56D-01  1.79D-01  1.89D-01  1.97D-01  2.28D-01  2.85D-01  3.78D-01  4.84D-01  5.61D-01  7.03D-01  8.45D-01  9.67D-01  1.16D+00  1.58D+00  2.03D+00  2.76D+00  4.09D+00  0.00D+00
+     0.3000D+01          NPARTC:         1         2         3         4         5         6        11        21        31        41        51        61        71        81        91        95        99       100
 
- ADJUST:  TIME    3.00000D+00  T[Myr]    0.63  Q 0.51  DE   5.804E-08 DELTA   1.481E-08 DETOT   1.248E-08 E  -2.499E-01 EKIN   2.553E-01 POT   5.053E-01 ETIDE   6.077E-05 ETOT  -2.499E-01 EBIN   0.000E+00 EMERGE   0.000E+00 ESUB   0.000E+00 ECOLL   0.000E+00 EMDOT   0.000E+00 ECDOT   0.000E+00
+ ADJUST:  TIME    3.00000D+00  T[Myr]    0.45  Q 0.50  DE   1.349E-08 DELTA   3.432E-09 DETOT  -9.876E-09 E  -2.500E-01 EKIN   2.544E-01 POT   5.044E-01 ETIDE   3.080E-05 ETOT  -2.500E-01 EBIN   0.000E+00 EMERGE   0.000E+00 ESUB   0.000E+00 ECOLL   0.000E+00 EMDOT   0.000E+00 ECDOT   0.000E+00
 
-  RMIN = 5.0E-04  DTMIN = 4.0E-06 RHOM = 8.5E+01 RSCALE = 7.7E-01 RSMIN = 8.3E-02  ECLOSE = 1.00  TC =    1
+  RMIN = 5.0E-04  DTMIN = 4.0E-06 RHOM = 9.0E+01 RSCALE = 7.7E-01 RSMIN = 8.4E-02  ECLOSE = 1.00  TC =    1
   PE       N        Total     Inti.    Intgrt      Reg.      Irr.     Pred.   Init.B.      Mdot      Move   Comm.I.   Comm.R.   Send.I.   Send.R.        KS    Adjust     OUT      Barr.   Barr.I.   Barr.R. Reg.GPU.S Reg.GPU.P Comm.Adj. Mdot.Fic.  Mdot.Fc. Mdot.Pot.  Mdot.EC.   Sort.B.    HighV  KS.Init.B  KS.Int.S  KS.Int.P  KS.Comm.  KS.Barr.   KS.Move   KS.Cmb. KS.Insert  KS.Init.  KS.Term.     Hiar.     KS.UP       xtsub1       xtsub2
-   1   20000     29.97239      2.04     27.27      7.99     10.91      0.07      0.93      0.00      1.53      0.00      0.00      0.40      0.35      0.32      0.69      4.54      0.01      0.00      0.00      0.55      7.38      0.00      0.00      0.00      0.00      0.00      0.21      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.09      0.07      0.05      0.00  0.00000D+00  0.00000D+00
+   1   20000     42.02667      1.14     39.91     19.45     11.89      0.06      1.05      0.00      1.47      0.00      0.00      0.43      0.05      0.46      0.98      4.92      0.01      0.00      0.00      1.03     18.37      0.00      0.00      0.00      0.00      0.00      0.23      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.18      0.10      0.06      0.00  0.00000D+00  0.00000D+00
 
 
- TIME[NB]    3.000000E+00  N    20000  <NB>    60  NPAIRS       0  NMERGE     0 MULT    0 NS    20000  NSTEP(I,B,R,U)       8142671          283      1135441          134  DE    0.580359E-07  E         -0.249942
+ TIME[NB]    3.000000E+00  N    20000  <NB>    60  NPAIRS       0  NMERGE     0 MULT    0 NS    19900 NSPL=   100  NSTEP(I,B,R,U)       9096127          386      1090439          260  DE    0.134895E-07  E         -0.249970
 
- NRUN =  1  M# =  4  CPU = 4.99577E-01  TRC = 30.4  DMIN = 4.3E-06 1.2E-04 1.0E+02 1.0E+02  AMIN = 1.0E+02  RMAX = 0.0E+00  RSMIN = 0.08  NEFF =  2756
+ NRUN =  1  M# =  4  CPU = 7.00484E-01  TRC = 22.0  DMIN = 1.6E-05 1.1E-04 1.0E+02 1.0E+02  AMIN = 1.0E+02  RMAX = 0.0E+00  RSMIN = 0.08  NEFF =  3691
 
     <R>  RTIDE  RDENS   RC      NC   MC   RHOD   RHOM  CMAX   <Cn>  Ir/R      UN      NP    RCM    VCM         AZ     EB/E   EM/E   TCR     T6  NESC  VRMS
- #1 0.77  24.2   0.05  0.27   1322  0.078    9.    85.    5.  80.9  0.03       0       0    0.000  0.0000   0.015046 -0.000 -0.000  2.83     0     0   3.7
+ #1 0.77  30.4   0.03  0.28   1548  0.086    6.    90.    5.  81.6  0.03       0       0    0.000  0.0000   0.011023 -0.000 -0.000  2.83     0     0   5.3
 
           NIRRF      NBCORR  NNPRED  NBFULL  NBVOID   NICONV  NLSMIN NBSMIN   NBDIS  NBDIS2  NCMDER  NFAST NBFAST      NBLOCK      NBLCKR    NBFLUX
- #2   654314128     1108480     632       0    1466     270       0      27       0       0       0      0      0       29764         632  11435162
+ #2   734109985     1065864     676       0    1406      95       0       0       0       0       0      0      0       32270         676  11463349
 
         NKSTRY     NKSREG     NKSHYP     NKSPER  NKSMOD   NTTRY   NTRIP    NQUAD  NCHAIN     NMERG   NEWHI  NSTEPT  NSTEPQ  NSTEPC
- #3       1008          5          5          0       0       0       0        0        0        0       0       0       0       0
+ #3          8          8          8          0       0       0       0        0        0        0       0       0       0       0
 
         NMDOT NRG  NHE  NRS  NNH  NWD  NSN  NBH  NBS  ZMRG  ZMHE  ZMRS  ZMNH  ZMWD  ZMSN   ZMDOT  NTYPE
- #4        0    0    0    0    0    0    0    0    0   0.0   0.0   0.0   0.0   0.0   0.0     0.0  18467  1533
+ #4        0    0    0    0    0    0    0    0    0   0.0   0.0   0.0   0.0   0.0   0.0     0.0  16817  3183
 
       NDISS NTIDE  NSYNC  NCOLL  NCOAL  NDD  NCIRC  NROCHE  NRO  NCE  NHYP  NHYPC  NKICK  EBIN   EMERGE  ECOLL  EMDOT  ECDOT  EKICK  ESESC   EBESC  EMESC  DEGRAV   EBIND  MMAX
- #5       0     0      0      0      0    0      0       0    0    0     0      0      0   0.000   0.000   0.000  0.000  0.000  0.000  0.000   0.000  0.000   0.000  -0.250  11.6
- STEP I  (massive)      0      2     46     89    145    234    387   2320   3743   1995    700    233     73     30      2      1
- STEP R  (massive)      1     98    260    625   1176   2867   3252   1515    199      7
- STEP I (massless)      0      1     55     95    162    220    368   2359   3718   1977    683    260     82     17      3
- STEP R (massless)      0    106    274    594   1139   2885   3277   1506    214      5
- Max Speedup Irr:     4 3.97D+00    8 7.86D+00   16 1.54D+01   32 2.93D+01   64 5.38D+01  128 9.11D+01  256 1.40D+02  512 1.85D+02 1024 2.24D+02
- Max Speedup Reg:     4 4.00D+00    8 7.98D+00   16 1.59D+01   32 3.16D+01   64 6.23D+01  128 1.21D+02  256 2.30D+02  512 4.20D+02 1024 6.89D+02
+ #5       0     0      0      0      0    0      0       0    0    0     0      0      0   0.000   0.000   0.000  0.000  0.000  0.000  0.000   0.000  0.000   0.000  -0.250  19.8
+ STEP I  (massive)      0      3     48    148    195    361    654   4383   7069   4557   1548    641    224     49     18      2
+ STEP R  (massive)      1    207    554   1235   2401   6040   6329   2767    357      9
+ STEP I (massless)      0      0      0      0      0      2      2     14     46     23      8      4      1
+ STEP R (massless)      0      0      1      5      8     30     36     16      4
+ Max Speedup Irr:     4 3.98D+00    8 7.88D+00   16 1.54D+01   32 2.95D+01   64 5.40D+01  128 9.24D+01  256 1.40D+02  512 1.93D+02 1024 2.32D+02
+ Max Speedup Reg:     4 4.00D+00    8 7.98D+00   16 1.59D+01   32 3.15D+01   64 6.21D+01  128 1.20D+02  256 2.25D+02  512 4.08D+02 1024 6.59D+02
 
- NEW KSREG   TIME[NB] 3.1232681274E+00 NAME(I1)        31 NAME(I2)      5218 M(I1)[M*]    7.231 M(I2)[M*]    0.266 DTAU   0.058 R12[NB]  5.0E-04 RI[NB]   0.55 H     0.69 IPAIR        1 NAME(ICM)     20031 GAMMA   0.000 STEP(ICM)   7.6E-06 NPERT    1 NB(ICM)  112
+ NEW KSREG   TIME[NB] 3.0204429626E+00 NAME(I1)      3025 NAME(I2)      5414 M(I1)[M*]    0.689 M(I2)[M*]    0.443 DTAU   0.059 R12[NB]  3.0E-04 RI[NB]   0.39 H     1.42 IPAIR        1 NAME(ICM)     23025 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT    4 NB(ICM)  113
 
- END KSREG   TIME[NB] 3.1239013672E+00 NAME(I1)        31 NAME(I2)      5218 M(I1)[M*]    7.231 M(I2)[M*]    0.266 DTAU   0.039 R12[NB]  1.1E-03 RI[NB]   0.55 H     0.69 IPAIR        1 NAME(ICM)     20031 GAMMA   0.000 STEP(I1)    4.5E-05 NPERT    1 NB(ICM)  101
- CUSTOM OUTPUT: TTOT   3.1250000000000000      N_SINGLE       19986 N_BINARY           7 N_MERGER           0
+ END KSREG   TIME[NB] 3.0210876465E+00 NAME(I1)      3025 NAME(I2)      5414 M(I1)[M*]    0.689 M(I2)[M*]    0.443 DTAU   0.058 R12[NB]  1.1E-03 RI[NB]   0.39 H     1.42 IPAIR        1 NAME(ICM)     23025 GAMMA   0.000 STEP(I1)    6.5E-05 NPERT    4 NB(ICM)  100
+
+ NEW KSREG   TIME[NB] 3.0527458191E+00 NAME(I1)      4694 NAME(I2)      8049 M(I1)[M*]    0.495 M(I2)[M*]    0.303 DTAU   0.091 R12[NB]  2.3E-04 RI[NB]   0.18 H     0.61 IPAIR        1 NAME(ICM)     24694 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT    7 NB(ICM)  118
+
+ END KSREG   TIME[NB] 3.0537109375E+00 NAME(I1)      4694 NAME(I2)      8049 M(I1)[M*]    0.495 M(I2)[M*]    0.303 DTAU   0.040 R12[NB]  1.0E-03 RI[NB]   0.18 H     0.61 IPAIR        1 NAME(ICM)     24694 GAMMA   0.000 STEP(I1)    4.2E-05 NPERT    7 NB(ICM)  112
+
+ NEW KSREG   TIME[NB] 3.1223869324E+00 NAME(I1)      9198 NAME(I2)     14048 M(I1)[M*]    0.260 M(I2)[M*]    0.146 DTAU   0.073 R12[NB]  2.8E-04 RI[NB]   0.59 H     0.95 IPAIR        1 NAME(ICM)     29198 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT    4 NB(ICM)  122
+
+ END KSREG   TIME[NB] 3.1232910156E+00 NAME(I1)      9198 NAME(I2)     14048 M(I1)[M*]    0.260 M(I2)[M*]    0.146 DTAU   0.038 R12[NB]  1.0E-03 RI[NB]   0.59 H     0.95 IPAIR        1 NAME(ICM)     29198 GAMMA   0.000 STEP(I1)    4.0E-05 NPERT    4 NB(ICM)  109
+ CUSTOM OUTPUT: TTOT   3.1250000000000000      N_SINGLE       19988 N_BINARY           6 N_MERGER           0
+
+ NEW KSREG   TIME[NB] 3.1692085266E+00 NAME(I1)      4187 NAME(I2)     11935 M(I1)[M*]    0.538 M(I2)[M*]    0.186 DTAU   0.071 R12[NB]  3.0E-04 RI[NB]   0.35 H     0.96 IPAIR        1 NAME(ICM)     24187 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT   13 NB(ICM)   91
+
+ END KSREG   TIME[NB] 3.1701049805E+00 NAME(I1)      4187 NAME(I2)     11935 M(I1)[M*]    0.538 M(I2)[M*]    0.186 DTAU   0.029 R12[NB]  1.0E-03 RI[NB]   0.35 H     0.96 IPAIR        1 NAME(ICM)     24187 GAMMA   0.001 STEP(I1)    3.0E-05 NPERT   13 NB(ICM)   87
+
+ NEW KSREG   TIME[NB] 3.2361869812E+00 NAME(I1)        64 NAME(I2)      3689 M(I1)[M*]    9.452 M(I2)[M*]    0.593 DTAU   0.068 R12[NB]  4.6E-04 RI[NB]   0.89 H     0.61 IPAIR        1 NAME(ICM)     20064 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT    1 NB(ICM)   34
+
+ END KSREG   TIME[NB] 3.2368469238E+00 NAME(I1)        64 NAME(I2)      3689 M(I1)[M*]    9.452 M(I2)[M*]    0.593 DTAU   0.046 R12[NB]  1.0E-03 RI[NB]   0.89 H     0.61 IPAIR        1 NAME(ICM)     20064 GAMMA   0.000 STEP(I1)    4.8E-05 NPERT    1 NB(ICM)   31
  CUSTOM OUTPUT: TTOT   3.2500000000000000      N_SINGLE       19990 N_BINARY           5 N_MERGER           0
- CUSTOM OUTPUT: TTOT   3.3750000000000000      N_SINGLE       19988 N_BINARY           6 N_MERGER           0
 
- NEW KSREG   TIME[NB] 3.4393081665E+00 NAME(I1)        10 NAME(I2)      2242 M(I1)[M*]    9.544 M(I2)[M*]    0.500 DTAU   0.068 R12[NB]  4.9E-04 RI[NB]   0.55 H     1.09 IPAIR        1 NAME(ICM)     20010 GAMMA   0.000 STEP(ICM)   7.6E-06 NPERT    1 NB(ICM)   87
+ NEW KSREG   TIME[NB] 3.2949714661E+00 NAME(I1)      1474 NAME(I2)      1957 M(I1)[M*]    1.176 M(I2)[M*]    0.953 DTAU   0.115 R12[NB]  2.8E-04 RI[NB]   0.23 H     0.06 IPAIR        1 NAME(ICM)     21474 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT    6 NB(ICM)   86
 
- END KSREG   TIME[NB] 3.4398498535E+00 NAME(I1)        10 NAME(I2)      2242 M(I1)[M*]    9.544 M(I2)[M*]    0.500 DTAU   0.068 R12[NB]  1.0E-03 RI[NB]   0.55 H     1.09 IPAIR        1 NAME(ICM)     20010 GAMMA   0.000 STEP(I1)    7.4E-05 NPERT    1 NB(ICM)   85
+ NEW KSREG   TIME[NB] 3.2950706482E+00 NAME(I1)      5195 NAME(I2)     15467 M(I1)[M*]    0.458 M(I2)[M*]    0.125 DTAU   0.061 R12[NB]  3.4E-04 RI[NB]   0.10 H     1.31 IPAIR        2 NAME(ICM)     25195 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT   12 NB(ICM)  119
 
- NEW KSREG   TIME[NB] 3.4457130432E+00 NAME(I1)      2007 NAME(I2)      5066 M(I1)[M*]    0.547 M(I2)[M*]    0.272 DTAU   0.060 R12[NB]  3.0E-04 RI[NB]   0.41 H     1.37 IPAIR        1 NAME(ICM)     22007 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT    3 NB(ICM)  106
+ END KSREG   TIME[NB] 3.2958984375E+00 NAME(I1)      5195 NAME(I2)     15467 M(I1)[M*]    0.458 M(I2)[M*]    0.125 DTAU   0.045 R12[NB]  1.0E-03 RI[NB]   0.10 H     1.31 IPAIR        2 NAME(ICM)     25195 GAMMA   0.002 STEP(I1)    4.9E-05 NPERT   12 NB(ICM)  117
 
- END KSREG   TIME[NB] 3.4464111328E+00 NAME(I1)      2007 NAME(I2)      5066 M(I1)[M*]    0.547 M(I2)[M*]    0.272 DTAU   0.060 R12[NB]  1.1E-03 RI[NB]   0.41 H     1.37 IPAIR        1 NAME(ICM)     22007 GAMMA   0.000 STEP(I1)    6.7E-05 NPERT    3 NB(ICM)  102
- CUSTOM OUTPUT: TTOT   3.5000000000000000      N_SINGLE       19986 N_BINARY           7 N_MERGER           0
+ END KSREG   TIME[NB] 3.2961273193E+00 NAME(I1)      1474 NAME(I2)      1957 M(I1)[M*]    1.176 M(I2)[M*]    0.953 DTAU   0.060 R12[NB]  1.0E-03 RI[NB]   0.23 H     0.06 IPAIR        1 NAME(ICM)     21474 GAMMA   0.000 STEP(I1)    6.2E-05 NPERT    6 NB(ICM)   80
+
+ NEW KSREG   TIME[NB] 3.3149681091E+00 NAME(I1)      2616 NAME(I2)     13004 M(I1)[M*]    0.764 M(I2)[M*]    0.164 DTAU   0.154 R12[NB]  2.2E-04 RI[NB]   0.48 H     0.15 IPAIR        1 NAME(ICM)     22616 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT    6 NB(ICM)   91
+
+ END KSREG   TIME[NB] 3.3164062500E+00 NAME(I1)      2616 NAME(I2)     13004 M(I1)[M*]    0.764 M(I2)[M*]    0.164 DTAU   0.070 R12[NB]  1.0E-03 RI[NB]   0.48 H     0.15 IPAIR        1 NAME(ICM)     22616 GAMMA   0.000 STEP(I1)    7.5E-05 NPERT    6 NB(ICM)   87
+ CUSTOM OUTPUT: TTOT   3.3750000000000000      N_SINGLE       19990 N_BINARY           5 N_MERGER           0
+
+ NEW KSREG   TIME[NB] 3.3808555603E+00 NAME(I1)      6924 NAME(I2)     15438 M(I1)[M*]    0.357 M(I2)[M*]    0.126 DTAU   0.082 R12[NB]  2.8E-04 RI[NB]   0.21 H     0.74 IPAIR        1 NAME(ICM)     26924 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT   16 NB(ICM)  113
+
+ END KSREG   TIME[NB] 3.3818664551E+00 NAME(I1)      6924 NAME(I2)     15438 M(I1)[M*]    0.357 M(I2)[M*]    0.126 DTAU   0.041 R12[NB]  1.0E-03 RI[NB]   0.21 H     0.74 IPAIR        1 NAME(ICM)     26924 GAMMA   0.000 STEP(I1)    4.4E-05 NPERT   16 NB(ICM)  106
+
+ NEW KSREG   TIME[NB] 3.3826637268E+00 NAME(I1)       494 NAME(I2)      6104 M(I1)[M*]    2.642 M(I2)[M*]    0.402 DTAU   0.062 R12[NB]  3.4E-04 RI[NB]   0.36 H     1.28 IPAIR        1 NAME(ICM)     20494 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT    2 NB(ICM)   99
+
+ END KSREG   TIME[NB] 3.3833312988E+00 NAME(I1)       494 NAME(I2)      6104 M(I1)[M*]    2.642 M(I2)[M*]    0.402 DTAU   0.062 R12[NB]  1.0E-03 RI[NB]   0.36 H     1.28 IPAIR        1 NAME(ICM)     20494 GAMMA   0.000 STEP(I1)    6.6E-05 NPERT    2 NB(ICM)   92
+
+ NEW KSREG   TIME[NB] 3.4880027771E+00 NAME(I1)      5066 NAME(I2)      9525 M(I1)[M*]    0.467 M(I2)[M*]    0.248 DTAU   0.058 R12[NB]  2.9E-04 RI[NB]   0.46 H     1.51 IPAIR        1 NAME(ICM)     25066 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT    5 NB(ICM)   84
+
+ NEW KSREG   TIME[NB] 3.4881095886E+00 NAME(I1)      2100 NAME(I2)      7953 M(I1)[M*]    0.905 M(I2)[M*]    0.307 DTAU   0.075 R12[NB]  2.5E-04 RI[NB]   0.42 H     0.88 IPAIR        2 NAME(ICM)     22100 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT    6 NB(ICM)   94
+
+ END KSREG   TIME[NB] 3.4887084961E+00 NAME(I1)      5066 NAME(I2)      9525 M(I1)[M*]    0.467 M(I2)[M*]    0.248 DTAU   0.057 R12[NB]  1.1E-03 RI[NB]   0.46 H     1.51 IPAIR        1 NAME(ICM)     25066 GAMMA   0.000 STEP(I1)    6.3E-05 NPERT    5 NB(ICM)   84
+
+ END KSREG   TIME[NB] 3.4888153076E+00 NAME(I1)      2100 NAME(I2)      7953 M(I1)[M*]    0.905 M(I2)[M*]    0.307 DTAU   0.034 R12[NB]  1.0E-03 RI[NB]   0.42 H     0.88 IPAIR        1 NAME(ICM)     22100 GAMMA   0.000 STEP(I1)    3.5E-05 NPERT    6 NB(ICM)   92
+ CUSTOM OUTPUT: TTOT   3.5000000000000000      N_SINGLE       19992 N_BINARY           4 N_MERGER           0
+
+ NEW KSREG   TIME[NB] 3.5049400330E+00 NAME(I1)       700 NAME(I2)      3010 M(I1)[M*]    2.042 M(I2)[M*]    0.692 DTAU   0.091 R12[NB]  2.3E-04 RI[NB]   0.09 H     0.06 IPAIR        1 NAME(ICM)     20700 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT    3 NB(ICM)  105
+
+ END KSREG   TIME[NB] 3.5061187744E+00 NAME(I1)       700 NAME(I2)      3010 M(I1)[M*]    2.042 M(I2)[M*]    0.692 DTAU   0.043 R12[NB]  1.0E-03 RI[NB]   0.09 H     0.06 IPAIR        1 NAME(ICM)     20700 GAMMA   0.000 STEP(I1)    4.5E-05 NPERT    3 NB(ICM)   99
+
+ NEW KSREG   TIME[NB] 3.5489463806E+00 NAME(I1)      9388 NAME(I2)     18516 M(I1)[M*]    0.253 M(I2)[M*]    0.092 DTAU   0.081 R12[NB]  2.1E-04 RI[NB]   0.39 H     0.76 IPAIR        1 NAME(ICM)     29388 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT    3 NB(ICM)  109
+
+ END KSREG   TIME[NB] 3.5498657227E+00 NAME(I1)      9388 NAME(I2)     18516 M(I1)[M*]    0.253 M(I2)[M*]    0.092 DTAU   0.036 R12[NB]  1.0E-03 RI[NB]   0.39 H     0.76 IPAIR        1 NAME(ICM)     29388 GAMMA   0.000 STEP(I1)    3.8E-05 NPERT    3 NB(ICM)   95
+
+ NEW KSREG   TIME[NB] 3.5881690979E+00 NAME(I1)     12711 NAME(I2)     19460 M(I1)[M*]    0.170 M(I2)[M*]    0.084 DTAU   0.046 R12[NB]  3.4E-04 RI[NB]   0.10 H     2.22 IPAIR        1 NAME(ICM)     32711 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT   35 NB(ICM)  117
+
+ END KSREG   TIME[NB] 3.5887145996E+00 NAME(I1)     12711 NAME(I2)     19460 M(I1)[M*]    0.170 M(I2)[M*]    0.084 DTAU   0.033 R12[NB]  1.0E-03 RI[NB]   0.10 H     2.22 IPAIR        1 NAME(ICM)     32711 GAMMA   0.002 STEP(I1)    3.6E-05 NPERT   35 NB(ICM)  114
+
+ NEW KSREG   TIME[NB] 3.6140327454E+00 NAME(I1)      2071 NAME(I2)      9274 M(I1)[M*]    0.914 M(I2)[M*]    0.257 DTAU   0.086 R12[NB]  2.5E-04 RI[NB]   0.28 H     0.68 IPAIR        1 NAME(ICM)     22071 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT    6 NB(ICM)  100
+
+ END KSREG   TIME[NB] 3.6149902344E+00 NAME(I1)      2071 NAME(I2)      9274 M(I1)[M*]    0.914 M(I2)[M*]    0.257 DTAU   0.042 R12[NB]  1.0E-03 RI[NB]   0.28 H     0.68 IPAIR        1 NAME(ICM)     22071 GAMMA   0.000 STEP(I1)    4.5E-05 NPERT    6 NB(ICM)   98
+
+ NEW KSREG   TIME[NB] 3.6174354553E+00 NAME(I1)       900 NAME(I2)      5160 M(I1)[M*]    1.722 M(I2)[M*]    0.460 DTAU   0.075 R12[NB]  3.7E-04 RI[NB]   0.57 H     0.89 IPAIR        1 NAME(ICM)     20900 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT    1 NB(ICM)  115
+
+ END KSREG   TIME[NB] 3.6182250977E+00 NAME(I1)       900 NAME(I2)      5160 M(I1)[M*]    1.722 M(I2)[M*]    0.460 DTAU   0.045 R12[NB]  1.0E-03 RI[NB]   0.57 H     0.89 IPAIR        1 NAME(ICM)     20900 GAMMA   0.000 STEP(I1)    4.8E-05 NPERT    1 NB(ICM)  103
  CUSTOM OUTPUT: TTOT   3.6250000000000000      N_SINGLE       19988 N_BINARY           6 N_MERGER           0
 
- NEW KSREG   TIME[NB] 3.6383094788E+00 NAME(I1)      1717 NAME(I2)      2764 M(I1)[M*]    0.615 M(I2)[M*]    0.427 DTAU   0.101 R12[NB]  2.1E-04 RI[NB]   0.66 H     0.20 IPAIR        1 NAME(ICM)     21717 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT    1 NB(ICM)   85
+ NEW KSREG   TIME[NB] 3.6583518982E+00 NAME(I1)       935 NAME(I2)      1066 M(I1)[M*]    1.666 M(I2)[M*]    1.516 DTAU   0.084 R12[NB]  3.8E-04 RI[NB]   0.14 H     0.71 IPAIR        1 NAME(ICM)     20935 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT    3 NB(ICM)  106
 
- END KSREG   TIME[NB] 3.6393585205E+00 NAME(I1)      1717 NAME(I2)      2764 M(I1)[M*]    0.615 M(I2)[M*]    0.427 DTAU   0.046 R12[NB]  1.0E-03 RI[NB]   0.66 H     0.20 IPAIR        1 NAME(ICM)     21717 GAMMA   0.000 STEP(I1)    4.8E-05 NPERT    1 NB(ICM)   81
- CUSTOM OUTPUT: TTOT   3.7500000000000000      N_SINGLE       19992 N_BINARY           4 N_MERGER           0
+ END KSREG   TIME[NB] 3.6591720581E+00 NAME(I1)       935 NAME(I2)      1066 M(I1)[M*]    1.666 M(I2)[M*]    1.516 DTAU   0.048 R12[NB]  1.1E-03 RI[NB]   0.14 H     0.71 IPAIR        1 NAME(ICM)     20935 GAMMA   0.000 STEP(I1)    5.2E-05 NPERT    3 NB(ICM)  104
 
- NEW KSREG   TIME[NB] 3.8119239807E+00 NAME(I1)        59 NAME(I2)      7825 M(I1)[M*]    5.694 M(I2)[M*]    0.183 DTAU   0.065 R12[NB]  4.9E-04 RI[NB]   0.23 H     0.17 IPAIR        1 NAME(ICM)     20059 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT    1 NB(ICM)   95
+ NEW KSREG   TIME[NB] 3.7091789246E+00 NAME(I1)      2470 NAME(I2)     14447 M(I1)[M*]    0.799 M(I2)[M*]    0.140 DTAU   0.088 R12[NB]  2.3E-04 RI[NB]   0.21 H     0.65 IPAIR        1 NAME(ICM)     22470 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT    7 NB(ICM)  114
 
- END KSREG   TIME[NB] 3.8125610352E+00 NAME(I1)        59 NAME(I2)      7825 M(I1)[M*]    5.694 M(I2)[M*]    0.183 DTAU   0.044 R12[NB]  1.1E-03 RI[NB]   0.23 H     0.17 IPAIR        1 NAME(ICM)     20059 GAMMA   0.000 STEP(I1)    4.8E-05 NPERT    1 NB(ICM)   87
- CUSTOM OUTPUT: TTOT   3.8750000000000000      N_SINGLE       19990 N_BINARY           5 N_MERGER           0
+ END KSREG   TIME[NB] 3.7101135254E+00 NAME(I1)      2470 NAME(I2)     14447 M(I1)[M*]    0.799 M(I2)[M*]    0.140 DTAU   0.038 R12[NB]  1.0E-03 RI[NB]   0.21 H     0.65 IPAIR        1 NAME(ICM)     22470 GAMMA   0.000 STEP(I1)    4.1E-05 NPERT    7 NB(ICM)  111
+ CUSTOM OUTPUT: TTOT   3.7500000000000000      N_SINGLE       19994 N_BINARY           3 N_MERGER           0
 
- NEW KSREG   TIME[NB] 3.8826713562E+00 NAME(I1)      6869 NAME(I2)      9221 M(I1)[M*]    0.210 M(I2)[M*]    0.151 DTAU   0.074 R12[NB]  2.4E-04 RI[NB]   0.27 H     0.91 IPAIR        1 NAME(ICM)     26869 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT   17 NB(ICM)  110
+ NEW KSREG   TIME[NB] 3.7701835632E+00 NAME(I1)      1569 NAME(I2)      4889 M(I1)[M*]    1.114 M(I2)[M*]    0.480 DTAU   0.115 R12[NB]  2.1E-04 RI[NB]   0.44 H     0.03 IPAIR        1 NAME(ICM)     21569 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT    2 NB(ICM)   98
 
- END KSREG   TIME[NB] 3.8835144043E+00 NAME(I1)      6869 NAME(I2)      9221 M(I1)[M*]    0.210 M(I2)[M*]    0.151 DTAU   0.033 R12[NB]  1.0E-03 RI[NB]   0.27 H     0.91 IPAIR        1 NAME(ICM)     26869 GAMMA   0.000 STEP(I1)    3.5E-05 NPERT   17 NB(ICM)  106
+ END KSREG   TIME[NB] 3.7716979980E+00 NAME(I1)      1569 NAME(I2)      4889 M(I1)[M*]    1.114 M(I2)[M*]    0.480 DTAU   0.052 R12[NB]  1.0E-03 RI[NB]   0.44 H     0.03 IPAIR        1 NAME(ICM)     21569 GAMMA   0.000 STEP(I1)    5.4E-05 NPERT    2 NB(ICM)   91
 
- NEW KSREG   TIME[NB] 3.9728584290E+00 NAME(I1)      5185 NAME(I2)      8813 M(I1)[M*]    0.267 M(I2)[M*]    0.160 DTAU   0.154 R12[NB]  2.0E-04 RI[NB]   0.13 H     0.09 IPAIR        1 NAME(ICM)     25185 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT   10 NB(ICM)  115
+ NEW KSREG   TIME[NB] 3.7876548767E+00 NAME(I1)        38 NAME(I2)     13233 M(I1)[M*]   11.494 M(I2)[M*]    0.159 DTAU   0.063 R12[NB]  4.3E-04 RI[NB]   0.29 H     1.25 IPAIR        1 NAME(ICM)     20038 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT    1 NB(ICM)  102
 
- END KSREG   TIME[NB] 3.9744873047E+00 NAME(I1)      5185 NAME(I2)      8813 M(I1)[M*]    0.267 M(I2)[M*]    0.160 DTAU   0.067 R12[NB]  1.0E-03 RI[NB]   0.13 H     0.09 IPAIR        1 NAME(ICM)     25185 GAMMA   0.000 STEP(I1)    7.1E-05 NPERT   10 NB(ICM)  110
+ END KSREG   TIME[NB] 3.7882385254E+00 NAME(I1)        38 NAME(I2)     13233 M(I1)[M*]   11.494 M(I2)[M*]    0.159 DTAU   0.063 R12[NB]  1.1E-03 RI[NB]   0.29 H     1.25 IPAIR        1 NAME(ICM)     20038 GAMMA   0.000 STEP(I1)    7.3E-05 NPERT    1 NB(ICM)   95
 
- NEW KSREG   TIME[NB] 3.9861564636E+00 NAME(I1)       696 NAME(I2)      1704 M(I1)[M*]    1.203 M(I2)[M*]    0.617 DTAU   0.093 R12[NB]  3.5E-04 RI[NB]   0.53 H     0.58 IPAIR        1 NAME(ICM)     20696 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT    1 NB(ICM)   98
+ NEW KSREG   TIME[NB] 3.8002815247E+00 NAME(I1)      2662 NAME(I2)      6461 M(I1)[M*]    0.754 M(I2)[M*]    0.381 DTAU   0.141 R12[NB]  2.2E-04 RI[NB]   0.36 H     0.05 IPAIR        1 NAME(ICM)     22662 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT    4 NB(ICM)  104
 
- END KSREG   TIME[NB] 3.9869995117E+00 NAME(I1)       696 NAME(I2)      1704 M(I1)[M*]    1.203 M(I2)[M*]    0.617 DTAU   0.055 R12[NB]  1.0E-03 RI[NB]   0.53 H     0.58 IPAIR        1 NAME(ICM)     20696 GAMMA   0.000 STEP(I1)    5.7E-05 NPERT    1 NB(ICM)   92
- CUSTOM OUTPUT: TTOT   4.0000000000000000      N_SINGLE       19996 N_BINARY           2 N_MERGER           0
+ END KSREG   TIME[NB] 3.8017883301E+00 NAME(I1)      2662 NAME(I2)      6461 M(I1)[M*]    0.754 M(I2)[M*]    0.381 DTAU   0.066 R12[NB]  1.0E-03 RI[NB]   0.36 H     0.05 IPAIR        1 NAME(ICM)     22662 GAMMA   0.000 STEP(I1)    6.8E-05 NPERT    4 NB(ICM)   94
+ CUSTOM OUTPUT: TTOT   3.8750000000000000      N_SINGLE       19988 N_BINARY           6 N_MERGER           0
+
+ NEW KSREG   TIME[NB] 3.8928260803E+00 NAME(I1)       118 NAME(I2)      5111 M(I1)[M*]    7.088 M(I2)[M*]    0.464 DTAU   0.063 R12[NB]  4.9E-04 RI[NB]   0.43 H     1.26 IPAIR        1 NAME(ICM)     20118 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT    1 NB(ICM)   92
+
+ END KSREG   TIME[NB] 3.8934326172E+00 NAME(I1)       118 NAME(I2)      5111 M(I1)[M*]    7.088 M(I2)[M*]    0.464 DTAU   0.063 R12[NB]  1.0E-03 RI[NB]   0.43 H     1.26 IPAIR        1 NAME(ICM)     20118 GAMMA   0.000 STEP(I1)    6.9E-05 NPERT    1 NB(ICM)   91
+ CUSTOM OUTPUT: TTOT   4.0000000000000000      N_SINGLE       19992 N_BINARY           4 N_MERGER           0
 
            TIME   M/MT(  all  ):  1.00D-03  3.00D-03  5.00D-03  1.00D-02  3.00D-02  5.00D-02  1.00D-01  2.00D-01  3.00D-01  4.00D-01  5.00D-01  6.00D-01  7.00D-01  8.00D-01  9.00D-01  9.50D-01  9.90D-01  1.00D+00  <RC(massive)
-     0.4000D+01           RLAGR:  5.94D-02  9.89D-02  1.07D-01  1.34D-01  1.93D-01  2.29D-01  2.95D-01  4.15D-01  5.22D-01  6.31D-01  7.69D-01  9.35D-01  1.16D+00  1.48D+00  2.26D+00  2.98D+00  4.78D+00  6.96D+00  3.07D-01
-     0.4000D+01          AVMASS:  5.67D-05  3.92D-05  5.31D-05  5.80D-05  5.48D-05  5.77D-05  5.79D-05  5.53D-05  5.40D-05  5.36D-05  5.17D-05  5.07D-05  5.02D-05  5.04D-05  4.95D-05  4.99D-05  5.00D-05  5.00D-05  5.87D-05
-     0.4000D+01          NPARTC:        18        77        95       200       548       867      1727      3615      5553      7468      9663     11839     13943     15874     18187     19044     19807     20000      1880
+     0.4000D+01           RLAGR:  6.94D-02  9.28D-02  1.07D-01  1.40D-01  2.04D-01  2.34D-01  3.08D-01  4.18D-01  5.23D-01  6.30D-01  7.66D-01  9.29D-01  1.15D+00  1.48D+00  2.21D+00  2.97D+00  4.76D+00  6.96D+00  3.05D-01
+     0.4000D+01          AVMASS:  3.79D-05  5.11D-05  5.17D-05  4.88D-05  4.85D-05  5.51D-05  5.28D-05  5.43D-05  5.35D-05  5.31D-05  5.15D-05  5.08D-05  5.05D-05  5.03D-05  4.96D-05  4.99D-05  5.00D-05  5.00D-05  5.25D-05
+     0.4000D+01          NPARTC:        28        62        97       205       620       911      1895      3681      5610      7528      9706     11817     13852     15914     18154     19036     19806     20000      1843
 
            TIME  M/MT(massless):  1.00D-03  3.00D-03  5.00D-03  1.00D-02  3.00D-02  5.00D-02  1.00D-01  2.00D-01  3.00D-01  4.00D-01  5.00D-01  6.00D-01  7.00D-01  8.00D-01  9.00D-01  9.50D-01  9.90D-01  1.00D+00  <RC(massless)
-     0.4000D+01           RLAGR:  6.19D-02  8.72D-02  1.05D-01  1.31D-01  1.99D-01  2.41D-01  3.16D-01  4.36D-01  5.47D-01  6.63D-01  7.89D-01  9.42D-01  1.16D+00  1.51D+00  2.14D+00  2.91D+00  4.75D+00  6.92D+00  0.00D+00
-     0.4000D+01          NPARTC:        10        30        50       100       300       500      1000      2000      3000      4000      5000      6000      7000      8000      9000      9500      9900     10000
+     0.4000D+01           RLAGR:  9.27D-02  1.49D-01  2.06D-01  2.12D-01  2.27D-01  2.42D-01  2.87D-01  3.93D-01  4.89D-01  5.78D-01  7.37D-01  8.46D-01  1.01D+00  1.24D+00  1.65D+00  2.00D+00  2.82D+00  3.87D+00  0.00D+00
+     0.4000D+01          NPARTC:         1         2         3         4         5         6        11        21        31        41        51        61        71        81        91        95        99       100
 
- ADJUST:  TIME    4.00000D+00  T[Myr]    0.84  Q 0.50  DE   8.595E-08 DELTA   2.186E-08 DETOT   3.434E-08 E  -2.499E-01 EKIN   2.543E-01 POT   5.043E-01 ETIDE   6.423E-05 ETOT  -2.499E-01 EBIN   0.000E+00 EMERGE   0.000E+00 ESUB   0.000E+00 ECOLL   0.000E+00 EMDOT   0.000E+00 ECDOT   0.000E+00
+ ADJUST:  TIME    4.00000D+00  T[Myr]    0.60  Q 0.50  DE   1.355E-07 DELTA   3.436E-08 DETOT   2.448E-08 E  -2.500E-01 EKIN   2.536E-01 POT   5.036E-01 ETIDE   3.235E-05 ETOT  -2.500E-01 EBIN   0.000E+00 EMERGE   0.000E+00 ESUB   0.000E+00 ECOLL   0.000E+00 EMDOT  -1.519E-06 ECDOT   0.000E+00
 
-  RMIN = 5.0E-04  DTMIN = 4.0E-06 RHOM = 8.9E+01 RSCALE = 7.7E-01 RSMIN = 9.8E-02  ECLOSE = 1.00  TC =    1
+  RMIN = 5.0E-04  DTMIN = 4.0E-06 RHOM = 5.9E+01 RSCALE = 7.7E-01 RSMIN = 8.3E-02  ECLOSE = 1.00  TC =    1
   PE       N        Total     Inti.    Intgrt      Reg.      Irr.     Pred.   Init.B.      Mdot      Move   Comm.I.   Comm.R.   Send.I.   Send.R.        KS    Adjust     OUT      Barr.   Barr.I.   Barr.R. Reg.GPU.S Reg.GPU.P Comm.Adj. Mdot.Fic.  Mdot.Fc. Mdot.Pot.  Mdot.EC.   Sort.B.    HighV  KS.Init.B  KS.Int.S  KS.Int.P  KS.Comm.  KS.Barr.   KS.Move   KS.Cmb. KS.Insert  KS.Init.  KS.Term.     Hiar.     KS.UP       xtsub1       xtsub2
-   1   20000     39.34514      2.04     36.36     10.66     14.60      0.10      1.17      0.00      2.02      0.00      0.00      0.55      0.46      0.43      0.92      6.05      0.01      0.01      0.00      0.75      9.83      0.00      0.00      0.00      0.00      0.00      0.28      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.12      0.09      0.07      0.00  0.00000D+00  0.00000D+00
+   1   20000     55.76813      1.14     53.16     25.89     15.89      0.09      1.32      0.00      1.95      0.00      0.00      0.59      0.06      0.70      1.28      6.56      0.01      0.01      0.00      1.40     24.42      0.00      0.00      0.00      0.00      0.00      0.31      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.29      0.17      0.07      0.00  0.00000D+00  0.00000D+00
 
 
- TIME[NB]    4.000000E+00  N    20000  <NB>    60  NPAIRS       0  NMERGE     0 MULT    0 NS    20000  NSTEP(I,B,R,U)       8291724          373      1154238          251  DE    0.859491E-07  E         -0.249942
+ TIME[NB]    4.000000E+00  N    20000  <NB>    60  NPAIRS       0  NMERGE     0 MULT    0 NS    19900 NSPL=   100  NSTEP(I,B,R,U)       9250981          649      1110472          876  DE    0.135482E-06  E         -0.249970
 
- NRUN =  1  M# =  5  CPU = 6.55789E-01  TRC = 62.7  DMIN = 4.3E-06 1.6E-05 1.0E+02 1.0E+02  AMIN = 1.0E+02  RMAX = 0.0E+00  RSMIN = 0.10  NEFF =  2756
+ NRUN =  1  M# =  5  CPU = 9.29523E-01  TRC = 31.0  DMIN = 8.5E-06 8.5E-06 1.0E+02 1.0E+02  AMIN = 1.0E+02  RMAX = 0.0E+00  RSMIN = 0.08  NEFF =  3691
 
     <R>  RTIDE  RDENS   RC      NC   MC   RHOD   RHOM  CMAX   <Cn>  Ir/R      UN      NP    RCM    VCM         AZ     EB/E   EM/E   TCR     T6  NESC  VRMS
- #1 0.77  24.2   0.07  0.31   1880  0.110    7.    89.    5.  80.5  0.03       0       0    0.000  0.0000   0.015047 -0.000 -0.000  2.83     0     0   3.7
+ #1 0.77  30.4   0.05  0.31   1832  0.097    6.    59.    4.  80.9  0.03       0       0    0.000  0.0000   0.011023 -0.000 -0.000  2.83     0     0   5.3
 
           NIRRF      NBCORR  NNPRED  NBFULL  NBVOID   NICONV  NLSMIN NBSMIN   NBDIS  NBDIS2  NCMDER  NFAST NBFAST      NBLOCK      NBLCKR    NBFLUX
- #2   666749998     1127196     667       0    1133     351       0       0       0       0       0      0      0       31728         667  11652332
+ #2   744123988     1084977     848       0    1022     127       0      19       0       0       0      0      0       33483         848  11635366
 
         NKSTRY     NKSREG     NKSHYP     NKSPER  NKSMOD   NTTRY   NTRIP    NQUAD  NCHAIN     NMERG   NEWHI  NSTEPT  NSTEPQ  NSTEPC
- #3        661          8          8          0       0       0       0        0        0        0       0       0       0       0
+ #3         26         23         23          0       0       0       0        0        0        0       0       0       0       0
 
         NMDOT NRG  NHE  NRS  NNH  NWD  NSN  NBH  NBS  ZMRG  ZMHE  ZMRS  ZMNH  ZMWD  ZMSN   ZMDOT  NTYPE
- #4        0    0    0    0    0    0    0    0    0   0.0   0.0   0.0   0.0   0.0   0.0     0.0  18467  1533
+ #4        7    0    0    0    0    0    0    0    0   0.0   0.0   0.0   0.0   0.0   0.0     0.0  16817  3183
 
       NDISS NTIDE  NSYNC  NCOLL  NCOAL  NDD  NCIRC  NROCHE  NRO  NCE  NHYP  NHYPC  NKICK  EBIN   EMERGE  ECOLL  EMDOT  ECDOT  EKICK  ESESC   EBESC  EMESC  DEGRAV   EBIND  MMAX
- #5       0     0      0      0      0    0      0       0    0    0     0      0      0   0.000   0.000   0.000  0.000  0.000  0.000  0.000   0.000  0.000   0.000  -0.250  11.6
- STEP I  (massive)      0      3     40     92    158    238    354   2298   3716   2005    711    266     92     23      2      2
- STEP R  (massive)      0     90    293    620   1190   2799   3236   1571    194      7
- STEP I (massless)      0      1     42    103    151    207    375   2311   3768   1954    699    292     72     21      4
- STEP R (massless)      2     83    303    567   1163   2854   3293   1517    217      1
- Max Speedup Irr:     4 3.97D+00    8 7.86D+00   16 1.54D+01   32 2.93D+01   64 5.38D+01  128 9.10D+01  256 1.40D+02  512 1.84D+02 1024 2.22D+02
- Max Speedup Reg:     4 4.00D+00    8 7.98D+00   16 1.59D+01   32 3.16D+01   64 6.23D+01  128 1.21D+02  256 2.30D+02  512 4.21D+02 1024 6.89D+02
+ #5       0     0      0      0      0    0      0       0    0    0     0      0      0   0.000   0.000   0.000 -0.000  0.000  0.000  0.000   0.000  0.000   0.000  -0.250  19.8
+ STEP I  (massive)      0      3     58    130    212    356    641   4276   7167   4581   1566    617    219     54     14      6
+ STEP R  (massive)      1    198    583   1196   2449   5827   6561   2742    333     10
+ STEP I (massless)      0      0      0      0      1      1      4     20     37     25      7      4      1
+ STEP R (massless)      0      0      2      2     12     33     34     15      2
+ Max Speedup Irr:     4 3.98D+00    8 7.87D+00   16 1.54D+01   32 2.95D+01   64 5.39D+01  128 9.23D+01  256 1.40D+02  512 1.93D+02 1024 2.32D+02
+ Max Speedup Reg:     4 4.00D+00    8 7.98D+00   16 1.59D+01   32 3.15D+01   64 6.19D+01  128 1.20D+02  256 2.24D+02  512 4.02D+02 1024 6.43D+02
 
- NEW KSREG   TIME[NB] 4.0535583496E+00 NAME(I1)        15 NAME(I2)      7681 M(I1)[M*]    8.936 M(I2)[M*]    0.186 DTAU   0.057 R12[NB]  5.0E-04 RI[NB]   0.11 H     1.52 IPAIR        1 NAME(ICM)     20015 GAMMA   0.000 STEP(ICM)   3.1E-05 NPERT    1 NB(ICM)  109
+ NEW KSREG   TIME[NB] 4.0646324158E+00 NAME(I1)       204 NAME(I2)      3891 M(I1)[M*]    4.862 M(I2)[M*]    0.569 DTAU   0.074 R12[NB]  2.9E-04 RI[NB]   0.28 H     0.29 IPAIR        1 NAME(ICM)     20204 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT    1 NB(ICM)  133
 
- END KSREG   TIME[NB] 4.0541076660E+00 NAME(I1)        15 NAME(I2)      7681 M(I1)[M*]    8.936 M(I2)[M*]    0.186 DTAU   0.057 R12[NB]  1.1E-03 RI[NB]   0.11 H     1.52 IPAIR        1 NAME(ICM)     20015 GAMMA   0.000 STEP(I1)    6.8E-05 NPERT    1 NB(ICM)  106
- CUSTOM OUTPUT: TTOT   4.1250000000000000      N_SINGLE       19994 N_BINARY           3 N_MERGER           0
+ END KSREG   TIME[NB] 4.0654907227E+00 NAME(I1)       204 NAME(I2)      3891 M(I1)[M*]    4.862 M(I2)[M*]    0.569 DTAU   0.039 R12[NB]  1.0E-03 RI[NB]   0.28 H     0.29 IPAIR        1 NAME(ICM)     20204 GAMMA   0.000 STEP(I1)    4.2E-05 NPERT    1 NB(ICM)  130
+ CUSTOM OUTPUT: TTOT   4.1250000000000000      N_SINGLE       19996 N_BINARY           2 N_MERGER           0
  CUSTOM OUTPUT: TTOT   4.2500000000000000      N_SINGLE       19994 N_BINARY           3 N_MERGER           0
 
- NEW KSREG   TIME[NB] 4.2556800842E+00 NAME(I1)      6276 NAME(I2)      8686 M(I1)[M*]    0.229 M(I2)[M*]    0.162 DTAU   0.111 R12[NB]  1.9E-04 RI[NB]   0.27 H     0.40 IPAIR        1 NAME(ICM)     26276 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT    9 NB(ICM)   90
+ NEW KSREG   TIME[NB] 4.3293266296E+00 NAME(I1)       140 NAME(I2)      7901 M(I1)[M*]    6.581 M(I2)[M*]    0.310 DTAU   0.007 R12[NB]  3.2E-04 RI[NB]   0.19 H    -0.03 IPAIR        1 NAME(ICM)     20140 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT   98 NB(ICM)  100
 
- END KSREG   TIME[NB] 4.2567138672E+00 NAME(I1)      6276 NAME(I2)      8686 M(I1)[M*]    0.229 M(I2)[M*]    0.162 DTAU   0.047 R12[NB]  1.0E-03 RI[NB]   0.27 H     0.40 IPAIR        1 NAME(ICM)     26276 GAMMA   0.000 STEP(I1)    4.9E-05 NPERT    9 NB(ICM)   86
+ END KSREG   TIME[NB] 4.3302307129E+00 NAME(I1)       140 NAME(I2)      7901 M(I1)[M*]    6.581 M(I2)[M*]    0.310 DTAU   0.038 R12[NB]  1.0E-03 RI[NB]   0.19 H    -0.03 IPAIR        1 NAME(ICM)     20140 GAMMA   0.000 STEP(I1)    4.0E-05 NPERT   98 NB(ICM)   93
 
- NEW KSREG   TIME[NB] 4.3000068665E+00 NAME(I1)      7266 NAME(I2)      7684 M(I1)[M*]    0.199 M(I2)[M*]    0.186 DTAU   0.070 R12[NB]  3.0E-04 RI[NB]   0.18 H     1.02 IPAIR        1 NAME(ICM)     27266 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT    8 NB(ICM)   99
+ NEW KSREG   TIME[NB] 4.3688163757E+00 NAME(I1)       564 NAME(I2)     17452 M(I1)[M*]    2.406 M(I2)[M*]    0.102 DTAU   0.053 R12[NB]  4.6E-04 RI[NB]   0.25 H     1.76 IPAIR        1 NAME(ICM)     20564 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT    2 NB(ICM)   94
 
- END KSREG   TIME[NB] 4.3008422852E+00 NAME(I1)      7266 NAME(I2)      7684 M(I1)[M*]    0.199 M(I2)[M*]    0.186 DTAU   0.060 R12[NB]  1.0E-03 RI[NB]   0.18 H     1.02 IPAIR        1 NAME(ICM)     27266 GAMMA   0.001 STEP(I1)    6.3E-05 NPERT    8 NB(ICM)   90
- CUSTOM OUTPUT: TTOT   4.3750000000000000      N_SINGLE       19988 N_BINARY           6 N_MERGER           0
- CUSTOM OUTPUT: TTOT   4.5000000000000000      N_SINGLE       19996 N_BINARY           2 N_MERGER           0
+ END KSREG   TIME[NB] 4.3695068359E+00 NAME(I1)       564 NAME(I2)     17452 M(I1)[M*]    2.406 M(I2)[M*]    0.102 DTAU   0.053 R12[NB]  1.0E-03 RI[NB]   0.25 H     1.76 IPAIR        1 NAME(ICM)     20564 GAMMA   0.000 STEP(I1)    5.8E-05 NPERT    2 NB(ICM)   92
+ CUSTOM OUTPUT: TTOT   4.3750000000000000      N_SINGLE       19990 N_BINARY           5 N_MERGER           0
+ CUSTOM OUTPUT: TTOT   4.5000000000000000      N_SINGLE       19992 N_BINARY           4 N_MERGER           0
+
+ NEW KSREG   TIME[NB] 4.5111503601E+00 NAME(I1)     12101 NAME(I2)     12822 M(I1)[M*]    0.182 M(I2)[M*]    0.167 DTAU   0.067 R12[NB]  2.4E-04 RI[NB]   0.41 H     0.95 IPAIR        1 NAME(ICM)     32101 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT   12 NB(ICM)   95
+
+ END KSREG   TIME[NB] 4.5119018555E+00 NAME(I1)     12101 NAME(I2)     12822 M(I1)[M*]    0.182 M(I2)[M*]    0.167 DTAU   0.016 R12[NB]  1.0E-03 RI[NB]   0.41 H     0.95 IPAIR        1 NAME(ICM)     32101 GAMMA   0.010 STEP(I1)    1.6E-05 NPERT   12 NB(ICM)   91
+
+ NEW KSREG   TIME[NB] 4.5306129456E+00 NAME(I1)       144 NAME(I2)      6069 M(I1)[M*]    6.392 M(I2)[M*]    0.404 DTAU   0.075 R12[NB]  3.9E-04 RI[NB]   0.30 H     0.42 IPAIR        1 NAME(ICM)     20144 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT    2 NB(ICM)   89
+
+ END KSREG   TIME[NB] 4.5313720703E+00 NAME(I1)       144 NAME(I2)      6069 M(I1)[M*]    6.392 M(I2)[M*]    0.404 DTAU   0.044 R12[NB]  1.0E-03 RI[NB]   0.30 H     0.42 IPAIR        1 NAME(ICM)     20144 GAMMA   0.000 STEP(I1)    4.7E-05 NPERT    2 NB(ICM)   79
+
+ NEW KSREG   TIME[NB] 4.5433387756E+00 NAME(I1)      1524 NAME(I2)      5953 M(I1)[M*]    1.139 M(I2)[M*]    0.410 DTAU   0.077 R12[NB]  3.4E-04 RI[NB]   0.22 H     0.85 IPAIR        1 NAME(ICM)     21524 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT    8 NB(ICM)  115
+
+ END KSREG   TIME[NB] 4.5441741943E+00 NAME(I1)      1524 NAME(I2)      5953 M(I1)[M*]    1.139 M(I2)[M*]    0.410 DTAU   0.043 R12[NB]  1.0E-03 RI[NB]   0.22 H     0.85 IPAIR        1 NAME(ICM)     21524 GAMMA   0.000 STEP(I1)    4.6E-05 NPERT    8 NB(ICM)  102
+
+ NEW KSREG   TIME[NB] 4.5525627136E+00 NAME(I1)      1202 NAME(I2)     18082 M(I1)[M*]    1.398 M(I2)[M*]    0.096 DTAU   0.044 R12[NB]  3.9E-04 RI[NB]   0.34 H     2.58 IPAIR        1 NAME(ICM)     21202 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT    7 NB(ICM)  108
+
+ END KSREG   TIME[NB] 4.5530395508E+00 NAME(I1)      1202 NAME(I2)     18082 M(I1)[M*]    1.398 M(I2)[M*]    0.096 DTAU   0.044 R12[NB]  1.0E-03 RI[NB]   0.34 H     2.58 IPAIR        1 NAME(ICM)     21202 GAMMA   0.000 STEP(I1)    4.6E-05 NPERT    7 NB(ICM)   97
+
+ NEW KSREG   TIME[NB] 4.5544700623E+00 NAME(I1)        48 NAME(I2)     16731 M(I1)[M*]   10.497 M(I2)[M*]    0.110 DTAU   0.066 R12[NB]  4.6E-04 RI[NB]   0.23 H     0.48 IPAIR        1 NAME(ICM)     20048 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT    1 NB(ICM)  112
+
+ END KSREG   TIME[NB] 4.5551757812E+00 NAME(I1)        48 NAME(I2)     16731 M(I1)[M*]   10.497 M(I2)[M*]    0.110 DTAU   0.043 R12[NB]  1.1E-03 RI[NB]   0.24 H     0.48 IPAIR        1 NAME(ICM)     20048 GAMMA   0.000 STEP(I1)    4.7E-05 NPERT    1 NB(ICM)  102
  CUSTOM OUTPUT: TTOT   4.6250000000000000      N_SINGLE       19992 N_BINARY           4 N_MERGER           0
- CUSTOM OUTPUT: TTOT   4.7500000000000000      N_SINGLE       19994 N_BINARY           3 N_MERGER           0
- CUSTOM OUTPUT: TTOT   4.8750000000000000      N_SINGLE       19990 N_BINARY           5 N_MERGER           0
 
- NEW KSREG   TIME[NB] 4.9334526062E+00 NAME(I1)        32 NAME(I2)      8730 M(I1)[M*]    6.974 M(I2)[M*]    0.161 DTAU   0.052 R12[NB]  3.8E-04 RI[NB]   0.97 H     0.00 IPAIR        1 NAME(ICM)     20032 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT    1 NB(ICM)   30
+ NEW KSREG   TIME[NB] 4.6742515564E+00 NAME(I1)       140 NAME(I2)      7901 M(I1)[M*]    6.581 M(I2)[M*]    0.310 DTAU   0.008 R12[NB]  4.0E-04 RI[NB]   0.14 H    -0.03 IPAIR        1 NAME(ICM)     20140 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT  102 NB(ICM)  103
 
- END KSREG   TIME[NB] 4.9341430664E+00 NAME(I1)        32 NAME(I2)      8730 M(I1)[M*]    6.974 M(I2)[M*]    0.161 DTAU   0.031 R12[NB]  1.0E-03 RI[NB]   0.97 H     0.00 IPAIR        1 NAME(ICM)     20032 GAMMA   0.000 STEP(I1)    3.3E-05 NPERT    1 NB(ICM)   27
+ END KSREG   TIME[NB] 4.6750488281E+00 NAME(I1)       140 NAME(I2)      7901 M(I1)[M*]    6.581 M(I2)[M*]    0.310 DTAU   0.048 R12[NB]  1.0E-03 RI[NB]   0.14 H    -0.03 IPAIR        1 NAME(ICM)     20140 GAMMA   0.000 STEP(I1)    5.0E-05 NPERT  102 NB(ICM)   97
 
- NEW KSREG   TIME[NB] 4.9588470459E+00 NAME(I1)         5 NAME(I2)      9389 M(I1)[M*]   10.619 M(I2)[M*]    0.148 DTAU   0.048 R12[NB]  4.9E-04 RI[NB]   0.09 H     0.21 IPAIR        1 NAME(ICM)     20005 GAMMA   0.000 STEP(ICM)   1.5E-05 NPERT    1 NB(ICM)   84
-  0 Warning!: Irregular step jumping! I  16327 N  16327 ratio 0.833E-01 dt0 0.00016263695478286 step 0.00195312500000000 stepr 0.00390625000000000 FI-0.31654E+00 FD 0.48832E+00 D2-0.89156E+05 D3-0.90433E+08 t  4.95898437500000000 t0  4.95703125000000000 t0r  4.95703125000000000 NB 115 LIST1     51 N1     51
+ NEW KSREG   TIME[NB] 4.7454872131E+00 NAME(I1)     10098 NAME(I2)     12573 M(I1)[M*]    0.231 M(I2)[M*]    0.172 DTAU   0.169 R12[NB]  1.4E-04 RI[NB]   0.26 H     0.17 IPAIR        1 NAME(ICM)     30098 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT   14 NB(ICM)   91
 
- END KSREG   TIME[NB] 4.9594726562E+00 NAME(I1)         5 NAME(I2)      9389 M(I1)[M*]   10.619 M(I2)[M*]    0.148 DTAU   0.032 R12[NB]  1.1E-03 RI[NB]   0.09 H     0.21 IPAIR        1 NAME(ICM)     20005 GAMMA   0.000 STEP(I1)    3.6E-05 NPERT    1 NB(ICM)   81
-  0 Warning!: Irregular step jumping! I  15693 N  15693 ratio 0.915E-01 dt0 0.00035750237214155 step 0.00390625000000000 stepr 0.00781250000000000 FI-0.30134E-01 FD-0.17495E+01 D2 0.11752E+04 D3 0.60055E+06 t  4.96093750000000000 t0  4.95703125000000000 t0r  4.95312500000000000 NB 111 LIST1      1 N1      5
+ END KSREG   TIME[NB] 4.7470397949E+00 NAME(I1)     10098 NAME(I2)     12573 M(I1)[M*]    0.231 M(I2)[M*]    0.172 DTAU   0.050 R12[NB]  1.0E-03 RI[NB]   0.26 H     0.17 IPAIR        1 NAME(ICM)     30098 GAMMA   0.001 STEP(I1)    5.3E-05 NPERT   14 NB(ICM)   82
+ CUSTOM OUTPUT: TTOT   4.7500000000000000      N_SINGLE       19986 N_BINARY           7 N_MERGER           0
 
- NEW KSREG   TIME[NB] 4.9707260132E+00 NAME(I1)        57 NAME(I2)      9072 M(I1)[M*]    5.721 M(I2)[M*]    0.154 DTAU   0.065 R12[NB]  4.9E-04 RI[NB]   0.39 H     0.68 IPAIR        1 NAME(ICM)     20057 GAMMA   0.000 STEP(ICM)   7.6E-06 NPERT    2 NB(ICM)   99
+ NEW KSREG   TIME[NB] 4.8362541199E+00 NAME(I1)      7121 NAME(I2)     14387 M(I1)[M*]    0.348 M(I2)[M*]    0.141 DTAU   0.097 R12[NB]  2.5E-04 RI[NB]   0.38 H     0.53 IPAIR        1 NAME(ICM)     27121 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT   12 NB(ICM)   95
 
- END KSREG   TIME[NB] 4.9713439941E+00 NAME(I1)        57 NAME(I2)      9072 M(I1)[M*]    5.721 M(I2)[M*]    0.154 DTAU   0.044 R12[NB]  1.1E-03 RI[NB]   0.39 H     0.68 IPAIR        1 NAME(ICM)     20057 GAMMA   0.000 STEP(I1)    4.9E-05 NPERT    2 NB(ICM)   95
- CUSTOM OUTPUT: TTOT   5.0000000000000000      N_SINGLE       19992 N_BINARY           4 N_MERGER           0
+ END KSREG   TIME[NB] 4.8373413086E+00 NAME(I1)      7121 NAME(I2)     14387 M(I1)[M*]    0.348 M(I2)[M*]    0.141 DTAU   0.042 R12[NB]  1.0E-03 RI[NB]   0.38 H     0.53 IPAIR        1 NAME(ICM)     27121 GAMMA   0.000 STEP(I1)    4.5E-05 NPERT   12 NB(ICM)   91
+ CUSTOM OUTPUT: TTOT   4.8750000000000000      N_SINGLE       19992 N_BINARY           4 N_MERGER           0
+
+ NEW KSREG   TIME[NB] 4.9238929749E+00 NAME(I1)     10919 NAME(I2)     11286 M(I1)[M*]    0.210 M(I2)[M*]    0.201 DTAU   0.072 R12[NB]  2.3E-04 RI[NB]   0.33 H     0.97 IPAIR        1 NAME(ICM)     30919 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT   15 NB(ICM)  108
+
+ END KSREG   TIME[NB] 4.9246826172E+00 NAME(I1)     10919 NAME(I2)     11286 M(I1)[M*]    0.210 M(I2)[M*]    0.201 DTAU   0.032 R12[NB]  1.0E-03 RI[NB]   0.33 H     0.97 IPAIR        1 NAME(ICM)     30919 GAMMA   0.000 STEP(I1)    3.4E-05 NPERT   15 NB(ICM)   98
+ CUSTOM OUTPUT: TTOT   5.0000000000000000      N_SINGLE       19994 N_BINARY           3 N_MERGER           0
 
            TIME   M/MT(  all  ):  1.00D-03  3.00D-03  5.00D-03  1.00D-02  3.00D-02  5.00D-02  1.00D-01  2.00D-01  3.00D-01  4.00D-01  5.00D-01  6.00D-01  7.00D-01  8.00D-01  9.00D-01  9.50D-01  9.90D-01  1.00D+00  <RC(massive)
-     0.5000D+01           RLAGR:  6.86D-02  8.68D-02  9.89D-02  1.15D-01  1.75D-01  2.13D-01  3.06D-01  4.28D-01  5.41D-01  6.55D-01  7.93D-01  9.49D-01  1.14D+00  1.51D+00  2.21D+00  2.97D+00  4.85D+00  7.25D+00  2.99D-01
-     0.5000D+01          AVMASS:  3.93D-05  6.27D-05  6.24D-05  7.40D-05  6.92D-05  7.12D-05  5.78D-05  5.43D-05  5.23D-05  5.15D-05  5.04D-05  5.06D-05  5.09D-05  5.01D-05  4.98D-05  4.99D-05  5.00D-05  5.00D-05  5.80D-05
-     0.5000D+01          NPARTC:        28        52        81       136       435       703      1732      3683      5750      7768      9930     11866     13754     15985     18077     19040     19810     20000      1649
+     0.5000D+01           RLAGR:  6.92D-02  8.77D-02  9.96D-02  1.34D-01  1.89D-01  2.21D-01  3.03D-01  4.28D-01  5.32D-01  6.52D-01  7.89D-01  9.46D-01  1.15D+00  1.50D+00  2.18D+00  2.94D+00  4.84D+00  7.23D+00  2.94D-01
+     0.5000D+01          AVMASS:  5.46D-05  5.09D-05  5.56D-05  5.34D-05  5.67D-05  6.08D-05  5.61D-05  5.31D-05  5.33D-05  5.15D-05  5.05D-05  5.04D-05  5.06D-05  5.02D-05  4.99D-05  4.99D-05  5.00D-05  5.00D-05  5.60D-05
+     0.5000D+01          NPARTC:        22        59        90       188       529       824      1788      3770      5630      7775      9910     11902     13832     15952     18053     19026     19810     20000      1685
 
            TIME  M/MT(massless):  1.00D-03  3.00D-03  5.00D-03  1.00D-02  3.00D-02  5.00D-02  1.00D-01  2.00D-01  3.00D-01  4.00D-01  5.00D-01  6.00D-01  7.00D-01  8.00D-01  9.00D-01  9.50D-01  9.90D-01  1.00D+00  <RC(massless)
-     0.5000D+01           RLAGR:  6.14D-02  8.97D-02  1.03D-01  1.33D-01  2.00D-01  2.43D-01  3.20D-01  4.41D-01  5.49D-01  6.60D-01  7.87D-01  9.53D-01  1.17D+00  1.51D+00  2.16D+00  2.91D+00  4.78D+00  7.25D+00  0.00D+00
-     0.5000D+01          NPARTC:        10        30        50       100       300       500      1000      2000      3000      4000      5000      6000      7000      8000      9000      9500      9900     10000
+     0.5000D+01           RLAGR:  8.14D-02  1.86D-01  2.19D-01  2.80D-01  2.82D-01  2.92D-01  3.11D-01  4.47D-01  5.35D-01  6.16D-01  7.26D-01  7.94D-01  9.77D-01  1.29D+00  1.82D+00  2.18D+00  2.74D+00  3.66D+00  0.00D+00
+     0.5000D+01          NPARTC:         1         2         3         4         5         6        11        21        31        41        51        61        71        81        91        95        99       100
 
- ADJUST:  TIME    5.00000D+00  T[Myr]    1.05  Q 0.49  DE   3.154E-08 DELTA   7.884E-09 DETOT   4.222E-08 E  -2.499E-01 EKIN   2.447E-01 POT   4.947E-01 ETIDE   6.715E-05 ETOT  -2.499E-01 EBIN   0.000E+00 EMERGE   0.000E+00 ESUB   0.000E+00 ECOLL   0.000E+00 EMDOT  -3.145E-07 ECDOT   0.000E+00
+ ADJUST:  TIME    5.00000D+00  T[Myr]    0.75  Q 0.50  DE   7.829E-08 DELTA   1.957E-08 DETOT   4.406E-08 E  -2.500E-01 EKIN   2.474E-01 POT   4.974E-01 ETIDE   3.359E-05 ETOT  -2.500E-01 EBIN   0.000E+00 EMERGE   0.000E+00 ESUB   0.000E+00 ECOLL   0.000E+00 EMDOT  -2.531E-06 ECDOT   0.000E+00
 
-  RMIN = 5.0E-04  DTMIN = 4.0E-06 RHOM = 1.2E+02 RSCALE = 7.9E-01 RSMIN = 1.0E-01  ECLOSE = 1.00  TC =    1
+  RMIN = 5.0E-04  DTMIN = 4.0E-06 RHOM = 5.5E+01 RSCALE = 7.9E-01 RSMIN = 8.9E-02  ECLOSE = 1.00  TC =    1
   PE       N        Total     Inti.    Intgrt      Reg.      Irr.     Pred.   Init.B.      Mdot      Move   Comm.I.   Comm.R.   Send.I.   Send.R.        KS    Adjust     OUT      Barr.   Barr.I.   Barr.R. Reg.GPU.S Reg.GPU.P Comm.Adj. Mdot.Fic.  Mdot.Fc. Mdot.Pot.  Mdot.EC.   Sort.B.    HighV  KS.Init.B  KS.Int.S  KS.Int.P  KS.Comm.  KS.Barr.   KS.Move   KS.Cmb. KS.Insert  KS.Init.  KS.Term.     Hiar.     KS.UP       xtsub1       xtsub2
-   1   20000     48.57725      2.04     45.31     13.28     18.22      0.12      1.41      0.00      2.51      0.00      0.00      0.69      0.57      0.53      1.15      7.57      0.01      0.01      0.00      0.93     12.25      0.00      0.00      0.00      0.00      0.00      0.34      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.15      0.11      0.09      0.00  0.00000D+00  0.00000D+00
+   1   20000     69.32192      1.14     66.26     32.25     19.86      0.11      1.59      0.00      2.43      0.00      0.00      0.74      0.08      0.86      1.62      8.21      0.01      0.01      0.00      1.76     30.41      0.00      0.00      0.00      0.00      0.00      0.39      0.00      0.00      0.01      0.00      0.00      0.00      0.00      0.00      0.00      0.36      0.21      0.09      0.00  0.00000D+00  0.00000D+00
 
 
- TIME[NB]    5.000000E+00  N    20000  <NB>    59  NPAIRS       0  NMERGE     0 MULT    0 NS    20000  NSTEP(I,B,R,U)       8139242          435      1140823          187  DE    0.315448E-07  E         -0.249942
+ TIME[NB]    5.000000E+00  N    20000  <NB>    59  NPAIRS       0  NMERGE     0 MULT    0 NS    19900 NSPL=   100  NSTEP(I,B,R,U)       9126030          784      1104369          495  DE    0.782937E-07  E         -0.249970
 
- NRUN =  1  M# =  6  CPU = 8.09657E-01  TRC = 47.4  DMIN = 4.3E-06 4.9E-05 1.0E+02 1.0E+02  AMIN = 1.0E+02  RMAX = 0.0E+00  RSMIN = 0.10  NEFF =  2756
+ NRUN =  1  M# =  6  CPU = 1.15543E+00  TRC = 24.9  DMIN = 8.5E-06 1.7E-05 1.0E+02 1.0E+02  AMIN = 1.0E+02  RMAX = 0.0E+00  RSMIN = 0.09  NEFF =  3691
 
     <R>  RTIDE  RDENS   RC      NC   MC   RHOD   RHOM  CMAX   <Cn>  Ir/R      UN      NP    RCM    VCM         AZ     EB/E   EM/E   TCR     T6  NESC  VRMS
- #1 0.79  24.2   0.07  0.30   1649  0.096    8.   124.    5.  79.1  0.03       0       0    0.000  0.0000   0.015047 -0.000 -0.000  2.83     1     0   3.7
+ #1 0.79  30.4   0.05  0.29   1679  0.094    7.    55.    5.  79.8  0.03       0       0    0.000  0.0000   0.011022 -0.000 -0.000  2.83     0     0   5.2
 
           NIRRF      NBCORR  NNPRED  NBFULL  NBVOID   NICONV  NLSMIN NBSMIN   NBDIS  NBDIS2  NCMDER  NFAST NBFAST      NBLOCK      NBLCKR    NBFLUX
- #2   647970635     1113425     656       0     885     336       0       0       0       0       0      0      0       31179         656  11434200
+ #2   726510401     1078545     702       0     791     123       0       6       0       0       0      0      0       33012         702  11440646
 
         NKSTRY     NKSREG     NKSHYP     NKSPER  NKSMOD   NTTRY   NTRIP    NQUAD  NCHAIN     NMERG   NEWHI  NSTEPT  NSTEPQ  NSTEPC
- #3        823          6          6          0       0       0       0        0        0        0       0       0       0       0
+ #3         13         12         10          0       0       0       0        0        0        0       0       0       0       0
 
         NMDOT NRG  NHE  NRS  NNH  NWD  NSN  NBH  NBS  ZMRG  ZMHE  ZMRS  ZMNH  ZMWD  ZMSN   ZMDOT  NTYPE
- #4        4    0    0    0    0    0    0    0    0   0.0   0.0   0.0   0.0   0.0   0.0     0.0  18467  1533
+ #4        9    0    0    0    0    0    0    0    0   0.0   0.0   0.0   0.0   0.0   0.0     0.0  16817  3183
 
       NDISS NTIDE  NSYNC  NCOLL  NCOAL  NDD  NCIRC  NROCHE  NRO  NCE  NHYP  NHYPC  NKICK  EBIN   EMERGE  ECOLL  EMDOT  ECDOT  EKICK  ESESC   EBESC  EMESC  DEGRAV   EBIND  MMAX
- #5       0     0      0      0      0    0      0       0    0    0     0      0      0   0.000   0.000   0.000 -0.000  0.000  0.000  0.000   0.000  0.000   0.000  -0.250  11.6
- STEP I  (massive)      0      2     38    102    168    234    388   2434   3732   1929    626    262     66     17      2
- STEP R  (massive)      2     93    296    611   1169   2956   3337   1380    151      5
- STEP I (massless)      0      1     41    113    154    210    381   2405   3792   1952    644    230     58     17      2
- STEP R (massless)      0    107    279    597   1138   2891   3349   1468    167      4
- Max Speedup Irr:     4 3.97D+00    8 7.86D+00   16 1.54D+01   32 2.93D+01   64 5.37D+01  128 9.08D+01  256 1.39D+02  512 1.84D+02 1024 2.22D+02
- Max Speedup Reg:     4 4.00D+00    8 7.98D+00   16 1.59D+01   32 3.16D+01   64 6.23D+01  128 1.21D+02  256 2.30D+02  512 4.21D+02 1024 6.89D+02
+ #5       0     0      0      0      0    0      0       0    0    0     0      0      0   0.000   0.000   0.000 -0.000  0.000  0.000  0.000   0.000  0.000   0.000  -0.250  19.8
+ STEP I  (massive)      0      2     56    147    189    365    694   4340   7211   4489   1546    577    218     46     20
+ STEP R  (massive)      2    200    599   1243   2362   6114   6295   2726    354      4      1
+ STEP I (massless)      0      0      0      0      0      1      2     20     47     18      7      4      1
+ STEP R (massless)      0      0      1      5     12     35     34     12      1
+ Max Speedup Irr:     4 3.98D+00    8 7.87D+00   16 1.54D+01   32 2.95D+01   64 5.39D+01  128 9.23D+01  256 1.40D+02  512 1.92D+02 1024 2.32D+02
+ Max Speedup Reg:     4 4.00D+00    8 7.98D+00   16 1.59D+01   32 3.15D+01   64 6.20D+01  128 1.20D+02  256 2.24D+02  512 4.03D+02 1024 6.45D+02
 
- NEW KSREG   TIME[NB] 5.0768928528E+00 NAME(I1)      4167 NAME(I2)      5589 M(I1)[M*]    0.316 M(I2)[M*]    0.253 DTAU   0.107 R12[NB]  2.2E-04 RI[NB]   0.49 H     0.44 IPAIR        1 NAME(ICM)     24167 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT    1 NB(ICM)  114
+ NEW KSREG   TIME[NB] 5.0104179382E+00 NAME(I1)      1560 NAME(I2)     19380 M(I1)[M*]    1.118 M(I2)[M*]    0.085 DTAU   0.064 R12[NB]  2.8E-04 RI[NB]   0.27 H     1.21 IPAIR        1 NAME(ICM)     21560 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT    4 NB(ICM)  113
 
- END KSREG   TIME[NB] 5.0779418945E+00 NAME(I1)      4167 NAME(I2)      5589 M(I1)[M*]    0.316 M(I2)[M*]    0.253 DTAU   0.049 R12[NB]  1.0E-03 RI[NB]   0.49 H     0.44 IPAIR        1 NAME(ICM)     24167 GAMMA   0.000 STEP(I1)    5.2E-05 NPERT    1 NB(ICM)   96
+ END KSREG   TIME[NB] 5.0111083984E+00 NAME(I1)      1560 NAME(I2)     19380 M(I1)[M*]    1.118 M(I2)[M*]    0.085 DTAU   0.063 R12[NB]  1.0E-03 RI[NB]   0.27 H     1.21 IPAIR        1 NAME(ICM)     21560 GAMMA   0.000 STEP(I1)    6.7E-05 NPERT    4 NB(ICM)  101
 
- NEW KSREG   TIME[NB] 5.0917854309E+00 NAME(I1)       514 NAME(I2)      7331 M(I1)[M*]    1.500 M(I2)[M*]    0.197 DTAU   0.104 R12[NB]  3.6E-04 RI[NB]   0.50 H     0.39 IPAIR        1 NAME(ICM)     20514 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT    1 NB(ICM)   97
+ NEW KSREG   TIME[NB] 5.0576057434E+00 NAME(I1)      7318 NAME(I2)     11779 M(I1)[M*]    0.338 M(I2)[M*]    0.189 DTAU   0.050 R12[NB]  3.3E-04 RI[NB]   0.29 H     1.96 IPAIR        1 NAME(ICM)     27318 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT   14 NB(ICM)  100
 
- END KSREG   TIME[NB] 5.0926818848E+00 NAME(I1)       514 NAME(I2)      7331 M(I1)[M*]    1.500 M(I2)[M*]    0.197 DTAU   0.060 R12[NB]  1.1E-03 RI[NB]   0.50 H     0.39 IPAIR        1 NAME(ICM)     20514 GAMMA   0.000 STEP(I1)    6.7E-05 NPERT    1 NB(ICM)   89
- CUSTOM OUTPUT: TTOT   5.1250000000000000      N_SINGLE       19990 N_BINARY           5 N_MERGER           0
+ END KSREG   TIME[NB] 5.0581970215E+00 NAME(I1)      7318 NAME(I2)     11779 M(I1)[M*]    0.338 M(I2)[M*]    0.189 DTAU   0.049 R12[NB]  1.1E-03 RI[NB]   0.29 H     1.96 IPAIR        1 NAME(ICM)     27318 GAMMA   0.000 STEP(I1)    5.5E-05 NPERT   14 NB(ICM)   91
 
- NEW KSREG   TIME[NB] 5.2311515808E+00 NAME(I1)      1463 NAME(I2)      4242 M(I1)[M*]    0.691 M(I2)[M*]    0.312 DTAU   0.092 R12[NB]  3.3E-04 RI[NB]   0.40 H     0.59 IPAIR        1 NAME(ICM)     21463 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT    2 NB(ICM)  108
+ NEW KSREG   TIME[NB] 5.1244010925E+00 NAME(I1)       594 NAME(I2)      1556 M(I1)[M*]    2.311 M(I2)[M*]    1.120 DTAU   0.059 R12[NB]  4.4E-04 RI[NB]   0.50 H     1.42 IPAIR        1 NAME(ICM)     20594 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT    2 NB(ICM)  125
+ CUSTOM OUTPUT: TTOT   5.1250000000000000      N_SINGLE       19992 N_BINARY           4 N_MERGER           0
 
- END KSREG   TIME[NB] 5.2320556641E+00 NAME(I1)      1463 NAME(I2)      4242 M(I1)[M*]    0.691 M(I2)[M*]    0.312 DTAU   0.052 R12[NB]  1.0E-03 RI[NB]   0.40 H     0.59 IPAIR        1 NAME(ICM)     21463 GAMMA   0.000 STEP(I1)    5.5E-05 NPERT    2 NB(ICM)  101
+ END KSREG   TIME[NB] 5.1251525879E+00 NAME(I1)       594 NAME(I2)      1556 M(I1)[M*]    2.311 M(I2)[M*]    1.120 DTAU   0.058 R12[NB]  1.1E-03 RI[NB]   0.50 H     1.42 IPAIR        1 NAME(ICM)     20594 GAMMA   0.000 STEP(I1)    6.8E-05 NPERT    2 NB(ICM)  116
+
+ NEW KSREG   TIME[NB] 5.1299171448E+00 NAME(I1)        19 NAME(I2)     13906 M(I1)[M*]   13.917 M(I2)[M*]    0.148 DTAU   0.055 R12[NB]  4.2E-04 RI[NB]   0.21 H     0.26 IPAIR        1 NAME(ICM)     20019 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT    1 NB(ICM)   91
+
+ END KSREG   TIME[NB] 5.1305465698E+00 NAME(I1)        19 NAME(I2)     13906 M(I1)[M*]   13.917 M(I2)[M*]    0.148 DTAU   0.035 R12[NB]  1.0E-03 RI[NB]   0.21 H     0.26 IPAIR        1 NAME(ICM)     20019 GAMMA   0.000 STEP(I1)    3.7E-05 NPERT    1 NB(ICM)   86
+
+ NEW KSREG   TIME[NB] 5.1386680603E+00 NAME(I1)     15670 NAME(I2)     16107 M(I1)[M*]    0.123 M(I2)[M*]    0.117 DTAU   0.102 R12[NB]  1.7E-04 RI[NB]   0.23 H     0.48 IPAIR        1 NAME(ICM)     35670 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT   29 NB(ICM)   97
+
+ END KSREG   TIME[NB] 5.1397399902E+00 NAME(I1)     15670 NAME(I2)     16107 M(I1)[M*]    0.123 M(I2)[M*]    0.117 DTAU   0.027 R12[NB]  1.0E-03 RI[NB]   0.23 H     0.48 IPAIR        1 NAME(ICM)     35670 GAMMA   0.003 STEP(I1)    2.8E-05 NPERT   29 NB(ICM)   89
+
+ NEW KSREG   TIME[NB] 5.1646614075E+00 NAME(I1)      1901 NAME(I2)      9571 M(I1)[M*]    0.976 M(I2)[M*]    0.247 DTAU   0.135 R12[NB]  2.2E-04 RI[NB]   0.45 H     0.04 IPAIR        1 NAME(ICM)     21901 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT    3 NB(ICM)  115
+
+ END KSREG   TIME[NB] 5.1662292480E+00 NAME(I1)      1901 NAME(I2)      9571 M(I1)[M*]    0.976 M(I2)[M*]    0.247 DTAU   0.062 R12[NB]  1.0E-03 RI[NB]   0.45 H     0.04 IPAIR        1 NAME(ICM)     21901 GAMMA   0.000 STEP(I1)    6.5E-05 NPERT    3 NB(ICM)  105
  CUSTOM OUTPUT: TTOT   5.2500000000000000      N_SINGLE       19990 N_BINARY           5 N_MERGER           0
+
+ NEW KSREG   TIME[NB] 5.2855873108E+00 NAME(I1)      7283 NAME(I2)      8715 M(I1)[M*]    0.340 M(I2)[M*]    0.277 DTAU   0.048 R12[NB]  3.5E-04 RI[NB]   0.30 H     2.18 IPAIR        1 NAME(ICM)     27283 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT   10 NB(ICM)  109
+
+ END KSREG   TIME[NB] 5.2861328125E+00 NAME(I1)      7283 NAME(I2)      8715 M(I1)[M*]    0.340 M(I2)[M*]    0.277 DTAU   0.047 R12[NB]  1.1E-03 RI[NB]   0.30 H     2.18 IPAIR        1 NAME(ICM)     27283 GAMMA   0.000 STEP(I1)    5.3E-05 NPERT   10 NB(ICM)  109
  CUSTOM OUTPUT: TTOT   5.3750000000000000      N_SINGLE       19992 N_BINARY           4 N_MERGER           0
 
- NEW KSREG   TIME[NB] 5.3967704773E+00 NAME(I1)      2554 NAME(I2)      8822 M(I1)[M*]    0.455 M(I2)[M*]    0.159 DTAU   0.013 R12[NB]  2.1E-04 RI[NB]   0.45 H    -0.01 IPAIR        1 NAME(ICM)     22554 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT   42 NB(ICM)   87
+ NEW KSREG   TIME[NB] 5.3963966370E+00 NAME(I1)      2955 NAME(I2)     18175 M(I1)[M*]    0.701 M(I2)[M*]    0.095 DTAU   0.044 R12[NB]  4.8E-04 RI[NB]   0.25 H     2.61 IPAIR        1 NAME(ICM)     22955 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT   13 NB(ICM)  111
 
- END KSREG   TIME[NB] 5.4735107422E+00 NAME(I1)      2554 NAME(I2)      8822 M(I1)[M*]    0.455 M(I2)[M*]    0.159 DTAU   0.004 R12[NB]  1.2E-02 RI[NB]   0.48 H    -0.01 IPAIR        1 NAME(ICM)     22554 GAMMA   0.100 STEP(I1)    4.4E-05 NPERT   42 NB(ICM)  171
+ END KSREG   TIME[NB] 5.3970642090E+00 NAME(I1)      2955 NAME(I2)     18175 M(I1)[M*]    0.701 M(I2)[M*]    0.095 DTAU   0.041 R12[NB]  1.1E-03 RI[NB]   0.25 H     2.61 IPAIR        1 NAME(ICM)     22955 GAMMA   0.000 STEP(I1)    4.7E-05 NPERT   13 NB(ICM)   95
 
- NEW KSREG   TIME[NB] 5.4834403992E+00 NAME(I1)       424 NAME(I2)      5716 M(I1)[M*]    1.697 M(I2)[M*]    0.248 DTAU   0.086 R12[NB]  2.9E-04 RI[NB]   0.54 H     0.17 IPAIR        1 NAME(ICM)     20424 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT    1 NB(ICM)   87
+ NEW KSREG   TIME[NB] 5.4601440430E+00 NAME(I1)      5532 NAME(I2)      6298 M(I1)[M*]    0.436 M(I2)[M*]    0.390 DTAU   0.059 R12[NB]  2.9E-04 RI[NB]   0.38 H     1.45 IPAIR        1 NAME(ICM)     25532 GAMMA   0.000 STEP(ICM)   6.1E-05 NPERT    3 NB(ICM)   80
 
- END KSREG   TIME[NB] 5.4844360352E+00 NAME(I1)       424 NAME(I2)      5716 M(I1)[M*]    1.697 M(I2)[M*]    0.248 DTAU   0.046 R12[NB]  1.0E-03 RI[NB]   0.54 H     0.17 IPAIR        1 NAME(ICM)     20424 GAMMA   0.000 STEP(I1)    4.7E-05 NPERT    1 NB(ICM)   77
- CUSTOM OUTPUT: TTOT   5.5000000000000000      N_SINGLE       19996 N_BINARY           2 N_MERGER           0
- CUSTOM OUTPUT: TTOT   5.6250000000000000      N_SINGLE       19990 N_BINARY           5 N_MERGER           0
- CUSTOM OUTPUT: TTOT   5.7500000000000000      N_SINGLE       19988 N_BINARY           6 N_MERGER           0
+ END KSREG   TIME[NB] 5.4608154297E+00 NAME(I1)      5532 NAME(I2)      6298 M(I1)[M*]    0.436 M(I2)[M*]    0.390 DTAU   0.058 R12[NB]  1.0E-03 RI[NB]   0.38 H     1.45 IPAIR        1 NAME(ICM)     25532 GAMMA   0.000 STEP(I1)    6.3E-05 NPERT    3 NB(ICM)   79
 
- NEW KSREG   TIME[NB] 5.8332748413E+00 NAME(I1)      1426 NAME(I2)      6541 M(I1)[M*]    0.707 M(I2)[M*]    0.220 DTAU   0.054 R12[NB]  4.1E-04 RI[NB]   0.57 H     1.68 IPAIR        1 NAME(ICM)     21426 GAMMA   0.000 STEP(ICM)   7.6E-06 NPERT    3 NB(ICM)   93
+ NEW KSREG   TIME[NB] 5.4715156555E+00 NAME(I1)       107 NAME(I2)      5278 M(I1)[M*]    7.499 M(I2)[M*]    0.452 DTAU   0.062 R12[NB]  4.6E-04 RI[NB]   0.63 H     1.32 IPAIR        1 NAME(ICM)     20107 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT    1 NB(ICM)   90
 
- END KSREG   TIME[NB] 5.8339843750E+00 NAME(I1)      1426 NAME(I2)      6541 M(I1)[M*]    0.707 M(I2)[M*]    0.220 DTAU   0.054 R12[NB]  1.0E-03 RI[NB]   0.57 H     1.68 IPAIR        1 NAME(ICM)     21426 GAMMA   0.000 STEP(I1)    5.8E-05 NPERT    3 NB(ICM)   90
- CUSTOM OUTPUT: TTOT   5.8750000000000000      N_SINGLE       19988 N_BINARY           6 N_MERGER           0
- CUSTOM OUTPUT: TTOT   6.0000000000000000      N_SINGLE       19990 N_BINARY           5 N_MERGER           0
+ END KSREG   TIME[NB] 5.4721984863E+00 NAME(I1)       107 NAME(I2)      5278 M(I1)[M*]    7.499 M(I2)[M*]    0.452 DTAU   0.062 R12[NB]  1.1E-03 RI[NB]   0.64 H     1.32 IPAIR        1 NAME(ICM)     20107 GAMMA   0.000 STEP(I1)    7.3E-05 NPERT    1 NB(ICM)   85
+ CUSTOM OUTPUT: TTOT   5.5000000000000000      N_SINGLE       19990 N_BINARY           5 N_MERGER           0
 
-           TIME   M/MT(  all  ):  1.00D-03  3.00D-03  5.00D-03  1.00D-02  3.00D-02  5.00D-02  1.00D-01  2.00D-01  3.00D-01  4.00D-01  5.00D-01  6.00D-01  7.00D-01  8.00D-01  9.00D-01  9.50D-01  9.90D-01  1.00D+00  <RC(massive)
-     0.6000D+01           RLAGR:  4.00D-02  8.53D-02  1.01D-01  1.22D-01  1.81D-01  2.18D-01  2.92D-01  4.20D-01  5.31D-01  6.64D-01  7.88D-01  9.52D-01  1.17D+00  1.52D+00  2.22D+00  2.95D+00  4.80D+00  7.53D+00  3.15D-01
-     0.6000D+01          AVMASS:  3.80D-04  6.60D-05  7.43D-05  5.94D-05  6.65D-05  6.75D-05  6.28D-05  5.68D-05  5.45D-05  5.23D-05  5.23D-05  5.12D-05  5.09D-05  5.01D-05  4.98D-05  4.99D-05  5.00D-05  5.00D-05  6.11D-05
-     0.6000D+01          NPARTC:         4        46        86       171       452       748      1593      3530      5505      7651      9553     11719     13765     15977     18077     19021     19793     20000      1872
+ NEW KSREG   TIME[NB] 5.5069770813E+00 NAME(I1)      1749 NAME(I2)      6490 M(I1)[M*]    1.037 M(I2)[M*]    0.379 DTAU   0.090 R12[NB]  2.5E-04 RI[NB]   1.32 H     0.61 IPAIR        1 NAME(ICM)     21749 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT    1 NB(ICM)   15
 
-           TIME  M/MT(massless):  1.00D-03  3.00D-03  5.00D-03  1.00D-02  3.00D-02  5.00D-02  1.00D-01  2.00D-01  3.00D-01  4.00D-01  5.00D-01  6.00D-01  7.00D-01  8.00D-01  9.00D-01  9.50D-01  9.90D-01  1.00D+00  <RC(massless)
-     0.6000D+01           RLAGR:  5.76D-02  9.01D-02  1.02D-01  1.30D-01  2.03D-01  2.50D-01  3.28D-01  4.49D-01  5.68D-01  6.86D-01  8.19D-01  9.76D-01  1.20D+00  1.52D+00  2.17D+00  2.91D+00  4.87D+00  7.53D+00  0.00D+00
-     0.6000D+01          NPARTC:        10        30        50       100       300       500      1000      2000      3000      4000      5000      6000      7000      8000      9000      9500      9900     10000
+ END KSREG   TIME[NB] 5.5079193115E+00 NAME(I1)      1749 NAME(I2)      6490 M(I1)[M*]    1.037 M(I2)[M*]    0.379 DTAU   0.044 R12[NB]  1.0E-03 RI[NB]   1.32 H     0.61 IPAIR        1 NAME(ICM)     21749 GAMMA   0.000 STEP(I1)    4.7E-05 NPERT    1 NB(ICM)   11
 
- ADJUST:  TIME    6.00000D+00  T[Myr]    1.27  Q 0.49  DE   1.076E-08 DELTA   2.688E-09 DETOT   4.491E-08 E  -2.499E-01 EKIN   2.447E-01 POT   4.947E-01 ETIDE   6.888E-05 ETOT  -2.499E-01 EBIN   0.000E+00 EMERGE   0.000E+00 ESUB   0.000E+00 ECOLL   0.000E+00 EMDOT  -5.711E-07 ECDOT   0.000E+00
+ NEW KSREG   TIME[NB] 5.6062583923E+00 NAME(I1)       229 NAME(I2)     17142 M(I1)[M*]    4.496 M(I2)[M*]    0.105 DTAU   0.080 R12[NB]  2.9E-04 RI[NB]   0.53 H     0.57 IPAIR        1 NAME(ICM)     20229 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT    1 NB(ICM)   95
 
-  RMIN = 5.0E-04  DTMIN = 4.0E-06 RHOM = 4.4E+01 RSCALE = 7.9E-01 RSMIN = 8.5E-02  ECLOSE = 1.00  TC =    2
-  PE       N        Total     Inti.    Intgrt      Reg.      Irr.     Pred.   Init.B.      Mdot      Move   Comm.I.   Comm.R.   Send.I.   Send.R.        KS    Adjust     OUT      Barr.   Barr.I.   Barr.R. Reg.GPU.S Reg.GPU.P Comm.Adj. Mdot.Fic.  Mdot.Fc. Mdot.Pot.  Mdot.EC.   Sort.B.    HighV  KS.Init.B  KS.Int.S  KS.Int.P  KS.Comm.  KS.Barr.   KS.Move   KS.Cmb. KS.Insert  KS.Init.  KS.Term.     Hiar.     KS.UP       xtsub1       xtsub2
-   1   20000     57.73699      2.04     54.19     15.82     21.80      0.14      1.66      0.00      2.99      0.00      0.00      0.84      0.68      0.65      1.39      9.12      0.01      0.01      0.00      1.09     14.61      0.00      0.00      0.00      0.00      0.00      0.41      0.00      0.00      0.01      0.00      0.00      0.00      0.00      0.00      0.00      0.18      0.13      0.11      0.00  0.00000D+00  0.00000D+00
+ END KSREG   TIME[NB] 5.6069946289E+00 NAME(I1)       229 NAME(I2)     17142 M(I1)[M*]    4.496 M(I2)[M*]    0.105 DTAU   0.042 R12[NB]  1.1E-03 RI[NB]   0.53 H     0.57 IPAIR        1 NAME(ICM)     20229 GAMMA   0.000 STEP(I1)    4.5E-05 NPERT    1 NB(ICM)   80
+ CUSTOM OUTPUT: TTOT   5.6250000000000000      N_SINGLE       19988 N_BINARY           6 N_MERGER           0
 
+ NEW KSREG   TIME[NB] 5.6410331726E+00 NAME(I1)     16152 NAME(I2)     16616 M(I1)[M*]    0.117 M(I2)[M*]    0.111 DTAU   0.058 R12[NB]  2.8E-04 RI[NB]   0.14 H     1.48 IPAIR        1 NAME(ICM)     36152 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT   36 NB(ICM)  120
 
- TIME[NB]    6.000000E+00  N    20000  <NB>    59  NPAIRS       0  NMERGE     0 MULT    0 NS    20000  NSTEP(I,B,R,U)       7926593          556      1104831         1658  DE    0.107560E-07  E         -0.249942
+ END KSREG   TIME[NB] 5.6417388916E+00 NAME(I1)     16152 NAME(I2)     16616 M(I1)[M*]    0.117 M(I2)[M*]    0.111 DTAU   0.043 R12[NB]  1.1E-03 RI[NB]   0.14 H     1.48 IPAIR        1 NAME(ICM)     36152 GAMMA   0.002 STEP(I1)    4.7E-05 NPERT   36 NB(ICM)  114
+ CUSTOM OUTPUT: TTOT   5.7500000000000000      N_SINGLE       19986 N_BINARY           7 N_MERGER           0
 
- NRUN =  1  M# =  7  CPU = 9.62320E-01  TRC = 60.8  DMIN = 4.3E-06 1.1E-05 1.0E+02 1.0E+02  AMIN = 1.0E+02  RMAX = 0.0E+00  RSMIN = 0.09  NEFF =  2756
+ NEW KSREG   TIME[NB] 5.8143272400E+00 NAME(I1)      9866 NAME(I2)     18849 M(I1)[M*]    0.237 M(I2)[M*]    0.089 DTAU   0.049 R12[NB]  3.3E-04 RI[NB]   0.55 H     2.05 IPAIR        1 NAME(ICM)     29866 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT    9 NB(ICM)  136
 
-    <R>  RTIDE  RDENS   RC      NC   MC   RHOD   RHOM  CMAX   <Cn>  Ir/R      UN      NP    RCM    VCM         AZ     EB/E   EM/E   TCR     T6  NESC  VRMS
- #1 0.79  24.2   0.04  0.32   1872  0.114    6.    44.    5.  79.5  0.03       0       0    0.000  0.0000   0.015048 -0.000 -0.000  2.83     1     0   3.7
+ END KSREG   TIME[NB] 5.8149108887E+00 NAME(I1)      9866 NAME(I2)     18849 M(I1)[M*]    0.237 M(I2)[M*]    0.089 DTAU   0.041 R12[NB]  1.0E-03 RI[NB]   0.55 H     2.05 IPAIR        1 NAME(ICM)     29866 GAMMA   0.001 STEP(I1)    4.4E-05 NPERT    9 NB(ICM)  117
+ CUSTOM OUTPUT: TTOT   5.8750000000000000      N_SINGLE       19992 N_BINARY           4 N_MERGER           0
 
-          NIRRF      NBCORR  NNPRED  NBFULL  NBVOID   NICONV  NLSMIN NBSMIN   NBDIS  NBDIS2  NCMDER  NFAST NBFAST      NBLOCK      NBLCKR    NBFLUX
- #2   629228311     1078712     632       0     838     271       0       1       0       0       0      0      0       35045         632  11143683
+ NEW KSREG   TIME[NB] 5.9670906067E+00 NAME(I1)      3971 NAME(I2)     13921 M(I1)[M*]    0.559 M(I2)[M*]    0.148 DTAU   0.150 R12[NB]  1.6E-04 RI[NB]   0.44 H     0.18 IPAIR        1 NAME(ICM)     23971 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT    5 NB(ICM)  106
 
-        NKSTRY     NKSREG     NKSHYP     NKSPER  NKSMOD   NTTRY   NTRIP    NQUAD  NCHAIN     NMERG   NEWHI  NSTEPT  NSTEPQ  NSTEPC
- #3       5764          6          5          0       0       0       0        0        0        0       0       0       0       0
-
-        NMDOT NRG  NHE  NRS  NNH  NWD  NSN  NBH  NBS  ZMRG  ZMHE  ZMRS  ZMNH  ZMWD  ZMSN   ZMDOT  NTYPE
- #4        2    0    0    0    0    0    0    0    0   0.0   0.0   0.0   0.0   0.0   0.0     0.0  18467  1533
-
-      NDISS NTIDE  NSYNC  NCOLL  NCOAL  NDD  NCIRC  NROCHE  NRO  NCE  NHYP  NHYPC  NKICK  EBIN   EMERGE  ECOLL  EMDOT  ECDOT  EKICK  ESESC   EBESC  EMESC  DEGRAV   EBIND  MMAX
- #5       0     0      0      0      0    0      0       0    0    0     0      0      0   0.000   0.000   0.000 -0.000  0.000  0.000  0.000   0.000  0.000   0.000  -0.250  11.6
- STEP I  (massive)      0      1     44     97    174    253    375   2367   3919   1817    632    233     64     18      6
- STEP R  (massive)      1    110    287    585   1261   3115   3029   1411    196      5
- STEP I (massless)      0      1     41    109    161    221    370   2430   3872   1826    627    239     76     22      4      1
- STEP R (massless)      0    104    296    568   1222   3171   3167   1269    198      5
- Max Speedup Irr:     4 3.97D+00    8 7.85D+00   16 1.54D+01   32 2.92D+01   64 5.34D+01  128 8.99D+01  256 1.37D+02  512 1.80D+02 1024 2.17D+02
- Max Speedup Reg:     4 4.00D+00    8 7.98D+00   16 1.59D+01   32 3.16D+01   64 6.23D+01  128 1.21D+02  256 2.30D+02  512 4.21D+02 1024 6.88D+02
- CUSTOM OUTPUT: TTOT   6.1250000000000000      N_SINGLE       19988 N_BINARY           6 N_MERGER           0
-
- NEW KSREG   TIME[NB] 6.1762351990E+00 NAME(I1)      2934 NAME(I2)      6258 M(I1)[M*]    0.411 M(I2)[M*]    0.229 DTAU   0.093 R12[NB]  2.3E-04 RI[NB]   0.64 H     0.58 IPAIR        1 NAME(ICM)     22934 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT    1 NB(ICM)   81
-
- END KSREG   TIME[NB] 6.1771850586E+00 NAME(I1)      2934 NAME(I2)      6258 M(I1)[M*]    0.411 M(I2)[M*]    0.229 DTAU   0.043 R12[NB]  1.0E-03 RI[NB]   0.64 H     0.58 IPAIR        1 NAME(ICM)     22934 GAMMA   0.000 STEP(I1)    4.6E-05 NPERT    1 NB(ICM)   79
- CUSTOM OUTPUT: TTOT   6.2500000000000000      N_SINGLE       19990 N_BINARY           5 N_MERGER           0
-
- NEW KSREG   TIME[NB] 6.3180885315E+00 NAME(I1)      3800 NAME(I2)      9152 M(I1)[M*]    0.339 M(I2)[M*]    0.152 DTAU   0.072 R12[NB]  2.6E-04 RI[NB]   0.20 H     0.91 IPAIR        1 NAME(ICM)     23800 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT   13 NB(ICM)   86
-
- END KSREG   TIME[NB] 6.3189086914E+00 NAME(I1)      3800 NAME(I2)      9152 M(I1)[M*]    0.339 M(I2)[M*]    0.152 DTAU   0.020 R12[NB]  1.0E-03 RI[NB]   0.20 H     0.91 IPAIR        1 NAME(ICM)     23800 GAMMA   0.005 STEP(I1)    2.1E-05 NPERT   13 NB(ICM)   86
-
- NEW KSREG   TIME[NB] 6.3397865295E+00 NAME(I1)        36 NAME(I2)       140 M(I1)[M*]    6.811 M(I2)[M*]    3.842 DTAU   0.048 R12[NB]  4.9E-04 RI[NB]   0.33 H     0.09 IPAIR        1 NAME(ICM)     20036 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT    1 NB(ICM)   99
-
- END KSREG   TIME[NB] 6.3403930664E+00 NAME(I1)        36 NAME(I2)       140 M(I1)[M*]    6.811 M(I2)[M*]    3.842 DTAU   0.034 R12[NB]  1.0E-03 RI[NB]   0.33 H     0.09 IPAIR        1 NAME(ICM)     20036 GAMMA   0.000 STEP(I1)    3.5E-05 NPERT    1 NB(ICM)   92
- CUSTOM OUTPUT: TTOT   6.3750000000000000      N_SINGLE       19982 N_BINARY           9 N_MERGER           0
- CUSTOM OUTPUT: TTOT   6.5000000000000000      N_SINGLE       19986 N_BINARY           7 N_MERGER           0
-
- NEW KSREG   TIME[NB] 6.5403823853E+00 NAME(I1)        68 NAME(I2)      3129 M(I1)[M*]    5.370 M(I2)[M*]    0.391 DTAU   0.066 R12[NB]  5.0E-04 RI[NB]   0.69 H     0.26 IPAIR        1 NAME(ICM)     20068 GAMMA   0.000 STEP(ICM)   7.6E-06 NPERT    1 NB(ICM)  102
-
- END KSREG   TIME[NB] 6.5410461426E+00 NAME(I1)        68 NAME(I2)      3129 M(I1)[M*]    5.370 M(I2)[M*]    0.391 DTAU   0.045 R12[NB]  1.1E-03 RI[NB]   0.69 H     0.26 IPAIR        1 NAME(ICM)     20068 GAMMA   0.000 STEP(I1)    5.0E-05 NPERT    1 NB(ICM)   96
-
- NEW KSREG   TIME[NB] 6.5512046814E+00 NAME(I1)      2929 NAME(I2)      5083 M(I1)[M*]    0.412 M(I2)[M*]    0.272 DTAU   0.114 R12[NB]  2.1E-04 RI[NB]   0.37 H     0.38 IPAIR        1 NAME(ICM)     22929 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT    4 NB(ICM)  109
-
- END KSREG   TIME[NB] 6.5522155762E+00 NAME(I1)      2929 NAME(I2)      5083 M(I1)[M*]    0.412 M(I2)[M*]    0.272 DTAU   0.042 R12[NB]  1.0E-03 RI[NB]   0.37 H     0.38 IPAIR        1 NAME(ICM)     22929 GAMMA   0.001 STEP(I1)    4.3E-05 NPERT    4 NB(ICM)  104
-
- NEW KSREG   TIME[NB] 6.5719184875E+00 NAME(I1)       162 NAME(I2)       331 M(I1)[M*]    3.311 M(I2)[M*]    1.975 DTAU   0.062 R12[NB]  4.0E-04 RI[NB]   1.12 H     0.10 IPAIR        1 NAME(ICM)     20162 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT    1 NB(ICM)   17
-
- END KSREG   TIME[NB] 6.5726623535E+00 NAME(I1)       162 NAME(I2)       331 M(I1)[M*]    3.311 M(I2)[M*]    1.975 DTAU   0.038 R12[NB]  1.0E-03 RI[NB]   1.12 H     0.10 IPAIR        1 NAME(ICM)     20162 GAMMA   0.000 STEP(I1)    4.1E-05 NPERT    1 NB(ICM)   16
- CUSTOM OUTPUT: TTOT   6.6250000000000000      N_SINGLE       19988 N_BINARY           6 N_MERGER           0
-
- NEW KSREG   TIME[NB] 6.6779060364E+00 NAME(I1)      3096 NAME(I2)      9199 M(I1)[M*]    0.394 M(I2)[M*]    0.151 DTAU   0.061 R12[NB]  2.9E-04 RI[NB]   0.54 H     1.36 IPAIR        1 NAME(ICM)     23096 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT    4 NB(ICM)  114
-
- END KSREG   TIME[NB] 6.6786193848E+00 NAME(I1)      3096 NAME(I2)      9199 M(I1)[M*]    0.394 M(I2)[M*]    0.151 DTAU   0.059 R12[NB]  1.0E-03 RI[NB]   0.54 H     1.36 IPAIR        1 NAME(ICM)     23096 GAMMA   0.000 STEP(I1)    6.3E-05 NPERT    4 NB(ICM)  101
- CUSTOM OUTPUT: TTOT   6.7500000000000000      N_SINGLE       19988 N_BINARY           6 N_MERGER           0
- CUSTOM OUTPUT: TTOT   6.8750000000000000      N_SINGLE       19990 N_BINARY           5 N_MERGER           0
-
- NEW KSREG   TIME[NB] 6.9028816223E+00 NAME(I1)      5066 NAME(I2)      4718 M(I1)[M*]    0.272 M(I2)[M*]    0.288 DTAU   0.053 R12[NB]  3.2E-04 RI[NB]   0.25 H     1.76 IPAIR        1 NAME(ICM)     25066 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT    4 NB(ICM)  118
-
- END KSREG   TIME[NB] 6.9034729004E+00 NAME(I1)      5066 NAME(I2)      4718 M(I1)[M*]    0.272 M(I2)[M*]    0.288 DTAU   0.053 R12[NB]  1.0E-03 RI[NB]   0.25 H     1.76 IPAIR        1 NAME(ICM)     25066 GAMMA   0.000 STEP(I1)    5.7E-05 NPERT    4 NB(ICM)  112
-
- NEW KSREG   TIME[NB] 6.9085502625E+00 NAME(I1)        67 NAME(I2)      6604 M(I1)[M*]    5.379 M(I2)[M*]    0.218 DTAU   0.067 R12[NB]  4.9E-04 RI[NB]   0.86 H     0.48 IPAIR        1 NAME(ICM)     20067 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT    1 NB(ICM)   68
-
- END KSREG   TIME[NB] 6.9091796875E+00 NAME(I1)        67 NAME(I2)      6604 M(I1)[M*]    5.379 M(I2)[M*]    0.218 DTAU   0.046 R12[NB]  1.0E-03 RI[NB]   0.86 H     0.48 IPAIR        1 NAME(ICM)     20067 GAMMA   0.000 STEP(I1)    4.9E-05 NPERT    1 NB(ICM)   61
-
- NEW KSREG   TIME[NB] 6.9860649109E+00 NAME(I1)      1119 NAME(I2)      3815 M(I1)[M*]    0.853 M(I2)[M*]    0.337 DTAU   0.094 R12[NB]  2.1E-04 RI[NB]   0.50 H     0.09 IPAIR        1 NAME(ICM)     21119 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT    1 NB(ICM)   95
-
- END KSREG   TIME[NB] 6.9872436523E+00 NAME(I1)      1119 NAME(I2)      3815 M(I1)[M*]    0.853 M(I2)[M*]    0.337 DTAU   0.042 R12[NB]  1.0E-03 RI[NB]   0.50 H     0.09 IPAIR        1 NAME(ICM)     21119 GAMMA   0.000 STEP(I1)    4.4E-05 NPERT    1 NB(ICM)   93
- CUSTOM OUTPUT: TTOT   7.0000000000000000      N_SINGLE       19978 N_BINARY          11 N_MERGER           0
+ END KSREG   TIME[NB] 5.9684448242E+00 NAME(I1)      3971 NAME(I2)     13921 M(I1)[M*]    0.559 M(I2)[M*]    0.148 DTAU   0.058 R12[NB]  1.0E-03 RI[NB]   0.44 H     0.18 IPAIR        1 NAME(ICM)     23971 GAMMA   0.000 STEP(I1)    6.0E-05 NPERT    5 NB(ICM)   93
+ CUSTOM OUTPUT: TTOT   6.0000000000000000      N_SINGLE       19986 N_BINARY           7 N_MERGER           0
 
            TIME   M/MT(  all  ):  1.00D-03  3.00D-03  5.00D-03  1.00D-02  3.00D-02  5.00D-02  1.00D-01  2.00D-01  3.00D-01  4.00D-01  5.00D-01  6.00D-01  7.00D-01  8.00D-01  9.00D-01  9.50D-01  9.90D-01  1.00D+00  <RC(massive)
-     0.7000D+01           RLAGR:  5.83D-02  9.31D-02  9.47D-02  1.26D-01  1.70D-01  2.17D-01  2.98D-01  4.16D-01  5.29D-01  6.47D-01  7.90D-01  9.39D-01  1.19D+00  1.50D+00  2.22D+00  3.02D+00  4.78D+00  7.81D+00  2.57D-01
-     0.7000D+01          AVMASS:  9.73D-05  9.08D-05  9.47D-05  6.89D-05  7.92D-05  7.05D-05  6.24D-05  5.91D-05  5.59D-05  5.39D-05  5.20D-05  5.22D-05  5.08D-05  5.06D-05  4.98D-05  4.99D-05  5.00D-05  5.00D-05  6.40D-05
-     0.7000D+01          NPARTC:        11        47        53       147       379       709      1604      3387      5366      7425      9612     11493     13775     15818     18077     19047     19784     20000      1080
+     0.6000D+01           RLAGR:  6.85D-02  8.22D-02  1.04D-01  1.29D-01  2.02D-01  2.46D-01  3.16D-01  4.26D-01  5.43D-01  6.57D-01  7.91D-01  9.38D-01  1.17D+00  1.51D+00  2.19D+00  2.92D+00  4.80D+00  7.53D+00  3.42D-01
+     0.6000D+01          AVMASS:  3.90D-05  7.01D-05  5.82D-05  5.99D-05  5.46D-05  5.22D-05  5.39D-05  5.55D-05  5.23D-05  5.20D-05  5.15D-05  5.17D-05  5.06D-05  5.01D-05  4.99D-05  5.00D-05  5.00D-05  5.00D-05  5.38D-05
+     0.6000D+01          NPARTC:        28        43        86       171       550       958      1856      3605      5739      7697      9715     11630     13824     15983     18059     19013     19797     20000      2232
 
            TIME  M/MT(massless):  1.00D-03  3.00D-03  5.00D-03  1.00D-02  3.00D-02  5.00D-02  1.00D-01  2.00D-01  3.00D-01  4.00D-01  5.00D-01  6.00D-01  7.00D-01  8.00D-01  9.00D-01  9.50D-01  9.90D-01  1.00D+00  <RC(massless)
-     0.7000D+01           RLAGR:  6.29D-02  9.51D-02  1.10D-01  1.36D-01  2.05D-01  2.51D-01  3.27D-01  4.55D-01  5.70D-01  6.81D-01  8.18D-01  9.92D-01  1.21D+00  1.54D+00  2.16D+00  2.93D+00  4.87D+00  7.81D+00  0.00D+00
-     0.7000D+01          NPARTC:        10        30        50       100       300       500      1000      2000      3000      4000      5000      6000      7000      8000      9000      9500      9900     10000
+     0.6000D+01           RLAGR:  1.69D-01  1.84D-01  2.08D-01  2.28D-01  2.29D-01  2.42D-01  3.33D-01  3.68D-01  4.52D-01  5.41D-01  7.19D-01  8.54D-01  1.03D+00  1.35D+00  1.91D+00  2.28D+00  2.78D+00  3.44D+00  0.00D+00
+     0.6000D+01          NPARTC:         1         2         3         4         5         6        11        21        31        41        51        61        71        81        91        95        99       100
 
- ADJUST:  TIME    7.00000D+00  T[Myr]    1.48  Q 0.50  DE   7.811E-10 DELTA   1.952E-10 DETOT   4.511E-08 E  -2.499E-01 EKIN   2.479E-01 POT   4.979E-01 ETIDE   7.075E-05 ETOT  -2.499E-01 EBIN   0.000E+00 EMERGE   0.000E+00 ESUB   0.000E+00 ECOLL   0.000E+00 EMDOT  -9.854E-07 ECDOT   0.000E+00
+ ADJUST:  TIME    6.00000D+00  T[Myr]    0.90  Q 0.49  DE  -9.026E-08 DELTA  -2.256E-08 DETOT   2.149E-08 E  -2.500E-01 EKIN   2.426E-01 POT   4.926E-01 ETIDE   3.440E-05 ETOT  -2.500E-01 EBIN   0.000E+00 EMERGE   0.000E+00 ESUB   0.000E+00 ECOLL   0.000E+00 EMDOT  -3.590E-06 ECDOT   0.000E+00
 
-  RMIN = 5.0E-04  DTMIN = 4.0E-06 RHOM = 1.2E+02 RSCALE = 7.9E-01 RSMIN = 1.0E-01  ECLOSE = 1.00  TC =    2
+  RMIN = 5.0E-04  DTMIN = 4.0E-06 RHOM = 3.6E+01 RSCALE = 7.9E-01 RSMIN = 8.5E-02  ECLOSE = 1.00  TC =    2
   PE       N        Total     Inti.    Intgrt      Reg.      Irr.     Pred.   Init.B.      Mdot      Move   Comm.I.   Comm.R.   Send.I.   Send.R.        KS    Adjust     OUT      Barr.   Barr.I.   Barr.R. Reg.GPU.S Reg.GPU.P Comm.Adj. Mdot.Fic.  Mdot.Fc. Mdot.Pot.  Mdot.EC.   Sort.B.    HighV  KS.Init.B  KS.Int.S  KS.Int.P  KS.Comm.  KS.Barr.   KS.Move   KS.Cmb. KS.Insert  KS.Init.  KS.Term.     Hiar.     KS.UP       xtsub1       xtsub2
-   1   20000     66.83752      2.04     62.99     18.33     25.33      0.16      1.89      0.00      3.46      0.00      0.00      0.99      0.79      0.77      1.62     10.69      0.01      0.01      0.00      1.26     16.94      0.00      0.00      0.00      0.00      0.00      0.48      0.00      0.00      0.01      0.00      0.00      0.00      0.00      0.00      0.00      0.22      0.16      0.12      0.00  0.00000D+00  0.00000D+00
+   1   20000     82.70180      1.14     79.18     38.50     23.76      0.15      1.85      0.00      2.89      0.00      0.00      0.88      0.11      1.04      1.97      9.85      0.01      0.01      0.00      2.18     36.22      0.00      0.00      0.00      0.00      0.00      0.46      0.00      0.00      0.01      0.00      0.00      0.00      0.00      0.00      0.00      0.44      0.25      0.11      0.00  0.00000D+00  0.00000D+00
 
 
- TIME[NB]    7.000000E+00  N    20000  <NB>    59  NPAIRS       0  NMERGE     0 MULT    0 NS    20000  NSTEP(I,B,R,U)       7937501          662      1087505          323  DE    0.781118E-09  E         -0.249942
+ TIME[NB]    6.000000E+00  N    20000  <NB>    59  NPAIRS       0  NMERGE     0 MULT    0 NS    19900 NSPL=   100  NSTEP(I,B,R,U)       8971662          943      1059129          491  DE   -0.902564E-07  E         -0.249970
 
- NRUN =  1  M# =  8  CPU = 1.11400E+00  TRC = 21.0  DMIN = 4.3E-06 3.4E-05 1.0E+02 1.0E+02  AMIN = 1.0E+02  RMAX = 0.0E+00  RSMIN = 0.10  NEFF =  2756
+ NRUN =  1  M# =  7  CPU = 1.37840E+00  TRC = 46.1  DMIN = 8.5E-06 5.5E-05 1.0E+02 1.0E+02  AMIN = 1.0E+02  RMAX = 0.0E+00  RSMIN = 0.08  NEFF =  3691
 
     <R>  RTIDE  RDENS   RC      NC   MC   RHOD   RHOM  CMAX   <Cn>  Ir/R      UN      NP    RCM    VCM         AZ     EB/E   EM/E   TCR     T6  NESC  VRMS
- #1 0.79  24.2   0.03  0.26   1080  0.069   11.   121.    5.  79.1  0.03       0       0    0.000  0.0000   0.015049 -0.000 -0.000  2.83     1     0   3.7
+ #1 0.79  30.4   0.04  0.34   2220  0.120    5.    36.    4.  80.3  0.03       0       0    0.000  0.0000   0.011023 -0.000 -0.000  2.83     0     0   5.2
 
           NIRRF      NBCORR  NNPRED  NBFULL  NBVOID   NICONV  NLSMIN NBSMIN   NBDIS  NBDIS2  NCMDER  NFAST NBFAST      NBLOCK      NBLCKR    NBFLUX
- #2   629445547     1060310     688       0     746     227       0      45       0       0       0      0      0       31917         688  10999921
+ #2   715550186     1034066    1475       0     714     445       0      25       0       0       0      0      0       31561        1475  11166056
 
         NKSTRY     NKSREG     NKSHYP     NKSPER  NKSMOD   NTTRY   NTRIP    NQUAD  NCHAIN     NMERG   NEWHI  NSTEPT  NSTEPQ  NSTEPC
- #3       1320         10         10          0       0       0       0        0        0        0       0       0       0       0
+ #3         29         15         15          0       0       0       0        0        0        0       0       0       0       0
 
         NMDOT NRG  NHE  NRS  NNH  NWD  NSN  NBH  NBS  ZMRG  ZMHE  ZMRS  ZMNH  ZMWD  ZMSN   ZMDOT  NTYPE
- #4        5    0    0    0    0    0    0    0    0   0.0   0.0   0.0   0.0   0.0   0.0     0.0  18467  1533
+ #4       13    0    0    0    0    0    0    0    0   0.0   0.0   0.0   0.0   0.0   0.0     0.0  16817  3183
 
       NDISS NTIDE  NSYNC  NCOLL  NCOAL  NDD  NCIRC  NROCHE  NRO  NCE  NHYP  NHYPC  NKICK  EBIN   EMERGE  ECOLL  EMDOT  ECDOT  EKICK  ESESC   EBESC  EMESC  DEGRAV   EBIND  MMAX
- #5       0     0      0      0      0    0      0       0    0    0     0      0      0   0.000   0.000   0.000 -0.000  0.000  0.000  0.000   0.000  0.000   0.000  -0.250  11.6
- STEP I  (massive)      0      1     43    105    171    259    386   2349   3865   1887    631    212     73     14      4
- STEP R  (massive)      2    101    305    572   1235   3048   3245   1325    163      3      1
- STEP I (massless)      0      1     36    118    158    209    365   2383   3881   1915    618    218     71     24      3
- STEP R (massless)      0    106    285    579   1283   3095   3171   1312    166      3
- Max Speedup Irr:     4 3.97D+00    8 7.85D+00   16 1.53D+01   32 2.92D+01   64 5.34D+01  128 8.96D+01  256 1.37D+02  512 1.80D+02 1024 2.16D+02
- Max Speedup Reg:     4 4.00D+00    8 7.98D+00   16 1.59D+01   32 3.16D+01   64 6.23D+01  128 1.21D+02  256 2.29D+02  512 4.19D+02 1024 6.84D+02
+ #5       0     0      0      0      0    0      0       0    0    0     0      0      0   0.000   0.000   0.000 -0.000  0.000  0.000  0.000   0.000  0.000   0.000  -0.250  19.8
+ STEP I  (massive)      0      3     57    143    211    384    641   4445   7268   4395   1513    596    182     40     18      4
+ STEP R  (massive)      7    211    586   1165   2620   6364   6193   2525    225      4
+ STEP I (massless)      0      0      0      0      0      2      1     21     33     31      9      1      1      1
+ STEP R (massless)      0      0      0      7     10     31     33     18      1
+ Max Speedup Irr:     4 3.98D+00    8 7.88D+00   16 1.54D+01   32 2.95D+01   64 5.40D+01  128 9.24D+01  256 1.40D+02  512 1.93D+02 1024 2.32D+02
+ Max Speedup Reg:     4 3.99D+00    8 7.97D+00   16 1.59D+01   32 3.14D+01   64 6.15D+01  128 1.18D+02  256 2.19D+02  512 3.85D+02 1024 6.00D+02
+ CUSTOM OUTPUT: TTOT   6.1250000000000000      N_SINGLE       19986 N_BINARY           7 N_MERGER           0
+
+ NEW KSREG   TIME[NB] 6.1900405884E+00 NAME(I1)      4222 NAME(I2)      7258 M(I1)[M*]    0.536 M(I2)[M*]    0.341 DTAU   0.058 R12[NB]  3.7E-04 RI[NB]   0.18 H     1.47 IPAIR        1 NAME(ICM)     24222 GAMMA   0.000 STEP(ICM)   7.6E-06 NPERT   16 NB(ICM)  111
+
+ END KSREG   TIME[NB] 6.1908569336E+00 NAME(I1)      4222 NAME(I2)      7258 M(I1)[M*]    0.536 M(I2)[M*]    0.341 DTAU   0.052 R12[NB]  1.1E-03 RI[NB]   0.18 H     1.47 IPAIR        1 NAME(ICM)     24222 GAMMA   0.000 STEP(I1)    6.1E-05 NPERT   16 NB(ICM)  104
+
+ NEW KSREG   TIME[NB] 6.2053184509E+00 NAME(I1)      6918 NAME(I2)     19432 M(I1)[M*]    0.357 M(I2)[M*]    0.084 DTAU   0.149 R12[NB]  1.5E-04 RI[NB]   0.28 H     0.23 IPAIR        1 NAME(ICM)     26918 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT    7 NB(ICM)  105
+
+ END KSREG   TIME[NB] 6.2066955566E+00 NAME(I1)      6918 NAME(I2)     19432 M(I1)[M*]    0.357 M(I2)[M*]    0.084 DTAU   0.051 R12[NB]  1.0E-03 RI[NB]   0.28 H     0.23 IPAIR        1 NAME(ICM)     26918 GAMMA   0.000 STEP(I1)    5.2E-05 NPERT    7 NB(ICM)   94
+ CUSTOM OUTPUT: TTOT   6.2500000000000000      N_SINGLE       19988 N_BINARY           6 N_MERGER           0
+
+ NEW KSREG   TIME[NB] 6.2799491882E+00 NAME(I1)        36 NAME(I2)     17316 M(I1)[M*]   11.666 M(I2)[M*]    0.103 DTAU   0.062 R12[NB]  4.5E-04 RI[NB]   0.13 H     0.63 IPAIR        1 NAME(ICM)     20036 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT    1 NB(ICM)   88
+
+ END KSREG   TIME[NB] 6.2806396484E+00 NAME(I1)        36 NAME(I2)     17316 M(I1)[M*]   11.666 M(I2)[M*]    0.103 DTAU   0.040 R12[NB]  1.1E-03 RI[NB]   0.13 H     0.63 IPAIR        1 NAME(ICM)     20036 GAMMA   0.000 STEP(I1)    4.5E-05 NPERT    1 NB(ICM)   86
+
+ NEW KSREG   TIME[NB] 6.3202018738E+00 NAME(I1)      2401 NAME(I2)      4894 M(I1)[M*]    0.818 M(I2)[M*]    0.480 DTAU   0.069 R12[NB]  2.7E-04 RI[NB]   0.30 H     1.06 IPAIR        1 NAME(ICM)     22401 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT    5 NB(ICM)  118
+
+ END KSREG   TIME[NB] 6.3209838867E+00 NAME(I1)      2401 NAME(I2)      4894 M(I1)[M*]    0.818 M(I2)[M*]    0.480 DTAU   0.066 R12[NB]  1.1E-03 RI[NB]   0.30 H     1.06 IPAIR        1 NAME(ICM)     22401 GAMMA   0.000 STEP(I1)    7.5E-05 NPERT    5 NB(ICM)  111
+ CUSTOM OUTPUT: TTOT   6.3750000000000000      N_SINGLE       19986 N_BINARY           7 N_MERGER           0
+
+ NEW KSREG   TIME[NB] 6.4022331238E+00 NAME(I1)      4896 NAME(I2)     17960 M(I1)[M*]    0.480 M(I2)[M*]    0.097 DTAU   0.067 R12[NB]  3.0E-04 RI[NB]   0.72 H     1.12 IPAIR        1 NAME(ICM)     24896 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT    1 NB(ICM)  100
+
+ END KSREG   TIME[NB] 6.4030456543E+00 NAME(I1)      4896 NAME(I2)     17960 M(I1)[M*]    0.480 M(I2)[M*]    0.097 DTAU   0.067 R12[NB]  1.0E-03 RI[NB]   0.72 H     1.12 IPAIR        1 NAME(ICM)     24896 GAMMA   0.000 STEP(I1)    7.0E-05 NPERT    1 NB(ICM)   95
+
+ NEW KSREG   TIME[NB] 6.4567146301E+00 NAME(I1)      6221 NAME(I2)     16729 M(I1)[M*]    0.395 M(I2)[M*]    0.110 DTAU   0.060 R12[NB]  3.4E-04 RI[NB]   0.15 H     1.39 IPAIR        1 NAME(ICM)     26221 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT   26 NB(ICM)  138
+
+ END KSREG   TIME[NB] 6.4575195312E+00 NAME(I1)      6221 NAME(I2)     16729 M(I1)[M*]    0.395 M(I2)[M*]    0.110 DTAU   0.055 R12[NB]  1.0E-03 RI[NB]   0.15 H     1.39 IPAIR        1 NAME(ICM)     26221 GAMMA   0.000 STEP(I1)    5.9E-05 NPERT   26 NB(ICM)  131
+ CUSTOM OUTPUT: TTOT   6.5000000000000000      N_SINGLE       19990 N_BINARY           5 N_MERGER           0
+
+ NEW KSREG   TIME[NB] 6.5456581116E+00 NAME(I1)        56 NAME(I2)      8311 M(I1)[M*]    9.804 M(I2)[M*]    0.292 DTAU   0.062 R12[NB]  3.9E-04 RI[NB]   0.37 H     0.13 IPAIR        1 NAME(ICM)     20056 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT    1 NB(ICM)   91
+
+ END KSREG   TIME[NB] 6.5464172363E+00 NAME(I1)        56 NAME(I2)      8311 M(I1)[M*]    9.804 M(I2)[M*]    0.292 DTAU   0.038 R12[NB]  1.0E-03 RI[NB]   0.37 H     0.13 IPAIR        1 NAME(ICM)     20056 GAMMA   0.000 STEP(I1)    4.0E-05 NPERT    1 NB(ICM)   88
+
+ NEW KSREG   TIME[NB] 6.5878944397E+00 NAME(I1)      3026 NAME(I2)      5624 M(I1)[M*]    0.688 M(I2)[M*]    0.431 DTAU   0.071 R12[NB]  3.4E-04 RI[NB]   0.33 H     1.00 IPAIR        1 NAME(ICM)     23026 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT    5 NB(ICM)  109
+
+ END KSREG   TIME[NB] 6.5887451172E+00 NAME(I1)      3026 NAME(I2)      5624 M(I1)[M*]    0.688 M(I2)[M*]    0.431 DTAU   0.070 R12[NB]  1.1E-03 RI[NB]   0.33 H     1.00 IPAIR        1 NAME(ICM)     23026 GAMMA   0.000 STEP(I1)    7.8E-05 NPERT    5 NB(ICM)  106
+ CUSTOM OUTPUT: TTOT   6.6250000000000000      N_SINGLE       19992 N_BINARY           4 N_MERGER           0
+
+ NEW KSREG   TIME[NB] 6.6330146790E+00 NAME(I1)     14091 NAME(I2)     15799 M(I1)[M*]    0.145 M(I2)[M*]    0.121 DTAU   0.043 R12[NB]  4.8E-04 RI[NB]   0.27 H     2.63 IPAIR        1 NAME(ICM)     34091 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT   25 NB(ICM)   98
+
+ END KSREG   TIME[NB] 6.6336669922E+00 NAME(I1)     14091 NAME(I2)     15799 M(I1)[M*]    0.145 M(I2)[M*]    0.121 DTAU   0.038 R12[NB]  1.0E-03 RI[NB]   0.27 H     2.63 IPAIR        1 NAME(ICM)     34091 GAMMA   0.000 STEP(I1)    4.0E-05 NPERT   25 NB(ICM)   94
+ CUSTOM OUTPUT: TTOT   6.7500000000000000      N_SINGLE       19994 N_BINARY           3 N_MERGER           0
+
+ NEW KSREG   TIME[NB] 6.7672233582E+00 NAME(I1)      3144 NAME(I2)     12834 M(I1)[M*]    0.667 M(I2)[M*]    0.167 DTAU   0.057 R12[NB]  3.1E-04 RI[NB]   0.59 H     1.56 IPAIR        1 NAME(ICM)     23144 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT    4 NB(ICM)   97
+
+ END KSREG   TIME[NB] 6.7679443359E+00 NAME(I1)      3144 NAME(I2)     12834 M(I1)[M*]    0.667 M(I2)[M*]    0.167 DTAU   0.054 R12[NB]  1.1E-03 RI[NB]   0.59 H     1.56 IPAIR        1 NAME(ICM)     23144 GAMMA   0.000 STEP(I1)    6.2E-05 NPERT    4 NB(ICM)   90
+
+ NEW KSREG   TIME[NB] 6.7894859314E+00 NAME(I1)      1164 NAME(I2)      1191 M(I1)[M*]    1.429 M(I2)[M*]    1.407 DTAU   0.090 R12[NB]  2.3E-04 RI[NB]   0.40 H     0.12 IPAIR        1 NAME(ICM)     21164 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT    2 NB(ICM)  106
+
+ END KSREG   TIME[NB] 6.7905883789E+00 NAME(I1)      1164 NAME(I2)      1191 M(I1)[M*]    1.429 M(I2)[M*]    1.407 DTAU   0.042 R12[NB]  1.0E-03 RI[NB]   0.40 H     0.12 IPAIR        1 NAME(ICM)     21164 GAMMA   0.000 STEP(I1)    4.3E-05 NPERT    2 NB(ICM)   95
+ CUSTOM OUTPUT: TTOT   6.8750000000000000      N_SINGLE       19992 N_BINARY           4 N_MERGER           0
+
+ NEW KSREG   TIME[NB] 6.9405403137E+00 NAME(I1)      1304 NAME(I2)      7444 M(I1)[M*]    1.302 M(I2)[M*]    0.331 DTAU   0.043 R12[NB]  3.9E-04 RI[NB]   0.31 H     2.65 IPAIR        1 NAME(ICM)     21304 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT    9 NB(ICM)  108
+
+ END KSREG   TIME[NB] 6.9411010742E+00 NAME(I1)      1304 NAME(I2)      7444 M(I1)[M*]    1.302 M(I2)[M*]    0.331 DTAU   0.042 R12[NB]  1.2E-03 RI[NB]   0.31 H     2.65 IPAIR        1 NAME(ICM)     21304 GAMMA   0.000 STEP(I1)    5.2E-05 NPERT    9 NB(ICM)  103
+
+ NEW KSREG   TIME[NB] 6.9585075378E+00 NAME(I1)      1476 NAME(I2)     12330 M(I1)[M*]    1.174 M(I2)[M*]    0.177 DTAU   0.089 R12[NB]  2.9E-04 RI[NB]   0.39 H     0.63 IPAIR        1 NAME(ICM)     21476 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT    4 NB(ICM)   95
+
+ END KSREG   TIME[NB] 6.9594726562E+00 NAME(I1)      1476 NAME(I2)     12330 M(I1)[M*]    1.174 M(I2)[M*]    0.177 DTAU   0.047 R12[NB]  1.0E-03 RI[NB]   0.39 H     0.63 IPAIR        1 NAME(ICM)     21476 GAMMA   0.000 STEP(I1)    4.9E-05 NPERT    4 NB(ICM)   87
+
+ NEW KSREG   TIME[NB] 6.9737281799E+00 NAME(I1)       238 NAME(I2)     12413 M(I1)[M*]    4.395 M(I2)[M*]    0.176 DTAU   0.048 R12[NB]  4.3E-04 RI[NB]   0.29 H     2.13 IPAIR        1 NAME(ICM)     20238 GAMMA   0.000 STEP(ICM)   3.8E-06 NPERT    3 NB(ICM)  116
+
+ END KSREG   TIME[NB] 6.9743041992E+00 NAME(I1)       238 NAME(I2)     12413 M(I1)[M*]    4.395 M(I2)[M*]    0.176 DTAU   0.047 R12[NB]  1.0E-03 RI[NB]   0.29 H     2.13 IPAIR        1 NAME(ICM)     20238 GAMMA   0.000 STEP(I1)    5.1E-05 NPERT    3 NB(ICM)  112
+ CUSTOM OUTPUT: TTOT   7.0000000000000000      N_SINGLE       19994 N_BINARY           3 N_MERGER           0
+
+           TIME   M/MT(  all  ):  1.00D-03  3.00D-03  5.00D-03  1.00D-02  3.00D-02  5.00D-02  1.00D-01  2.00D-01  3.00D-01  4.00D-01  5.00D-01  6.00D-01  7.00D-01  8.00D-01  9.00D-01  9.50D-01  9.90D-01  1.00D+00  <RC(massive)
+     0.7000D+01           RLAGR:  6.74D-02  7.67D-02  8.89D-02  1.20D-01  1.72D-01  2.13D-01  2.93D-01  4.23D-01  5.30D-01  6.51D-01  7.84D-01  9.41D-01  1.16D+00  1.50D+00  2.20D+00  3.02D+00  4.79D+00  7.80D+00  2.77D-01
+     0.7000D+01          AVMASS:  4.89D-05  8.63D-05  7.40D-05  7.25D-05  7.16D-05  6.76D-05  6.13D-05  5.68D-05  5.53D-05  5.32D-05  5.22D-05  5.19D-05  5.13D-05  5.04D-05  4.98D-05  4.99D-05  5.00D-05  5.00D-05  6.22D-05
+     0.7000D+01          NPARTC:        21        42        68       138       423       745      1634      3526      5428      7512      9594     11564     13649     15889     18086     19052     19793     20000      1418
+
+           TIME  M/MT(massless):  1.00D-03  3.00D-03  5.00D-03  1.00D-02  3.00D-02  5.00D-02  1.00D-01  2.00D-01  3.00D-01  4.00D-01  5.00D-01  6.00D-01  7.00D-01  8.00D-01  9.00D-01  9.50D-01  9.90D-01  1.00D+00  <RC(massless)
+     0.7000D+01           RLAGR:  1.44D-01  1.83D-01  1.95D-01  2.41D-01  3.12D-01  3.13D-01  3.30D-01  4.15D-01  5.48D-01  6.39D-01  7.25D-01  9.34D-01  1.12D+00  1.41D+00  1.75D+00  2.28D+00  2.93D+00  3.22D+00  0.00D+00
+     0.7000D+01          NPARTC:         1         2         3         4         5         6        11        21        31        41        51        61        71        81        91        95        99       100
+
+ ADJUST:  TIME    7.00000D+00  T[Myr]    1.05  Q 0.50  DE   2.565E-07 DELTA   6.411E-08 DETOT   8.561E-08 E  -2.500E-01 EKIN   2.497E-01 POT   4.997E-01 ETIDE   3.511E-05 ETOT  -2.500E-01 EBIN   0.000E+00 EMERGE   0.000E+00 ESUB   0.000E+00 ECOLL   0.000E+00 EMDOT  -4.845E-06 ECDOT   0.000E+00
+
+  RMIN = 5.0E-04  DTMIN = 4.0E-06 RHOM = 7.1E+01 RSCALE = 7.8E-01 RSMIN = 8.5E-02  ECLOSE = 1.00  TC =    2
+  PE       N        Total     Inti.    Intgrt      Reg.      Irr.     Pred.   Init.B.      Mdot      Move   Comm.I.   Comm.R.   Send.I.   Send.R.        KS    Adjust     OUT      Barr.   Barr.I.   Barr.R. Reg.GPU.S Reg.GPU.P Comm.Adj. Mdot.Fic.  Mdot.Fc. Mdot.Pot.  Mdot.EC.   Sort.B.    HighV  KS.Init.B  KS.Int.S  KS.Int.P  KS.Comm.  KS.Barr.   KS.Move   KS.Cmb. KS.Insert  KS.Init.  KS.Term.     Hiar.     KS.UP       xtsub1       xtsub2
+   1   20000     95.92608      1.14     91.99     44.66     27.69      0.18      2.11      0.00      3.35      0.00      0.00      1.03      0.12      1.21      2.28     11.46      0.01      0.01      0.00      2.51     42.04      0.00      0.00      0.00      0.00      0.00      0.53      0.00      0.00      0.01      0.00      0.00      0.00      0.00      0.00      0.00      0.51      0.29      0.13      0.00  0.00000D+00  0.00000D+00
 
 
-         END RUN    TIME[Myr] =    1.48  TOFF/TIME/TTOT=      0.00000000      7.00000000      7.00000000  CPUTOT =    1.1  ERRTOT = 1.77721D-07  DETOT = 4.51053D-08
+ TIME[NB]    7.000000E+00  N    20000  <NB>    59  NPAIRS       0  NMERGE     0 MULT    0 NS    19900 NSPL=   100  NSTEP(I,B,R,U)       8803611         1106      1056651          527  DE    0.256492E-06  E         -0.249970
+
+ NRUN =  1  M# =  8  CPU = 1.59881E+00  TRC = 17.7  DMIN = 8.5E-06 4.7E-05 1.0E+02 1.0E+02  AMIN = 1.0E+02  RMAX = 0.0E+00  RSMIN = 0.09  NEFF =  3691
+
+    <R>  RTIDE  RDENS   RC      NC   MC   RHOD   RHOM  CMAX   <Cn>  Ir/R      UN      NP    RCM    VCM         AZ     EB/E   EM/E   TCR     T6  NESC  VRMS
+ #1 0.78  30.4   0.03  0.28   1414  0.088    7.    71.    6.  79.2  0.03       0       0    0.000  0.0000   0.011023 -0.000 -0.000  2.83     1     0   5.2
+
+          NIRRF      NBCORR  NNPRED  NBFULL  NBVOID   NICONV  NLSMIN NBSMIN   NBDIS  NBDIS2  NCMDER  NFAST NBFAST      NBLOCK      NBLCKR    NBFLUX
+ #2   697075027     1031725     778       0     636     148       0      13       0       0       0      0      0       31429         778  10933045
+
+        NKSTRY     NKSREG     NKSHYP     NKSPER  NKSMOD   NTTRY   NTRIP    NQUAD  NCHAIN     NMERG   NEWHI  NSTEPT  NSTEPQ  NSTEPC
+ #3         15         14         14          0       0       0       0        0        0        0       0       0       0       0
+
+        NMDOT NRG  NHE  NRS  NNH  NWD  NSN  NBH  NBS  ZMRG  ZMHE  ZMRS  ZMNH  ZMWD  ZMSN   ZMDOT  NTYPE
+ #4       13    0    0    0    0    0    0    0    0   0.0   0.0   0.0   0.0   0.0   0.0     0.0  16817  3183
+
+      NDISS NTIDE  NSYNC  NCOLL  NCOAL  NDD  NCIRC  NROCHE  NRO  NCE  NHYP  NHYPC  NKICK  EBIN   EMERGE  ECOLL  EMDOT  ECDOT  EKICK  ESESC   EBESC  EMESC  DEGRAV   EBIND  MMAX
+ #5       0     0      0      0      0    0      0       0    0    0     0      0      0   0.000   0.000   0.000 -0.000  0.000  0.000  0.000   0.000  0.000   0.000  -0.250  19.8
+ STEP I  (massive)      0      3     58    131    224    376    663   4432   7424   4379   1435    558    157     48     12
+ STEP R  (massive)      5    225    581   1184   2574   6318   6129   2584    295      5
+ STEP I (massless)      0      0      0      0      0      0      5     20     48     21      5      1
+ STEP R (massless)      0      0      1      5     12     34     32     15      1
+ Max Speedup Irr:     4 3.98D+00    8 7.88D+00   16 1.54D+01   32 2.95D+01   64 5.40D+01  128 9.25D+01  256 1.41D+02  512 1.93D+02 1024 2.32D+02
+ Max Speedup Reg:     4 3.99D+00    8 7.97D+00   16 1.59D+01   32 3.14D+01   64 6.16D+01  128 1.18D+02  256 2.19D+02  512 3.86D+02 1024 6.04D+02
 
 
-        0 INTEGRATION INTERVAL =    7.00    NIRR=          0 NIRRB=        662 NREG=          0 NKS=          0
+         END RUN    TIME[Myr] =    1.05  TOFF/TIME/TTOT=      0.00000000      7.00000000      7.00000000  CPUTOT =    1.6  ERRTOT = 3.40266D-07  DETOT = 8.56087D-08
 
 
-          PER TIME UNIT: NIRR= 0.00000D+00 NIRRB= 9.45714D+01 NREG= 0.00000D+00 NKS= 0.00000D+00
-  Total CPU=   67.041859030723572     
+        0 INTEGRATION INTERVAL =    7.00    NIRR=          0 NIRRB=       1106 NREG=          0 NKS=          0
+
+
+          PER TIME UNIT: NIRR= 0.00000D+00 NIRRB= 1.58000D+02 NREG= 0.00000D+00 NKS= 0.00000D+00
+  Total CPU=   96.141648888587952     
 ******* simulation end *********
-2016年 07月 07日 星期四 03:47:16 CST
+2016年 07月 09日 星期六 02:46:16 CST
 
-Time cost in simulation:  68 seconds
+Time cost in simulation:  96 seconds
 ********************** log.run end ******************

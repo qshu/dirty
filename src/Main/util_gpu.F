@@ -116,7 +116,7 @@ C$$$#endif
 #else
 *     OpemMP version of regular force, fdot, potential and neighbor list
          call cputim(tt53)
-         CALL regint(L,NI,IREG,IFIRST,NTOT,X,XDOT,BODY,STEPR,BODYM,
+      CALL regint(NOMASS,L,NI,IREG,IFIRST,NTOT,X,XDOT,BODY,STEPR,BODYM,
      &        M_FLAG,NB_FLAG,NNBOPT,RS,GPU_A,GPU_JERK,LISTGP,PHIDBL)
          call cputim(tt54)
          ttgpu = ttgpu + (tt54-tt53)*60.0

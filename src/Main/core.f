@@ -22,7 +22,7 @@
           RHO(I) = 0.D0
           RI2 = (X(1,I) - RDENS(1))**2 + (X(2,I) - RDENS(2))**2 +
      &                                   (X(3,I) - RDENS(3))**2
-          IF (RI2.LT.RCORE2) THEN
+          IF (RI2.LT.RCORE2.and.nomass(i).eq.0) THEN
               NC = NC + 1
               JLIST(NC) = I
           END IF

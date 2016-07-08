@@ -55,18 +55,11 @@ checking for gettimeofday... yes
 checking for memset... yes
 checking for sqrt... yes
 checking for strchr... yes
-checking for nvcc... nvcc
-checking for a sed that does not truncate output... /bin/sed
-checking for main in -lcudart... no
-checking for "/usr/local/cuda-7.5/lib64/libcudart.so"... yes
-checking for gawk... gawk
-checking for CUDA version... 7.5
-checking for "/usr/local/cuda-7.5/samples/common/inc/helper_cuda.h"... yes
 configure: ----------------------Configure Summary--------------------
 configure: --Features:
 configure:      Using MPI:      yes
-configure:      Using GPU:      yes
-configure:      CUDA version:   7.5
+configure:      Using GPU:      no
+configure:      CUDA version:   
 configure:      Using SIMD:     avx
 configure:      mcmodel:        medium
 configure:      OpenMP option:  -fopenmp
@@ -76,9 +69,9 @@ configure:      TT package:     no
 configure: --Compilers:
 configure:      C++ compiler:      g++
 configure:      Fortran compiler:  mpif77
-configure:      CUDA compiler:     nvcc
+configure:      CUDA compiler:     
 configure: --Targets:
-configure:      Program name:   nbody6++.avx.gpu.mpi
+configure:      Program name:   nbody6++.avx.mpi
 configure:      Extra tools:    no
 configure:      Install path:   NONE
 configure: --Parameters:

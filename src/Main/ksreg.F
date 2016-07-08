@@ -70,6 +70,7 @@ c$$$      call flush(6)
           DSAVE(16) = TPRED(I)
           DSAVE(17) = STEP(I)
           NAMEI = NAME(I)
+          nomsi = nomass(i)
           KSI = KSTAR(I)
 *
 *       Exchange first & second single particle with ICOMP & JCOMP.
@@ -107,6 +108,7 @@ c$$$      call flush(6)
           SPIN(I) = SPIN(J)
           ZLMSTY(I) = ZLMSTY(J)
           NAME(I) = NAME(J)
+          nomass(i) = nomass(j)
           KSTAR(I) = KSTAR(J)
           STEP(I) = STEP(J)
           STEPR(I) = STEPR(J)
@@ -128,6 +130,7 @@ c$$$      call flush(6)
           ZLMSTY(J) = DSAVE(15)
           TPRED(J) = DSAVE(16)
           NAME(J) = NAMEI
+          nomass(j) = nomsi
           KSTAR(J) = KSI
           STEP(J) = DSAVE(17)
 

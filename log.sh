@@ -11,11 +11,11 @@ mkdir -p $logPath
 #./configure --enable-mcmodel=large  --with-par=b1m --enable-hdf5 > $logPath/log.configure 
 #./configure --enable-mcmodel=large  --with-par=b1m > $logPath/log.configure 
 
-./configure  --with-par=b64k > $logPath/log.configure 
-NAME=nbody6++.avx.gpu.mpi
+#./configure  --with-par=b64k > $logPath/log.configure 
+#NAME=nbody6++.avx.gpu.mpi
 
-#./configure  --with-par=b64k --disable-gpu > $logPath/log.configure 
-#NAME=nbody6++.avx.mpi
+./configure  --with-par=b64k --disable-gpu > $logPath/log.configure 
+NAME=nbody6++.avx.mpi
 
 #make clean
 rm -f ./build/*.o ./build/*.so ./build/nbody6++.avx* ./build/nb6++dumpb2a ./build/nb6++snapshot 

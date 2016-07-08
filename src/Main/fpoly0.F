@@ -208,7 +208,8 @@
 c$$$          print*,rank,'IOFF',IOFF,'NI',NI,'IS',ISTART,'IE',IEND,
 c$$$     &         'IREG',IREG(IOFF:IOFF+2),'JNEXT',JNEXT
 *     --11/30/14 16:46-lwang-end----------------------------------------*
-          CALL regint(IOFF,NI,IREG,IFIRST,NTOT,X,XDOT,BODY,STEPR,BODYM,
+      CALL regint(NOMASS,IOFF,NI,IREG,IFIRST,NTOT,
+     &         X,XDOT,BODY,STEPR,BODYM,
      &         M_FLAG,NB_FLAG,NNBOPT,RS,GPUACC,GPUJRK,LISTGP,PHIDBL)
 *     Check for zero neighbor
           NINEW = NI
@@ -240,7 +241,7 @@ c$$$     &         'IREG',IREG(IOFF:IOFF+2),'JNEXT',JNEXT
 c$$$             print*,rank,'IOFF',IOFF,'NINEW',NINEW,
 c$$$     &            'IREG',IREG(IOFF:2+IOFF)
 *     --11/30/14 16:46-lwang-end----------------------------------------*
-             CALL regint(IOFF,NINEW,IREG,IFIRST,NTOT,X,XDOT,BODY,STEPR,
+     CALL regint(NOMASS,IOFF,NINEW,IREG,IFIRST,NTOT,X,XDOT,BODY,STEPR,
      &            BODYM,M_FLAG,NB_FLAG,NNBOPT,RS,GPUACC,GPUJRK,LISTGP,
      &            PHIDBL)
              GO TO 42

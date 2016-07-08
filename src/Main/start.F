@@ -6,6 +6,7 @@
 *
       INCLUDE 'common6.h'
       INCLUDE 'timing.h'
+      DIMENSION XRELPL(3),VRELPL(3),EI(3)
       EXTERNAL SCALE,MERGE
 *      COMMON/NNBCOT/ nnbave
       PARAMETER  (NS=12)
@@ -284,6 +285,133 @@ c$$$      call abort()
       ZNBMAX = 0.9*FLOAT(NNBMAX)
 *
 *
+c* @qs
+c*       Regularize any close planet.
+c      IF (nmass.GT.0) THEN
+c          SMMIN = 1.D30
+c          SMMAX = 0.D0
+c          ECCMIN = 1.D30
+c          ECCMAX = 0.D0
+c          IPAIR = 0
+c          DO 51 I = N - nmass + 1,N
+cc use smallMass*1.1, because body(i) = 0.999999999999 * smallMass           
+c              if(body(i).gt.smallMass*1.1) go to 51
+c*             if(nomass(i).eq.0)go to 51
+cc NNB: number of neighbours
+c              NNB = LIST(1,I)
+cc              print *,I,'NNB:',NNB,LIST(1:NNB+1,I)
+c*       Select only planets having close neighbour
+c              IF (NNB.GT.0) THEN
+c                  IPAIR = IPAIR + 1
+c                  JCOMP = I
+c                  NNB1 = NNB + 1
+c                  RXMIN2 = 1.D30
+c*       Search for host star among neighbours
+c                  DO 56 L = 2,NNB1
+c                      J = LIST(L,I)
+c*     --16/05/07 22:23-qishu-debug----------------------------*
+c***** Note:--------------------------------------------------**
+c              if (nomass(J).eq.1) then 
+c*                  print *, "WARNING!! p in neigh" 
+c                  
+c                  go to 56
+c              end if
+c*                      if (nomass(J).eq.1)go to 56 
+c*     --16/05/07 22:23-qishu-end------------------------------*
+c*       Distance determination
+c                      RIJ2 = 0.0
+c                      DO 57 K = 1,3
+c                          RIJ2 = RIJ2 + (X(K,I) - X(K,J))**2
+c   57                 CONTINUE
+c*       Include standard distance criterion.
+c                      IF (RIJ2.LT.RXMIN2) THEN
+c                          ICOMP = J
+c                          RXMIN2 = RIJ2
+c                      END IF
+c*
+c   56             CONTINUE
+c              RIJ2 = 0.0D0
+c              VIJ2 = 0.0D0
+c              RVI = 0.0D0
+c*       Try regularization for all binaries.
+c              DO 58 K = 1,3
+c              XRELPL(K) = X(K,ICOMP) - X(K,JCOMP)
+c              VRELPL(K) = XDOT(K,ICOMP) - XDOT(K,JCOMP)
+c              RIJ2 = RIJ2 + XRELPL(K)**2
+c              VIJ2 = VIJ2 + VRELPL(K)**2
+c              RVI = RVI + XRELPL(K)*VRELPL(K)
+c   58         CONTINUE
+c*
+c          XMBIN = BODY(ICOMP) + BODY(JCOMP)
+c          XMPROD = BODY(ICOMP)*BODY(JCOMP)
+c          XMUE = XMPROD/XMBIN
+c*     --16/05/16 17:03-qishu-debug----------------------------*
+c***** Note:--------------------------------------------------**
+c*          EBp only for planets
+c          EBp = VIJ2/2.D0 - XMBIN/DSQRT(RIJ2)
+c          SEMI = XMBIN/(2.D0*DABS(EBp))
+c*     --16/05/16 17:03-qishu-end------------------------------*
+c          ECC2 = (1.0 - DSQRT(RIJ2)/SEMI)**2 +
+c     &                             RVI**2/(SEMI*XMBIN)
+c          ECC = DSQRT(ECC2) 
+c          PERIOD = SEMI**1.5D0/DSQRT(XMBIN)
+c*     --16/05/07 15:38-qishu-debug----------------------------*
+c***** Note:--------------------------------------------------**
+cc        if (ECC .lt. 1) then
+c        if(rank.eq.0)then
+c        if (ECC .lt. 1 .or.  DSQRT(RIJ2)*206264.81 .lt. 10000) then
+c            print *,'------------->>>>>>>>>>'
+c            print *,'i,j',ICOMP,JCOMP
+c            print *,'body i,j:',body(ICOMP),body(JCOMP)
+c            print *,'X,Y,Z i,j:',X(1:3,ICOMP),X(1:3,JCOMP)
+c            print *,'VX,VY,VZ i,j:',XDOT(1:3,ICOMP),XDOT(1:3,JCOMP)
+cc            print *,'RAU',RAU
+c            PRINT*,'distance/AU, Semi/AU, Ecc, Period/YRS=',
+c     &      DSQRT(RIJ2)*206264.81, SEMI*RAU,ECC,PERIOD*YRS
+c        end if
+c        end if
+c*     --16/05/07 15:38-qishu-end------------------------------*
+c*
+c*
+c        IF(SEMI.LT.SMMIN)SMMIN=SEMI
+c        IF(SEMI.GT.SMMAX)SMMAX=SEMI
+c        IF(ECC.LT.ECCMIN)ECCMIN=ECC
+c        IF(ECC.GT.ECCMAX)ECCMAX=ECC
+c        IF(PERIOD.LT.TMMIN)TMMIN=PERIOD
+c        IF(PERIOD.GT.TMMAX)TMMAX=PERIOD
+c        EBH = -1.D10
+c        RMIN2 = RMIN*RMIN
+c        IF(RXMIN2.LT.RMIN2)CALL KSREG
+c        CALL FLUSH(6)
+c        if(rank.eq.0.AND.SEMI.LT.RMIN2)then
+c                  CALL FLUSH(6)
+c        end if
+c              END IF
+c   51     CONTINUE
+c*
+c      if(rank.eq.0)then
+c          PRINT*,' Min/Max Semi in AU=',SMMIN*RAU,SMMAX*RAU
+c          PRINT*,' Min/Max Ecc=',ECCMIN,ECCMAX
+c          PRINT*,' Min/Max Period in Yrs=',TMMIN*YRS,TMMAX*YRS
+c      end if
+c*
+c      END IF
+c*
+c      IF (NBIN0.GT.0.OR.nmass.gt.0) THEN
+c*
+c*       Check initial neighbour lists again.
+c          DO 95 I = IFIRST,NTOT
+c              IF(I.GT.N)THEN
+c              ICOMP = 2*IPAIR - 1
+c              JCOMP = 2*IPAIR
+c                  RS0 = RS(ICOMP)
+c              ELSE
+c                  RS0 = RC
+c              END IF
+c                  CALL NBLIST(I,RS0)
+c   95     CONTINUE
+c*
+c      END IF
 *       Check the average neighbour number.
       NNB0 = 0
       DO 86 I = IFIRST,NTOT

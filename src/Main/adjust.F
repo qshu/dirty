@@ -136,9 +136,11 @@ c$$$      end if
       RSCALE = 0.5*ZMASS**2/POT
 *     
 *     Determine average neighbour number and smallest neighbour sphere.
+*       Only for particles with mass (RSDL).
       NNB = 0
       RS0 = RSCALE
       DO 40 I = IFIRST,NTOT
+         if(nomass(i).eq.1) goto 40
          NNB = NNB + LIST(1,I)
          IF (LIST(1,I).GT.0) RS0 = MIN(RS0,RS(I))
  40   CONTINUE
