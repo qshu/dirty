@@ -220,12 +220,10 @@ pip-log.txt
 ############
 #work
 ############
-work/
 build/
 dirty/
-new/
+LOG/
 src/main/
-snap.40_total.h5part
 
 ###########
 #test

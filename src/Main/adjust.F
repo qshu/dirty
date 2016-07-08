@@ -139,8 +139,6 @@ c$$$      end if
       NNB = 0
       RS0 = RSCALE
       DO 40 I = IFIRST,NTOT
-*       @qs
-         if(nomass(i).eq.1) goto 40
          NNB = NNB + LIST(1,I)
          IF (LIST(1,I).GT.0) RS0 = MIN(RS0,RS(I))
  40   CONTINUE
@@ -167,6 +165,7 @@ c$$$      end if
 *     Check optional sorting of Lagrangian radii & half-mass radius.
       IF (KZ(7).GT.0) THEN
          CALL LAGR(RDENS)
+         call lagrNomass(RDENS)
       END IF
 *     
 *     Scale average & maximum core density by the mean value.

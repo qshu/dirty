@@ -9,6 +9,12 @@
       INTEGER JHIST,JHISTR,JHISTU
       COMMON/BLKLVL/JHIST(0:NMAX),JHISTR(0:NMAX),JHISTU(0:NMAX)
       INTEGER  IHIST(NMAX),IHISTR(NMAX),IHISTU(NMAX)
+*     --16/05/16 13:37-qishu-debug----------------------------*
+***** Note:--------------------------------------------------**
+*      n is short for nomass
+      INTEGER IHISTn(NMAX),IHSTRn(NMAX)
+      INTEGER JMAXI,JMAXR,JMAXIn,JMAXRn
+*     --16/05/16 13:37-qishu-end------------------------------*
       INTEGER IPES,IPROC(9),IY(1024),IYR(1024)
       REAL*8 XSPEED(9),XSPEDR(9)
       DATA IPROC/4,8,16,32,64,128,256,512,1024/
@@ -19,14 +25,28 @@
           IHIST(J) = 0
           IHISTR(J) = 0
           IHISTU(J) = 0
+*     --16/05/16 13:39-qishu-debug----------------------------*
+***** Note:--------------------------------------------------**
+          IHISTn(J) = 0
+          IHSTRn(J) = 0
+*     --16/05/16 13:39-qishu-end------------------------------*
    10 CONTINUE
 *
 *       Loop over all single particles & c.m.
       JMAXI = 0
       JMAXR = 0
+*     --16/05/16 14:02-qishu-debug----------------------------*
+***** Note:--------------------------------------------------**
+      JMAXIn = 0
+      JMAXRn = 0
+*     --16/05/16 14:02-qishu-end------------------------------*
       FAC = 1.0/LOG(1.9999999)
       DO 20 I = IFIRST,NTOT
           IF (BODY(I).EQ.0.0D0) GO TO 20
+*     --16/05/16 13:54-qishu-debug----------------------------*
+***** Note:--------------------------------------------------**
+          if (body(i) .lt. smallMass) go to 920
+*     --16/05/16 13:54-qishu-end------------------------------*
           J = MAX(1,1 - INT(LOG(STEP(I))*FAC))
           IF(J.GT.NMAX)J = NMAX
           IHIST(J) = IHIST(J) + 1
@@ -35,6 +55,18 @@
           IF(J.GT.NMAX)J = NMAX
           IHISTR(J) = IHISTR(J) + 1
           JMAXR = MAX(J,JMAXR)
+*     --16/05/16 13:52-qishu-debug----------------------------*
+***** Note:--------------------------------------------------**
+          go to 20
+  920     J = MAX(1,1 - INT(LOG(STEP(I))*FAC))
+          IF(J.GT.NMAX)J = NMAX
+          IHISTn(J) = IHISTn(J) + 1
+          JMAXIn = MAX(J,JMAXIn)
+          J = MAX(1,1 - INT(LOG(STEPR(I))*FAC))
+          IF(J.GT.NMAX)J = NMAX
+          IHSTRn(J) = IHSTRn(J) + 1
+          JMAXRn = MAX(J,JMAXRn)
+*     --16/05/16 13:52-qishu-end------------------------------*
    20 CONTINUE
 *
       JMAXU = 0
@@ -50,12 +82,27 @@
 *       Print histograms of block-steps (STEPR with KZ(33) > 1).
       JMAXI=MIN(JMAXI,NMAX)
       JMAXR=MIN(JMAXR,NMAX)
+*     --16/05/16 14:04-qishu-debug----------------------------*
+***** Note:--------------------------------------------------**
+      JMAXIn=MIN(JMAXIn,NMAX)
+      JMAXRn=MIN(JMAXRn,NMAX)
+
+*     --16/05/16 14:04-qishu-end------------------------------*
       JMAXU=MIN(JMAXU,NMAX)
       if(rank.eq.0)then
          WRITE (6,30)  (IHIST(J),J=1,JMAXI)
-   30 FORMAT (' STEP I ',22I7,(/,24I5))
+   30 FORMAT (' STEP I  (massive)',22I7,(/,24I5))
       IF (KZ(33).GT.1)WRITE (6,301)  (IHISTR(J),J=1,JMAXR)
-  301 FORMAT (' STEP R ',50I7,(/,24I5))
+  301 FORMAT (' STEP R  (massive)',50I7,(/,24I5))
+*     --16/05/16 13:55-qishu-debug----------------------------*
+***** Note:--------------------------------------------------**
+         WRITE (6,930)  (IHISTn(J),J=1,JMAXIn)
+  930 FORMAT (' STEP I (massless)',22I7,(/,24I5))
+      IF (KZ(33).GT.1)WRITE (6,9301)  (IHSTRn(J),J=1,JMAXRn)
+ 9301 FORMAT (' STEP R (massless)',50I7,(/,24I5))
+*     --16/05/16 13:55-qishu-end------------------------------*
+
+
       IF (KZ(8).GT.0 .OR. NBIN0.GT.0 )WRITE (6,3001)
      *     (IHISTU(J),J=1,JMAXU)
  3001 FORMAT (' STEP U ',50I7,(/,24I5))

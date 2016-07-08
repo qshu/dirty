@@ -696,7 +696,11 @@ void GPUNB_close(){
 // #endif
 }
 
-void GPUNB_send( int _nbody, double mj[], double xj[][3], double vj[][3]){
+void GPUNB_send(
+		int _nbody,
+		double mj[],
+		double xj[][3],
+		double vj[][3]){
 	assert(is_open);
 	nbody = _nbody;
 	assert(nbody <= nbodymax);

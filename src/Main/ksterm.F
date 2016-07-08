@@ -263,7 +263,6 @@ c$$$     &     'N',(NAME(LIST(2+K,I1)),K=1,5)
           DSAVE(15) = ZLMSTY(I)
           DSAVE(16) = TPRED(I)
           NAMEI = NAME(I)
-          nomsi = nomass(i)
           KSI = KSTAR(I)
 *
 *       Copy last pair to ipair
@@ -284,7 +283,6 @@ c$$$     &     'N',(NAME(LIST(2+K,I1)),K=1,5)
           ZLMSTY(I) = ZLMSTY(J)
           TPRED(I) = TPRED(J)
           NAME(I) = NAME(J)
-          nomass(i) = nomass(j)
           KSTAR(I) = KSTAR(J)
           STEP(I) = STEP(J)
           T0(I) = T0(J)
@@ -308,7 +306,6 @@ c$$$     &     'N',(NAME(LIST(2+K,I1)),K=1,5)
           ZLMSTY(J) = DSAVE(15)
           TPRED(J) = DSAVE(16)
           NAME(J) = NAMEI
-          nomass(j) = nomsi
           KSTAR(J) = KSI
 
    50 CONTINUE

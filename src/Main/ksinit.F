@@ -27,17 +27,6 @@
       BODY(NTOT) = BODY(ICOMP) + BODY(JCOMP)
       RS(NTOT) = RS(ICOMP)
       NAME(NTOT) = NZERO + NAME(ICOMP)
-*     --16/05/07 01:05-qishu-debug----------------------------*
-***** Note:--------------------------------------------------**
-c      I do not understand here....
-      if(nomass(icomp)*nomass(jcomp).eq.1) then
-         print*,' useless attempt to regularize two massless particles'
-         stop
-      else
-c         nomass(ntot) = 0
-         nomass(ntot) = nomass(ntot)
-      end if
-*     --16/05/07 01:05-qishu-end------------------------------*
       RADIUS(NTOT) = 0.0
       TEV(NTOT) = 1.0E+10
       TEV0(NTOT) = 1.0E+10

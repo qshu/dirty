@@ -413,7 +413,7 @@ c$$$             CALL FLUSH(6)
 c$$$             STOP
 c$$$  END IF
             IF (STEP(I).LT.DTMIN.AND.STEP(I).LT.DSMIN.AND.I.LE.N.AND.
-     &           I.GE.IFIRST.AND.nomass(i).eq.0) THEN
+     &           I.GE.IFIRST) THEN
                DSMIN = STEP(I)
                ISMIN = I
             END IF

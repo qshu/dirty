@@ -11,6 +11,10 @@
       CHARACTER*1 CHAR(80)
       LOGICAL LREADN,LREADP,LREADF
 *
+*     --16/05/15 21:02-qishu-debug----------------------------*
+***** Note:--------------------------------------------------**
+      integer qsi
+*     --16/05/15 21:02-qishu-end------------------------------*
 #ifdef PARALLEL
 #define MPIINIT 1
 #else
@@ -22,7 +26,10 @@
 #endif
 *
 *       Set provisional total mass (rescaled in routine SCALE).
+*     --16/05/15 20:58-qishu-debug----------------------------*
+***** Note:--------------------------------------------------**
       ZMASS = FLOAT(N-nmass)
+*     --16/05/15 20:58-qishu-end------------------------------*
 *
 *       Check option for reading initial conditions from input file.
       if(rank.eq.0)then
@@ -90,19 +97,20 @@
           IF(I.LT.N)GO TO 61
           PRINT*,N,' Particles read from Starlab File'
  111  FORMAT(5X,I5)
-*
-*       Check whether there are some massless particles in input
+*     --16/05/15 21:00-qishu-debug----------------------------*
+***** Note:--------------------------------------------------**
+c          Check whether there are some massless particles in input
       nmass = 0
-      do 1000 i=1,n
-      if(body(i).eq.0.0d0)then
-      nmass = nmass + 1
+      do 1000 qsi=1,n
+      if(body(qsi).eq.0.0d0)then
+          nmass = nmass + 1
       end if
  1000 continue
-*
+*     --16/05/15 21:06-qishu-end------------------------------*
+
       END IF
 * 
       end if
-*
 #ifdef PARALLEL
       CALL MPI_BCAST(N,1,MPI_INTEGER,0,MPI_COMM_WORLD,ierr)
       CALL MPI_BCAST(NTOT,1,MPI_INTEGER,0,MPI_COMM_WORLD,ierr)
@@ -194,11 +202,17 @@
    20 CONTINUE
 *
 *       Scale the masses to <M> = 1 for now and set consistent total mass.
+*     --16/05/15 21:07-qishu-debug----------------------------*
+***** Note:--------------------------------------------------**
    30 ZMBAR1 = ZMASS/FLOAT(N-nmass)
+*     --16/05/15 21:07-qishu-end------------------------------*
       DO 35 I = 1,N
           BODY(I) = BODY(I)/ZMBAR1
    35 CONTINUE
+*     --16/05/15 21:08-qishu-debug----------------------------*
+***** Note:--------------------------------------------------**
       ZMASS = FLOAT(N-nmass)
+*     --16/05/15 21:08-qishu-end------------------------------*
 *
 *       Set up initial coordinates & velocities (uniform or Plummer model).
    40 IF (KZ(22).LE.1) THEN

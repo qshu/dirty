@@ -9,8 +9,6 @@
 *
       PARAMETER (maxthr=1024)
       include 'params.h'
-c      INCLUDE 'common6.h'
-      REAL*8 NOMASS(NMAX)
       REAL*8 X(3,NMAX),XDOT(3,NMAX),BODY(NMAX),RS(NMAX),DTR(NMAX)
       REAL*8 FREG(3,maxthr),FDR(3,maxthr),POT(NMAX),BODYM
       INTEGER LISTGP(LMAX,maxthr),IREG(NMAX)
@@ -39,8 +37,6 @@ c      INCLUDE 'common6.h'
          FDR(1:3,II) = 0.0
 
          DO 1 J = IFIRST,N
-*       Skip force calculation for massless particles (RSDL).
-            if (nomass(j).eq.1) go to 1
             IF (J.EQ.I) GO TO 1
             A1 = X(1,J) - X(1,I)
             A2 = X(2,J) - X(2,I)

@@ -67,11 +67,6 @@
 *
       lums(1) = lzamsf(mass)
       lums(2) = ltmsf(mass)
-      
-
-
-
-
 *
 * Set the GB parameters
 *

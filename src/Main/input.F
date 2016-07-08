@@ -53,7 +53,10 @@ C Termination time in physical units, TCRITP, read in nbody6.F
       CALL MPI_BCAST(NRAND,1,MPI_INTEGER,0,MPI_COMM_WORLD,ierr)
       CALL MPI_BCAST(NNBOPT,1,MPI_INTEGER,0,MPI_COMM_WORLD,ierr)
       CALL MPI_BCAST(NRUN,1,MPI_INTEGER,0,MPI_COMM_WORLD,ierr)
+*     --16/05/15 16:21-qishu-debug----------------------------*
+***** Note:--------------------------------------------------**
       CALL MPI_BCAST(nmass,1,MPI_INTEGER,0,MPI_COMM_WORLD,ierr)
+*     --16/05/15 16:21-qishu-end------------------------------*
 *
       CALL MPI_BCAST(KZ(1),50,MPI_INTEGER,0,MPI_COMM_WORLD,ierr)
 *
@@ -84,11 +87,14 @@ C Termination time in physical units, TCRITP, read in nbody6.F
      *   ' NRAND=',I9)
 #endif
 
+*     --16/05/15 16:20-qishu-debug----------------------------*
+***** Note:--------------------------------------------------**
       if(rank.eq.0)then
          WRITE (6,10)
    10    FORMAT (/////,15X,'N  NFIX  NCRIT  NRAND  NNBOPT  NRUN nmass')
          WRITE (6,12)  N, NFIX, NCRIT, NRAND, NNBOPT, NRUN, nmass
-   12    FORMAT (/,I16,I6,2I7,I8,2I6)
+   12    FORMAT (/,I16,I6,2I7,I8,I6,I6)
+*     --16/05/15 16:20-qishu-end------------------------------*
 *
 C New: (Aug.1998, P.Kroupa)
          WRITE(6,15)
