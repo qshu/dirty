@@ -220,7 +220,7 @@ pip-log.txt
 ############
 #work
 ############
-build/
+build/*.o
 dirty/
 LOG/
 src/main/
