@@ -220,10 +220,11 @@ pip-log.txt
 ############
 #work
 ############
-build/*.o
+build/
 dirty/
 LOG/
 src/main/
+!build/Makefile.in
 
 ###########
 #test
