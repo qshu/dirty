@@ -2,6 +2,8 @@
 /nbody
 /NOTES.txt
 /analysis
+/build/*
+!/build/Makefile.in
 
 
 /Makefile
