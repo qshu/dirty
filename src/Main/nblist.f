@@ -38,6 +38,8 @@
     1 RCRIT2 = 1.59*RS2
       NNB = 1
       DO 10 J = IFIRST,NTOT
+*       Skip neighbour search for massless particles (RSDL).
+         if (nomass(j).eq.1) goto 10
           RIJ2 = (X(1,I) - X(1,J))**2 + (X(2,I) - X(2,J))**2 +
      &                                  (X(3,I) - X(3,J))**2
           IF (RIJ2.GT.RCRIT2) GO TO 10

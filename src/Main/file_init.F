@@ -83,6 +83,7 @@ C      FRAG(4) = 'bdat'
 *      FILE(52) = 'itid3.52  '
       FILE(54) = 'hypcep.54 '
       FILE(55) = 'hypcec.55 '
+      FILE(59) = 'pln.59    '
       FILE(71) = 'cirdiag.71'
       FILE(73) = 'histab.73 '
       FILE(75) = 'cirdiag.75'
@@ -122,6 +123,7 @@ C      FRAG(4) = 'bdat'
           WRITE (FILE(15),613) rank
           WRITE (FILE(82),713) rank
           WRITE (FILE(83),813) rank
+          WRITE (FILE(59),913) rank
  213  FORMAT('dat000',I1,'.10')
  313  FORMAT('esc000',I1,'.11')
  413  FORMAT('hia000',I1,'.12')
@@ -129,6 +131,7 @@ C      FRAG(4) = 'bdat'
  613  FORMAT('per000',I1,'.15')
  713  FORMAT('bev000',I1,'.13')
  813  FORMAT('sev000',I1,'.15')
+ 913  FORMAT('pln000',I1,'.59')
       else if (isize.ge.100.and.isize.lt.1000) then
           WRITE (FILE(10),215) rank
           WRITE (FILE(11),315) rank
@@ -137,6 +140,7 @@ C      FRAG(4) = 'bdat'
           WRITE (FILE(15),615) rank
           WRITE (FILE(82),715) rank
           WRITE (FILE(83),815) rank
+          WRITE (FILE(59),915) rank
  215  FORMAT('dat00',I2,'.10')
  315  FORMAT('esc00',I2,'.11')
  415  FORMAT('hia00',I2,'.12')
@@ -144,6 +148,7 @@ C      FRAG(4) = 'bdat'
  615  FORMAT('per00',I2,'.15')
  715  FORMAT('bev00',I2,'.13')
  815  FORMAT('sev00',I2,'.15')
+ 915  FORMAT('pln00',I1,'.59')
       else if (isize.ge.100.and.isize.lt.1000) then
           WRITE (FILE(10),217) rank
           WRITE (FILE(11),317) rank
@@ -152,6 +157,7 @@ C      FRAG(4) = 'bdat'
           WRITE (FILE(15),617) rank
           WRITE (FILE(82),717) rank
           WRITE (FILE(83),817) rank
+          WRITE (FILE(59),917) rank
  217  FORMAT('dat0',I3,'.10')
  317  FORMAT('esc0',I3,'.11')
  417  FORMAT('hia0',I3,'.12')
@@ -159,6 +165,7 @@ C      FRAG(4) = 'bdat'
  617  FORMAT('per0',I3,'.15')
  717  FORMAT('bev0',I3,'.13')
  817  FORMAT('sev0',I3,'.15')
+ 917  FORMAT('pln0',I1,'.59')
       else if (isize.ge.1000) then
           WRITE (FILE(10),219) rank
           WRITE (FILE(11),319) rank
@@ -167,6 +174,7 @@ C      FRAG(4) = 'bdat'
           WRITE (FILE(15),619) rank
           WRITE (FILE(82),719) rank
           WRITE (FILE(83),819) rank
+          WRITE (FILE(59),919) rank
  219  FORMAT('dat',I4,'.10')
  319  FORMAT('esc',I4,'.11')
  419  FORMAT('hia',I4,'.12')
@@ -174,6 +182,7 @@ C      FRAG(4) = 'bdat'
  619  FORMAT('per',I4,'.15')
  719  FORMAT('bev',I4,'.13')
  819  FORMAT('sev',I4,'.15')
+ 919  FORMAT('pln',I1,'.59')
       end if
 #endif
 #ifdef PARALLEL
@@ -332,6 +341,9 @@ C     &             ACCESS='APPEND')
      &             ACCESS='APPEND')
       IF (KZ(27).GT.0) 
      &OPEN (UNIT=96,STATUS='UNKNOWN',FORM='FORMATTED',FILE=FILE(96),
+     &             ACCESS='APPEND')
+      IF (nmass.gt.0)
+     &OPEN (UNIT=59,STATUS='UNKNOWN',FORM='FORMATTED',FILE=FILE(59),
      &             ACCESS='APPEND')
 #ifdef PARALLEL
       end if

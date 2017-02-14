@@ -97,6 +97,7 @@
       CMAX = 0.0
       NNB = 0
       NS = 0
+      NSPL = 0
       SUM = 0.0
       DO 30 I = IFIRST,NTOT
           DTI = DTI + 1.0/STEP(I)
@@ -105,8 +106,9 @@
           RHON = LIST(1,I)/RS(I)**3
           CMAX = MAX(CMAX,RHON)
           NNB = NNB + LIST(1,I)
-          IF (I.LE.N.AND.BODY(I).GT.0.0D0) NS = NS + 1
-          SUM = SUM + BODY(I)**2
+          IF(I.LE.N.AND.BODY(I).GT.smallMass) NS = NS + 1
+          IF(I.LE.N.and.body(i).lt.smallMass) NSPL = NSPL + 1
+          IF(nomass(i).eq.0)SUM = SUM + BODY(I)**2
    30 CONTINUE
       NS = NS - NSUB
 *
@@ -140,11 +142,17 @@
 *       Print main output diagnostics.
       I6 = INT(TSCALE*TTOT)
 *
+      imass = 0 
+      do 1111 i=ifirst,n
+      if(nomass(i).eq.1)imass=imass+1
+ 1111 continue
+
       IF(rank.EQ.0)THEN
-      WRITE (6,40) TTOT, N, NNB, NPAIRS, NMERGE, MULT, NS, NSTEPI,
+      WRITE (6,40) TTOT, N, NNB, NPAIRS, NMERGE, MULT, NS, NSPL, NSTEPI,
      &         NSTEPB,NSTEPR, NSTEPU, ERROR, BE(3)
    40 FORMAT (//,' TIME[NB] ',1P,E15.6,0P,'  N ',I8,'  <NB> ',I5,
      &     '  NPAIRS ',I7,'  NMERGE ',I5,' MULT ',I4,' NS ',I8,
+     &     ' NSPL=',I6,
      &     '  NSTEP(I,B,R,U) ',4I13,'  DE ',E15.6,'  E ',F17.6)
       END IF
 *
@@ -318,6 +326,11 @@ C      END IF
       IF (KZ(6).GT.0) THEN
           CALL BODIES
       END IF
+*       Call Binary Data Bank for planets 
+
+      if (nmass.gt.0.and.npairs.gt.0) then
+          call plndat
+      end if
 *
 *       See whether to write data bank of binary diagnostics on unit 9.
       IF (KZ(8).GE.2) THEN

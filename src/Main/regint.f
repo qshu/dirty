@@ -1,4 +1,4 @@
-      SUBROUTINE REGINT(IOFF,NI,IREG,IFIRST,N,X,XDOT,BODY,
+      SUBROUTINE REGINT(NOMASS,IOFF,NI,IREG,IFIRST,N,X,XDOT,BODY,
      &     DTR,BODYM,M_FLAG,NB_FLAG,NNBOPT,RS,FREG,FDR,LISTGP,POT)
 *
 *
@@ -37,6 +37,9 @@
          FDR(1:3,II) = 0.0
 
          DO 1 J = IFIRST,N
+*       Skip force calculation for massless particles (RSDL).
+         if (nomass(j).eq.1) goto 1
+*RSP
             IF (J.EQ.I) GO TO 1
             A1 = X(1,J) - X(1,I)
             A2 = X(2,J) - X(2,I)

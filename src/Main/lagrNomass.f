@@ -46,8 +46,88 @@
       NP = 0
       Nnomass = 0
       IF (KZ(8).GT.0) THEN
-         stop 'warnning: KZ(8) >= 0, not finished for lagrNomass.f'
-      ELSE
+c         stop 'warnning: KZ(8) >= 0, not finished for lagrNomass.f'
+*     Need to exclude massive black hole mass
+*     Set square radii of resolved binaries
+         IF (KZ(24).EQ.1) THEN
+            NPP = 0
+            NCMB = -100000
+            DO I = 1,IFIRST-1
+               IF(NAME(I).NE.NIMBH) THEN
+                  NPP = NPP + 1
+                  R2(NPP) = (X(1,I) - C(1))**2 + (X(2,I) - C(2))**2 +
+     &                 (X(3,I) - C(3))**2
+                  JLIST(NPP) = I
+               ELSE
+                  NCMB = KVEC(I) + N
+               END IF
+            END DO
+*
+*     Set square radii of single stalrs
+            DO I = IFIRST,N
+               IF(NAME(I).NE.NIMBH) THEN
+                  NSNGL = NSNGL + 1
+                  R2(NPP+NSNGL) = (X(1,I) - C(1))**2 + 
+     &                 (X(2,I) - C(2))**2 + (X(3,I) - C(3))**2
+                  RSNGL(NSNGL) = R2(NPP+NSNGL)
+                  JLIST(NPP+NSNGL) = I
+                  ISLIST(NSNGL) = I
+               END IF
+            END DO
+*     Set square radii of c.m.
+            DO I = N+1, NTOT
+               IF(NAME(I).NE.NCMB) THEN
+                  NBIN = NBIN + 1
+                  RBIN(NBIN) = (X(1,I) - C(1))**2 + (X(2,I) - C(2))**2 +
+     &                 (X(3,I) - C(3))**2
+                  IBLIST(NBIN) = I
+               END IF
+            END DO
+            NP = NPP + NSNGL
+         ELSE
+*     Set square radii of resolved binaries
+!$omp parallel do private(I)
+            DO I = 1,IFIRST-1
+               R2(I) = (X(1,I) - C(1))**2 + (X(2,I) - C(2))**2 +
+     &              (X(3,I) - C(3))**2
+               JLIST(I) = I
+            END DO
+!$omp end parallel do
+
+*
+*     Set square radii of single stalrs
+!$omp parallel do private(I)
+            DO I = IFIRST,N
+               R2(I) = (X(1,I) - C(1))**2 + (X(2,I) - C(2))**2 +
+     &              (X(3,I) - C(3))**2
+               RSNGL(I-IFIRST+1) = R2(I)
+               JLIST(I) = I
+               ISLIST(I-IFIRST+1) = I
+            END DO
+!$omp end parallel do
+
+*     Set square radii of c.m.
+!$omp parallel do private(I)
+            DO I = N+1, NTOT
+               RBIN(I-N) = (X(1,I) - C(1))**2 + (X(2,I) - C(2))**2 +
+     &              (X(3,I) - C(3))**2
+               IBLIST(I-N) = I
+            END DO
+!$omp end parallel do
+            NP = N
+            NBIN = NTOT - N
+            NSNGL = N - IFIRST + 1
+         END IF
+
+*     Sort square distances of all particles with respect to the centre C.
+         CALL SORT1(NP,R2,JLIST)
+*     Sort square distances of all singles with respect to the centre C.
+         CALL SORT1(NSNGL,RSNGL,ISLIST)
+*     Sort square distances of c.m. with respect to the centre C.
+         CALL SORT1(NBIN,RBIN,IBLIST)
+*
+      END IF
+c      ELSE
 *     Only consider singles and resolved K.S.
 *     Set square radii
 *     exclude massive black hole
@@ -81,7 +161,7 @@
          CALL SORT1(NP,R2,JLIST)
 *       Sort square distances of massless particles
          CALL SORT1(Nnomass,Rnomass,NLIST)
-      END IF
+c      END IF
 
 *     escape calculation if only rscale is needed
       IF (KZ(7).EQ.1) GO TO 100
@@ -143,7 +223,42 @@
  15   CONTINUE
 
 
-      IF (KZ(8).GT.0) stop "lagrN: KZ(8) = 0 not finished"
+      IF (KZ(8).GT.0) then
+c      stop "lagrN: KZ(8) = 0 not finished"
+*  Determine the Lagrangian radii for singles and binaries separately.
+         ZMS = 0.0D0
+         I = 0
+*
+         DO 17 J = 1, NLENS
+ 21         I = I + 1
+            IF(I.GT.NSNGL) THEN
+               RSLAGR(J) = RSLAGR(J-1)
+               GO TO 17
+            END IF
+            IM = ISLIST(I)
+            IF(BODY(IM).EQ.0.0D0) GO TO 21
+            ZMS = ZMS + BODY(IM)
+            IF (I.LT.NSNGL.AND.ZMS.LT.FLAGR(J)*ZSMASS0) GO TO 21
+            RSLAGR(J) = SQRT(RSNGL(I))
+ 17      CONTINUE
+*
+         ZMB = 0.0D0
+         I = 0
+*     
+         DO 18 J = 1, NLENS
+ 22         I = I + 1
+            IF(I.GT.NBIN) THEN
+               RBLAGR(J) = RBLAGR(J-1)
+               GO TO 18
+            END IF
+            IM = IBLIST(I)
+            IF(BODY(IM).EQ.0.0D0) GO TO 22
+            ZMB = ZMB + BODY(IM)
+            IF (I.LT.NBIN.AND.ZMB.LT.FLAGR(J)*ZBMASS0) GO TO 22
+            RBLAGR(J) = SQRT(RBIN(I))
+ 18      CONTINUE
+*
+      END IF
 *
 *     Write on diagnostics of NLAGR
       if(rank.eq.0)then
@@ -164,5 +279,3 @@
  100  RETURN
 *
       END
-
-

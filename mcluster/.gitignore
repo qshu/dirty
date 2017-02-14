@@ -1,0 +1,17 @@
+*.o
+*~
+mcluster
+mcluster_sse
+.DS_Store
+#*
+*.tar
+*.gz
+website/
+stuff/
+papers/
+testing/
+test*
+*.info
+*.input
+*.10
+log.gen
