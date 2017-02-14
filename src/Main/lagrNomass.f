@@ -126,7 +126,8 @@ c         stop 'warnning: KZ(8) >= 0, not finished for lagrNomass.f'
 *     Sort square distances of c.m. with respect to the centre C.
          CALL SORT1(NBIN,RBIN,IBLIST)
 *
-      ELSE
+      END IF
+c      ELSE
 *     Only consider singles and resolved K.S.
 *     Set square radii
 *     exclude massive black hole
@@ -160,7 +161,7 @@ c         stop 'warnning: KZ(8) >= 0, not finished for lagrNomass.f'
          CALL SORT1(NP,R2,JLIST)
 *       Sort square distances of massless particles
          CALL SORT1(Nnomass,Rnomass,NLIST)
-      END IF
+c      END IF
 
 *     escape calculation if only rscale is needed
       IF (KZ(7).EQ.1) GO TO 100

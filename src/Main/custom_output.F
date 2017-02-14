@@ -553,7 +553,7 @@ C     &           + XREL(3,IM)*VREL(3,IM)
             SEMI = 2.0/RIJ - VIREL2/ZMB
             SEMI = 1.0/SEMI
 *     Check whether satisfy wide binary criterion
-            IF (SEMI.GT.0.0.AND.SEMI.LT.0.1*RSCALE) THEN
+            IF (SEMI.GT.0.0.AND.SEMI.LT.1.0*RSCALE) THEN
                IWBINC = IWBINC + 1
                N_BINARY = N_BINARY + 1
                IK = N_BINARY

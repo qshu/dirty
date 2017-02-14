@@ -158,7 +158,7 @@
 *       Form tidal radius from circular angular velocity (assumes apocentre).
           IF (RTIDE.EQ.0.0D0) RTIDE = (0.5/OMEGA**2)**0.3333
 *       Adopt a tidal radius of 10 units unless specified by routine SCALE.
-C          IF (RTIDE.EQ.0.0D0) RTIDE = 10.0
+c          IF (RTIDE.EQ.0.0D0) RTIDE = 10.0
 *
           if(rank.eq.0.and.GMG.GT.0.0)
      &    WRITE (6,35)  GMG, SQRT(R02), OMEGA, RTIDE, RBAR

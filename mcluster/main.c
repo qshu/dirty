@@ -105,8 +105,8 @@ int main (int argv, char **argc) {
 	double msort = 5.0;				//Stars with masses > msort will be sorted and preferentially paired into binaries if pairing = 1
 	int adis = 0;					//Semi-major axis distribution; 0= flat ranging from amin to amax, 1= based on Kroupa (1995) period distribution, 2= based on Duquennoy & Mayor (1991) period distribution, 3= based on Kroupa (1995) period distribution for M<Msort; based on Sana et al. (2012); Oh, S., Kroupa, P., & Pflamm-Altenburg, J. (2015) period distribution for M>Msort (implemented by Long Wang)
 	int OBperiods = 0;				//Use period distribution for massive binaries with M_primary > msort from Sana & Evans (2011) if OBperiods = 1
-	double amin = 0.0001;			//Minimum semi-major axis for adis = 0 [pc]
-	double amax = 0.01;				//Maximum semi-major axis for adis = 0 [pc]
+	double amin = 0.000001;			//Minimum semi-major axis for adis = 0 [pc]
+	double amax = 0.0001;				//Maximum semi-major axis for adis = 0 [pc]
 #ifdef SSE
 	int eigen = 0;					//Use Kroupa (1995) eigenevolution for pre-main sequence short-period binaries; =0 off, =1 on [use either eigenevolution or BSE; BSE recommended when using SSE]
 	int BSE = 1;					//Apply binary star evolution using BSE (Hurley, Tout & Pols 2002) =0 off, =1 on [use either eigenevolution or BSE; BSE recommended when using SSE]
@@ -3490,6 +3490,8 @@ int get_binaries(int nbin, double **star, double M, double rvir, int pairing, in
 				m2 = star[2*i+1][0];
 			}
 			double ms = m1 + m2;
+			//m1 = ms * 0.999;
+			//m2 = ms * 0.001;
 			m1 = ms ;
 			m2 = ms / 1e10;
 			//Specify semi-major axis

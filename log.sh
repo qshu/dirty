@@ -12,9 +12,13 @@ mkdir -p $logPath
 #./configure --enable-mcmodel=large  --with-par=b1m --enable-hdf5 > $logPath/log.configure 
 #./configure --enable-mcmodel=large  --with-par=b1m > $logPath/log.configure 
 
-#./configure  --enable-mcmodel=large --with-par=b1m > $logPath/log.configure ; NAME=nbody6++.avx.gpu.mpi
+export OMP_NUM_THREADS=8
 
-./configure  --enable-mcmodel=large --with-par=b512k > $logPath/log.configure ; NAME=nbody6++.avx.gpu.mpi
+./configure  --enable-mcmodel=large  --with-par=b512k --with-kmax=100000 > $logPath/log.configure ; NAME=nbody6++.avx.gpu.mpi
+#./configure  > $logPath/log.configure ; NAME=nbody6++.avx.gpu.mpi
+
+#./configure  --enable-mcmodel=large --enable-hdf5 --with-par=b512k --with-kmax=100000 > $logPath/log.configure ; NAME=nbody6++.avx.gpu.mpi.hdf5
+#./configure   --enable-hdf5  > $logPath/log.configure ; NAME=nbody6++.avx.gpu.mpi.hdf5
 #./configure  --with-par=b256k > $logPath/log.configure ; NAME=nbody6++.avx.gpu.mpi
 #./configure  --disable-gpu --disable-mpi > $logPath/log.configure ; NAME=nbody6++.avx
 

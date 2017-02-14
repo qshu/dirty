@@ -8,7 +8,7 @@ unit=0 # 0 --> Nbody unit;  1 --> astrophysics unit
 N=128000
 #B=51200
 B=0
-NAME=N256k_b0_comets128k
+NAME=N128k_b0_comets0k
 
 rm *.info *.input *.10
 
@@ -20,9 +20,9 @@ echo $var
 
 
 
-./mcluster -N $N -B $B -m 0.08 -m 10 -s 54321 -u $unit -C 5 -o ${NAME}COMs &> /dev/null
-awk '{print "0.0000000000000001", $2, $3, $4, $5, $6, $7}' *COMs.dat.10 > dat.10
-rm ${NAME}COMs.*
+#./mcluster -N $N -B $B -m 0.08 -m 10 -s 54321 -u $unit -C 5 -o ${NAME}COMs &> /dev/null
+#awk '{print "0.0000000000000001", $2, $3, $4, $5, $6, $7}' *COMs.dat.10 > dat.10
+#rm ${NAME}COMs.*
 
 
 cat ${NAME}.dat.10 >> dat.10

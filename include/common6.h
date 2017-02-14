@@ -10,6 +10,7 @@
       INCLUDE 'mpi_base.h'
 *
 	  PARAMETER  (smallMassSolarUnit=1.0d-10)
+*	  PARAMETER  (smallMassSolarUnit=1.0d-3)
       COMMON/NAMES/  NTOT,NPAIRS,NTTOT,N,NNBMAX,NCRIT,NFIX,NMERGE,NSUB,
      &               IPHASE,IFIRST,ICOMP,JCOMP,ICLOSE,JCLOSE,JCMAX,
      &               KSPAIR,NRUN,MODEL,NC,NZERO,NBZERO,NBIN0,NHI0,
