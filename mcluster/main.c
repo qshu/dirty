@@ -4944,6 +4944,7 @@ int output4(char *output, int N, int NNBMAX, double RS0, double dtadj, double dt
 
 int output5(char *output, int N, int NNBMAX, double RS0, double dtadj, double dtout, double tcrit, double rvir, double mmean, int tf, int regupdate, int etaupdate, int mloss, int bin, int esc, double M, double mlow, double mup, double MMAX, double epoch, double dtplot, double Z, int nbin, double Q, double *RG, double *VG, double rtide, int gpu, double **star, int sse, int seed, double extmass, double extrad, double extdecay, double extstart){
 
+	// output for Nbody6++GPU 
 	//Open output files
 	char PARfile[50], NBODYfile[50], SSEfile[50];		
 	FILE *PAR, *NBODY, *SSE12;
@@ -4979,10 +4980,10 @@ int output5(char *output, int N, int NNBMAX, double RS0, double dtadj, double dt
 	if (tf == 2) {
 		fprintf(PAR,"%.8e %.8f\n",M1pointmass,sqrt(RG[0]*RG[0]+RG[1]*RG[1]+RG[2]*RG[2])/1000.0);
 	} else if (tf == 3) {
-		//fprintf(PAR,"%.6e %.6f %.6e %.6f %.6f %.6e %.6f %.6f %.6f %.6f %.6f %.6f %.6f\n",M1allen,b1allen,M2allen,a2allen,b2allen,M3allen,a3allen,RG[0]/1000.0,RG[1]/1000.0,RG[2]/1000.0,VG[0],VG[1],VG[2]);
+		fprintf(PAR,"%.6e %.6f %.6e %.6f %.6f %.6e %.6f %.6f %.6f %.6f %.6f %.6f %.6f %.6f %.6f\n", M1pointmass, Miyamoto_DISK, Miyamoto_A, Miyamoto_B, VCIRC, RCIRC, GMB, AR, GAM, RG[0]/1000.0,RG[1]/1000.0,RG[2]/1000.0,VG[0],VG[1],VG[2]);
 		//new version including bulge potential:
-		fprintf(PAR,"%.6e %.6f %.6e %.6f %.6f %.6e %.6f %.6f %.6f %.6f\n",M1allen,b1allen,M2allen,a2allen,b2allen,M3allen,a3allen, GMB, AR, GAM);
-		fprintf(PAR,"%.6f %.6f %.6f %.6f %.6f %.6f\n", RG[0]/1000.0,RG[1]/1000.0,RG[2]/1000.0,VG[0],VG[1],VG[2]);
+		//fprintf(PAR,"%.6e %.6f %.6e %.6f %.6f %.6e %.6f %.6f %.6f %.6f\n",M1allen,b1allen,M2allen,a2allen,b2allen,M3allen,a3allen, GMB, AR, GAM);
+		//fprintf(PAR,"%.6f %.6f %.6f %.6f %.6f %.6f\n", RG[0]/1000.0,RG[1]/1000.0,RG[2]/1000.0,VG[0],VG[1],VG[2]);
 	}
 	if (tf > 2) fprintf(PAR,"%.2f %.2f %.2f %.2f\n",extmass,extrad,extdecay,extstart);
 	

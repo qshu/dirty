@@ -5,10 +5,10 @@ make mcluster
 
 
 unit=0 # 0 --> Nbody unit;  1 --> astrophysics unit
-N=128000
+N=1280
 #B=51200
 B=0
-NAME=N128k_b0_comets0k
+NAME=N1.28k_b0_comets0k
 
 rm *.info *.input *.10
 

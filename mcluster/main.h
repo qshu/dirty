@@ -26,6 +26,13 @@
 #define M_NFW 9.832538e+11;  //[solar masses]
 #define q_halo 1.0;          //[dimensionless]
 
+// for KZ(14)=3, Miyamoto disk prameters, see
+// http://iopscience.iop.org/article/10.1088/0004-637X/784/2/95
+#define GMG 1.5e10
+#define Miyamoto_DISK 5.0e10
+#define Miyamoto_A 4.0
+#define Miyamoto_B 0.5
+
 //Allen & Santillan (1991) MW potential - constants:
 #define b1allen 0.3873            //kpc
 #define M1allen 606.0*2.32e07    //solar masses
