@@ -13,7 +13,7 @@ NAME=N128k_b0_comets0k
 rm *.info *.input *.10
 
 
-./mcluster -N $N -B $B -m 0.08 -m 10 -s 12345 -u $unit -C 5 -o $NAME > log.gen
+./mcluster -N $N -B $B -m 0.08 -m 10 -s 12345 -t 3 -u $unit -C 5 -o $NAME > log.gen
 var=`awk '$1=="scalingInfo" {print $4, $7}' log.gen`
 echo $var
 #python aei.py $var $NAME

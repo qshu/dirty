@@ -149,7 +149,10 @@
 *
 *       Define the angular velocity (z-component) and mass in N-body units.
           R02 = RG(1)**2 + RG(2)**2
-          OMEGA = (RG(1)*VG(2) - RG(2)*VG(1))/R02
+c          OMEGA = (RG(1)*VG(2) - RG(2)*VG(1))/R02
+c       in the case of Allen & Santillan potential, assume kappa = 1.4omega (eq. 9 in Kuepper et al. 2010)
+          omega = sqrt(VG(1)**2+VG(2)**2+VG(3)**2)/ 
+     &     sqrt(RG(1)**2+RG(2)**2+RG(3)**2)
           TIDAL(4) = 2.0*OMEGA
           GMG = GMG/ZMTOT
           GMB = GMB/ZMTOT
