@@ -130,7 +130,7 @@ int main (int argv, char **argc) {
 	double dtplot = 1.0;			//DTPLOT [N-body units (Myr in Nbody6 custom)], output of HRdiagnostics, should be multiple of DTOUT, set to zero if output not desired
 	int gpu = 0;					//Use of GPU, 0= off, 1= on
 	int regupdate = 0;				//Update of regularization parameters during computation; 0 = off, 0 > on
-	int etaupdate = 0;				//Update of ETAI & ETAR during computation; 0 = off, 0 > on
+	int etaupdate = 1;				//Update of ETAI & ETAR during computation; 0 = off, 0 > on
 	int esc = 0;					//Removal of escapers; 0 = no removal, 1 = regular removal at 2*R_tide; 2 = removal and output in ESC
 	int units = 1;				    //Units of McLuster output; 0= Nbody-Units, 1= astrophysical units
 	
@@ -4966,11 +4966,11 @@ int output5(char *output, int N, int NNBMAX, double RS0, double dtadj, double dt
 	fprintf(PAR,"1 5000000.0 5000000.0 40 40 0\n");
 	fprintf(PAR,"%i 1 10 %i %i 1\n",N,seed,NNBMAX);
 	fprintf(PAR,"0.02 0.02 %.8f %.8f %.8f %.8f 1.0E-03 %.8f %.8f\n",RS0,dtadj,dtout,tcrit,rvir,mmean);
-	fprintf(PAR,"0 2 1 0 1 0 5 %i 3 2\n",(nbin>0?2:0));
+	fprintf(PAR,"0 2 1 0 1 1 5 %i 3 2\n",(nbin>0?2:0));
 	fprintf(PAR,"0 %i 0 %i 2 %i %i 0 %i 6\n",hrplot,tf,regupdate,etaupdate,mloss);
 	fprintf(PAR,"0 6 %i 0 1 2 2 0 0 1\n", esc);
 	fprintf(PAR,"1 0 3 2 1 0 0 2 0 0\n");
-	fprintf(PAR,"0 0 0 0 0 1 2 0 0 0\n");
+	fprintf(PAR,"0 0 0 0 0 4 0 0 0 0\n");
 	fprintf(PAR,"1.0E-5 1.0E-4 0.2 1.0 1.0E-06 0.001 0.125\n");
 	fprintf(PAR,"2.350000 %.8f %.8f %i 0 %.8f %.8f %.8f\n",MMAX,mlow,nbin,Z,epoch,dtplot);
 	fprintf(PAR,"%.2f 0.0 0.0 0.00000\n",Q);
@@ -4980,7 +4980,7 @@ int output5(char *output, int N, int NNBMAX, double RS0, double dtadj, double dt
 	if (tf == 2) {
 		fprintf(PAR,"%.8e %.8f\n",M1pointmass,sqrt(RG[0]*RG[0]+RG[1]*RG[1]+RG[2]*RG[2])/1000.0);
 	} else if (tf == 3) {
-		fprintf(PAR,"%.6e %.6f %.6e %.6f %.6f %.6e %.6f %.6f %.6f %.6f %.6f %.6f %.6f %.6f %.6f\n", M1pointmass, Miyamoto_DISK, Miyamoto_A, Miyamoto_B, VCIRC, RCIRC, GMB, AR, GAM, RG[0]/1000.0,RG[1]/1000.0,RG[2]/1000.0,VG[0],VG[1],VG[2]);
+		fprintf(PAR,"%.6e %.6f %.6e %.6f %.6f %.6e %.6f %.6f %.6f %.6f %.6f %.6f %.6f %.6f %.6f\n", M1pointmass, Miyamoto_DISK, Miyamoto_A, Miyamoto_B, Miyamoto_VCIRC, Miyamoto_RCIRC, GMB, AR, GAM, RG[0]/1000.0,RG[1]/1000.0,RG[2]/1000.0,VG[0],VG[1],VG[2]);
 		//new version including bulge potential:
 		//fprintf(PAR,"%.6e %.6f %.6e %.6f %.6f %.6e %.6f %.6f %.6f %.6f\n",M1allen,b1allen,M2allen,a2allen,b2allen,M3allen,a3allen, GMB, AR, GAM);
 		//fprintf(PAR,"%.6f %.6f %.6f %.6f %.6f %.6f\n", RG[0]/1000.0,RG[1]/1000.0,RG[2]/1000.0,VG[0],VG[1],VG[2]);

@@ -32,8 +32,10 @@
 #define Miyamoto_DISK 5.0e10
 #define Miyamoto_A 4.0
 #define Miyamoto_B 0.5
+#define Miyamoto_VCIRC 0.0			//Galactic circular velocity (km/sec) at RCIRC (=0: no halo)
+#define Miyamoto_RCIRC 0.0			//Central distance for VCIRC with logarithmic potential (kpc)
 
-//Allen & Santillan (1991) MW potential - constants:
+//Allen & Santillan (1991) MW potential - constants
 #define b1allen 0.3873            //kpc
 #define M1allen 606.0*2.32e07    //solar masses
 #define a2allen 5.3178
