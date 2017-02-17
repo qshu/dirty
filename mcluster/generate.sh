@@ -29,4 +29,5 @@ cat ${NAME}.dat.10 >> dat.10
 
 
 rm -rf ../nbody && mkdir ../nbody
-cp dat.10 *.input ../nbody/
+cp dat.10 *.input start.lsf start.sh ../nbody
+
