@@ -34,10 +34,12 @@
 *       Check option for reading initial conditions from input file.
       if(rank.eq.0)then
 *
+          ZMASS = 0.0D0
       IREAD = 0
       IF (KZ(22).EQ.2.OR.KZ(22).EQ.6.OR.KZ(22).EQ.9) THEN
           DO 5 I = 1,N
               READ (10,*)  BODY(I), (X(K,I),K=1,3), (XDOT(K,I),K=1,3)
+              ZMASS = ZMASS + BODY(I)
     5     CONTINUE
 *
 *       Read tidal radius if cutoff required
@@ -102,7 +104,8 @@
 c          Check whether there are some massless particles in input
       nmass = 0
       do 1000 qsi=1,n
-      if(body(qsi).eq.0.0d0)then
+c be careful here, 1d-9 may be not suitable for every case.
+      if(body(qsi).lt.1d-9)then
           nmass = nmass + 1
       end if
  1000 continue
