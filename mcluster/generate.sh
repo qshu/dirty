@@ -5,28 +5,31 @@ make mcluster
 
 
 unit=0 # 0 --> Nbody unit;  1 --> astrophysics unit
-Ns=128000
-Nc=$Ns
-#B=51200
-B=0
-T=1000
-NAME=Ns${Ns}_B${B}_comets${Nc}_timeNB_$T
+N=128000 # Ns: total number of particles or stars(for ffc)
+B=12800
+Nnomass=128000
+T=100
+NAME=Nstar${N}_B${B}_comets${Nnomass}_timeNB_$T
 
 
 rm *.info *.input *.10
 
 
-./mcluster -N $Ns -B $B -m 0.08 -m 10 -s 12345 -t 3 -u $unit -C 5 -T $T -o $NAME > log.gen
+./mcluster -N $N -n $Nnomass -B $B -m 0.08 -m 10 -s 12345 -t 3 -u $unit -C 5 -T $T -o $NAME > log.gen
 var=`awk '$1=="scalingInfo" {print $4, $7}' log.gen`
 echo $var
 #python aei.py $var $NAME
 
+echo 'first step finished!'
 
-Q=0.9
-./mcluster -N $Nc  -m 0.08 -m 10 -Q $Q -s 54321 -t 3 -u $unit -C 5 -o ${NAME}COMs &> /dev/null
+#Q=0.5
+./mcluster -N $Nnomass  -m 0.08 -m 10  -s 54321 -t 3 -u $unit -C 5 -o ${NAME}COMs &> /dev/null
+exit
 awk '{print "0.0000000000000001", $2, $3, $4, $5, $6, $7}' *COMs.dat.10 > dat.10
-rm ${NAME}COMs.*
+#rm ${NAME}COMs.*
 
+
+echo 'second step finished!'
 
 cat ${NAME}.dat.10 >> dat.10
 

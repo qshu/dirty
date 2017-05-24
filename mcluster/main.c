@@ -65,6 +65,7 @@ int main (int argv, char **argc) {
 	
 	//Basic physical parameters
 	int N = 0;					//Number of stars, Mcl will be set to 0 if specified!
+	int NNOMASS = 0;					//Number of massless particels.
 	double Mcl = 1000.0;			//Total mass of the cluster, only used when N is set to 0, necessary for usage of maximum stellar mass relation of Weidner & Kroupa (2006)
 	int profile = 0;				//Density profile; =0 Plummer model, =1 King model (based on king0.f by D.C. Heggie), =2 mass segregated Subr model (Subr et al. 2007), =3 2-dimensional EFF template (Elson, Fall & Freeman 1987) or Nuker template (Lauer et al. 1995), =-1 no density gradient
 	double W0 = 5.0;				//King's W0 paramter [0.3-12.0]
@@ -105,8 +106,8 @@ int main (int argv, char **argc) {
 	double msort = 5.0;				//Stars with masses > msort will be sorted and preferentially paired into binaries if pairing = 1
 	int adis = 0;					//Semi-major axis distribution; 0= flat ranging from amin to amax, 1= based on Kroupa (1995) period distribution, 2= based on Duquennoy & Mayor (1991) period distribution, 3= based on Kroupa (1995) period distribution for M<Msort; based on Sana et al. (2012); Oh, S., Kroupa, P., & Pflamm-Altenburg, J. (2015) period distribution for M>Msort (implemented by Long Wang)
 	int OBperiods = 0;				//Use period distribution for massive binaries with M_primary > msort from Sana & Evans (2011) if OBperiods = 1
-	double amin = 0.000001;			//Minimum semi-major axis for adis = 0 [pc]
-	double amax = 0.0001;				//Maximum semi-major axis for adis = 0 [pc]
+	double amin = 0.0001;			//Minimum semi-major axis for adis = 0 [pc]
+	double amax = 0.01;				//Maximum semi-major axis for adis = 0 [pc]
 #ifdef SSE
 	int eigen = 0;					//Use Kroupa (1995) eigenevolution for pre-main sequence short-period binaries; =0 off, =1 on [use either eigenevolution or BSE; BSE recommended when using SSE]
 	int BSE = 1;					//Apply binary star evolution using BSE (Hurley, Tout & Pols 2002) =0 off, =1 on [use either eigenevolution or BSE; BSE recommended when using SSE]
@@ -185,9 +186,10 @@ int main (int argv, char **argc) {
 
 	//Command line input
 	int option;
-	while ((option = getopt(argv, argc, "N:M:P:W:R:r:c:g:S:D:T:Q:C:A:O:G:o:f:a:m:B:b:p:s:t:e:Z:X:x:V:u:h:?")) != -1) switch (option)
+	while ((option = getopt(argv, argc, "N:n:M:P:W:R:r:c:g:S:D:T:Q:C:A:O:G:o:f:a:m:B:b:p:s:t:e:Z:X:x:V:u:h:?")) != -1) switch (option)
 	{
 		case 'N': N = atoi(optarg); Mcl = 0.0; break;
+		case 'n': NNOMASS = atoi(optarg); break;
 		case 'M': Mcl = atof(optarg); N = 0; break;
 		case 'P': profile = atoi(optarg); break;
 		case 'W': W0 = atof(optarg); break;
@@ -245,7 +247,7 @@ int main (int argv, char **argc) {
     if (mn-1 > 0) mup = mlim[mn-1];
 
 	//print summary of input parameters to .info file
-	info(output, N, Mcl, profile, W0, S, D, Q, Rh, gamma, a, Rmax, tcrit, tf, RG, VG, mfunc, single_mass, mlow, mup, alpha, mlim, alpha_L3, beta_L3, mu_L3, weidner, mloss, remnant, epoch, Z, prantzos, nbin, fbin, pairing, msort, adis, amin, amax, eigen, BSE, extmass, extrad, extdecay, extstart, code, seed, dtadj, dtout, dtplot, gpu, regupdate, etaupdate, esc, units, match, symmetry, OBperiods);
+	info(output, N, NNOMASS, Mcl, profile, W0, S, D, Q, Rh, gamma, a, Rmax, tcrit, tf, RG, VG, mfunc, single_mass, mlow, mup, alpha, mlim, alpha_L3, beta_L3, mu_L3, weidner, mloss, remnant, epoch, Z, prantzos, nbin, fbin, pairing, msort, adis, amin, amax, eigen, BSE, extmass, extrad, extdecay, extstart, code, seed, dtadj, dtout, dtplot, gpu, regupdate, etaupdate, esc, units, match, symmetry, OBperiods);
 	
 	
 	/*********
@@ -1036,7 +1038,7 @@ int main (int argv, char **argc) {
 	else if (code == 4) 
 		output4(output, N, NNBMAX, RS0, dtadj, dtout, tcrit, rvir, mmean, tf, regupdate, etaupdate, mloss, bin, esc, M, mlow, mup, MMAX, epoch, dtplot, Z, nbin, Q, RG, VG, rtide, gpu, star, sse, seed, extmass, extrad, extdecay, extstart);
 	else if (code == 5) 
-		output5(output, N, NNBMAX, RS0, dtadj, dtout, tcrit, rvir, mmean, tf, regupdate, etaupdate, mloss, bin, esc, M, mlow, mup, MMAX, epoch, dtplot, Z, nbin, Q, RG, VG, rtide, gpu, star, sse, seed, extmass, extrad, extdecay, extstart);
+		output5(output, N, NNOMASS, NNBMAX, RS0, dtadj, dtout, tcrit, rvir, mmean, tf, regupdate, etaupdate, mloss, bin, esc, M, mlow, mup, MMAX, epoch, dtplot, Z, nbin, Q, RG, VG, rtide, gpu, star, sse, seed, extmass, extrad, extdecay, extstart);
 	
 	
 	
@@ -3489,11 +3491,11 @@ int get_binaries(int nbin, double **star, double M, double rvir, int pairing, in
 				m1 = star[2*i][0];
 				m2 = star[2*i+1][0];
 			}
+			/*
 			double ms = m1 + m2;
-			//m1 = ms * 0.999;
-			//m2 = ms * 0.001;
 			m1 = ms ;
 			m2 = ms / 1e10;
+			*/
 			//Specify semi-major axis
 			if (((m1*M>=msort) || (m2*M>=msort)) && (OBperiods)) {
 			  if (adis == 3) {
@@ -4942,7 +4944,7 @@ int output4(char *output, int N, int NNBMAX, double RS0, double dtadj, double dt
     
 }
 
-int output5(char *output, int N, int NNBMAX, double RS0, double dtadj, double dtout, double tcrit, double rvir, double mmean, int tf, int regupdate, int etaupdate, int mloss, int bin, int esc, double M, double mlow, double mup, double MMAX, double epoch, double dtplot, double Z, int nbin, double Q, double *RG, double *VG, double rtide, int gpu, double **star, int sse, int seed, double extmass, double extrad, double extdecay, double extstart){
+int output5(char *output, int N, int NNOMASS, int NNBMAX, double RS0, double dtadj, double dtout, double tcrit, double rvir, double mmean, int tf, int regupdate, int etaupdate, int mloss, int bin, int esc, double M, double mlow, double mup, double MMAX, double epoch, double dtplot, double Z, int nbin, double Q, double *RG, double *VG, double rtide, int gpu, double **star, int sse, int seed, double extmass, double extrad, double extdecay, double extstart){
 
 	// output for Nbody6++GPU 
 	//Open output files
@@ -4964,7 +4966,7 @@ int output5(char *output, int N, int NNBMAX, double RS0, double dtadj, double dt
 	
 	//write to .PAR file	
 	fprintf(PAR,"1 5000000.0 5000000.0 40 40 0\n");
-	fprintf(PAR,"%i 1 10 %i %i 1\n",N,seed,NNBMAX);
+	fprintf(PAR,"%i 1 10 %i %i 1 %i\n",N,seed,NNBMAX,NNOMASS);
 	fprintf(PAR,"0.02 0.02 %.8f %.8f %.8f %.8f 1.0E-03 %.8f %.8f\n",RS0,dtadj,dtout,tcrit,rvir,mmean);
 	fprintf(PAR,"0 2 1 0 1 1 5 %i 3 2\n",(nbin>0?2:0));
 	fprintf(PAR,"0 %i 0 %i 2 %i %i 0 %i 6\n",hrplot,tf,regupdate,etaupdate,mloss);
@@ -5015,7 +5017,7 @@ int output5(char *output, int N, int NNBMAX, double RS0, double dtadj, double dt
 	
 }
 
-void info(char *output, int N, double Mcl, int profile, double W0, double S, double D, double Q, double Rh, double gamma[], double a, double Rmax, double tcrit, int tf, double RG[], double VG[], int mfunc, double single_mass, double mlow, double mup, double alpha[], double mlim[], double alpha_L3, double beta_L3, double mu_L3, int weidner, int mloss, int remnant, double epoch, double Z, int prantzos, int nbin, double fbin, int pairing, double msort, int adis, double amin, double amax, int eigen, int BSE, double extmass, double extrad, double extdecay, double extstart, int code, int seed, double dtadj, double dtout, double dtplot, int gpu, int regupdate, int etaupdate, int esc, int units, int match, int symmetry, int OBperiods) {
+void info(char *output, int N, int NNOMASS, double Mcl, int profile, double W0, double S, double D, double Q, double Rh, double gamma[], double a, double Rmax, double tcrit, int tf, double RG[], double VG[], int mfunc, double single_mass, double mlow, double mup, double alpha[], double mlim[], double alpha_L3, double beta_L3, double mu_L3, int weidner, int mloss, int remnant, double epoch, double Z, int prantzos, int nbin, double fbin, int pairing, double msort, int adis, double amin, double amax, int eigen, int BSE, double extmass, double extrad, double extdecay, double extstart, int code, int seed, double dtadj, double dtout, double dtplot, int gpu, int regupdate, int etaupdate, int esc, int units, int match, int symmetry, int OBperiods) {
 	int i;
 	char INFOfile[50];		
 	FILE *INFO;
@@ -5027,6 +5029,7 @@ void info(char *output, int N, double Mcl, int profile, double W0, double S, dou
 	fprintf(INFO, "\nMcLuster model generated: %s\n\n",ctime(&timep));	
 	
 	fprintf(INFO, "N = %i\n",N);
+	fprintf(INFO, "NNOMASS = %i\n",NNOMASS);
 	fprintf(INFO, "Mcl = %g\n",Mcl);
 	fprintf(INFO, "profile = %i\n", profile);	
 	fprintf(INFO, "W0 = %g\n",W0);

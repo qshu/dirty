@@ -86,9 +86,9 @@
      &                                       (X(3,I) - RDENS(3))**2)
           if(rank.eq.0)
      &    WRITE (6,36)  TIME, NAME(I), NAME(JMIN), BODY(I), BODY(JMIN),
-     &                        EREL, SEMI, ZN, RIJMIN, RI, ECC, LIST(1,I)
-   36     FORMAT (1X,F8.4,' BIN ',2I5,2F8.4,1P5E12.5,1PF7.2,2I5,
-     &                        1PE10.1,0PF7.2,I4)     
+     &  EREL, SEMI, ZN, RIJMIN, RI, ECC, LIST(1,I)
+   36     FORMAT (1X,F8.2,' significant binaries ',2I8,2E12.4,
+     &                  1P5E13.4,1PE13.4, 2I8, 1PE14.4,1PE14.4,I9)
    40 CONTINUE
 *
 *       Output of regularized binaries (frequency NFIX with KZ(6) = 4).
@@ -113,7 +113,7 @@
      &    WRITE (6,35)  NAME(I), NAME(JMIN), NAME(ICM), BODY(I),
      &           BODY(JMIN), H(JPAIR), SEMI, ZN, RP, RI, ECC, LIST(1,I),
      &                  LIST(1,N+JPAIR), GAMMA(JPAIR), VI, KSLOW(JPAIR)
-   35     FORMAT ('   BINARY ',3I8,1P,8E12.4,2I5,2E12.4,I5)
+   35     FORMAT ('regularized binaries ',3I9,1P,8E12.4,2I5,2E12.4,I9)
    60 CONTINUE
 *
    70 RETURN
