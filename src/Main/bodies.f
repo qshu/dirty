@@ -65,15 +65,18 @@
                   JMIN = J
               END IF
    30     CONTINUE
+          IF (JMIN.EQ.0) GO TO 40
           IF (nomass(jmin).eq.0.AND.JMIN.LE.I) GO TO 40
           RIJMIN = SQRT(RJMIN2)
           VR2 = (XDOT(1,I) - XDOT(1,JMIN))**2 +
      &          (XDOT(2,I) - XDOT(2,JMIN))**2 +
      &          (XDOT(3,I) - XDOT(3,JMIN))**2
           EREL = 0.5*VR2 - (BODY(I) + BODY(JMIN))/RIJMIN
+c          print *, EREL
 *       Only print significant binaries.
           IF (nomass(jmin).eq.0.AND.EREL.GT.-0.1*ECLOSE) GO TO 40
-          IF (nomass(jmin).eq.1.AND.EREL.GT.-0.0001*ECLOSE) GO TO 40
+c          IF (nomass(jmin).eq.1.AND.EREL.GT.-0.1*ECLOSE) GO TO 40
+          IF (nomass(jmin).eq.1.AND.EREL.GT.0) GO TO 40
           SEMI = -0.5*(BODY(I) + BODY(JMIN))/EREL
           ZN = SQRT((BODY(I) + BODY(JMIN))/SEMI**3)
           RDOT = (X(1,I) - X(1,JMIN))*(XDOT(1,I) - XDOT(1,JMIN)) +
@@ -84,7 +87,7 @@
           ECC = SQRT(ECC2)
           RI = SQRT((X(1,I) - RDENS(1))**2 + (X(2,I) - RDENS(2))**2 + 
      &                                       (X(3,I) - RDENS(3))**2)
-          if(rank.eq.0)
+          if(rank.eq.0.AND.nomass(jmin).eq.1)
      &    WRITE (6,36)  TIME, NAME(I), NAME(JMIN), BODY(I), BODY(JMIN),
      &  EREL, SEMI, ZN, RIJMIN, RI, ECC, LIST(1,I)
    36     FORMAT (1X,F8.2,' significant binaries ',2I8,2E12.4,

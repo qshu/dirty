@@ -200,6 +200,7 @@ c$$$      end if
             ECLOSE = 0.5*ECLOSE/Q
             KSMAG = 0
          END IF
+         print *, '~~~~!! ECLOSE,ZKIN,POT,ZMASS:',ECLOSE,ZKIN,POT,ZMASS
       END IF
 *     
 *     Check optional modification of DTMIN, ECLOSE & TCR for hot system.

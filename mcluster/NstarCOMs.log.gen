@@ -1,0 +1,253 @@
+
+-----START----         
+
+
+Using OpenMP with 16 threads
+
+
+Random seed = 123
+
+
+
+
+-----GENERATE MASSES-----     
+
+Maximum stellar mass set to: 10.00
+Estimated escape velocity of cluster assuming mean stellar mass of 0.4 Msun = 357.7709 km/s
+
+Setting up stellar population with Z = 0.0200.
+Total mass: 59863.6	(128000 stars)
+Most massive star: 9.98742
+Mean masses theoretical/data: 0.470656 0.467684
+
+Preparing binary components.
+
+Applying uniform mass ratio distribution for stars with masses > 5.0 Msun.
+
+ Number of binaries with M>Msort: 713
+
+-----GENERATE POSITIONS & VELOCITIES-----   
+
+Approximate tidal radius: 57.707 (pc)
+
+Generating Plummer model with parameters: N = 115200	 Rh = 0.800	 D = 3.00
+Setting cut-off radius of Plummer sphere to approximate tidal radius
+
+Generating Orbits:
+Generating orbit #0
+Generating orbit #1000
+Generating orbit #2000
+Generating orbit #3000
+Generating orbit #4000
+Generating orbit #5000
+Generating orbit #6000
+Generating orbit #7000
+Generating orbit #8000
+Generating orbit #9000
+Generating orbit #10000
+Generating orbit #11000
+Generating orbit #12000
+Generating orbit #13000
+Generating orbit #14000
+Generating orbit #15000
+Generating orbit #16000
+Generating orbit #17000
+Generating orbit #18000
+Generating orbit #19000
+Generating orbit #20000
+Generating orbit #21000
+Generating orbit #22000
+Generating orbit #23000
+Generating orbit #24000
+Generating orbit #25000
+Generating orbit #26000
+Generating orbit #27000
+Generating orbit #28000
+Generating orbit #29000
+Generating orbit #30000
+Generating orbit #31000
+Generating orbit #32000
+Generating orbit #33000
+Generating orbit #34000
+Generating orbit #35000
+Generating orbit #36000
+Generating orbit #37000
+Generating orbit #38000
+Generating orbit #39000
+Generating orbit #40000
+Generating orbit #41000
+Generating orbit #42000
+Generating orbit #43000
+Generating orbit #44000
+Generating orbit #45000
+Generating orbit #46000
+Generating orbit #47000
+Generating orbit #48000
+Generating orbit #49000
+Generating orbit #50000
+Generating orbit #51000
+Generating orbit #52000
+Generating orbit #53000
+Generating orbit #54000
+Generating orbit #55000
+Generating orbit #56000
+Generating orbit #57000
+Generating orbit #58000
+Generating orbit #59000
+Generating orbit #60000
+Generating orbit #61000
+Generating orbit #62000
+Generating orbit #63000
+Generating orbit #64000
+Generating orbit #65000
+Generating orbit #66000
+Generating orbit #67000
+Generating orbit #68000
+Generating orbit #69000
+Generating orbit #70000
+Generating orbit #71000
+Generating orbit #72000
+Generating orbit #73000
+Generating orbit #74000
+Generating orbit #75000
+Generating orbit #76000
+Generating orbit #77000
+Generating orbit #78000
+Generating orbit #79000
+Generating orbit #80000
+Generating orbit #81000
+Generating orbit #82000
+Generating orbit #83000
+Generating orbit #84000
+Generating orbit #85000
+Generating orbit #86000
+Generating orbit #87000
+Generating orbit #88000
+Generating orbit #89000
+Generating orbit #90000
+Generating orbit #91000
+Generating orbit #92000
+Generating orbit #93000
+Generating orbit #94000
+Generating orbit #95000
+Generating orbit #96000
+Generating orbit #97000
+Generating orbit #98000
+Generating orbit #99000
+Generating orbit #100000
+Generating orbit #101000
+Generating orbit #102000
+Generating orbit #103000
+Generating orbit #104000
+Generating orbit #105000
+Generating orbit #106000
+Generating orbit #107000
+Generating orbit #108000
+Generating orbit #109000
+Generating orbit #110000
+Generating orbit #111000
+Generating orbit #112000
+Generating orbit #113000
+Generating orbit #114000
+Generating orbit #115000
+
+Applying centre-of-mass correction.
+
+Re-scaling of orbits (dt ~ N^2!)
+Dynamical temperature of centre-of-mass particles kT = 0.519649
+
+
+Estimating appropriate NNBMAX = 500 and RS0 = 0.166753 [pc]
+
+measuring half-mass radius: 0.8000000 	 1.3082453 (should/is)
+and correcting for this factor
+
+rvir = 1.04130	 rh = 0.80000	 rplummer = 0.61303	 rtide = 57.70704 (pc)
+
+Radial density profile:
+
+#  R [pc]   N [1/pc^3]   M [Msun/pc^3]   L [Lsun/pc^3]   N [1/pc^2]   M [Msun/pc^2]   L [Lsun/pc^2] 
+   0.1000  110533.1081      57759.5190          0.0000   93392.1207      50167.1839          0.0000
+   0.1438  106178.3792      61577.7473          0.0000   87590.9018      44095.5203          0.0000
+   0.2069   97809.2769      48260.0892          0.0000   83369.1447      42234.3232          0.0000
+   0.2976   79550.9225      41356.4282          0.0000   72043.8871      38235.3582          0.0000
+   0.4281   55278.7108      28543.8667          0.0000   53276.0443      27524.1571          0.0000
+   0.6158   30027.7728      15454.0276          0.0000   32805.3971      16886.1587          0.0000
+   0.8859   11924.7092       6277.0791          0.0000   15732.9448       8222.8732          0.0000
+   1.2743    3510.5835       1818.5054          0.0000    5999.5851       3096.0298          0.0000
+   1.8330     815.3815        424.9248          0.0000    1802.7350        939.6356          0.0000
+   2.6367     159.1311         81.7944          0.0000     491.2740        258.5245          0.0000
+   3.7927      28.7920         14.9439          0.0000     127.5369         66.1844          0.0000
+   5.4556       4.8600          2.5175          0.0000      30.4670         15.7590          0.0000
+   7.8476       0.8168          0.4195          0.0000       7.3522          4.0496          0.0000
+  11.2884       0.1375          0.0797          0.0000       1.8757          1.0592          0.0000
+  16.2378       0.0223          0.0131          0.0000       0.4276          0.2686          0.0000
+  23.3572       0.0038          0.0025          0.0000       0.0903          0.0441          0.0000
+  33.5982       0.0005          0.0001          0.0000       0.0169          0.0039          0.0000
+  48.3293       0.0001          0.0001          0.0000       0.0053          0.0042          0.0000
+  69.5193       0.0000          0.0000          0.0000       0.0003          0.0002          0.0000
+ 100.0000       0.0000          0.0000          0.0000       0.0000          0.0000          0.0000
+
+Cumulative profile:
+
+#  R [pc]         N     M [Msun]     L [Lsun]    N (2D)    M(2D) [Msun]    L(2D) [Lsun]
+   0.1000       463      241.943        0.000      2934       1576.0486          0.0000
+   0.1438      1342      751.715        0.000      5876       3057.1273          0.0000
+   0.2069      3752     1940.834        0.000     11670       5992.3339          0.0000
+   0.2976      9586     4973.777        0.000     22030      11490.6257          0.0000
+   0.4281     21652    11204.209        0.000     37882      19680.2904          0.0000
+   0.6158     41160    21244.154        0.000     58079      30076.4379          0.0000
+   0.8859     64218    33381.715        0.000     78121      40551.4524          0.0000
+   1.2743     84422    43847.520        0.000     93935      48712.1191          0.0000
+   1.8330     98389    51126.229        0.000    103767      53836.8309          0.0000
+   2.6367    106502    55296.363        0.000    109311      56754.2652          0.0000
+   3.7927    110871    57564.002        0.000    112289      58299.6782          0.0000
+   5.4556    113066    58701.000        0.000    113761      59061.0686          0.0000
+   7.8476    114164    59264.889        0.000    114496      59465.9033          0.0000
+  11.2884    114714    59583.597        0.000    114884      59685.0020          0.0000
+  16.2378    114979    59739.265        0.000    115067      59799.9743          0.0000
+  23.3572    115115    59828.622        0.000    115147      59839.0702          0.0000
+  33.5982    115164    59843.744        0.000    115178      59846.1550          0.0000
+  48.3293    115194    59860.058        0.000    115198      59861.9558          0.0000
+  69.5193    115200    59863.551        0.000    115200      59863.5509          0.0000
+ 100.0000    115200    59863.551        0.000    115200      59863.5509          0.0000
+
+Half-number radius = 0.7967 pc (0.6106 pc, 2D)
+Half-mass radius = 0.8000 pc (0.6128 pc, 2D)
+Half-light radius = 0.0067 pc (0.0028 pc, 2D)
+
+Estimating appropriate NNBMAX = 500 and RS0 = 0.101970 [pc]
+
+Actual half-mass radius of the cluster = (0.8000 / 0.6128) pc (3D / 2D)
+
+
+-----GENERATE BINARIES-----   
+
+Creating 12800 primordial binary systems, fraction:  20.00 percent.
+
+Applying flat semi-major axis distribution with amin = 0.0001 and amax = 0.01.
+
+Applying thermal eccentricity distribution.
+
+
+-----SCALING-----      
+
+scalingInfo	 rvir = 1.04130324	 tscale = 0.06622224
+
+Scaling to Nbody units.
+
+
+-----OUTPUT-----      
+
+Data written to NstarCOMs.input and NstarCOMs.dat.10
+
+
+-----FINISH-----  
+
+Making final energy check... (may take a while but can be aborted by pressing CTRL+c)
+
+Ekin = 0.251011	 Epot = -0.499988	 Etot = -0.248977 	 kT = 2.17892e-06
+Vel.Disp. = 0.706764	Cross.Time = 2.8298 
+Vel.Disp. = 11.1134	Cross.Time = 0.187396 (physical units, km/s, Myr)
+
+Elapsed time: 17.6309 sec
