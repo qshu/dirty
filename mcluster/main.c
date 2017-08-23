@@ -132,7 +132,7 @@ int main (int argv, char **argc) {
 	int gpu = 0;					//Use of GPU, 0= off, 1= on
 	int regupdate = 1;				//Update of regularization parameters during computation; 0 = off, 0 > on
 	int etaupdate = 1;				//Update of ETAI & ETAR during computation; 0 = off, 0 > on
-	int esc = 2;					//Removal of escapers; 0 = no removal, 1 = regular removal at 2*R_tide; 2 = removal and output in ESC
+	int esc = 0;					//Removal of escapers; 0 = no removal, 1 = regular removal at 2*R_tide; 2 = removal and output in ESC
 	int units = 1;				    //Units of McLuster output; 0= Nbody-Units, 1= astrophysical units
 	
 	//McLuster internal parameters
@@ -4966,7 +4966,7 @@ int output5(char *output, int N, int NNOMASS, int NNBMAX, double RS0, double dta
 	
 	//write to .PAR file	
 	fprintf(PAR,"1 5000000.0 5000000.0 40 40 0\n");
-	fprintf(PAR,"%i 1 10 %i %i 1 %i\n",N,seed,NNBMAX,NNOMASS);
+	fprintf(PAR,"%i 1 10 %i %i 1\n",N,seed,NNBMAX);
 	fprintf(PAR,"0.02 0.02 %.8f %.8f %.8f %.8f 1.0E-03 %.8f %.8f\n",RS0,dtadj,dtout,tcrit,rvir,mmean);
 	fprintf(PAR,"0 2 1 0 1 1 5 %i 3 2\n",(nbin>0?2:0));
 	fprintf(PAR,"0 %i 0 %i 2 %i %i 0 %i 6\n",hrplot,tf,regupdate,etaupdate,mloss);
