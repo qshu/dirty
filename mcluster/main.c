@@ -4973,7 +4973,7 @@ int output5(char *output, int N, int NNOMASS, int NNBMAX, double RS0, double dta
 	fprintf(PAR,"0 6 %i 0 1 2 2 0 0 1\n", esc);
 	fprintf(PAR,"1 0 3 2 1 0 0 2 0 0\n");
 	fprintf(PAR,"0 0 0 0 0 4 0 0 0 0\n");
-	fprintf(PAR,"1.0E-5 1.0E-4 0.2 1.0 1.0E-06 0.001 0.125\n");
+	fprintf(PAR,"1.0E-8 1.0E-4 0.2 1.0 1.0E-06 0.001 0.125\n");
 	fprintf(PAR,"2.350000 %.8f %.8f %i 0 %.8f %.8f %.8f\n",MMAX,mlow,nbin,Z,epoch,dtplot);
 	fprintf(PAR,"%.2f 0.0 0.0 0.00000\n",Q);
 //	if (tf == 1) {
