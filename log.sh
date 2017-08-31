@@ -51,5 +51,5 @@ echo "" >> log.run
 echo "Time cost in simulation: " $(($tend - $tstart)) "seconds" >> log.run
 echo "********************** log.run end ******************" >> log.run
 
-cp log.run ../$logPath/
+#cp log.run ../$logPath/
 

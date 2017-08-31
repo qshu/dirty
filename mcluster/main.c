@@ -77,7 +77,7 @@ int main (int argv, char **argc) {
 	double a = 1.0;					//Scale radius of EFF/Nuker template (profile = 3) [pc]
 	double Rmax = 100.0;			//Cut-off radius for EFF/Nuker template (profile = 3) [pc]
 	double tcrit = 100.0;			//Simulation time [N-body units (Myr in Nbody6 custom)]
-	int tf = 3;						//Tidal field: =0 no tidal field, =1 Near-field approximation, =2 point-mass galaxy, =3 Allen & Santillan (1991) MW potential (or Sverre's version of it)
+	int tf = 0;						//Tidal field: =0 no tidal field, =1 Near-field approximation, =2 point-mass galaxy, =3 Allen & Santillan (1991) MW potential (or Sverre's version of it)
 	double RG[3] = {8500.0,0.0,0.0}; //Initial Galactic coordinates of the cluster [pc]
 	double VG[3] = {0.0,220.0,0.0};  //Initial velocity of the cluster [km/s]
 	

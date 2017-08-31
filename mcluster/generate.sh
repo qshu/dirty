@@ -8,7 +8,7 @@ unit=0 # 0 --> Nbody unit;  1 --> astrophysics unit
 Nstar=12800 # Ns: total number of particles or stars(for ffc)
 B=0
 Nnomass=12800
-T=70
+T=70000
 ((Ntot=Nstar+Nnomass))
 #echo $Ntot
 NAME=Nt${Ntot}_Ns${Nstar}_B${B}_Nn${Nnomass}_NBt_${T}

@@ -90,7 +90,7 @@ c          IF (nomass(jmin).eq.1.AND.EREL.GT.-0.1*ECLOSE) GO TO 40
           if(rank.eq.0.AND.nomass(jmin).eq.1)
      &    WRITE (6,36)  TIME, NAME(I), NAME(JMIN), BODY(I), BODY(JMIN),
      &  EREL, SEMI, ZN, RIJMIN, RI, ECC, LIST(1,I)
-   36     FORMAT ('significant binaries ',E10.5,2I8,2E12.4,
+   36     FORMAT ('significant binaries ',E18.5,2I8,2E12.4,
      &                  1P5E13.4,1PE13.4, 2I8, 1PE14.4,1PE14.4,I9)
    40 CONTINUE
 *
