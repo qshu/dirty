@@ -100,7 +100,7 @@ int main (int argv, char **argc) {
 	int prantzos = 0;				//Usage of Prantzos (2007) relation for the life-times of stars. Set upper mass limit to Lifetime(mup) >= epoch
 	
 	//Binary parameters
-	int nbin = 0;				    //Number of primordial binary systems
+	int nbin = 2;				    //Number of primordial binary systems
 	double fbin = 0.0;				//Primordial binary fraction, number of binary systems = 0.5*N*fbin, only used when nbin is set to 0 
 	int pairing = 3;				//Pairing of binary components; 0= random pairing, 1= ordered pairing for components with masses M>msort, 2= random but separate pairing for components with masses m>Msort; 3= Uniform distribution of mass ratio (0.1<q<1.0) for m>Msort and random pairing for remaining (Kiminki & Kobulnicky 2012; Sana et al., 2012; Kobulnicky et al. 2014; implemented by Long Wang)
 	double msort = 5.0;				//Stars with masses > msort will be sorted and preferentially paired into binaries if pairing = 1
@@ -4963,23 +4963,25 @@ int output5(char *output, int N, int NNOMASS, int NNBMAX, double RS0, double dta
 		hrplot = 2;
 	}		
 	
+	int kz18 = 4;
 	
 	//write to .PAR file	
 	fprintf(PAR,"1 5000000.0 5000000.0 40 40 0\n");
 	fprintf(PAR,"%i 1 10 %i %i 1\n",N,seed,NNBMAX);
 	fprintf(PAR,"0.02 0.02 %.8f %.8f %.8f %.8f 1.0E-03 %.8f %.8f\n",RS0,dtadj,dtout,tcrit,rvir,mmean);
-	fprintf(PAR,"0 2 1 0 1 1 5 %i 3 2\n",(nbin>0?2:0));
-	fprintf(PAR,"0 %i 0 %i 2 %i %i 0 %i 6\n",hrplot,tf,regupdate,etaupdate,mloss);
+	//fprintf(PAR,"0 2 1 0 1 1 5 %i 3 2\n",(nbin>0?2:0));
+	fprintf(PAR,"0 2 1 0 1 1 5 2 3 2\n");
+	fprintf(PAR,"0 %i 0 %i 2 %i %i %i %i 6\n",hrplot,tf,regupdate,etaupdate,kz18,mloss);
 	fprintf(PAR,"0 6 %i 0 1 2 2 0 0 1\n", esc);
 	fprintf(PAR,"1 0 3 2 1 0 0 2 0 0\n");
 	fprintf(PAR,"0 0 0 0 0 0 0 0 0 0\n");
 	fprintf(PAR,"1.0E-8 1.0E-4 0.2 1.0 1.0E-06 0.001 0.125\n");
 	fprintf(PAR,"2.350000 %.8f %.8f %i 0 %.8f %.8f %.8f\n",MMAX,mlow,nbin,Z,epoch,dtplot);
 	fprintf(PAR,"%.2f 0.0 0.0 0.00000\n",Q);
-//	if (tf == 1) {
-//		rtide = pow(1.0*M/(3.0*M1pointmass),1.0/3.0)*sqrt(RG[0]*RG[0]+RG[1]*RG[1]+RG[2]*RG[2]);
-//		fprintf(PAR,"%i %.8f\n",0,sqrt(1.0/(3.0*pow(rtide,3))));
-	if (tf == 2) {
+	if (tf == 1) {
+		rtide = pow(1.0*M/(3.0*M1pointmass),1.0/3.0)*sqrt(RG[0]*RG[0]+RG[1]*RG[1]+RG[2]*RG[2]);
+		fprintf(PAR,"%i %.8f\n",0,sqrt(1.0/(3.0*pow(rtide,3))));
+	}else if (tf == 2) {
 		fprintf(PAR,"%.8e %.8f\n",M1pointmass,sqrt(RG[0]*RG[0]+RG[1]*RG[1]+RG[2]*RG[2])/1000.0);
 	} else if (tf == 3) {
 		fprintf(PAR,"%.6e %.6f %.6e %.6f %.6f %.6e %.6f %.6f %.6f %.6f %.6f %.6f %.6f %.6f %.6f\n", M1pointmass, Miyamoto_DISK, Miyamoto_A, Miyamoto_B, Miyamoto_VCIRC, Miyamoto_RCIRC, GMB, AR, GAM, RG[0]/1000.0,RG[1]/1000.0,RG[2]/1000.0,VG[0],VG[1],VG[2]);
@@ -4988,6 +4990,7 @@ int output5(char *output, int N, int NNOMASS, int NNBMAX, double RS0, double dta
 		//fprintf(PAR,"%.6f %.6f %.6f %.6f %.6f %.6f\n", RG[0]/1000.0,RG[1]/1000.0,RG[2]/1000.0,VG[0],VG[1],VG[2]);
 	}
 	if (tf > 2) fprintf(PAR,"%.2f %.2f %.2f %.2f\n",extmass,extrad,extdecay,extstart);
+	if (kz18 = 4) fprintf(PAR,"1.0 0.0 1.0 0\n");
 	
 	
 	

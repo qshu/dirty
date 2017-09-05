@@ -58,7 +58,7 @@ C      FRAG(4) = 'bdat'
       FILE(16) = 'hirect.16 '
       FILE(17) = 'binev.17  '
       FILE(18) = 'pbin.18   '
-*      FILE(19) = 'bwdat.19  '
+      FILE(19) = 'bwdat.19  '
       FILE(20) = 'symb.20   '
       FILE(22) = 'rocdeg.22 '
 *      FILE(23) = 'ibeigen.23'
@@ -237,9 +237,9 @@ C     &             ACCESS='APPEND')
       IF (KZ(8).GT.0)
      &OPEN (UNIT=18,STATUS='UNKNOWN',FORM='FORMATTED',FILE=FILE(18),
      &             ACCESS='APPEND')
-*      IF (KZ(8).GE.2)
-*     &OPEN (UNIT=19,STATUS='UNKNOWN',FORM='FORMATTED',FILE=FILE(19),
-*     &             ACCESS='APPEND')
+      IF (KZ(8).GE.2)
+     &OPEN (UNIT=19,STATUS='UNKNOWN',FORM='FORMATTED',FILE=FILE(19),
+     &             ACCESS='APPEND')
       IF (KZ(19).GE.3)
      &OPEN (UNIT=20,STATUS='UNKNOWN',FORM='FORMATTED',FILE=FILE(20),
      &             ACCESS='APPEND')
