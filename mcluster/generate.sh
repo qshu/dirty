@@ -5,9 +5,9 @@ make mcluster
 
 
 unit=0 # 0 --> Nbody unit;  1 --> astrophysics unit
-Nstar=12800 # Ns: total number of particles or stars(for ffc)
+Nstar=1280 # Ns: total number of particles or stars(for ffc)
 B=0
-Nnomass=12800
+Nnomass=128000
 T=70000
 EPOCH=25  # Evolutionary epoch, in unit of Myr
 ((Ntot=Nstar+Nnomass))
