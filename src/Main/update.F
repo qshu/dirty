@@ -236,7 +236,7 @@ c$$$          IF (LIST(2,J).GT.ILAST.OR.BODY(J).EQ.0.0D0) GO TO 50
 *     Increase neighbor list by 1
                LIST(1,J) = LIST(1,J) + 1
                IF(LIST(1,J).GE.NNBMAX) THEN
-                  write(6,*),'Warning! J',J,'LIST',LIST(1,J),
+                  write(6,*) 'Warning! J',J,'LIST',LIST(1,J),
      &                 ' GE NNBMAX',NNBMAX,'T',TIME
                   call flush(6)
                END IF
@@ -254,7 +254,7 @@ c$$$          IF (LIST(2,J).GT.ILAST.OR.BODY(J).EQ.0.0D0) GO TO 50
                LIST(ILASTLIMIT+1,J) = I2_ILAST
                LIST(1,J) = LIST(1,J) + 1
                IF(LIST(1,J).GE.NNBMAX) THEN
-                  write(6,*),'Warning! J',J,'LIST',LIST(1,J),
+                  write(6,*) 'Warning! J',J,'LIST',LIST(1,J),
      &                 ' GE NNBMAX',NNBMAX,'T',TIME
                   call flush(6)
                END IF

@@ -208,7 +208,7 @@
 c$$$          print*,rank,'IOFF',IOFF,'NI',NI,'IS',ISTART,'IE',IEND,
 c$$$     &         'IREG',IREG(IOFF:IOFF+2),'JNEXT',JNEXT
 *     --11/30/14 16:46-lwang-end----------------------------------------*
-      CALL regint(NOMASS,IOFF,NI,IREG,IFIRST,NTOT,
+          CALL regint(NOMASS,IOFF,NI,IREG,IFIRST,NTOT,
      &         X,XDOT,BODY,STEPR,BODYM,
      &         M_FLAG,NB_FLAG,NNBOPT,RS,GPUACC,GPUJRK,LISTGP,PHIDBL)
 *     Check for zero neighbor
