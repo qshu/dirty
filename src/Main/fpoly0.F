@@ -241,7 +241,8 @@ c$$$     &         'IREG',IREG(IOFF:IOFF+2),'JNEXT',JNEXT
 c$$$             print*,rank,'IOFF',IOFF,'NINEW',NINEW,
 c$$$     &            'IREG',IREG(IOFF:2+IOFF)
 *     --11/30/14 16:46-lwang-end----------------------------------------*
-     CALL regint(NOMASS,IOFF,NINEW,IREG,IFIRST,NTOT,X,XDOT,BODY,STEPR,
+c              configure error info here in OSX
+       CALL regint(NOMASS,IOFF,NINEW,IREG,IFIRST,NTOT,X,XDOT,BODY,STEPR,
      &            BODYM,M_FLAG,NB_FLAG,NNBOPT,RS,GPUACC,GPUJRK,LISTGP,
      &            PHIDBL)
              GO TO 42
