@@ -10,6 +10,7 @@
       EXTERNAL SCALE,MERGE
 *      COMMON/NNBCOT/ nnbave
       PARAMETER  (NS=12)
+      INTEGER nno,nma
 *
 *
 *       Initialize global scalars, counters & useful constants.
@@ -81,6 +82,8 @@
       BODY1 = 0.0
       ZSMASS0 = 0.0
       ZBMASS0 = 0.0
+      nno = 0
+      nma = 0
       DO 20 I = 1,N
 *     exclude massive black hole mass in initial cluster mass
           IF(KZ(24).EQ.1.AND.I.EQ.N) GO TO 19
@@ -99,8 +102,10 @@
           end if
           if (body(i).le.smallMass)then
               nomass(i) = 1 
+              nno=nno+1
           else
               nomass(i) = 0 
+              nma=nma+1
           end if
           BODY1 = MAX(BODY1,BODY(I))
 *          BODY1 : the most massive particles
@@ -109,6 +114,8 @@
               X0DOT(K,I) = XDOT(K,I)
    15     CONTINUE
    20 CONTINUE
+        print *, "Number of initial massless paricles:", nno
+        print *, "Number of initial massive  paricles:", nma
 *
 *       Initialize fixed block steps (64 levels).
       CALL IBLOCK

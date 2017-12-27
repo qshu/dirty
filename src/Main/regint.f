@@ -78,7 +78,11 @@
                IF(NNB.LE.LMAX-3) LISTGP(NNB,II) = J
             END IF
 *     Obtain potential.
-            POT(I) = POT(I) - DR3I*RIJ2
+c copy change from Long Wang's last version 2017.12.21
+c    but not understand
+
+c            POT(I) = POT(I) - DR3I*RIJ2
+             POT(I) = POT(I) + DR3I*RIJ2
  1       CONTINUE
 *     Check neighbor list overflow
          IF(NNB.GT.LMAX-3) THEN

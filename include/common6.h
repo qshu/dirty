@@ -1,6 +1,6 @@
 *       common6.
 *       smallMassSolarUnit: the physical mass of MLP in solar unit
-*       smallMass: the scaled mass of MLP 
+*       smallMass:min mass used to judge massless or massive particles
 *       -------
 *
       INCLUDE 'params.h'
