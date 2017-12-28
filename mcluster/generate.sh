@@ -8,7 +8,7 @@ unit=0 # 0 --> Nbody unit;  1 --> astrophysics unit
 Nstar=1280 # Ns: total number of particles or stars(for ffc)
 B=0
 Nnomass=1280
-T=3
+T=30
 EPOCH=25  # Evolutionary epoch, in unit of Myr
 ((Ntot=Nstar+Nnomass))
 #echo $Ntot

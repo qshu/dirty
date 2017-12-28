@@ -8,6 +8,7 @@
 *     Common block to keep neighbour density and potential high prec (R.Sp.)
       COMMON/POTDEN/  RHO(NMAX),XNDBL(NMAX),PHIDBL(NMAX)
       REAL*8  RLIST(LMAX),RHO,RHOS
+      integer*4 nma
       DATA RHOM/1.0D0/
 *
 *
@@ -18,18 +19,25 @@
 *       Select > N/5 central particles.
 *       Initialize neighbour densities of all singles and c.m.
     5 NC = 0
+      nma = 0
       DO 10 I = IFIRST,NTOT
+          IF (nomass(i).eq.0) then
+              nma = nma+1
+          else
+              go to 10
+          end if
           RHO(I) = 0.D0
           RI2 = (X(1,I) - RDENS(1))**2 + (X(2,I) - RDENS(2))**2 +
      &                                   (X(3,I) - RDENS(3))**2
-          IF (RI2.LT.RCORE2.and.nomass(i).eq.0) THEN
+          IF (RI2.LT.RCORE2) THEN
               NC = NC + 1
               JLIST(NC) = I
           END IF
    10 CONTINUE
 *
 
-      IF (NC.LT.N/5) THEN
+c      IF (NC.LT.N/5) THEN
+      IF (NC.LT.nma/5.0) THEN
           RCORE2 = 1.5*RCORE2
           GO TO 5
       END IF
