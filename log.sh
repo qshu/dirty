@@ -12,7 +12,7 @@ mkdir -p $logPath
 #./configure --enable-mcmodel=large  --with-par=b1m --enable-hdf5 > $logPath/log.configure 
 #./configure --enable-mcmodel=large  --with-par=b1m > $logPath/log.configure 
 
-export OMP_NUM_THREADS=8
+export OMP_NUM_THREADS=7
 
 ./configure  --enable-mcmodel=large  --with-par=b512k --with-kmax=100000 > $logPath/log.configure ; NAME=nbody6++.avx.gpu.mpi
 #./configure  > $logPath/log.configure ; NAME=nbody6++.avx.gpu.mpi
@@ -41,7 +41,7 @@ echo "******* simulation begin *******" >> log.run
 
 # record the running log locally, keep logpath clean
 #../build/nbody6++.avx.gpu.mpi < CometsProject.input >> log.run
-../build/$NAME < *.input >> log.run
+mpirun -n 2 ../build/$NAME < *.input >> log.run
 
 tend=$(date +%s)
 echo "******* simulation end *********" >> log.run

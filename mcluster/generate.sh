@@ -5,11 +5,11 @@ make mcluster
 
 
 unit=0 # 0 --> Nbody unit;  1 --> astrophysics unit
-Nstar=1280 # Ns: total number of particles or stars(for ffc)
+Nstar=12800 # Ns: total number of particles or stars(for ffc)
 B=0
-Nnomass=1280
+Nnomass=12800
 T=30
-EPOCH=25  # Evolutionary epoch, in unit of Myr
+EPOCH=0  # Evolutionary epoch, in unit of Myr
 ((Ntot=Nstar+Nnomass))
 #echo $Ntot
 NAME=Nt${Ntot}_Ns${Nstar}_B${B}_Nn${Nnomass}_NBt_${T}
