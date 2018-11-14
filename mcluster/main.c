@@ -128,7 +128,7 @@ int main (int argv, char **argc) {
 	char *output = "test";   		//Name of output files
 	double dtadj = 1.0;				//DTADJ [N-body units (Myr in Nbody6 custom)], energy-check time step
 	double dtout = 1.0;				//DELTAT [N-body units (Myr in Nbody6 custom)], output interval, must be multiple of DTADJ
-	double dtplot = 1.0;			//DTPLOT [N-body units (Myr in Nbody6 custom)], output of HRdiagnostics, should be multiple of DTOUT, set to zero if output not desired
+	double dtplot = 0;			//DTPLOT [N-body units (Myr in Nbody6 custom)], output of HRdiagnostics, should be multiple of DTOUT, set to zero if output not desired
 	int gpu = 0;					//Use of GPU, 0= off, 1= on
 	int regupdate = 1;				//Update of regularization parameters during computation; 0 = off, 0 > on
 	int etaupdate = 1;				//Update of ETAI & ETAR during computation; 0 = off, 0 > on
@@ -4623,7 +4623,7 @@ int output0(char *output, int N, int NNBMAX, double RS0, double dtadj, double dt
 	
 	//write to .PAR file	
 	fprintf(PAR,"1 5000000.0 0\n");
-	fprintf(PAR,"%i 1 10 %i %i 1\n",N,seed,NNBMAX);
+	fprintf(PAR,"%i 1 1000 %i %i 1\n",N,seed,NNBMAX);
 	fprintf(PAR,"0.02 0.02 %.8f %.8f %.8f %.8f 1.0E-03 %.8f %.8f\n",RS0,dtadj,dtout,tcrit,rvir,mmean);
 	fprintf(PAR,"2 2 1 0 1 0 2 0 0 2\n");
 	fprintf(PAR,"0 %i 0 %i 2 %i %i 0 %i 3\n",hrplot,tf,regupdate,etaupdate,mloss);
@@ -4744,7 +4744,7 @@ int output2(char *output, int N, int NNBMAX, double RS0, double dtadj, double dt
 	
 	//write to .PAR file	
 	fprintf(PAR,"1 5000000.0 0\n");
-	fprintf(PAR,"%i 1 10 %i %i 1\n",N,seed,NNBMAX);
+	fprintf(PAR,"%i 1 1000 %i %i 1\n",N,seed,NNBMAX);
 	fprintf(PAR,"0.02 0.02 %.8f %.8f %.8f %.8f 1.0E-03 %.8f %.8f\n",RS0,dtadj,dtout,tcrit,rvir,mmean);
 	fprintf(PAR,"2 2 1 0 1 0 2 0 0 2\n");
 	fprintf(PAR,"0 %i 0 %i 2 %i %i 0 %i 3\n",hrplot,tf,regupdate,etaupdate,mloss);
@@ -4894,7 +4894,7 @@ int output4(char *output, int N, int NNBMAX, double RS0, double dtadj, double dt
 	
 	//write to .PAR file	
 	fprintf(PAR,"1 5000000.0 0\n");
-	fprintf(PAR,"%i 1 10 %i %i 1\n",N,seed,NNBMAX);
+	fprintf(PAR,"%i 1 1000 %i %i 1\n",N,seed,NNBMAX);
 	fprintf(PAR,"0.02 0.02 %.8f %.8f %.8f %.8f 1.0E-03 %.8f %.8f\n",RS0,dtadj,dtout,tcrit,rvir,mmean);
 	fprintf(PAR,"2 2 1 0 1 0 2 0 0 2\n");
 	fprintf(PAR,"-1 %i 0 %i 2 %i %i 0 %i 3\n",hrplot,tf,regupdate,etaupdate,mloss);
@@ -4967,7 +4967,7 @@ int output5(char *output, int N, int NNOMASS, int NNBMAX, double RS0, double dta
 	
 	//write to .PAR file	
 	fprintf(PAR,"1 5000000.0 5000000.0 40 40 0\n");
-	fprintf(PAR,"%i 1 10 %i %i 1\n",N,seed,NNBMAX);
+	fprintf(PAR,"%i 1 1000 %i %i 1\n",N,seed,NNBMAX);
 	fprintf(PAR,"0.02 0.02 %.8f %.8f %.8f %.8f 1.0E-03 %.8f %.8f\n",RS0,dtadj,dtout,tcrit,rvir,mmean);
 	//fprintf(PAR,"0 2 1 0 1 1 5 %i 3 2\n",(nbin>0?2:0));
 	fprintf(PAR,"0 2 1 0 1 1 5 2 3 2\n");
