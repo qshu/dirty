@@ -132,7 +132,7 @@ int main (int argv, char **argc) {
 	int gpu = 0;					//Use of GPU, 0= off, 1= on
 	int regupdate = 1;				//Update of regularization parameters during computation; 0 = off, 0 > on
 	int etaupdate = 1;				//Update of ETAI & ETAR during computation; 0 = off, 0 > on
-	int esc = 0;					//Removal of escapers; 0 = no removal, 1 = regular removal at 2*R_tide; 2 = removal and output in ESC
+	int esc = 2;					//Removal of escapers; 0 = no removal, 1 = regular removal at 2*R_tide; 2 = removal and output in ESC
 	int units = 1;				    //Units of McLuster output; 0= Nbody-Units, 1= astrophysical units
 	
 	//McLuster internal parameters
