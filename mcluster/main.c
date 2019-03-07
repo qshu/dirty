@@ -100,7 +100,7 @@ int main (int argv, char **argc) {
 	int prantzos = 0;				//Usage of Prantzos (2007) relation for the life-times of stars. Set upper mass limit to Lifetime(mup) >= epoch
 	
 	//Binary parameters
-	int nbin = 2;				    //Number of primordial binary systems
+	int nbin = 0;				    //Number of primordial binary systems
 	double fbin = 0.0;				//Primordial binary fraction, number of binary systems = 0.5*N*fbin, only used when nbin is set to 0 
 	int pairing = 3;				//Pairing of binary components; 0= random pairing, 1= ordered pairing for components with masses M>msort, 2= random but separate pairing for components with masses m>Msort; 3= Uniform distribution of mass ratio (0.1<q<1.0) for m>Msort and random pairing for remaining (Kiminki & Kobulnicky 2012; Sana et al., 2012; Kobulnicky et al. 2014; implemented by Long Wang)
 	double msort = 5.0;				//Stars with masses > msort will be sorted and preferentially paired into binaries if pairing = 1
@@ -132,7 +132,7 @@ int main (int argv, char **argc) {
 	int gpu = 0;					//Use of GPU, 0= off, 1= on
 	int regupdate = 1;				//Update of regularization parameters during computation; 0 = off, 0 > on
 	int etaupdate = 1;				//Update of ETAI & ETAR during computation; 0 = off, 0 > on
-	int esc = 2;					//Removal of escapers; 0 = no removal, 1 = regular removal at 2*R_tide; 2 = removal and output in ESC
+	int esc = 0;					//Removal of escapers; 0 = no removal, 1 = regular removal at 2*R_tide; 2 = removal and output in ESC
 	int units = 1;				    //Units of McLuster output; 0= Nbody-Units, 1= astrophysical units
 	
 	//McLuster internal parameters
